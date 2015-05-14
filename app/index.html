@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <base href="/">
+    <title>Policy Engine</title>
+
+    <!-- build:css(tmp) css/style.css -->
+    <!--app styles-->
+    <link rel="stylesheet" href="scripts/main/main.css">
+    <!--end app styles-->
+    <!-- endbuild -->
+
+
+    <!-- build:css_libs css/libs.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+</head>
+<body ng-app="policyEngine">
+<div ui-view></div>
+
+
+<!-- build:js_libs js/libs.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/lodash/lodash.min.js"></script>
+<script src="bower_components/d3/d3.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+
+<!-- build:js({tmp,app}) js/app.js -->
+<!--app scripts-->
+<script src="scripts/app.js"></script>
+<script src="scripts/main/main.ctrl.js"></script>
+<script src="scripts/main/service/service.ctrl.js"></script>
+<script src="scripts/services/api.js"></script>
+<!--end app scripts-->
+
+<!-- manually added vendor scripts -->
+<!-- inject:templates:js --><!-- endinject -->
+<!-- endbuild -->
+
+</body>
+</html>
