@@ -16,7 +16,8 @@ angular.module("policyEngine", [
       })
         .state("main.services", {
           url: "services/",
-          templateUrl: "scripts/main/services/services.html"
+          templateUrl: "scripts/main/services/services.html",
+          controller: "ServicesCtrl"
         })
         .state("main.service", {
           abstract: true,
