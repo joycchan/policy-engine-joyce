@@ -2,6 +2,23 @@
 
 <div>
     Search: <form></form>
+    <div class="input-group search-filter">
+        <label for="search">Search</label>&nbsp;&nbsp;&nbsp;
+        <span class="input-group-addon icon-search-dfn" id="basic-addon1"><i class="img-search input-img-search img-search-def"></i></span>
+        <input type="text" class="form-control input-search" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
+    </div>
+    <table class="table table-hover" style="background-color: transparent">
+        <thead>
+        <tr><th>Name</th><th>Origin</th></tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="obj in groupObj | filter:search" ng-click="existingGroupSelection(obj)"
+            ng-class="existingGroup==obj ? 'grayBackground' : ''">
+            <td>{{::obj.name}}</td>
+            <td>{{::obj.origin}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 <a ui-sref="main.service.contract.choose">Next</a>
