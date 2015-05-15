@@ -16,7 +16,8 @@ angular.module("policyEngine", [
       })
         .state("main.services", {
           url: "services/",
-          templateUrl: "scripts/main/services/services.html"
+          templateUrl: "scripts/main/services/services.html",
+          controller: "ServicesCtrl"
         })
         .state("main.service", {
           abstract: true,
@@ -62,5 +63,10 @@ angular.module("policyEngine", [
             url: "meta/",
             templateUrl: "scripts/main/service/meta.html"
           })
+        .state("main.allocations", {
+          url: "allocations/",
+          templateUrl: "scripts/main/allocations/allocations.html",
+          controller: "AllocationsCtrl"
+        })
   });
 

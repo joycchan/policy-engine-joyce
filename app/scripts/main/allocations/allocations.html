@@ -1,0 +1,20 @@
+<div class="side-panel col-xs-3">
+    <h2>Groups</h2>
+    <search-bar></search-bar>
+    <div ng-repeat="group in groups">{{group.name}}</div>
+</div>
+<div class="col-xs-6">
+    <h2>{{group.name}}</h2>
+    <donut data="servicesProvided"></donut>
+    <div>
+        Services Provided: {{servicesProvided.length}}
+    </div>
+    <div>
+        Services Consumed: {{servicesConsumed.length}}
+    </div>
+</div>
+<div class="side-panel col-xs-3">
+    <h2>Applications & Services</h2>
+    <search-bar></search-bar>
+    <div ng-repeat="service in services">{{service.name}}</div>
+</div>
