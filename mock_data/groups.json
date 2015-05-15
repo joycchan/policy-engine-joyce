@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Sales"
+  },
+  {
+    "name": "Marketing"
+  },
+  {
+    "name": "Payroll"
+  },
+  {
+    "name": "Finance"
+  },
+  {
+    "name": "Legal"
+  },
+  {
+    "name": "All Employees"
+  },
+  {
+    "name": "Contractors"
+  },
+  {
+    "name": "Web Servers East Coast"
+  },
+  {
+    "name": "Web Servers West Coast"
+  }
+]

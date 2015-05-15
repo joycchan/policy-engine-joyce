@@ -1,7 +1,27 @@
 [
   {
-    "name": "Sales A",
+    "name": "Fast Storage Service",
+    "providerGroup": "Storage Group",
+    "contract": "Canned Contract"
+  },
+  {
+    "name": "Normal Storage Service",
+    "providerGroup": "Another Group A",
+    "contract": "Canned Contract"
+  },
+  {
+    "name": "Firewall Service",
+    "providerGroup": "Firewall Group",
+    "contract": "Canned Contract"
+  },
+  {
+    "name": "Web Servers East Service",
     "providerGroup": "Web Servers East Coast",
+    "contract": "Canned Contract"
+  },
+  {
+    "name": "Web Servers West Service",
+    "providerGroup": "Web Servers West Coast",
     "contract": "Canned Contract 3"
   }
 ]
