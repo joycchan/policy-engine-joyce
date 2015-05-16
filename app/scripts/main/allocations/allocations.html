@@ -1,20 +1,35 @@
 <div class="side-panel col-xs-3">
     <h2>Groups</h2>
     <search-bar></search-bar>
-    <div ng-repeat="group in groups">{{group.name}}</div>
-</div>
-<div class="col-xs-6">
-    <h2>{{group.name}}</h2>
-    <donut data="servicesProvided"></donut>
-    <div>
-        Services Provided: {{servicesProvided.length}}
+    <div class="new-button-wrapper">
+        <div class="new-button">
+            <span class="plus">+</span>
+            <span class="new-text">New Group +</span>
+        </div>
     </div>
-    <div>
-        Services Consumed: {{servicesConsumed.length}}
+    <div ng-repeat="group in groups" class="element">{{group.name}}</div>
+</div>
+<div class="col-xs-6 middle-panel">
+    <h2>New Service Allocation</h2>
+    <div class="allocations">
+        <div class="toggle">
+            <span ui-sref="main.allocations.provide" ui-sref-active="selected">Provide</span>
+            <toggle></toggle>
+            <span ui-sref="main.allocations.consume" ui-sref-active="selected">Consume</span>
+        </div>
+        <div>Now drag in services that you want this group to consume</div>
+        <!--donut data="servicesProvided" type="consume"></donut-->
+        <ui-view></ui-view>
     </div>
 </div>
 <div class="side-panel col-xs-3">
     <h2>Applications & Services</h2>
     <search-bar></search-bar>
-    <div ng-repeat="service in services">{{service.name}}</div>
+    <div class="new-button-wrapper">
+        <div class="new-button">
+            <span class="plus">+</span>
+            New Service
+        </div>
+    </div>
+    <div ng-repeat="service in services" class="element">{{service.name}}</div>
 </div>

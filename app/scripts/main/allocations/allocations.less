@@ -1,3 +1,71 @@
+@provide: #D3E48D;
+@consume: #5DCAA2;
+
 .side-panel {
+  .new-button {
+    margin: 15px 0;
+    background-color: #B7BBC1;
+    width: 120px;
+    border-radius: 30px;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+
+    .plus {
+      vertical-align: middle;
+      font-size: 13px;
+    }
+
+    .new-text {
+      vertical-align: middle;
+    }
+  }
+
+  .element {
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px #B7BBC1 solid;
+  }
+}
+
+.middle-panel {
   background-color: #F5F5F5;
+  border-left: 1px #DFDFDF solid;
+  border-right: 1px #DFDFDF solid;
+  height: 100%;
+}
+
+.allocations {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+.services-header {
+  text-transform: uppercase;
+  color: #5E616C;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.services-number {
+  font-size: 35px;
+}
+
+.provide {
+  color: @provide;
+}
+
+.consume {
+  color: @consume;
 }

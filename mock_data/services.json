@@ -1,26 +1,26 @@
 [
   {
-    "name": "Fast Storage Service",
-    "providerGroup": "Storage Group",
+    "name": "SQL Basic Access",
+    "providerGroup": "Database Group",
     "contract": "Canned Contract"
   },
   {
-    "name": "Normal Storage Service",
-    "providerGroup": "Another Group A",
+    "name": "SQL VIP Access",
+    "providerGroup": "Database Group",
     "contract": "Canned Contract"
   },
   {
-    "name": "Firewall Service",
-    "providerGroup": "Firewall Group",
+    "name": "SQL External Access",
+    "providerGroup": "Database Group",
     "contract": "Canned Contract"
   },
   {
-    "name": "Web Servers East Service",
+    "name": "Web A Basic Service",
     "providerGroup": "Web Servers East Coast",
     "contract": "Canned Contract"
   },
   {
-    "name": "Web Servers West Service",
+    "name": "Web A HQ Service",
     "providerGroup": "Web Servers West Coast",
     "contract": "Canned Contract 3"
   }
