@@ -69,3 +69,20 @@
 .consume {
   color: @consume;
 }
+
+.drag-here {
+  height: 300px;
+  width: 300px;
+  border-radius: 999px;
+  border: 4px solid @consume;
+  position: relative;
+
+  .drag-instructions {
+    position: absolute;
+    width: 100px;
+    left: 100px;
+    top: 100px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}

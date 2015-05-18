@@ -7,20 +7,13 @@
             <span class="new-text">New Group +</span>
         </div>
     </div>
-    <div ng-repeat="group in groups" class="element">{{group.name}}</div>
+    <div ng-repeat="group in groups" class="element"
+         ng-drag="true" ng-drag-data="{id: group.id}" ng-drag-success="onDragComplete($data,$event)">
+        {{group.name}}</div>
 </div>
 <div class="col-xs-6 middle-panel">
     <h2>New Service Allocation</h2>
-    <div class="allocations">
-        <div class="toggle">
-            <span ui-sref="main.allocations.provide" ui-sref-active="selected">Provide</span>
-            <toggle></toggle>
-            <span ui-sref="main.allocations.consume" ui-sref-active="selected">Consume</span>
-        </div>
-        <div>Now drag in services that you want this group to consume</div>
-        <!--donut data="servicesProvided" type="consume"></donut-->
-        <ui-view></ui-view>
-    </div>
+    <ui-view></ui-view>
 </div>
 <div class="side-panel col-xs-3">
     <h2>Applications & Services</h2>
