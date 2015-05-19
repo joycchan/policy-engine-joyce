@@ -8,12 +8,12 @@ angular.module('policyEngine')
       },
       scope: {
         data: '=',
+        name: '=',
         type: '@'
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {
         var init = function () {
-          console.log('data', scope.data);
           var width = 500,
             height = 217,
             radius = Math.min(width, height) / 2;

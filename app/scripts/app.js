@@ -76,6 +76,7 @@ angular.module("policyEngine", [
           .state("main.allocations.allocation", {
             abstract: true,
             url: ":groupId/",
+            controller: "AllocationCtrl",
             templateUrl: "scripts/main/allocations/allocation/allocation.html"
           })
           .state("main.allocations.allocation.provide", {

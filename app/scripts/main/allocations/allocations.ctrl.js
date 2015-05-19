@@ -3,7 +3,7 @@
 angular.module('policyEngine').controller('AllocationsCtrl',
   function($scope, $http, $state) {
 
-    $scope.group = {};
+    $scope.groups = [];
     $scope.servicesProvided = [];
     $scope.servicesConsumed = [];
 
