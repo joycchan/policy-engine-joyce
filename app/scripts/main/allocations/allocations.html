@@ -1,28 +1,6 @@
 <div class="allocations">
     <div class="side-panel col-xs-3">
-        <div class="overlay" ng-show="maskGroups()"></div>
-        <div class="inner">
-            <h2>Groups</h2>
-            <div class="search-bar">
-                <form>
-                    <input type="text" ng-model="search">
-                </form>
-            </div>
-            <div class="new-button-wrapper">
-                <div class="new-button">
-                    <div class="plus">+</div>
-                    <span class="new-text">New Group</span>
-                </div>
-            </div>
-            <div ng-repeat="group in groups | filter:search">
-                <div class="list-element"
-                     ng-drag="true" ng-drag-data="{id: group.id}" ng-drag-success="onDragComplete($data,$event)">
-                    <div class="img-user-groups"></div>
-                    {{group.name}}
-                </div>
-                <hr/>
-            </div>
-        </div>
+        <allocation-panel title="Group" items="groups" mask="maskGroups"></allocation-panel>
     </div>
     <div class="col-xs-6 middle-panel">
         <h2>New Service Allocation
@@ -31,17 +9,6 @@
         <ui-view></ui-view>
     </div>
     <div class="side-panel col-xs-3">
-        <div class="overlay" ng-show="maskServices()"></div>
-        <div class="inner">
-            <h2>Applications & Services</h2>
-            <search-bar></search-bar>
-            <div class="new-button-wrapper">
-                <div class="new-button">
-                    <span class="plus">+</span>
-                    <span class="new-text">New Group</span>
-                </div>
-            </div>
-            <div ng-repeat="service in services" class="list-element">{{service.name}}</div>
-        </div>
+        <allocation-panel title="Service" items="services" mask="maskServices"></allocation-panel>
     </div>
 </div>
