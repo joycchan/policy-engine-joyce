@@ -11,6 +11,15 @@ angular.module('policyEngine').controller('AllocationsCtrl',
       return array ? _.unique(_.pluck(array, key)) : [];
     };
 
+    $scope.maskGroups = function() {
+      return $state.is('main.allocations.allocation.consume');
+    };
+
+    $scope.maskServices = function () {
+      return $state.is('main.allocations.allocation.provide') ||
+          $state.is('main.allocations.new');
+    };
+
     $http.get('http://localhost:9000/api/group').success(function(data) {
       $scope.group = data;
     });

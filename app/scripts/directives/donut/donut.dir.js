@@ -15,11 +15,11 @@ angular.module('policyEngine')
         var init = function () {
           console.log('data', scope.data);
           var width = 500,
-            height = 300,
+            height = 217,
             radius = Math.min(width, height) / 2;
 
           var labelBuffer = 60;
-          var circleWidth = 18;
+          var circleWidth = 10;
           var arc = d3.svg.arc()
             .outerRadius(radius)
             .innerRadius(radius - circleWidth);
@@ -44,8 +44,8 @@ angular.module('policyEngine')
           g.append("path")
             .attr("d", arc)
             .style("fill", function (d, i) {
-              var provide = "#D3E48D";
-              var consume = "#5DCAA2";
+              var provide = "#DBE79F";
+              var consume = "#6CD2B2";
               if (scope.type === 'provide') {
                 return provide;
               } else if (scope.type === 'consume') {

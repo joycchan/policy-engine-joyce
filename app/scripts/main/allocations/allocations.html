@@ -1,28 +1,37 @@
-<div class="side-panel col-xs-3">
-    <h2>Groups</h2>
-    <search-bar></search-bar>
-    <div class="new-button-wrapper">
-        <div class="new-button">
-            <span class="plus">+</span>
-            <span class="new-text">New Group +</span>
+<div class="allocations">
+    <div class="side-panel col-xs-3">
+        <div class="overlay" ng-show="maskGroups()"></div>
+        <div class="inner">
+            <h2>Groups</h2>
+            <search-bar></search-bar>
+            <div class="new-button-wrapper">
+                <div class="new-button">
+                    <div class="plus">+</div>
+                    <span class="new-text">New Group</span>
+                </div>
+            </div>
+            <div ng-repeat="group in groups" class="list-element"
+                 ng-drag="true" ng-drag-data="{id: group.id}" ng-drag-success="onDragComplete($data,$event)">
+                {{group.name}}
+            </div>
         </div>
     </div>
-    <div ng-repeat="group in groups" class="element"
-         ng-drag="true" ng-drag-data="{id: group.id}" ng-drag-success="onDragComplete($data,$event)">
-        {{group.name}}</div>
-</div>
-<div class="col-xs-6 middle-panel">
-    <h2>New Service Allocation</h2>
-    <ui-view></ui-view>
-</div>
-<div class="side-panel col-xs-3">
-    <h2>Applications & Services</h2>
-    <search-bar></search-bar>
-    <div class="new-button-wrapper">
-        <div class="new-button">
-            <span class="plus">+</span>
-            New Service
+    <div class="col-xs-6 middle-panel">
+        <h2>New Service Allocation</h2>
+        <ui-view></ui-view>
+    </div>
+    <div class="side-panel col-xs-3">
+        <div class="overlay" ng-show="maskServices()"></div>
+        <div class="inner">
+            <h2>Applications & Services</h2>
+            <search-bar></search-bar>
+            <div class="new-button-wrapper">
+                <div class="new-button">
+                    <span class="plus">+</span>
+                    <span class="new-text">New Group</span>
+                </div>
+            </div>
+            <div ng-repeat="service in services" class="list-element">{{service.name}}</div>
         </div>
     </div>
-    <div ng-repeat="service in services" class="element">{{service.name}}</div>
 </div>
