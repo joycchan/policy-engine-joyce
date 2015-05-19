@@ -17,6 +17,10 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 
+    .inner {
+      padding-left: 15px;
+    }
+
     h2 {
       color: @Color60;
     }
@@ -29,12 +33,51 @@
       z-index: 2;
     }
 
-    .inner {
-      padding-left: 15px;
+
+    hr {
+      margin: 0;
+      border-top: 1px @Color70 solid;
     }
 
-    h2 {
-      color: @Color60;
+    .list-element {
+      color: @Color50;
+      background-color: white;
+      font-weight: 300;
+      font-size: 12px;
+      height: 36px;
+      line-height: 38px;
+      cursor: pointer;
+      position: relative;
+      margin-left: -15px;
+      padding-left: 37px;
+
+      &:hover {
+        border-left: 3px solid @Blue;
+        padding-left: 34px;
+
+        .img-user-groups {
+          left: 12px;
+        }
+      }
+
+      &.dragging {
+        padding-left: 37px;
+        border: 1px @Color70 solid;
+        border-left: 3px solid @Blue;
+        z-index: 3;
+      }
+
+      .img-user-groups {
+        background: url(../../../images/icon.png) no-repeat -115px -64px;
+        width: 12px;
+        height: 12px;
+        background-size: 613px;
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+      }
     }
 
     .new-button {
@@ -65,28 +108,12 @@
 
   }
 
-  .list-element {
-    color: @Color50;
-    background-color: white;
-    font-weight: 300;
-    font-size: 12px;
-    height: 36px;
-    line-height: 37px;
-    border-bottom: 1px @Color70 solid;
-    cursor: pointer;
-
-    &:hover {
-      border-left: 3px solid @Blue;
-      z-index: 10;
-    }
-  }
-
   .middle-panel {
     height: 635px;
     background-color: @Color90;
     border-left: 1px #DFDFDF solid;
     border-right: 1px #DFDFDF solid;
-
+    z-index: 0;
 
     .instructions {
       width: 257px;
@@ -95,7 +122,8 @@
       color: @Color60;
       letter-spacing: 0.1px;
       line-height: 18px;
-      margin: 60px auto;
+      margin: 53px auto 85px;
+      text-align: center;
     }
   }
 
@@ -156,6 +184,10 @@
     background-color: white;
     border-radius: 999px;
     border: 2px solid @Color70;
+
+    &.drag-enter {
+      border-color: @Blue;
+    }
 
     .drag-instructions {
       margin: 80px auto;

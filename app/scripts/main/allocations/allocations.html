@@ -10,9 +10,13 @@
                     <span class="new-text">New Group</span>
                 </div>
             </div>
-            <div ng-repeat="group in groups" class="list-element"
-                 ng-drag="true" ng-drag-data="{id: group.id}" ng-drag-success="onDragComplete($data,$event)">
-                {{group.name}}
+            <div ng-repeat="group in groups">
+                <div class="list-element"
+                     ng-drag="true" ng-drag-data="{id: group.id}" ng-drag-success="onDragComplete($data,$event)">
+                    <div class="img-user-groups"></div>
+                    {{group.name}}
+                </div>
+                <hr/>
             </div>
         </div>
     </div>
