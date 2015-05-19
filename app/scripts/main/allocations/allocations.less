@@ -1,9 +1,11 @@
 @import "../../../styles/variables";
 
+@column-height: 700px;
+
 .allocations {
 
   .side-panel {
-    height: 635px;
+    height: @column-height;
     margin-top: -15px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -11,7 +13,7 @@
   }
 
   .middle-panel {
-    height: 635px;
+    height: @column-height;
     background-color: @color-90;
     border-left: 1px #DFDFDF solid;
     border-right: 1px #DFDFDF solid;
