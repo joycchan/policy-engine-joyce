@@ -1,15 +1,19 @@
-<div class="content">
-    <h4>New Service Definition</h4><span class="img-close"></span>
+<div class="service-wrapper">
+    <h2>New Service Definition</h2><span class="img-close"></span>
 
-    <p class="textData">A service is made up of two pieces: the provider group that will be doing the work, and the rule
-        set that specifies how that work will be done.</p>
+    <div class="service">
 
-    <div>
-        <div class="img-group" ng-class="groupClass"></div>
-        <span class="img-plus mid-plus"></span>
+        <p class="textData">A Service is made up of two pieces: the provider group that will be doing the work, and the
+            rule
+            set that specifies how that work will be done.</p>
 
-        <div class="img-contract" ng-class="contractClass"></div>
+        <div class="service-icons">
+            <div class="img-group" ng-class="groupClass"></div>
+            <div class="img-plus mid-plus"></div>
+
+            <div class="img-contract" ng-class="contractClass"></div>
+        </div>
         <hr/>
+        <ui-view></ui-view>
     </div>
-    <ui-view></ui-view>
 </div>
