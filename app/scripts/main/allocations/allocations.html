@@ -3,14 +3,18 @@
         <div class="overlay" ng-show="maskGroups()"></div>
         <div class="inner">
             <h2>Groups</h2>
-            <search-bar></search-bar>
+            <div class="search-bar">
+                <form>
+                    <input type="text" ng-model="search">
+                </form>
+            </div>
             <div class="new-button-wrapper">
                 <div class="new-button">
                     <div class="plus">+</div>
                     <span class="new-text">New Group</span>
                 </div>
             </div>
-            <div ng-repeat="group in groups">
+            <div ng-repeat="group in groups | filter:search">
                 <div class="list-element"
                      ng-drag="true" ng-drag-data="{id: group.id}" ng-drag-success="onDragComplete($data,$event)">
                     <div class="img-user-groups"></div>
@@ -21,7 +25,9 @@
         </div>
     </div>
     <div class="col-xs-6 middle-panel">
-        <h2>New Service Allocation</h2>
+        <h2>New Service Allocation
+            <div ng-hide="$state.is('main.allocations.new')" ui-sref="main.allocations.new" class="img-close"></div>
+        </h2>
         <ui-view></ui-view>
     </div>
     <div class="side-panel col-xs-3">

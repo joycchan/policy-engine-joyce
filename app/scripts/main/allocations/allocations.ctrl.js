@@ -20,6 +20,8 @@ angular.module('policyEngine').controller('AllocationsCtrl',
           $state.is('main.allocations.new');
     };
 
+    $scope.$state = $state;
+
     $http.get('http://localhost:9000/api/group').success(function(data) {
       $scope.group = data;
     });
