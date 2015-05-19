@@ -1,29 +1,38 @@
 [
   {
+    "id": "1",
     "name": "Sales"
   },
   {
+    "id": "2",
     "name": "Marketing"
   },
   {
+    "id": "3",
     "name": "Payroll"
   },
   {
+    "id": "4",
     "name": "Finance"
   },
   {
+    "id": "5",
     "name": "Legal"
   },
   {
+    "id": "6",
     "name": "All Employees"
   },
   {
+    "id": "7",
     "name": "Contractors"
   },
   {
+    "id": "8",
     "name": "Web Servers East Coast"
   },
   {
+    "id": "9",
     "name": "Web Servers West Coast"
   }
 ]

@@ -7,23 +7,22 @@ angular.module('policyEngine')
       controller: function ($scope) {
       },
       scope: {
-        data: '='
+        data: '=',
+        type: '@'
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {
         var init = function () {
           console.log('data', scope.data);
           var width = 500,
-            height = 300,
+            height = 217,
             radius = Math.min(width, height) / 2;
 
-          var color = d3.scale.ordinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-
-          var labelRadius = radius + 40;
+          var labelBuffer = 60;
+          var circleWidth = 10;
           var arc = d3.svg.arc()
-            .outerRadius(radius - 10)
-            .innerRadius(radius - 50);
+            .outerRadius(radius)
+            .innerRadius(radius - circleWidth);
 
           var pie = d3.layout.pie()
             .sort(null)
@@ -45,7 +44,13 @@ angular.module('policyEngine')
           g.append("path")
             .attr("d", arc)
             .style("fill", function (d, i) {
-              return color(i);
+              var provide = "#DBE79F";
+              var consume = "#6CD2B2";
+              if (scope.type === 'provide') {
+                return provide;
+              } else if (scope.type === 'consume') {
+                return consume;
+              }
             });
 
           g.append("text")
@@ -55,6 +60,7 @@ angular.module('policyEngine')
                 y = c[1],
               // pythagorean theorem for hypotenuse
                 h = Math.sqrt(x*x + y*y);
+              var labelRadius = radius + labelBuffer;
               return "translate(" + (x/h * labelRadius) +  ',' +
                 (y/h * labelRadius) +  ")";
             })

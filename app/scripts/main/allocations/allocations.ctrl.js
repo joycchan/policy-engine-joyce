@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('AllocationsCtrl',
-  function($scope, $http) {
+  function($scope, $http, $state) {
 
     $scope.group = {};
     $scope.servicesProvided = [];
@@ -9,6 +9,15 @@ angular.module('policyEngine').controller('AllocationsCtrl',
 
     var uniqueItems = function(array, key) {
       return array ? _.unique(_.pluck(array, key)) : [];
+    };
+
+    $scope.maskGroups = function() {
+      return $state.is('main.allocations.allocation.consume');
+    };
+
+    $scope.maskServices = function () {
+      return $state.is('main.allocations.allocation.provide') ||
+          $state.is('main.allocations.new');
     };
 
     $http.get('http://localhost:9000/api/group').success(function(data) {
@@ -25,5 +34,13 @@ angular.module('policyEngine').controller('AllocationsCtrl',
       $scope.groups = data;
     });
 
+    $scope.onDragComplete=function(data,evt){
+      console.log("drag success, data:", data);
+    };
+
+    $scope.onDropComplete = function(data,evt){
+      $state.go("main.allocations.allocation.consume", { groupId: data.id });
+      console.log("drop success, data:", data);
+    }
   }
 );
