@@ -1,20 +1,14 @@
-<div class="side-panel col-xs-3">
-    <h2>Groups</h2>
-    <search-bar></search-bar>
-    <div ng-repeat="group in groups">{{group.name}}</div>
-</div>
-<div class="col-xs-6">
-    <h2>{{group.name}}</h2>
-    <donut data="servicesProvided"></donut>
-    <div>
-        Services Provided: {{servicesProvided.length}}
+<div class="allocations">
+    <div class="side-panel col-xs-3">
+        <allocation-panel title="Group" items="groups" mask="maskGroups"></allocation-panel>
     </div>
-    <div>
-        Services Consumed: {{servicesConsumed.length}}
+    <div class="col-xs-6 middle-panel">
+        <h2>New Service Allocation
+            <div ng-hide="$state.is('main.allocations.new')" ui-sref="main.allocations.new" class="img-close"></div>
+        </h2>
+        <ui-view></ui-view>
     </div>
-</div>
-<div class="side-panel col-xs-3">
-    <h2>Applications & Services</h2>
-    <search-bar></search-bar>
-    <div ng-repeat="service in services">{{service.name}}</div>
+    <div class="side-panel col-xs-3">
+        <allocation-panel title="Service" items="services" mask="maskServices"></allocation-panel>
+    </div>
 </div>

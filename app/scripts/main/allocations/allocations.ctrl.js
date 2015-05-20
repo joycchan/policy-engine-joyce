@@ -1,27 +1,26 @@
 'use strict';
 
 angular.module('policyEngine').controller('AllocationsCtrl',
-  function($scope, $http) {
+  function($scope, $http, $state) {
 
-    $scope.group = {};
-    $scope.servicesProvided = [];
-    $scope.servicesConsumed = [];
+    $scope.groups = [];
 
-    var uniqueItems = function(array, key) {
-      return array ? _.unique(_.pluck(array, key)) : [];
+    $scope.maskGroups = function() {
+      return $state.is('main.allocations.allocation.consume');
     };
 
-    $http.get('http://localhost:9000/api/group').success(function(data) {
-      $scope.group = data;
-    });
+    $scope.maskServices = function () {
+      return $state.is('main.allocations.allocation.provide') ||
+          $state.is('main.allocations.new');
+    };
 
-    $http.get('http://localhost:9000/api/services').success(function(data) {
+    $scope.$state = $state;
+
+    $http.get('api/services').success(function(data) {
       $scope.services = data;
-      $scope.servicesProvided = uniqueItems($scope.group.servicesProvided, 'name');
-      $scope.servicesConsumed = uniqueItems($scope.group.servicesConsumed, 'name');
     });
 
-    $http.get('http://localhost:9000/api/groups').success(function(data) {
+    $http.get('t api/groups').success(function(data) {
       $scope.groups = data;
     });
 

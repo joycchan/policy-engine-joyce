@@ -1,0 +1,9 @@
+<div class="allocation" ng-drop-success="onDropComplete($data,$event)">
+    <div class="toggle">
+        <span ui-sref="main.allocations.allocation.provide" ui-sref-active="selected">Provide</span>
+        <toggle></toggle>
+        <span ui-sref="main.allocations.allocation.consume" ui-sref-active="selected">Consume</span>
+    </div>
+    <ui-view></ui-view>
+    <div class="show-list">Show List</div>
+</div>

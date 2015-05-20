@@ -1,14 +1,21 @@
 <div class="container">
     <div class="top-menu">
-        <h1>Group Based Policies</h1>
+        <div class="cisco-icon"></div>
 
-        <div class="icons">
-            <span>Home</span>
-            <span>Services</span>
-            <span>Objects</span>
-            <span>Settings</span>
-            <span>Account</span>
+        <div class="title">
+            <h1>Group Based Policies</h1>
+        </div>
+
+        <div class="menu-items">
+            <input type="text" class="input-search" name="search" ng-model="search" id="search"
+                   placeholder="Search Hint Text" aria-describedby="basic-addon1">
+            <span class="settings" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
+            <span class="objects" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
+            <span class="services" aria-expanded="true" ng-mouseenter="helpHover = true"
+                    ui-sref="main.services"></span>
+            <span class="account" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
         </div>
     </div>
     <ui-view></ui-view>
 </div>
+
