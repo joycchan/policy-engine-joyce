@@ -4,12 +4,6 @@ angular.module('policyEngine').controller('AllocationsCtrl',
   function($scope, $http, $state) {
 
     $scope.groups = [];
-    $scope.servicesProvided = [];
-    $scope.servicesConsumed = [];
-
-    var uniqueItems = function(array, key) {
-      return array ? _.unique(_.pluck(array, key)) : [];
-    };
 
     $scope.maskGroups = function() {
       return $state.is('main.allocations.allocation.consume');
@@ -22,14 +16,8 @@ angular.module('policyEngine').controller('AllocationsCtrl',
 
     $scope.$state = $state;
 
-    $http.get('http://localhost:9000/api/group').success(function(data) {
-      $scope.group = data;
-    });
-
     $http.get('http://localhost:9000/api/services').success(function(data) {
       $scope.services = data;
-      $scope.servicesProvided = uniqueItems($scope.group.servicesProvided, 'name');
-      $scope.servicesConsumed = uniqueItems($scope.group.servicesConsumed, 'name');
     });
 
     $http.get('http://localhost:9000/api/groups').success(function(data) {

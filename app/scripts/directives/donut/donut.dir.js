@@ -14,9 +14,16 @@ angular.module('policyEngine')
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {
         var init = function () {
-          var width = 500,
-            height = 217,
-            radius = Math.min(width, height) / 2;
+          var radius = 108,
+            margin = {
+              top: 100,
+              bottom: 100,
+              left: 150,
+              right: 150
+            };
+
+          var width = radius * 2 + margin.left + margin.right;
+          var height = radius * 2 + margin.top + margin.bottom;
 
           var labelBuffer = 60;
           var circleWidth = 10;
@@ -26,7 +33,9 @@ angular.module('policyEngine')
 
           var pie = d3.layout.pie()
             .sort(null)
-            .value(function() { return 1; });
+            .value(function () {
+              return 1;
+            });
 
 
           var svg = d3.select(element.find('.donut')[0]).append("svg")
@@ -59,21 +68,22 @@ angular.module('policyEngine')
                 x = c[0],
                 y = c[1],
               // pythagorean theorem for hypotenuse
-                h = Math.sqrt(x*x + y*y);
+                h = Math.sqrt(x * x + y * y);
               var labelRadius = radius + labelBuffer;
-              return "translate(" + (x/h * labelRadius) +  ',' +
-                (y/h * labelRadius) +  ")";
+              return "translate(" + (x / h * labelRadius) + ',' +
+                (y / h * labelRadius) + ")";
             })
             .attr("dy", ".35em")
             .style("text-anchor", "middle")
             .text(function (d) {
-              return d.data;
+              return d.data.name + ' (' + d.data.group + ')';
             });
         };
 
 
         scope.$watch('data', function () {
           if (scope.data && scope.data.length) {
+            console.log('data', scope.data);
             init();
           }
         }, true);

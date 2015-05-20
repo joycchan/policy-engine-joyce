@@ -1,38 +1,115 @@
 [
   {
     "id": "1",
-    "name": "Sales"
+    "name": "Sales",
+    "provided": [],
+    "consumed": [{
+      "name": "Basic Service",
+      "group": "Web Servers East Coast"
+    }]
   },
   {
     "id": "2",
-    "name": "Marketing"
+    "name": "Marketing",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "3",
-    "name": "Payroll"
+    "name": "Payroll",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "4",
-    "name": "Finance"
+    "name": "Finance",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "5",
-    "name": "Legal"
+    "name": "Legal",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "6",
-    "name": "All Employees"
+    "name": "All Employees",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "7",
-    "name": "Contractors"
+    "name": "Contractors",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "8",
-    "name": "Web Servers East Coast"
+    "name": "Web Servers East Coast",
+    "serviceOptions": [
+      {
+        "name": "Basic Service",
+        "name": "Web Servers East Service"
+      }
+    ],
+    "provided": [
+      {
+        "name": "Basic Service",
+        "group": "Sales"
+      },
+      {
+        "name": "Basic Service",
+        "group": "Marketing"
+      },
+      {
+        "name": "Basic Service",
+        "group": "Payroll"
+      },
+      {
+        "name": "Basic Service",
+        "group": "Finance"
+      },
+      {
+        "name": "Web Servers East Service",
+        "group": "Engineering"
+      },
+      {
+        "name": "Web Servers East Service",
+        "group": "Dev Ops"
+      }
+    ],
+    "consumed": [
+      {
+        "name": "Firewall Service 1",
+        "group": "Firewall Group"
+      },
+      {
+        "name": "Firewall Service",
+        "group": "Another Group A"
+      },
+      {
+        "name": "Normal Storage Service",
+        "group": "Storage Group"
+      },
+      {
+        "name": "Normal Storage Service",
+        "group": "Another Group B"
+      },
+      {
+        "name": "Normal Storage Service",
+        "group": "Another Group C"
+      },
+      {
+        "name": "Firewall Service",
+        "group": "Another Group D"
+      }
+    ]
   },
   {
     "id": "9",
-    "name": "Web Servers West Coast"
+    "name": "Web Servers West Coast",
+    "provided": [],
+    "consumed": []
   }
 ]
