@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "ui.router"
+  "ui.router", 'ngDraggable'
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
@@ -62,6 +62,37 @@ angular.module("policyEngine", [
           .state("main.service.meta", {
             url: "meta/",
             templateUrl: "scripts/main/service/meta.html"
+          })
+        .state("main.allocations", {
+          url: 'allocationsList/',
+          templateUrl: 'scripts/main/allocations-list.html',
+        })
+        .state("main.allocations", {
+          abstract: true,
+          url: "allocations/",
+          templateUrl: "scripts/main/allocations/allocations.html",
+          controller: "AllocationsCtrl"
+        })
+          .state("main.allocations.new", {
+            url: "new/",
+            controller: "AllocationNewCtrl",
+            templateUrl: "scripts/main/allocations/new/new.html"
+          })
+          .state("main.allocations.allocation", {
+            abstract: true,
+            url: ":groupId/",
+            controller: "AllocationCtrl",
+            templateUrl: "scripts/main/allocations/allocation/allocation.html"
+          })
+          .state("main.allocations.allocation.provide", {
+            url: "provide/",
+            controller: "ProvideCtrl",
+            templateUrl: "scripts/main/allocations/allocation/provide/provide.html"
+          })
+          .state("main.allocations.allocation.consume", {
+            url: "consume/",
+            controller: "ConsumeCtrl",
+            templateUrl: "scripts/main/allocations/allocation/consume/consume.html"
           })
   });
 

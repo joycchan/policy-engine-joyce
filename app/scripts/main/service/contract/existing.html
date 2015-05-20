@@ -1,7 +1,23 @@
-/ New Contract
+/ <span class="choice">Existing Rule Set</span>
 
 <div>
-    Name:
+    <div class="search-bar">
+        <label for="search">Search</label>
+        <input type="text"name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr><th>Name</th><th>Classifiers</th><th>Default/Custom</th></tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="obj in contractObj | filter:searchContract" ng-click="existingContractSelection(obj)"
+            ng-class="existingContract==obj ? 'grayBackground' : ''">
+            <td>{{::obj.name}}</td>
+            <td>{{::obj.classifiers}}</td>
+            <td>{{::obj.custom}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
-<a ui-sref="main.service.meta">Next</a>
+<div class="next-button" ui-sref="main.service.meta">Next</div>

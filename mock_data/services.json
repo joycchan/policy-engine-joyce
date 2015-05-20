@@ -1,7 +1,32 @@
 [
   {
-    "name": "Sales A",
-    "providerGroup": "Web Servers East Coast",
+    "name": "SQL Basic Access",
+    "group": "Database Group",
+    "contract": "Canned Contract"
+  },
+  {
+    "name": "SQL VIP Access",
+    "group": "Database Group",
+    "contract": "Canned Contract"
+  },
+  {
+    "name": "SQL External Access",
+    "group": "Database Group",
+    "contract": "Canned Contract"
+  },
+  {
+    "name": "Web A Basic Service",
+    "group": "Web Servers East Coast",
+    "contract": "Canned Contract"
+  },
+  {
+    "name": "Web A HQ Service",
+    "group": "Web Servers West Coast",
     "contract": "Canned Contract 3"
+  },
+  {
+    "name": "App Servers",
+    "group": "App Servers Coast",
+    "contract": "Canned Contract 4"
   }
 ]

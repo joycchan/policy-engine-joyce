@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "All Employees",
+    "origin": "ISE (Active Directory)",
+    "provided": [],
+    "consumed": []
+  },
+  {
+    "id": "2",
+    "name": "All Contractors",
+    "origin": "ISE (Active Directory)",
+    "provided": [],
+    "consumed": []
+  },
+  {
+    "id": "3",
+    "name": "Sales",
+    "origin": "ISE (Active Directory)",
+    "provided": [],
+    "consumed": []
+  },
+  {
+    "id": "4",
+    "name": "Marketing",
+    "origin": "ISE (Active Directory)",
+    "provided": [],
+    "consumed": []
+  },
+  {
+    "id": "5",
+    "name": "App Server",
+    "origin": "VMware vCenter",
+    "provided": [],
+    "consumed": []
+  }
+]

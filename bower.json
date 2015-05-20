@@ -17,6 +17,7 @@
     "d3": "~3.5.5",
     "lodash": "~3.8.0",
     "jquery": "~2.1.4",
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "ngDraggable": "~0.1.8"
   }
 }

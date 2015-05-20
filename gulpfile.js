@@ -10,19 +10,20 @@ var gulp = require('gulp')
   , jshint = require('gulp-jshint')
   , rev = require('gulp-rev')
   , express = require('express')
+  , basicAuth = require('basic-auth-connect')
   , logfmt = require("logfmt")
   , fs = require('fs')
   , linker = require('gulp-linker')
-  , karma = require('karma').server
   , beautify = require('gulp-beautify')
   ;
 
 // Constants
-var SERVER_PORT = 9000;
+var SERVER_PORT = process.env.PORT || 9000;
 
 var serveDirectories = function (directories) {
   var app = express();
   app.use(logfmt.requestLogger());
+  app.use(basicAuth('policy-engine', 'openstack'));
 
 // Create the server
   directories.forEach(function(directory) {
@@ -158,6 +159,7 @@ gulp.task('watch', ['less'], function () {
 });
 
 gulp.task('test', function () {
+  var karma = require('karma').server
   return karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
