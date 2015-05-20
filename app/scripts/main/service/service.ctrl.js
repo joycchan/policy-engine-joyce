@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-    function($scope, $state) {
+   function($scope, $state) {
 
         $scope.state = {
             groupChoice: 'new',
@@ -39,5 +39,6 @@ angular.module('policyEngine').controller('ServiceCtrl',
           $scope.services.push($scope.service);
             $state.go('main.services');
         };
+
     }
 );
