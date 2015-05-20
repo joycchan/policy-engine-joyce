@@ -64,6 +64,10 @@ angular.module("policyEngine", [
             templateUrl: "scripts/main/service/meta.html"
           })
         .state("main.allocations", {
+          url: 'allocationsList/',
+          templateUrl: 'scripts/main/allocations-list.html',
+        })
+        .state("main.allocations", {
           abstract: true,
           url: "allocations/",
           templateUrl: "scripts/main/allocations/allocations.html",

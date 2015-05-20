@@ -6,6 +6,8 @@ angular.module('policyEngine').controller('MainCtrl',
 
         $scope.groups = [];
 
+        $scope.allocations = [];
+
         $http.get('api/groups').success(function(data) {
             $scope.groups = data;
         });
