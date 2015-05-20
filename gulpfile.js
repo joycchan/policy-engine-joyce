@@ -13,7 +13,6 @@ var gulp = require('gulp')
   , logfmt = require("logfmt")
   , fs = require('fs')
   , linker = require('gulp-linker')
-  , karma = require('karma').server
   , beautify = require('gulp-beautify')
   ;
 
@@ -158,6 +157,7 @@ gulp.task('watch', ['less'], function () {
 });
 
 gulp.task('test', function () {
+  var karma = require('karma').server
   return karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
