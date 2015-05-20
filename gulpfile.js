@@ -17,7 +17,7 @@ var gulp = require('gulp')
   ;
 
 // Constants
-var SERVER_PORT = 9000;
+var SERVER_PORT = process.env.PORT || 9000;
 
 var serveDirectories = function (directories) {
   var app = express();
