@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-    function($scope) {
+    function($scope,$state) {
         $scope.existingContract = "";
         $scope.existingGroup = "";
 
@@ -24,5 +24,9 @@ angular.module('policyEngine').controller('ServiceCtrl',
         $scope.existingGroupSelection = function(selectedGroup){
             $scope.existingGroup = selectedGroup;
         };
+        $scope.gotoGroup = function(grp){
+            $state.go("main.service.group." + grp);
+        };
+
     }
 );

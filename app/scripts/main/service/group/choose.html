@@ -1,7 +1,20 @@
-<div>
-    <a ui-sref="main.service.group.new">Create a new group</a>
+<form name="group" role="form">
+<div class="radio">
+        <input type="radio" name="groupType" ng-model="grp.groupType" id="New" value="new" required checked >
+    <label for="New">
+        Create a new group
+    </label>
 </div>
 
-<div>
-    <a ui-sref="main.service.group.existing">Select an existing group</a>
+<div class="radio">
+        <input type="radio" name="groupType" ng-model="grp.groupType" id="Existing" value="existing" required>
+    <label for="Existing">
+        Select an existing group
+    </label>
 </div>
+
+<div class="col-sm-offset-2 col-sm-10">
+    <button type="button" ng-model="buttonOne" class="btn btn-primary btn-round pull-right" ng-click="gotoGroup(grp.groupType)"
+            >Next</button>
+</div>
+</form>
