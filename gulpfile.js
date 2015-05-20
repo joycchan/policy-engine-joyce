@@ -10,6 +10,7 @@ var gulp = require('gulp')
   , jshint = require('gulp-jshint')
   , rev = require('gulp-rev')
   , express = require('express')
+  , basicAuth = require('basic-auth-connect')
   , logfmt = require("logfmt")
   , fs = require('fs')
   , linker = require('gulp-linker')
@@ -22,6 +23,7 @@ var SERVER_PORT = process.env.PORT || 9000;
 var serveDirectories = function (directories) {
   var app = express();
   app.use(logfmt.requestLogger());
+  app.use(basicAuth('policy-engine', 'openstack'));
 
 // Create the server
   directories.forEach(function(directory) {
