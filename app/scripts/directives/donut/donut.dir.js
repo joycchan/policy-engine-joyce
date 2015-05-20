@@ -44,7 +44,7 @@ angular.module('policyEngine')
           d3.select(element[0]).selectAll('svg').remove();
 
 
-          t svg = d3.select(element.find('.donut')[0]).append("svg")
+          svg = d3.select(element.find('.donut')[0]).append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
