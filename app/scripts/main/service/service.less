@@ -1,5 +1,23 @@
+@import "../../../styles/variables";
+
 .service-wrapper {
   margin-left: 15px;
+
+  h3 {
+    display: inline-block;
+  }
+
+  .next-button {
+    float: right;
+    background-color: @green;
+    color: white;
+    border-radius: 16px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 32px;
+    cursor: pointer;
+    margin-bottom: 40px;
+  }
 
   .img-close {
     background: url(../../../images/icon.png) no-repeat -33px -80px;
@@ -12,6 +30,27 @@
     float: right;
     top: -48px;
     margin: 15px;
+  }
+  .icon-search {
+    border-radius: 2px;
+    background: transparent;
+    top: 0px;
+    border-right: 0;
+  }
+
+  .search-bar {
+    input {
+      border: 1px @color-70 solid;
+      height: 32px;
+      width: 190px;
+      background: url(../../../images/magnifying-glass.png) no-repeat 10px 7px;
+      padding-left: 40px;
+      margin-left: 10px;
+    }
+  }
+
+  .choice {
+    font-weight: bold;
   }
 
   .service {

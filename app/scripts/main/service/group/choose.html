@@ -1,7 +1,17 @@
-<div>
-    <a ui-sref="main.service.group.new">Create a new group</a>
+<div class="choose">
+    <div class="radio">
+        <label>
+            <input type="radio" ng-model="state.groupChoice" value="new" checked>
+            Create a new group
+        </label>
+    </div>
+
+    <div class="radio">
+        <label>
+            <input type="radio" ng-model="state.groupChoice" value="existing">
+            Select an existing group
+        </label>
+    </div>
 </div>
 
-<div>
-    <a ui-sref="main.service.group.existing">Select an existing group</a>
-</div>
+<div class="next-button" ng-click="accessGroup()">Next</div>

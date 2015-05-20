@@ -1,0 +1,63 @@
+@import "../../../styles/variables";
+
+.services {
+
+  .service-definition {
+    width: 326px;
+    height: 225px;
+    margin-top: 20px;
+    margin-left: 15px;
+    padding: 15px;
+    border: 2px solid @color-80;
+    cursor: pointer;
+    float: left;
+
+    &.defined {
+      border-top: solid 3px @link-blue;
+      position: relative;
+
+      .values {
+        position: absolute;
+        bottom: 15px;
+
+      }
+
+      h4 {
+        font-weight: 400;
+        font-size: 10px;
+        text-transform: uppercase;
+        color: @link-blue;
+        letter-spacing: 0.55px;
+        line-height: 15px;
+        margin: 12px 0 0;
+      }
+
+      .value {
+        color: @color-50;
+      }
+    }
+
+    &:hover {
+      border-color: @color-70;
+
+      .new-circle {
+        border-color: @color-70;
+        color: @color-70;
+      }
+    }
+
+    .new-circle {
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 9999px;
+      color: @color-80;
+      border: 2px solid @color-80;
+      margin: 40px auto;
+      padding-left: 23px;
+      font-size: 50px;
+
+    }
+  }
+
+}

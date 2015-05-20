@@ -1,3 +1,21 @@
-<h2>Service Definition</h2>
+<div class="services">
 
-<a ui-sref="main.service.group.choose">New Service Definition</a>
+    <h2>Service Definitions</h2>
+
+    <div ng-repeat="service in services" class="service-definition defined">
+        <h3>{{service.name}}</h3>
+
+        <div class="values">
+            <h4>Provider Group</h4>
+            <div class="value">{{service.group.name}}</div>
+            <h4>Rule Set</h4>
+            <div class="value">{{service.ruleSet.name}}</div>
+        </div>
+    </div>
+
+    <div class="service-definition" ui-sref="main.service.group.choose">
+        <h3>New Service Definition</h3>
+
+        <div class="new-circle">+</div>
+    </div>
+</div>

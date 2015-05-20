@@ -1,9 +1,22 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-    function($scope) {
-        $scope.existingContract = "";
-        $scope.existingGroup = "";
+    function($scope, $state) {
+
+        $scope.state = {
+            groupChoice: 'new',
+            ruleSetChoice: 'new'
+        };
+
+        $scope.service = {};
+
+        $scope.accessGroup = function() {
+            $state.go('main.service.group.' + $scope.state.groupChoice);
+        };
+
+        $scope.accessRuleSet = function() {
+            $state.go('main.service.contract.' + $scope.state.ruleSetChoice);
+        };
 
         $scope.contractObj = [
             {name: "SQL Access", classifiers: "SQL-Port-1443", custom: "Default"},
@@ -19,10 +32,17 @@ angular.module('policyEngine').controller('ServiceCtrl',
         ];
 
         $scope.existingContractSelection = function(selectedContract){
-            $scope.existingContract = selectedContract;
+            $scope.service.ruleSet = selectedContract;
+            $state.go('main.service.meta');
         };
         $scope.existingGroupSelection = function(selectedGroup){
-            $scope.existingGroup = selectedGroup;
+            $scope.service.group = selectedGroup;
+            $state.go('main.service.contract.choose');
+        };
+
+        $scope.createService = function() {
+          $scope.services.push($scope.service);
+            $state.go('main.services');
         };
     }
 );

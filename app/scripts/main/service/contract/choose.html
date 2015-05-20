@@ -1,3 +1,17 @@
-<a ui-sref="main.service.contract.new">Create a new Rule Set</a>
+<div class="choose">
+    <div class="radio">
+        <label>
+            <input type="radio" ng-model="state.ruleSetChoice" value="new" checked>
+            Create a new rule set
+        </label>
+    </div>
 
-<a ui-sref="main.service.contract.existing">Select an existing Rule Set</a>
+    <div class="radio">
+        <label>
+            <input type="radio" ng-model="state.ruleSetChoice" value="existing">
+            Select an existing rule set
+        </label>
+    </div>
+</div>
+
+<div class="next-button" ng-click="accessRuleSet()">Next</div>
