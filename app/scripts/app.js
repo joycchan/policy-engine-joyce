@@ -63,7 +63,7 @@ angular.module("policyEngine", [
             url: "meta/",
             templateUrl: "scripts/main/service/meta.html"
           })
-        .state("main.allocations", {
+        .state("main.allocationsList", {
           url: 'allocationsList/',
           templateUrl: 'scripts/main/allocations-list.html',
         })
