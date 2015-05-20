@@ -20,7 +20,7 @@ angular.module('policyEngine').controller('AllocationsCtrl',
       $scope.services = data;
     });
 
-    $http.get('t api/groups').success(function(data) {
+    $http.get('api/groups').success(function(data) {
       $scope.groups = data;
     });
 
