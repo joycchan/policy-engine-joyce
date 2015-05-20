@@ -24,13 +24,5 @@ angular.module('policyEngine').controller('AllocationsCtrl',
       $scope.groups = data;
     });
 
-    $scope.onDragComplete=function(data,evt){
-      console.log("drag success, data:", data);
-    };
-
-    $scope.onDropComplete = function(data,evt){
-      $state.go("main.allocations.allocation.consume", { groupId: data.id });
-      console.log("drop success, data:", data);
-    }
   }
 );

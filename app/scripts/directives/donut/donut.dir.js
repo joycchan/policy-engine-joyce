@@ -9,11 +9,15 @@ angular.module('policyEngine')
       scope: {
         data: '=',
         name: '=',
-        type: '@'
+        type: '@',
+        drop: '='
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {
+
         var init = function () {
+          d3.select(element[0]).selectAll('svg').remove();
+
           var radius = 108,
             margin = {
               top: 100,

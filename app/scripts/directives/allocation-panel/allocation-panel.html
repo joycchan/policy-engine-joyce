@@ -16,7 +16,7 @@
         </div>
         <div ng-repeat="item in items | filter:search">
             <div class="list-element"
-                 ng-drag="true" ng-drag-data="{id: item.id}" ng-drag-success="onDragComplete($data,$event)">
+                 ng-drag="true" ng-drag-data="item">
                 <div class="img-user-groups"></div>
                 {{item.name}}
             </div>
