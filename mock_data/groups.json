@@ -1,118 +1,36 @@
 [
   {
     "id": "1",
-    "name": "Sales",
+    "name": "All Employees",
+    "origin": "ISE (Active Directory)",
     "provided": [],
-    "consumed": [{
-      "name": "Basic Service",
-      "group": "Web Servers East Coast"
-    }]
+    "consumed": []
   },
   {
     "id": "2",
-    "name": "Marketing",
+    "name": "All Contractors",
+    "origin": "ISE (Active Directory)",
     "provided": [],
     "consumed": []
   },
   {
     "id": "3",
-    "name": "Payroll",
+    "name": "Sales",
+    "origin": "ISE (Active Directory)",
     "provided": [],
     "consumed": []
   },
   {
     "id": "4",
-    "name": "Finance",
+    "name": "Marketing",
+    "origin": "ISE (Active Directory)",
     "provided": [],
     "consumed": []
   },
   {
     "id": "5",
-    "name": "Legal",
-    "provided": [],
-    "consumed": []
-  },
-  {
-    "id": "6",
-    "name": "All Employees",
-    "provided": [],
-    "consumed": [{
-      "name": "Web A HQ Service",
-      "group": "Web Servers Group"
-    }]
-  },
-  {
-    "id": "7",
-    "name": "Contractors",
-    "provided": [],
-    "consumed": []
-  },
-  {
-    "id": "8",
-    "name": "Web Servers East Coast",
-    "serviceOptions": [
-      {
-        "name": "Basic Service"
-      }, {
-        "name": "Web Servers East Service"
-      }
-    ],
-    "provided": [
-      {
-        "name": "Basic Service",
-        "group": "Sales"
-      },
-      {
-        "name": "Basic Service",
-        "group": "Marketing"
-      },
-      {
-        "name": "Basic Service",
-        "group": "Payroll"
-      },
-      {
-        "name": "Basic Service",
-        "group": "Finance"
-      },
-      {
-        "name": "Web Servers East Service",
-        "group": "Engineering"
-      },
-      {
-        "name": "Web Servers East Service",
-        "group": "Dev Ops"
-      }
-    ],
-    "consumed": [
-      {
-        "name": "Firewall Service 1",
-        "group": "Firewall Group"
-      },
-      {
-        "name": "Firewall Service",
-        "group": "Another Group A"
-      },
-      {
-        "name": "Normal Storage Service",
-        "group": "Storage Group"
-      },
-      {
-        "name": "Normal Storage Service",
-        "group": "Another Group B"
-      },
-      {
-        "name": "Normal Storage Service",
-        "group": "Another Group C"
-      },
-      {
-        "name": "Firewall Service",
-        "group": "Another Group D"
-      }
-    ]
-  },
-  {
-    "id": "9",
-    "name": "Web Servers West Coast",
+    "name": "App Server",
+    "origin": "VMware vCenter",
     "provided": [],
     "consumed": []
   }

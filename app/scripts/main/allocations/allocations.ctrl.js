@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('AllocationsCtrl',
-  function($scope, $http, $state) {
-
-    $scope.groups = [];
+  function($scope, $state, $http) {
 
     $scope.maskGroups = function() {
       return $state.is('main.allocations.allocation.consume');
@@ -20,9 +18,6 @@ angular.module('policyEngine').controller('AllocationsCtrl',
       $scope.services = data;
     });
 
-    $http.get('api/groups').success(function(data) {
-      $scope.groups = data;
-    });
 
   }
 );
