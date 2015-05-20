@@ -23,12 +23,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
             {name: "TrustSEC Access", classifiers: "TrustSEC SGACL", custom: "Default"},
             {name: "Overlay TEP", classifiers: "Overlay-TEP-Type-HWTEP", custom: "Default"},
             {name: "Overlay Encap", classifiers: "Overlay-Encap-Type-VXLAN", custom: "Default"},
-        ];
-        $scope.groupObj = [
-            {name: "Web Server East Cost", origin: "ISE (Active Directory)"},
-            {name: "Web Server East Cost", origin: "ISE (Active Directory)"},
-            {name: "Database Fast", origin: "VMware vCenter"},
-            {name: "Database Slow", origin: "VMware vCenter"},
+            {name: "HTTP Traffic", classifiers: "TCP-80 Default", custom: "Default"},
         ];
 
         $scope.existingContractSelection = function(selectedContract){
