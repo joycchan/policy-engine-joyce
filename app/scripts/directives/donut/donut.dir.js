@@ -79,8 +79,11 @@ angular.module('policyEngine')
             })
             .attr("dy", ".35em")
             .style("text-anchor", "middle")
-            .text(function (d) {
-              return d.data.name + ' (' + d.data.group + ')';
+            .text('')
+            .each(function (d, i) {
+              d3.select(this).append('tspan').text(d.data.name)
+                .append('tspan').text('(' + d.data.group + ')')
+                .attr('x', 0).attr('dy', '15');
             });
         };
 
@@ -92,6 +95,8 @@ angular.module('policyEngine')
           }
         }, true);
       }
-    };
-  });
+    }
+      ;
+  })
+;
 
