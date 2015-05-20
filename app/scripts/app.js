@@ -63,6 +63,10 @@ angular.module("policyEngine", [
             url: "meta/",
             templateUrl: "scripts/main/service/meta.html"
           })
+        .state("main.allocationsList", {
+          url: 'allocationsList/',
+          templateUrl: 'scripts/main/allocations-list.html',
+        })
         .state("main.allocations", {
           abstract: true,
           url: "allocations/",
@@ -71,20 +75,24 @@ angular.module("policyEngine", [
         })
           .state("main.allocations.new", {
             url: "new/",
-            templateUrl: "scripts/main/allocations/new.html"
+            controller: "AllocationNewCtrl",
+            templateUrl: "scripts/main/allocations/new/new.html"
           })
           .state("main.allocations.allocation", {
             abstract: true,
             url: ":groupId/",
+            controller: "AllocationCtrl",
             templateUrl: "scripts/main/allocations/allocation/allocation.html"
           })
           .state("main.allocations.allocation.provide", {
             url: "provide/",
-            templateUrl: "scripts/main/allocations/allocation/provide.html"
+            controller: "ProvideCtrl",
+            templateUrl: "scripts/main/allocations/allocation/provide/provide.html"
           })
           .state("main.allocations.allocation.consume", {
             url: "consume/",
-            templateUrl: "scripts/main/allocations/allocation/consume.html"
+            controller: "ConsumeCtrl",
+            templateUrl: "scripts/main/allocations/allocation/consume/consume.html"
           })
   });
 

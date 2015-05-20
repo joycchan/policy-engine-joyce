@@ -1,0 +1,73 @@
+@import "../../../styles/variables";
+
+.services {
+
+  .service-definition {
+    width: 326px;
+    height: 225px;
+    margin-top: 20px;
+    margin-left: 15px;
+    padding: 15px;
+    border: 2px solid @color-80;
+    cursor: pointer;
+    float: left;
+
+    &.defined {
+      border-top: solid 3px @link-blue;
+      position: relative;
+
+      .values {
+        position: absolute;
+        bottom: 15px;
+
+      }
+
+      h4 {
+        font-weight: 400;
+        font-size: 10px;
+        text-transform: uppercase;
+        color: @link-blue;
+        letter-spacing: 0.55px;
+        line-height: 15px;
+        margin: 12px 0 0;
+      }
+
+      .value {
+        color: @color-50;
+      }
+    }
+
+    &:hover {
+      border-color: @color-70;
+
+      .scircle {
+        background-color: @color-70;
+      }
+    }
+
+    .scircle {
+      position: relative;
+      text-align: center;
+      background-color: @color-80;
+      border: 2px solid @color-80;
+      height: 125px;
+      vertical-align: middle;
+      width: 125px;
+      border-radius: 100px;
+      padding-top: 50px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .img-plus-serdfn {
+        background: url(../../../images/icon.png) no-repeat 0px -484px;
+        display: inline-block;
+        width: 43px;
+        height: 43px;
+        background-size: 818px;
+        cursor: pointer;
+        margin: -11px -56px;
+      }
+    }
+  }
+}

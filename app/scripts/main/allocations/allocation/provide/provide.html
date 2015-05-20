@@ -1,8 +1,8 @@
 <div class="instructions">Now drag in groups that this group will provide services to</div>
-<donut data="servicesProvided" type="provide"></donut>
+<donut data="group.provided" type="provide" name="group.name" drop="onDropComplete"></donut>
 <div class="services-header">
-    Services Provided
+    Groups Served
 </div>
 <div class="services-number provide">
-    {{servicesProvided.length}}
+    {{group.provided.length}}
 </div>

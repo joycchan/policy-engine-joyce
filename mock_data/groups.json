@@ -1,38 +1,37 @@
 [
   {
     "id": "1",
-    "name": "Sales"
+    "name": "All Employees",
+    "origin": "ISE (Active Directory)",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "2",
-    "name": "Marketing"
+    "name": "All Contractors",
+    "origin": "ISE (Active Directory)",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "3",
-    "name": "Payroll"
+    "name": "Sales",
+    "origin": "ISE (Active Directory)",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "4",
-    "name": "Finance"
+    "name": "Marketing",
+    "origin": "ISE (Active Directory)",
+    "provided": [],
+    "consumed": []
   },
   {
     "id": "5",
-    "name": "Legal"
-  },
-  {
-    "id": "6",
-    "name": "All Employees"
-  },
-  {
-    "id": "7",
-    "name": "Contractors"
-  },
-  {
-    "id": "8",
-    "name": "Web Servers East Coast"
-  },
-  {
-    "id": "9",
-    "name": "Web Servers West Coast"
+    "name": "App Server",
+    "origin": "VMware vCenter",
+    "provided": [],
+    "consumed": []
   }
 ]

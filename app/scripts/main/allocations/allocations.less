@@ -1,107 +1,43 @@
-@Blue: #0096D6;
-@LinkBlue: #0096D6;
+@import "../../../styles/variables";
 
-@Color50: #333439;
-@Color60: #71757F;
-@Color70: #C4C7CC;
-@Color90: #F7F7F7;
-
-@provide: #DBE79F;
-@consume: #6CD2B2;
+@column-height: 900px;
 
 .allocations {
 
-  h2 {
-    font-weight: 200;
-    font-size: 18px;
-    line-height: 26px;
-  }
-
   .side-panel {
-    height: 635px;
-    position: relative;
+    height: @column-height;
+    margin-top: -15px !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-
-    .overlay {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 2;
-    }
-
-    .inner {
-      padding-left: 15px;
-    }
-
-    h2 {
-      color: @Color60;
-    }
-
-    .new-button {
-      margin: 30px 0 15px;
-      background-color: @Color70;
-      height: 32px;
-      width: 128px;
-      border-radius: 16px;
-      color: white;
-      font-size: 12px;
-      line-height: 34px;
-      text-align: center;
-      position: relative;
-      cursor: pointer;
-
-      .plus {
-        display: inline-block;
-        position: absolute;
-        left: 20px;
-        font-size: 28px;
-      }
-
-      .new-text {
-        padding-left: 12px;
-        vertical-align: middle;
-      }
-    }
-
-  }
-
-  .list-element {
-    color: @Color50;
-    background-color: white;
-    font-weight: 300;
-    font-size: 12px;
-    height: 36px;
-    line-height: 37px;
-    border-bottom: 1px @Color70 solid;
-    cursor: pointer;
-
-    &:hover {
-      border-left: 3px solid @Blue;
-      z-index: 10;
-    }
+    position: relative;
   }
 
   .middle-panel {
-    height: 635px;
-    background-color: @Color90;
+    height: @column-height;
+    background-color: @color-90;
     border-left: 1px #DFDFDF solid;
     border-right: 1px #DFDFDF solid;
+    z-index: 0;
 
-    h2 {
-      color: @Color70;
-      margin: 15px 0;
+    .img-close {
+      background: url(../../../images/icon.png) no-repeat -33px -80px;
+      display: inline-block;
+      width: 16px;
+      height: 18px;
+      background-size: 790px;
+      cursor: pointer;
+      float: right;
     }
 
     .instructions {
       width: 257px;
       font-weight: 300;
       font-size: 12px;
-      color: @Color60;
+      color: @color-60;
       letter-spacing: 0.1px;
       line-height: 18px;
-      margin: 60px auto;
+      margin: 53px auto 105px;
+      text-align: center;
     }
   }
 
@@ -110,7 +46,7 @@
 
     .instructions {
       width: 245px;
-      margin: 20px auto 81px;
+      margin: 20px auto 0px;
     }
   }
 
@@ -125,7 +61,7 @@
   .services-header {
     margin-top: 117px;
     text-transform: uppercase;
-    color: @Color60;
+    color: @color-60;
     font-size: 10px;
     font-weight: bold;
     line-height: 14px;
@@ -150,7 +86,7 @@
   .show-list {
     font-weight: 300;
     font-size: 12px;
-    color: @LinkBlue;
+    color: @link-blue;
     letter-spacing: 0;
     line-height: 16px;
   }
@@ -161,13 +97,17 @@
     margin: 0 auto;
     background-color: white;
     border-radius: 999px;
-    border: 2px solid @Color70;
+    border: 2px solid @color-70;
+
+    &.drag-enter {
+      border-color: @blue;
+    }
 
     .drag-instructions {
       margin: 80px auto;
       width: 130px;
       font-size: 14px;
-      color: @Color70;
+      color: @color-70;
       letter-spacing: 0.1px;
       line-height: 20px;
       text-align: center;

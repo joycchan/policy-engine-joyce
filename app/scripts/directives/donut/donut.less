@@ -1,15 +1,32 @@
-@Color60: #71757F;
-@Color90: #F7F7F7;
+@import "../../../styles/variables";
 
 .donut {
+  position: relative;
 
   .arc path {
-    stroke: @Color90;
+    stroke: @color-90;
     stroke-width: 2;
   }
 
   text {
     font-size: 10px;
-    color: @Color60;
+    color: @color-60;
   }
+
+  .group-name {
+    position: absolute;
+    width: 180px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 300;
+    font-size: 20px;
+    color: @color-60;
+    line-height: 23px;
+  }
+
+  &.drag-enter {
+    opacity: 0.5;
+  }
+
 }

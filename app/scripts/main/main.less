@@ -1,14 +1,117 @@
+@import "../../styles/variables";
+
 .top-menu {
+  height: 90px;
   width: 100%;
-  border-bottom: 1px solid black;
-}
+  border-bottom: 1px solid @color-70;
+  clear: both;
+  position: relative;
 
-.top-menu h1 {
-  display: inline-block;
-}
+  .cisco-icon {
+    background: url(../../images/icon.png) no-repeat;
+    display: inline-block;
+    background-position: -75px 0px;
+    width: 84px;
+    height: 40.3px;
+    background-size: 950px;
+    margin: 0 20px;
+    position: relative;
+    top: 10px;
+  }
 
-.top-menu .icons {
-  display: inline-block;
-  float: right;
-}
+  .title {
+    display: inline-block;
+    height: 90px;
+    line-height: 96px;
+  }
 
+  .menu-items {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    height: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    span {
+      margin-right: 12px;
+    }
+  }
+
+  .input-search {
+    width: 237px;
+    height: 32px;
+    position: absolute;
+    right: 203px;
+    border: 1px @color-70 solid;
+    background: url(../../../images/magnifying-glass.png) no-repeat 10px 7px;
+    padding-left: 40px;
+  }
+
+  ::-webkit-input-placeholder {
+    font-style: italic;
+  }
+
+  .icon-search {
+    background: url(../../images/icon.png) no-repeat;
+    border-radius: 2px;
+    background: transparent;
+    top: 0px;
+    border-right: 0;
+    height: 20px;
+    background-position: 2px -75px;
+    left: -5px;
+  }
+
+  .settings {
+    background: url(../../images/icon.png) no-repeat;
+    display: inline-block;
+    background-position: 0px -357px;
+    width: 32px;
+    height: 32px;
+    background-size: 770px;
+
+    &:hover {
+      background-position: 0px -390px;
+    }
+  }
+
+  .objects {
+    background: url(../../images/icon.png) no-repeat;
+    display: inline-block;
+    background-position: -32px -357px;
+    width: 32px;
+    height: 32px;
+    background-size: 770px;
+
+    &:hover {
+      background-position: -32px -390px;
+    }
+  }
+
+  .services {
+    background: url(../../images/icon.png) no-repeat;
+    display: inline-block;
+    background-position: -64px -357px;
+    width: 32px;
+    height: 32px;
+    background-size: 770px;
+
+    &:hover {
+      background-position: -64px -390px;
+    }
+  }
+
+  .account {
+    background: url(../../images/icon.png) no-repeat;
+    display: inline-block;
+    background-position: -96px -357px;
+    width: 32px;
+    height: 32px;
+    background-size: 770px;
+
+    &:hover {
+      background-position: -96px -390px;
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@import "../../../styles/variables";
+
+.allocation-panel {
+  padding-top: 15px;
+
+  .inner {
+    padding-left: 15px;
+  }
+
+  h2 {
+    color: @color-60;
+  }
+
+  .search-bar {
+    input {
+      border: 1px @color-70 solid;
+      height: 32px;
+      width: 190px;
+      background: url(../../../images/magnifying-glass.png) no-repeat 10px 7px;
+      padding-left: 40px;
+    }
+  }
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+
+  hr {
+    margin: 0;
+    border-top: 1px @color-70 solid;
+  }
+
+  .list-element {
+    color: @color-50;
+    background-color: white;
+    font-weight: 300;
+    font-size: 12px;
+    height: 36px;
+    line-height: 38px;
+    cursor: pointer;
+    position: relative;
+    margin-left: -15px;
+    padding-left: 37px;
+
+    &:hover {
+      border-left: 3px solid @blue;
+      padding-left: 34px;
+
+      .img-user-groups {
+        left: 12px;
+      }
+    }
+
+    &.dragging {
+      padding-left: 37px;
+      border: 1px @color-70 solid;
+      border-left: 3px solid @blue;
+      z-index: 3;
+    }
+
+    .img-user-groups {
+      background: url(../../../images/icon.png) no-repeat -115px -64px;
+      width: 12px;
+      height: 12px;
+      background-size: 613px;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+    }
+  }
+
+  .new-button {
+    margin: 30px 0 15px;
+    background-color: @color-70;
+    height: 32px;
+    width: 128px;
+    border-radius: 16px;
+    color: white;
+    font-size: 12px;
+    line-height: 34px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+
+    .plus {
+      display: inline-block;
+      position: absolute;
+      left: 20px;
+      font-size: 28px;
+    }
+
+    .new-text {
+      padding-left: 12px;
+      vertical-align: middle;
+    }
+  }
+}
+

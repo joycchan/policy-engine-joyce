@@ -1,3 +1,13 @@
-First, specify a name for the new service.
+<h3>Lastly, Specify a Name for the New Service</h3>
+<form>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="service.name">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea rows="3" class="form-control" ng-model="service.description"></textarea>
+    </div>
+</form>
 
-<a ui-sref="main.services">Done</a>
+<div class="next-button" ng-click="createService()">Done</div>
