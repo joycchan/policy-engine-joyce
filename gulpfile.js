@@ -13,12 +13,11 @@ var gulp = require('gulp')
   , logfmt = require("logfmt")
   , fs = require('fs')
   , linker = require('gulp-linker')
-  , karma = require('karma').server
   , beautify = require('gulp-beautify')
   ;
 
 // Constants
-var SERVER_PORT = 9000;
+var SERVER_PORT = process.env.PORT || 9000;
 
 var serveDirectories = function (directories) {
   var app = express();
@@ -158,6 +157,7 @@ gulp.task('watch', ['less'], function () {
 });
 
 gulp.task('test', function () {
+  var karma = require('karma').server
   return karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true

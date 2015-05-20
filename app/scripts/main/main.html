@@ -1,20 +1,19 @@
 <div class="container">
     <div class="top-menu">
-        <div class="dropdown menu-holder">
-            <i class="cisco-icon"></i>
-            <h2 class="header-text">Group Based Policies</h2>
+        <div class="cisco-icon"></div>
 
-            <input type="text" class="input-search" name="search" ng-model="search" id="search" placeholder="search Text hint" aria-describedby="basic-addon1">
+        <div class="title">
+            <h1>Group Based Policies</h1>
+        </div>
 
-
-
-                <span class="settings" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
-                <span class="objects" aria-expanded="true" ng-mouseenter="helpHover = true">
-                 </span>
-                <span class="services" aria-expanded="true" ng-mouseenter="helpHover = true">
-                 </span>
-                <span class="account" aria-expanded="true" ng-mouseenter="helpHover = true">
-                </span>
+        <div class="menu-items">
+            <input type="text" class="input-search" name="search" ng-model="search" id="search"
+                   placeholder="Search Hint Text" aria-describedby="basic-addon1">
+            <span class="settings" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
+            <span class="objects" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
+            <span class="services" aria-expanded="true" ng-mouseenter="helpHover = true"
+                    ui-sref="main.services"></span>
+            <span class="account" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
         </div>
     </div>
     <ui-view></ui-view>
