@@ -2,7 +2,7 @@
 
 angular.module('policyEngine').controller('MainCtrl',
     function($scope) {
-        $scope.variable = 'World';
+        $scope.services = [];
 
     }
 );
