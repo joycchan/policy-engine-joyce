@@ -7,13 +7,12 @@ angular.module('policyEngine').controller('MainCtrl',
     $scope.newAllocation = function (type, item) {
       allocationId++;
       var allocation = {
-        id: allocationId,
+        id: allocationId.toString(),
         type: type,
         item: item,
         collection: []
       };
       $scope.allocations.push(allocation);
-
       return allocation;
     };
 
@@ -21,24 +20,7 @@ angular.module('policyEngine').controller('MainCtrl',
 
     $scope.groups = [];
 
-    $scope.allocations = [{
-      type: 'consume',
-      item: {
-        name: 'Sales Team'
-      },
-      collection: [
-        {
-          "name": "SQL External Access",
-          "group": "Database Group",
-          "contract": "Canned Contract"
-        },
-        {
-          "name": "Web A Basic Service",
-          "group": "Web Servers East Coast",
-          "contract": "Canned Contract"
-        }
-      ]
-    }];
+    $scope.allocations = [];
 
     $http.get('api/groups').success(function (data) {
       $scope.groups = data;

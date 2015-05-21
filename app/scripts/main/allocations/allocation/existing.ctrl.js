@@ -3,15 +3,15 @@
 angular.module('policyEngine').controller('AllocationExistingCtrl',
   function($scope, $stateParams) {
 
-    var allocationId;
+    var allocationIndex;
 
     $scope.allocation = function() {
-      return $scope.allocations[allocationId];
+      return $scope.allocations[allocationIndex];
     };
 
     $scope.$watch('$routeChangeSuccess', function() {
       if ($stateParams.allocationId) {
-        allocationId = _.findIndex($scope.allocations, function (allocation) {
+        allocationIndex = _.findIndex($scope.allocations, function (allocation) {
           return allocation.id === $stateParams.allocationId;
         });
       }
