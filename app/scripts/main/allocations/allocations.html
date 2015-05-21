@@ -1,7 +1,13 @@
-<div class="allocations-list">
+<div class="allocation-cards">
     <h2>Service Allocations</h2>
-    <div class="allocation" ng-repeat="allocation in allocations">
-
+    <div class="allocation-card" ng-repeat="allocation in allocations">
+        <h3>{{allocation.item.name}}</h3>
+        <simple-donut data="allocation.collection" type="{{allocation.type}}"></simple-donut>
+    </div>
+    <div class="allocation-card" ui-sref="main.allocation.new">
+        <div class="scircle">
+            <span class="img-plus-serdfn" id="plus-serdfn"></span>
+        </div>
     </div>
 </div>
 

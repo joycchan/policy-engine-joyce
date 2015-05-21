@@ -2,6 +2,46 @@
 
 @column-height: 900px;
 
+.allocation-cards {
+  .allocation-card {
+    background-color: white;
+    height: 225px;
+    width: 326px;
+    margin-top: 20px;
+    margin-left: 15px;
+    padding: 0 15px;
+    border: 2px solid @color-80;
+    cursor: pointer;
+    float: left;
+
+  }
+  .scircle {
+    position: relative;
+    text-align: center;
+    background-color: @color-80;
+    border: 2px solid @color-80;
+    height: 125px;
+    vertical-align: middle;
+    width: 125px;
+    border-radius: 100px;
+    padding-top: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .img-plus-serdfn {
+      background: url(../../../images/icon.png) no-repeat 0px -484px;
+      display: inline-block;
+      width: 43px;
+      height: 43px;
+      background-size: 818px;
+      cursor: pointer;
+      margin: -11px -56px;
+    }
+  }
+
+}
+
 .allocations {
 
   .side-panel {

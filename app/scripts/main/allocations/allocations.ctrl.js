@@ -16,8 +16,5 @@ angular.module('policyEngine').controller('AllocationsCtrl',
     $http.get('api/services').success(function(data) {
       $scope.services = data;
     });
-
-
-
   }
 );
