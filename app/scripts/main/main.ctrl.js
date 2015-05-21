@@ -17,15 +17,7 @@ angular.module('policyEngine').controller('MainCtrl',
       return allocation;
     };
 
-    $scope.services = [{
-      name: 'Sample Service',
-      group: {
-        name: 'Sample Service Group'
-      } ,
-      ruleSet: {
-        name: 'Sample Rule Set'
-      }
-    }];
+    $scope.services = [];
 
     $scope.groups = [];
 
@@ -50,6 +42,10 @@ angular.module('policyEngine').controller('MainCtrl',
 
     $http.get('api/groups').success(function (data) {
       $scope.groups = data;
+    });
+
+    $http.get('api/services').success(function(data) {
+      $scope.services = data;
     });
   }
 );
