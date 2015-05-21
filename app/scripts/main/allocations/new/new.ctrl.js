@@ -4,13 +4,7 @@ angular.module('policyEngine').controller('AllocationNewCtrl',
   function ($scope, $state) {
 
     $scope.onDropComplete = function(data,evt){
-      var allocation = {
-        id: $scope.newAllocationId(),
-        type: data.type,
-        item: data.item,
-        collection: []
-      };
-      $scope.allocations.push(allocation);
+      var allocation = $scope.newAllocation(data.type, data.item);
 
       if (data.type === 'provide') {
         $state.go("main.allocation.existing.provide", { allocationId: allocation.id });

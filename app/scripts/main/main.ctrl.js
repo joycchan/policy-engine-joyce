@@ -4,12 +4,28 @@ angular.module('policyEngine').controller('MainCtrl',
   function ($scope, $http) {
     var allocationId = 0;
 
-    $scope.newAllocationId = function (type) {
+    $scope.newAllocation = function (type, item) {
       allocationId++;
-      return allocationId.toString();
+      var allocation = {
+        id: allocationId,
+        type: type,
+        item: item,
+        collection: []
+      };
+      $scope.allocations.push(allocation);
+
+      return allocation;
     };
 
-    $scope.services = [];
+    $scope.services = [{
+      name: 'Sample Service',
+      group: {
+        name: 'Sample Service Group'
+      } ,
+      ruleSet: {
+        name: 'Sample Rule Set'
+      }
+    }];
 
     $scope.groups = [];
 
