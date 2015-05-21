@@ -1,14 +1,8 @@
-<div class="allocations">
-    <div class="side-panel col-xs-3">
-        <allocation-panel title="Group" items="groups" mask="maskGroups"></allocation-panel>
-    </div>
-    <div class="col-xs-6 middle-panel">
-        <h2>New Service Allocation
-            <div ng-hide="$state.is('main.allocations.new')" ui-sref="main.allocations.new" class="img-close"></div>
-        </h2>
-        <ui-view></ui-view>
-    </div>
-    <div class="side-panel col-xs-3">
-        <allocation-panel title="Service" items="services" mask="maskServices"></allocation-panel>
+<div class="allocations-list">
+    <h2>Service Allocations</h2>
+    <div class="allocation" ng-repeat="allocation in allocations">
+
     </div>
 </div>
+
+
