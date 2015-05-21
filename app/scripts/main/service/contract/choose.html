@@ -1,14 +1,14 @@
 <div class="choose">
     <div class="radio">
-        <label>
-            <input type="radio" ng-model="state.ruleSetChoice" value="new" checked>
+            <input type="radio" name="ruleSet" ng-model="state.ruleSetChoice" value="new" id="New" checked>
+        <label for="New">
             Create a new rule set
         </label>
     </div>
 
     <div class="radio">
-        <label>
-            <input type="radio" ng-model="state.ruleSetChoice" value="existing">
+            <input type="radio" name="ruleSet" ng-model="state.ruleSetChoice" value="existing" id="Existing">
+            <label for="Existing">
             Select an existing rule set
         </label>
     </div>

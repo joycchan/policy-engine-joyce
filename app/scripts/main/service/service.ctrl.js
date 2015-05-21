@@ -8,6 +8,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
             ruleSetChoice: 'new'
         };
 
+        $scope.groupName = "New Group";
         $scope.service = {};
 
         $scope.accessGroup = function() {
@@ -39,6 +40,26 @@ angular.module('policyEngine').controller('ServiceCtrl',
           $scope.services.push($scope.service);
             $state.go('main.services');
         };
+
+       $scope.idSelectedGroup = null;
+       $scope.setSelected = function(idSelectedGroup) {
+           $scope.idSelectedGroup = idSelectedGroup;
+           console.log(idSelectedGroup);
+       }
+
+       $scope.custom = true;
+       $scope.toggleCustom = function() {
+           $scope.custom = $scope.custom === false ? true: false;
+       };
+
+       $scope.data = {
+           cb1: true,
+           cb4: true,
+           cb5: false
+       };
+       $scope.onChange = function(cbState) {
+           $scope.message = "The switch is now: " + cbState;
+       };
 
     }
 );
