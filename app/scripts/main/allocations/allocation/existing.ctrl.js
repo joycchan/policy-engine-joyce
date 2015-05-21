@@ -18,7 +18,7 @@ angular.module('policyEngine').controller('AllocationExistingCtrl',
     });
 
     $scope.onDropComplete = function(data,evt) {
-      $scope.allocation().collection.push(data.itemt stat);
+      $scope.allocation().collection.push(data.item);
     }
   }
 );
