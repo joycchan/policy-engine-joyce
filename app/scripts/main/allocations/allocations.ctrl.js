@@ -4,20 +4,14 @@ angular.module('policyEngine').controller('AllocationsCtrl',
   function($scope, $state, $http) {
 
     $scope.maskGroups = function() {
-      return $state.is('main.allocations.allocation.consume');
+      return $state.is('main.allocation.existing.consume');
     };
 
     $scope.maskServices = function () {
-      return $state.is('main.allocations.allocation.provide') ||
-          $state.is('main.allocations.new');
+      return $state.is('main.allocation.existing.provide');
     };
 
     $scope.$state = $state;
-
-    $http.get('api/services').success(function(data) {
-      $scope.services = data;
-    });
-
 
   }
 );

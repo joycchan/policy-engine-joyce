@@ -13,17 +13,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="group in groups | filter:search" ng-click="setSelected(group.name)" ng-class="{selected : group.name === idSelectedGroup}" ng-mouseover="options=true" ng-mouseleave="options=false">
+        <tr ng-repeat="group in groups | filter:search"ng-click="setSelected(group.name)" ng-class="{selected : group.name === nameSelectedGroup}" >
             <td>{{::group.name}}</td>
             <td>
                 {{::group.origin}}
-            </td>
-            <td>
-                <span class="search-icon" ng-show="options"></span>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
 
+<div class="button1">
+<div class="back-button" ui-sref="main.service.group.choose">Back</div>
 <div class="next-button" ui-sref="main.service.contract.choose">Next</div>
+</div>

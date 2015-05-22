@@ -1,32 +1,29 @@
 [
   {
     "name": "SQL Basic Access",
-    "group": "Database Group",
-    "contract": "Canned Contract"
+    "group": {
+      "name": "Database Group"
+    },
+    "contract": {
+      "name": "Canned Contract"
+    }
   },
   {
     "name": "SQL VIP Access",
-    "group": "Database Group",
-    "contract": "Canned Contract"
+    "group": {
+      "name": "Database Group"
+    },
+    "contract": {
+      "name": "Canned Contract"
+    }
   },
   {
     "name": "SQL External Access",
-    "group": "Database Group",
-    "contract": "Canned Contract"
-  },
-  {
-    "name": "Web A Basic Service",
-    "group": "Web Servers East Coast",
-    "contract": "Canned Contract"
-  },
-  {
-    "name": "Web A HQ Service",
-    "group": "Web Servers West Coast",
-    "contract": "Canned Contract 3"
-  },
-  {
-    "name": "App Servers",
-    "group": "App Servers Coast",
-    "contract": "Canned Contract 4"
+    "group": {
+      "name": "Database Group"
+    },
+    "contract": {
+      "name": "Canned Contract"
+    }
   }
 ]

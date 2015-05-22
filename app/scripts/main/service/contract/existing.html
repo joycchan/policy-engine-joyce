@@ -10,17 +10,17 @@
         <tr><th>Name</th><th>Classifiers</th><th>Default/Custom</th></tr>
         </thead>
         <tbody>
-        <tr ng-repeat="obj in contractObj | filter:searchContract" ng-mouseover="options=true" ng-mouseleave="options=false"
+        <tr ng-repeat="ruleSet in contractObj | filter:searchContract" ng-click="setSelectedRuleSet(ruleSet.name)" ng-class="{selected : ruleSet.name === namesSelectedRuleSet}"
             ng-class="existingContract==obj ? 'grayBackground' : ''">
-            <td>{{::obj.name}}</td>
-            <td>{{::obj.classifiers}}</td>
-            <td>{{::obj.custom}}</td>
-            <td>
-                <span class="search-icon" ng-show="options"></span>
-            </td>
+            <td>{{::ruleSet.name}}</td>
+            <td>{{::ruleSet.classifiers}}</td>
+            <td>{{::ruleSet.custom}}</td>
         </tr>
         </tbody>
     </table>
 </div>
 
-<div class="next-button" ui-sref="main.service.meta">Next</div>
+<div class="button1">
+    <div class="back-button" ui-sref="main.service.contract.choose">Back</div>
+    <div class="next-button" ui-sref="main.service.meta">Next</div>
+</div>
