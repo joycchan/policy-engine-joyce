@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('policyEngine')
-  .directive('donut', function () {
+  .directive('simpleDonut', function () {
     return {
-      templateUrl: 'scripts/directives/donut/donut.html',
+      templateUrl: 'scripts/directives/simple-donut/simple-donut.html',
       controller: function ($scope) {
       },
       scope: {
@@ -16,12 +16,12 @@ angular.module('policyEngine')
       link: function postLink(scope, element, attrs) {
         var svg;
 
-        var radius = 108,
+        var radius = 60,
           margin = {
-            top: 100,
-            bottom: 100,
-            left: 150,
-            right: 150
+            top: 0,
+            bottom: 0,
+            left: 88,
+            right: 88
           };
 
         var width = radius * 2 + margin.left + margin.right;
@@ -44,7 +44,7 @@ angular.module('policyEngine')
           d3.select(element[0]).selectAll('svg').remove();
 
 
-          svg = d3.select(element.find('.donut')[0]).append("svg")
+          svg = d3.select(element.find('.simple-donut')[0]).append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
@@ -71,28 +71,6 @@ angular.module('policyEngine')
               }
             });
 
-          g.append("text")
-            .attr("transform", function (d) {
-              var c = arc.centroid(d),
-                x = c[0],
-                y = c[1],
-              // pythagorean theorem for hypotenuse
-                h = Math.sqrt(x * x + y * y);
-              var labelRadius = radius + labelBuffer;
-              return "translate(" + (x / h * labelRadius) + ',' +
-                (y / h * labelRadius) + ")";
-            })
-            .attr("dy", ".35em")
-            .style("text-anchor", "middle")
-            .text('')
-            .each(function (d, i) {
-              var t = d3.select(this)
-              t.append('tspan').text(d.data.name)
-              if (scope.type === 'consume') {
-                t.append('tspan').text('(' + d.data.group + ')')
-                  .attr('x', 0).attr('dy', '15');
-              }
-            });
         };
 
         init();

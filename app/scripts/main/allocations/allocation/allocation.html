@@ -1,9 +1,14 @@
-<div class="allocation" ng-drop-success="onDropComplete($data,$event)">
-    <div class="toggle">
-        <span ui-sref="main.allocations.allocation.provide" ui-sref-active="selected">Provide</span>
-        <toggle></toggle>
-        <span ui-sref="main.allocations.allocation.consume" ui-sref-active="selected">Consume</span>
+<div class="allocations">
+    <div class="side-panel col-xs-3">
+        <allocation-panel title="Group" items="groups" mask="maskGroups" type="consume"></allocation-panel>
     </div>
-    <ui-view></ui-view>
-    <div class="show-list">Show List</div>
+    <div class="col-xs-6 middle-panel">
+        <h2>New Service Allocation
+            <div ng-hide="$state.is('main.allocation.new')" ui-sref="main.allocations" class="img-close"></div>
+        </h2>
+        <ui-view></ui-view>
+    </div>
+    <div class="side-panel col-xs-3">
+        <allocation-panel title="Service" items="services" mask="maskServices" type="provide"></allocation-panel>
+    </div>
 </div>
