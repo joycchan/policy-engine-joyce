@@ -86,9 +86,12 @@ angular.module('policyEngine')
             .style("text-anchor", "middle")
             .text('')
             .each(function (d, i) {
-              d3.select(this).append('tspan').text(d.data.name)
-                .append('tspan').text('(' + d.data.group + ')')
-                .attr('x', 0).attr('dy', '15');
+              var t = d3.select(this)
+              t.append('tspan').text(d.data.name)
+              if (scope.type === 'consume') {
+                t.append('tspan').text('(' + d.data.group + ')')
+                  .attr('x', 0).attr('dy', '15');
+              }
             });
         };
 
