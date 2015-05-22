@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
+    function($scope, $state) {
 
-    
-
-    
-
-
-  function($scope) {
+      $scope.assignService = function(service)  {
+        var allocation = $scope.newAllocation('provide', service)
+        $state.go('main.allocation.existing.provide', { allocationId: allocation.id });
+      };
 
   }
 );

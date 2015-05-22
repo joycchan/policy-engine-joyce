@@ -64,32 +64,33 @@ angular.module("policyEngine", [
             templateUrl: "scripts/main/service/meta.html"
           })
         .state("main.allocations", {
-          url: 'allocationsList/',
-          templateUrl: 'scripts/main/allocations-list.html',
+          url: 'allocations/',
+          templateUrl: 'scripts/main/allocations/allocations.html',
         })
-        .state("main.allocations", {
+        .state("main.allocation", {
           abstract: true,
           url: "allocations/",
-          templateUrl: "scripts/main/allocations/allocations.html",
+          templateUrl: "scripts/main/allocations/allocation/allocation.html",
           controller: "AllocationsCtrl"
         })
-          .state("main.allocations.new", {
+          .state("main.allocation.new", {
             url: "new/",
             controller: "AllocationNewCtrl",
             templateUrl: "scripts/main/allocations/new/new.html"
           })
-          .state("main.allocations.allocation", {
-            abstract: true,
-            url: ":groupId/",
-            controller: "AllocationCtrl",
-            templateUrl: "scripts/main/allocations/allocation/allocation.html"
-          })
-          .state("main.allocations.allocation.provide", {
+
+      .state("main.allocation.existing", {
+        abstract: true,
+        url: ":allocationId/",
+        controller: "AllocationExistingCtrl",
+        templateUrl: "scripts/main/allocations/allocation/existing.html"
+      })
+          .state("main.allocation.existing.provide", {
             url: "provide/",
             controller: "ProvideCtrl",
             templateUrl: "scripts/main/allocations/allocation/provide/provide.html"
           })
-          .state("main.allocations.allocation.consume", {
+          .state("main.allocation.existing.consume", {
             url: "consume/",
             controller: "ConsumeCtrl",
             templateUrl: "scripts/main/allocations/allocation/consume/consume.html"

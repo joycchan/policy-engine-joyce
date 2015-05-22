@@ -3,14 +3,16 @@
 .services {
 
   .service-definition {
+    background-color: white;
     width: 326px;
     height: 225px;
     margin-top: 20px;
     margin-left: 15px;
-    padding: 15px;
+    padding: 0 15px;
     border: 2px solid @color-80;
     cursor: pointer;
     float: left;
+    position: relative;
 
     &.defined {
       border-top: solid 3px @link-blue;
@@ -38,26 +40,67 @@
     }
 
     &:hover {
-      border-color: @color-70;
 
-      .new-circle {
-        border-color: @color-70;
-        color: @color-70;
+      .sliding-box {
+        display: block;
+      }
+
+      .scircle {
+        background-color: @color-70;
       }
     }
 
-    .new-circle {
-      width: 80px;
-      height: 80px;
-      line-height: 80px;
-      border-radius: 9999px;
-      color: @color-80;
-      border: 2px solid @color-80;
-      margin: 40px auto;
-      padding-left: 23px;
-      font-size: 50px;
+    .sliding-box {
+      display: none;
+      background-color: rgba(232,236,242,0.90);
+      height: 172px;
+      width: 100%;
+      padding-left: 15px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
 
+      h4 {
+        color: @color-60;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 17px;
+      }
+
+      p {
+        font-size: 10px;
+        color: @color-60;
+        line-height: 20px;
+
+        a {
+          color: @link-blue;
+        }
+      }
+    }
+
+    .scircle {
+      position: relative;
+      text-align: center;
+      background-color: @color-80;
+      border: 2px solid @color-80;
+      height: 125px;
+      vertical-align: middle;
+      width: 125px;
+      border-radius: 100px;
+      padding-top: 50px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .img-plus-serdfn {
+        background: url(../../../images/icon.png) no-repeat 0px -484px;
+        display: inline-block;
+        width: 43px;
+        height: 43px;
+        background-size: 818px;
+        cursor: pointer;
+        margin: -11px -56px;
+      }
     }
   }
-
 }

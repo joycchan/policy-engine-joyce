@@ -1,21 +1,27 @@
 <div class="services">
 
-    <h2>Service Definitions</h2>
+    <h2>Services</h2>
 
     <div ng-repeat="service in services" class="service-definition defined">
         <h3>{{service.name}}</h3>
 
         <div class="values">
             <h4>Provider Group</h4>
+
             <div class="value">{{service.group.name}}</div>
             <h4>Rule Set</h4>
+
             <div class="value">{{service.ruleSet.name}}</div>
+        </div>
+        <div class="sliding-box">
+            <h4>Assigned Groups</h4>
+            <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
         </div>
     </div>
 
     <div class="service-definition" ui-sref="main.service.group.choose">
-        <h3>New Service Definition</h3>
-
-        <div class="new-circle">+</div>
+        <div class="scircle" ui-sref="main.service.group.choose">
+            <span class="img-plus-serdfn" id="plus-serdfn"></span>
+        </div>
     </div>
 </div>

@@ -1,14 +1,14 @@
-<div class="allocations">
-    <div class="side-panel col-xs-3">
-        <allocation-panel title="Group" items="groups" mask="maskGroups"></allocation-panel>
+<div class="allocation-cards">
+    <h2>Assignments</h2>
+    <div class="allocation-card" ng-repeat="allocation in allocations">
+        <h3>{{allocation.item.name}}</h3>
+        <simple-donut data="allocation.collection" type="{{allocation.type}}"></simple-donut>
     </div>
-    <div class="col-xs-6 middle-panel">
-        <h2>New Service Allocation
-            <div ng-hide="$state.is('main.allocations.new')" ui-sref="main.allocations.new" class="img-close"></div>
-        </h2>
-        <ui-view></ui-view>
-    </div>
-    <div class="side-panel col-xs-3">
-        <allocation-panel title="Service" items="services" mask="maskServices"></allocation-panel>
+    <div class="allocation-card" ui-sref="main.allocation.new">
+        <div class="scircle">
+            <span class="img-plus-serdfn" id="plus-serdfn"></span>
+        </div>
     </div>
 </div>
+
+

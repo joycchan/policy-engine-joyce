@@ -1,15 +1,33 @@
 'use strict';
 
 angular.module('policyEngine').controller('MainCtrl',
-    function($scope, $http) {
-        $scope.services = [];
+  function ($scope, $http) {
+    var allocationId = 0;
 
-        $scope.groups = [];
+    $scope.newAllocation = function (type, item) {
+      allocationId++;
+      var allocation = {
+        id: allocationId.toString(),
+        type: type,
+        item: item,
+        collection: []
+      };
+      $scope.allocations.push(allocation);
+      return allocation;
+    };
 
-        $scope.allocations = [];
+    $scope.services = [];
 
-        $http.get('api/groups').success(function(data) {
-            $scope.groups = data;
-        });
-    }
+    $scope.groups = [];
+
+    $scope.allocations = [];
+
+    $http.get('api/groups').success(function (data) {
+      $scope.groups = data;
+    });
+
+    $http.get('api/services').success(function(data) {
+      $scope.services = data;
+    });
+  }
 );

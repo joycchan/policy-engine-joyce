@@ -3,11 +3,14 @@
 <div>
     <div class="search-bar">
         <label for="search">Search</label>
-        <input type="text"name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
+        <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
     </div>
-    <table class="table table-hover" style="background-color: transparent">
+    <table class="table table-hover">
         <thead>
-        <tr><th>Name</th><th>Origin</th></tr>
+        <tr>
+            <th>Name</th>
+            <th>Origin</th>
+        </tr>
         </thead>
         <tbody>
         <tr ng-repeat="group in groups | filter:search" ng-click="existingGroupSelection(group)"
