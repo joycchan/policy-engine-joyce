@@ -142,8 +142,8 @@ gulp.task('compile', ['clean', 'views', 'images', 'less', 'fonts', 'mockData'], 
     ))
 
     .pipe(usemin({
-      css: [minifyCss(), rev()],
-      css_libs: [minifyCss(), rev()],
+      css: [rev()],
+      css_libs: [minifyCss({ rebase: false }), rev()],
       html: [],
       js: [ngmin(), uglify(), rev()],
       js_libs: [rev()]
