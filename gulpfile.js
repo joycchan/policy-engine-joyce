@@ -24,7 +24,7 @@ var serveDirectories = function (directories, password) {
   var app = express();
   app.use(logfmt.requestLogger());
   if (password) {
- t diff   app.use(basicAuth('policy-engine', 'openstack'));
+    app.use(basicAuth('policy-engine', 'openstack'));
   }
 
 // Create the server
