@@ -37,5 +37,4 @@ describe('Controller: MainCtrl', function () {
       expect($scope.allocations[1].id).toEqual('2');
     });
   });
-
 });
