@@ -133,16 +133,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('serve:app', ['watch'], function () {
-  process.env.NODE_ENV = 'development';
   exec('NODE_ENV=development node server.js', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-  });
-});
-
-gulp.task('serve:build', function () {
-  process.env.NODE_ENV = 'production';
-  exec('node server.js', function (err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
   });
