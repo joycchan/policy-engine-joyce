@@ -36,6 +36,34 @@
     margin-bottom: 15px;
   }
 
+  .button {
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px;
+    padding: 0 32px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-bottom: 40px;
+    font-weight: 300;
+
+    &.back {
+      background-color: #c4c7cc;
+    }
+
+    &.next {
+      background-color: @green;
+
+      &.disabled {
+        background-color: @color-80;
+        color: @color-70;
+        cursor: default;
+      }
+    }
+
+  }
+
   .radio {
 
     label {
