@@ -20,10 +20,12 @@ var gulp = require('gulp')
 // Constants
 var SERVER_PORT = process.env.PORT || 9000;
 
-var serveDirectories = function (directories) {
+var serveDirectories = function (directories, password) {
   var app = express();
   app.use(logfmt.requestLogger());
-  app.use(basicAuth('policy-engine', 'openstack'));
+  if (password) {
+    app.use(basicAuth('policy-engine', 'openstack'));
+  }
 
 // Create the server
   directories.forEach(function(directory) {
@@ -142,8 +144,8 @@ gulp.task('compile', ['clean', 'views', 'images', 'less', 'fonts', 'mockData'], 
     ))
 
     .pipe(usemin({
-      css: [minifyCss(), rev()],
-      css_libs: [minifyCss(), rev()],
+      css: [rev()],
+      css_libs: [minifyCss({ rebase: false }), rev()],
       html: [],
       js: [ngmin(), uglify(), rev()],
       js_libs: [rev()]
@@ -171,7 +173,7 @@ gulp.task('serve:app', ['watch'], function () {
 });
 
 gulp.task('serve:build', function () {
-  serveDirectories(['./build'])
+  serveDirectories(['./build'], true)
 });
 
 gulp.task('default', ['compile']);
