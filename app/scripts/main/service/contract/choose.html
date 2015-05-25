@@ -1,19 +1,19 @@
-<div class="choose" >
+<form name="rule-set" role="form">
     <div class="radio">
-            <input type="radio" name="ruleSet" ng-model="state.ruleSetChoice" value="new" id="New" checked >
         <label for="New">
-            Create a new rule set
+            <input type="radio" name="ruleSet" ng-model="state.ruleSetChoice" id="New" value="new" required checked>
+            <div class="label-text">Create a new rule set</div>
         </label>
     </div>
 
     <div class="radio">
-            <input type="radio" name="ruleSet" ng-model="state.ruleSetChoice" value="existing" id="Existing" >
-            <label for="Existing">
-            Select an existing rule set
+        <label for="Existing">
+            <input type="radio" name="ruleSet" ng-model="state.ruleSetChoice" id="Existing" value="existing" required>
+            <div class="label-text">Select an existing rule set</div>
         </label>
     </div>
-</div>
+</form>
 <div class="button1">
     <div class="back-button" ng-click="main.service.contract.choose">Back</div>
-<div class="next-button" ng-click="accessRuleSet()">Next</div>
+    <div class="next-button" ng-click="accessRuleSet()">Next</div>
 </div>

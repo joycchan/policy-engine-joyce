@@ -1,18 +1,18 @@
 <form name="group" role="form">
     <div class="radio">
-        <input type="radio" name="groupType" ng-model="state.groupChoice" id="New" value="new" required checked  >
         <label for="New">
-            Create a new group
+            <input type="radio" name="group" ng-model="state.groupChoice" id="New" value="new" required checked>
+            <div class="label-text">Create a new group</div>
         </label>
     </div>
 
     <div class="radio">
-        <input type="radio" name="groupType" ng-model="state.groupChoice" id="Existing" value="existing" required >
         <label for="Existing">
-            Select an existing group
+            <input type="radio" name="group" ng-model="state.groupChoice" id="Existing" value="existing" required>
+            <div class="label-text">Select an existing group</div>
         </label>
     </div>
 </form>
 <div class="button1">
-<div class="next-button" ng-click="accessGroup()">Next</div>
+    <div class="next-button" ng-click="accessGroup()">Next</div>
 </div>

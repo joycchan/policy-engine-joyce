@@ -168,7 +168,7 @@ gulp.task('test', function () {
   });
 });
 
-gulp.task('serve:app', ['watch'], function () {
+gulp.task('serve:app', ['clean', 'watch'], function () {
   serveDirectories(['./tmp', './app'])
 });
 

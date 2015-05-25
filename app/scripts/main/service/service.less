@@ -1,18 +1,55 @@
 @import "../../../styles/variables";
 
 .service-wrapper {
-  margin-left: 15px;
+
+  .top-row {
+
+    margin: 15px;
+
+    h2 {
+      margin: 0;
+      display: inline-block;
+    }
+
+    .img-close {
+      background: url(../../../images/icon.png) no-repeat -33px -80px;
+      width: 17px;
+      height: 21px;
+      background-size: 800px;
+      cursor: pointer;
+      float: right;
+    }
+
+  }
+
+  .service {
+    width: 646px;
+    margin: 10px auto;
+  }
+
+  .textData {
+    letter-spacing: 0.1px;
+    width: 539px;
+  }
+
+  hr {
+    margin: 0;
+    height: 1px;
+    width: 646px;
+    background-color: @color-75;
+  }
 
   h3 {
     display: inline-block;
+    font-weight: normal;
   }
 
   .table-hover tr:hover {
     background: #F7F7F7;
   }
-  .selected{
+  .selected {
     background: #ECE8F2;
-    border-left:solid 3px #0096d6 ;
+    border-left: solid 3px #0096d6;
   }
 
   .button1 {
@@ -43,32 +80,6 @@
       margin-bottom: 40px;
     }
   }
-  .img-close {
-    background: url(../../../images/icon.png) no-repeat -33px -80px;
-    position: relative;
-    display: block;
-    width: 17px;
-    height: 21px;
-    background-size: 800px;
-    cursor: pointer;
-    float: right;
-    top: -48px;
-    margin: 15px;
-  }
-  .icon-search {
-    border-radius: 2px;
-    background: transparent;
-    top: 0px;
-    border-right: 0;
-  }
-
-  .search-icon {
-    height: 32px;
-    width: 201px;
-    background: url(../../../images/magnifying-glass.png) no-repeat 22px 0px;
-    padding-left: 40px;
-    margin-right: -28px;
-  }
 
   .search-bar {
     input {
@@ -85,19 +96,9 @@
     font-weight: bold;
   }
 
-  .service {
-    width: 646px;
-    margin: 10px auto;
-  }
-
-  .textData {
-    width: 539px;
-    font-size: 12px;
-  }
-
   .service-icons {
     width: 250px;
-    margin: 20px auto;
+    margin: 25px auto 30px;
 
     .img-plus {
       background: url(../../../images/icon.png) no-repeat 0px -100px;
@@ -145,18 +146,6 @@
     }
   }
 
-  hr {
-    margin-top: 30px !important;
-    margin-bottom: 14px !important;
-    height: 1px !important;
-    width: 646px;
-    background-color: #D8D8D8;
-  }
-
-  .radio label {
-    display: flex;
-  }
-
   .form-group label {
     text-align: right;
     width: 100px;
@@ -175,7 +164,7 @@
 
   .form-control.new-group {
     width: 300px;
-   height: 32px;
+    height: 32px;
     display: inline-block;
   }
 
