@@ -14,5 +14,11 @@ angular.module('policyEngine').controller('AllocationsCtrl',
         return 'Assigned Groups';
       }
     }
+
+    $scope.delete = function(allocation) {
+      _.remove($scope.allocations, function(all) {
+        return all.id === allocation.id;
+      });
+    }
   }
 );

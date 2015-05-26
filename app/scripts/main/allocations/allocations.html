@@ -5,6 +5,7 @@
         <simple-donut data="allocation.collection" type="{{allocation.type}}"></simple-donut>
         <div class="sliding-box">
             <h4>{{listHeader(allocation)}}</h4>
+            <a ng-click="delete(allocation)">Delete</a>
             <p ng-repeat="item in allocation.collection">
                 {{item.name}}
             </p>
