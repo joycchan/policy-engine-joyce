@@ -8,6 +8,11 @@ angular.module("policyEngine", [
     $urlRouterProvider.otherwise("/services/");
 
     $stateProvider
+      .state("launch", {
+        url: "/launch/",
+        templateUrl: "scripts/launch/launch.html",
+        controller: "LaunchCtrl"
+      })
       .state("main", {
         abstract: true,
         url: "/",
