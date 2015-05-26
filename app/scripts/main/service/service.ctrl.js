@@ -56,18 +56,9 @@ angular.module('policyEngine').controller('ServiceCtrl',
            console.log(namesSelectedRuleSet);
        }
 
-       $scope.custom = true;
-       $scope.toggleCustom = function() {
-           $scope.custom = $scope.custom === false ? true: false;
-       };
-
-       $scope.data = {
-           cb1: true,
-           cb4: true,
-           cb5: false
-       };
-       $scope.onChange = function(cbState) {
-           $scope.message = "The switch is now: " + cbState;
+       $scope.nwContext = true;
+       $scope.toggleContext = function() {
+           $scope.nwContext = $scope.nwContext === false ? true: false;
        };
 
     }

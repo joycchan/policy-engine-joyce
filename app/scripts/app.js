@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "ui.router", 'ngDraggable'
+  "ui.router", 'ngDraggable','uiSwitch'
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {

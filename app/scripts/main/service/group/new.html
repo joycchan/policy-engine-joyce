@@ -8,6 +8,35 @@
     <label for="groupDesc">Description</label>
     <textarea class="form-control description" id="groupDesc" ng-model="groupDesc" required placeholder="optional"></textarea>
 </div>
+<div>
+    <form>
+        <div class="network-func">
+        <switch id="enabled" name="enabled" ng-model="enabled" ng-change="toggleContext"  class="green"></switch> <span class="network"> Network context</span>
+        </div>
+        <br>
+        <div ng-hide="nwContext">
+        <div class="form-group">
+            <label for="subnets">Subnets</label>
+            <input type="text" class="form-control new-group" id="subnets" ng-model="subnets" required placeholder="IP Address">
+        </div>
+        <div class="form-group">
+            <label for="floodDomain">L2 Flood Domain</label>
+            <input type="text" class="form-control new-group" id="floodDomain" ng-model="floodDomain" required placeholder="16-bit UUID">
+        </div>
+        <div class="form-group">
+            <label for="bridgeDomain">L2 Brige Domain</label>
+            <input type="text" class="form-control new-group" id="bridgeDomain" ng-model="bridgeDomain" required placeholder="16-bit UUID">
+        </div>
+        <div class="form-group">
+            <label for="context">L3 Context</label>
+            <input type="text" class="form-control new-group" id="context" ng-model="context" required placeholder="16-bit UUID">
+        </div>
+        </div>
+    </form>
+
+</div>
+<div class="import">Import from ISE</div>
+
 <div class="button1">
     <div class="back-button" ui-sref="main.service.group.choose">Back</div>
     <div class="next-button" ui-sref="main.service.contract.choose">Next</div>
