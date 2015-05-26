@@ -1,21 +1,23 @@
 @import "../../../styles/variables";
 
 .services {
+  padding-left: 15px;
 
   .service-definition {
     background-color: white;
     width: 326px;
     height: 225px;
     margin-top: 20px;
-    margin-left: 15px;
+    margin-right: 15px;
     padding: 0 15px;
     border: 2px solid @color-80;
     cursor: pointer;
     float: left;
     position: relative;
+    overflow: hidden;
 
     &.defined {
-      border-top: solid 3px @link-blue;
+      border-top: solid 3px @blue;
       position: relative;
 
       .values {
@@ -28,7 +30,7 @@
         font-weight: 400;
         font-size: 10px;
         text-transform: uppercase;
-        color: @link-blue;
+        color: @blue;
         letter-spacing: 0.55px;
         line-height: 15px;
         margin: 12px 0 0;
@@ -39,11 +41,12 @@
       }
     }
 
-    &:hover {
+    &:hover .sliding-box {
+      bottom: 0;
+    }
 
-      .sliding-box {
-        display: block;
-      }
+    &.new:hover {
+      border-color: @color-70;
 
       .scircle {
         background-color: @color-70;
@@ -51,14 +54,15 @@
     }
 
     .sliding-box {
-      display: none;
-      background-color: rgba(232,236,242,0.90);
+      background-color: rgba(232, 236, 242, 0.90);
       height: 172px;
       width: 100%;
       padding-left: 15px;
       position: absolute;
-      bottom: 0;
+      bottom: -172px;
       left: 0;
+
+      transition: all 0.5s ease;
 
       h4 {
         color: @color-60;
@@ -73,7 +77,7 @@
         line-height: 20px;
 
         a {
-          color: @link-blue;
+          color: @blue;
         }
       }
     }
@@ -82,7 +86,6 @@
       position: relative;
       text-align: center;
       background-color: @color-80;
-      border: 2px solid @color-80;
       height: 125px;
       vertical-align: middle;
       width: 125px;
