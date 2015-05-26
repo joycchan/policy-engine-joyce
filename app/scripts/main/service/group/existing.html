@@ -13,7 +13,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="group in groups | filter:search"ng-click="setSelected(group.name)" ng-class="{selected : group.name === nameSelectedGroup}" >
+        <tr ng-repeat="group in groups | filter:search" ng-click="selectGroup(group)" ng-class="{selected : group.name === service.group.name}" >
             <td>{{::group.name}}</td>
             <td>
                 {{::group.origin}}
@@ -25,5 +25,5 @@
 
 <div class="buttons">
     <div class="button back" ui-sref="main.service.group.choose">Back</div>
-    <div class="button next" ui-sref="main.service.contract.choose">Next</div>
+    <div class="button next" ui-sref="main.service.contract.choose" ng-class="{ disabled: !service.group }">Next</div>
 </div>

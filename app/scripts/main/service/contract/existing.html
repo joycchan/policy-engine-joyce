@@ -10,7 +10,7 @@
         <tr><th>Name</th><th>Classifiers</th><th>Default/Custom</th></tr>
         </thead>
         <tbody>
-        <tr ng-repeat="ruleSet in contractObj | filter:searchContract" ng-click="setSelectedRuleSet(ruleSet.name)" ng-class="{selected : ruleSet.name === namesSelectedRuleSet}"
+        <tr ng-repeat="ruleSet in contractObj | filter:search" ng-click="selectRuleSet(ruleSet)" ng-class="{selected : ruleSet.name === service.ruleSet.name}"
             ng-class="existingContract==obj ? 'grayBackground' : ''">
             <td>{{::ruleSet.name}}</td>
             <td>{{::ruleSet.classifiers}}</td>
@@ -22,5 +22,5 @@
 
 <div class="buttons">
     <div class="button back" ui-sref="main.service.contract.choose">Back</div>
-    <div class="button next" ui-sref="main.service.meta">Next</div>
+    <div class="button next" ui-sref="main.service.meta" ng-class="{ disabled: !service.ruleSet }">Next</div>
 </div>

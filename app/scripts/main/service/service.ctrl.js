@@ -1,74 +1,50 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-   function($scope, $state) {
+  function ($scope, $state) {
 
-        $scope.state = {
-            groupChoice: 'new',
-            ruleSetChoice: 'new'
-        };
+    $scope.state = {
+      groupChoice: 'new',
+      ruleSetChoice: 'new'
+    };
 
-        $scope.groupName = "New Group";
-        $scope.service = {};
+    $scope.groupName = "New Group";
+    $scope.service = {};
 
-        $scope.accessGroup = function() {
-            $state.go('main.service.group.' + $scope.state.groupChoice);
-        };
+    $scope.accessGroup = function () {
+      $state.go('main.service.group.' + $scope.state.groupChoice);
+    };
 
-        $scope.accessRuleSet = function() {
-            $state.go('main.service.contract.' + $scope.state.ruleSetChoice);
-        };
+    $scope.accessRuleSet = function () {
+      $state.go('main.service.contract.' + $scope.state.ruleSetChoice);
+    };
 
-        $scope.contractObj = [
-            {name: "SQL Access", classifiers: "SQL-Port-1443", custom: "Default"},
-            {name: "TrustSEC Access", classifiers: "TrustSEC SGACL", custom: "Default"},
-            {name: "Overlay TEP", classifiers: "Overlay-TEP-Type-HWTEP", custom: "Default"},
-            {name: "Overlay Encap", classifiers: "Overlay-Encap-Type-VXLAN", custom: "Default"},
-            {name: "HTTP Access", classifiers: "TCP-80 Default", custom: "Default"},
-        ];
+    $scope.contractObj = [
+      {name: "SQL Access", classifiers: "SQL-Port-1443", custom: "Default"},
+      {name: "TrustSEC Access", classifiers: "TrustSEC SGACL", custom: "Default"},
+      {name: "Overlay TEP", classifiers: "Overlay-TEP-Type-HWTEP", custom: "Default"},
+      {name: "Overlay Encap", classifiers: "Overlay-Encap-Type-VXLAN", custom: "Default"},
+      {name: "HTTP Access", classifiers: "TCP-80 Default", custom: "Default"},
+    ];
 
-        $scope.existingContractSelection = function(selectedContract){
-            $scope.service.ruleSet = selectedContract;
-            $scope.service.name += ':' + selectedContract.name;
-            $state.go('main.service.meta');
-        };
-        $scope.existingGroupSelection = function(selectedGroup){
-            $scope.service.group = selectedGroup;
-            $scope.service.name = selectedGroup.name;
-            $scope.service.name = selectedGroup.name;
-            $state.go('main.service.contract.choose');
-        };
+    var setDefaultMetaData = function () {
+      var group = ($scope.service.group && $scope.service.group.name) ? $scope.service.group.name : '';
+      var ruleSet = ($scope.service.ruleSet && $scope.service.ruleSet.name) ? $scope.service.ruleSet.name : '';
+      $scope.service.name = group + ':' + ruleSet;
+    };
 
-        $scope.createService = function() {
-          $scope.services.push($scope.service);
-            $state.go('main.services');
-        };
+    $scope.selectRuleSet = function (selectedContract) {
+      $scope.service.ruleSet = selectedContract;
+      setDefaultMetaData();
+    };
+    $scope.selectGroup = function (selectedGroup) {
+      $scope.service.group = selectedGroup;
+      setDefaultMetaData();
+    };
 
-       $scope.nameSelectedGroup = null;
-       $scope.setSelected = function(nameSelectedGroup) {
-           $scope.nameSelectedGroup = nameSelectedGroup;
-           console.log(nameSelectedGroup);
-       }
-
-       $scope.namesSelectedRuleSet = null;
-       $scope.setSelectedRuleSet = function(namesSelectedRuleSet) {
-           $scope.namesSelectedRuleSet = namesSelectedRuleSet;
-           console.log(namesSelectedRuleSet);
-       }
-
-       $scope.custom = true;
-       $scope.toggleCustom = function() {
-           $scope.custom = $scope.custom === false ? true: false;
-       };
-
-       $scope.data = {
-           cb1: true,
-           cb4: true,
-           cb5: false
-       };
-       $scope.onChange = function(cbState) {
-           $scope.message = "The switch is now: " + cbState;
-       };
-
-    }
+    $scope.createService = function () {
+      $scope.services.push($scope.service);
+      $state.go('main.services');
+    };
+  }
 );
