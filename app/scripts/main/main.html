@@ -1,4 +1,4 @@
-<div class="container">
+<div class="base" ng-class="{ service: serviceState() }">
     <div class="top-menu">
         <div class="cisco-icon"></div>
 
@@ -11,7 +11,7 @@
                    placeholder="Search Hint Text" aria-describedby="basic-addon1">
             <span class="settings" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
             <span class="objects" aria-expanded="true" ng-mouseenter="helpHover = true"
-                ui-sref="main.allocation.new"></span>
+                  ui-sref="main.allocation.new"></span>
             <span class="services" aria-expanded="true" ng-mouseenter="helpHover = true"
                   ui-sref="main.services"></span>
             <span class="account" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
@@ -19,4 +19,3 @@
     </div>
     <ui-view></ui-view>
 </div>
-

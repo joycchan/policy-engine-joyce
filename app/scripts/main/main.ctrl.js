@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('policyEngine').controller('MainCtrl',
-  function ($scope, $http) {
+  function ($scope, $http, $state) {
+    $scope.serviceState = function() {
+      return $state.includes('main.service');
+    };
+
     var allocationId = 0;
 
     $scope.newAllocation = function (type, item) {
