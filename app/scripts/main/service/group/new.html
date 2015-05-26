@@ -2,14 +2,44 @@
 
 <div class="form-group">
     <label for="groupName">Name</label>
-    <input type="text" class="form-control new-group" ng-model="groupName" id="groupName" required >
+    <input type="text" class="form-control new-group" ng-model="newGroup.name" id="groupName" required >
 </div>
 <div class="form-group">
     <label for="groupDesc">Description</label>
-    <textarea class="form-control description" id="groupDesc" ng-model="groupDesc" required placeholder="optional"></textarea>
+    <textarea class="form-control description" id="groupDesc" ng-model="newGroup.description" required placeholder="optional"></textarea>
 </div>
+
+<div>
+    <form>
+        <div class="network-func">
+        <switch id="enabled" name="enabled" ng-model="newGroup.enabled" ng-change="toggleEnabled"  class="green"></switch> <span class="network"> Network context</span>
+        </div>
+        <br>
+        <div ng-show="newGroup.enabled">
+        <div class="form-group">
+            <label for="subnets">Subnets</label>
+            <input type="text" class="form-control new-group" id="subnets" ng-model="newGroup.subnets" required placeholder="IP Address" ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'>
+        </div>
+        <div class="form-group">
+            <label for="floodDomain">L2 Flood Domain</label>
+            <input type="text" class="form-control new-group" id="floodDomain" ng-model="newGroup.floodDomain" required placeholder="16-bit UUID">
+        </div>
+        <div class="form-group">
+            <label for="bridgeDomain">L2 Brige Domain</label>
+            <input type="text" class="form-control new-group" id="bridgeDomain" ng-model="newGroup.bridgeDomain" required placeholder="16-bit UUID">
+        </div>
+        <div class="form-group">
+            <label for="context">L3 Context</label>
+            <input type="text" class="form-control new-group" id="context" ng-model="newGroup.context" required placeholder="16-bit UUID">
+        </div>
+        </div>
+    </form>
+
+</div>
+<div class="import">Import from ISE</div>
 
 <div class="buttons">
     <div class="button back" ui-sref="main.service.group.choose">Back</div>
-    <div class="button next" ui-sref="main.service.contract.choose">Next</div>
+    <div class="button next" ng-click="saveNewGroup()">Next</div>
 </div>
+

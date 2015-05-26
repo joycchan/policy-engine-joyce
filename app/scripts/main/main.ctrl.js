@@ -11,7 +11,7 @@ angular.module('policyEngine').controller('MainCtrl',
 
     $scope.groups = [];
 
-    //$scope.allocations = [{"id":"1","type":"consume","item":{"id":"1","name":"All Employees","origin":"ISE (Active Directory)","provided":[],"consumed":[],"$$hashKey":"object:9"},"collection":[{"name":"SQL External Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:21"},{"name":"SQL Basic Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:19"},{"name":"SQL VIP Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:20"}],"$$hashKey":"object:29"}];
+    //scope.allocations = [{"id":"1","type":"consume","item":{"id":"1","name":"All Employees","description":"ISE (Active Directory)","provided":[],"consumed":[],"$$hashKey":"object:9"},"collection":[{"name":"SQL External Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:21"},{"name":"SQL Basic Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:19"},{"name":"SQL VIP Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:20"}],"$$hashKey":"object:29"}];
     $scope.allocations = [];
 
     var allocationId = $scope.allocations.length;
