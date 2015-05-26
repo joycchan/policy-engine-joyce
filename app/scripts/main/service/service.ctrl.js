@@ -1,65 +1,75 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-   function($scope, $state) {
+  function ($scope, $state) {
 
-        $scope.state = {
-            groupChoice: 'new',
-            ruleSetChoice: 'new'
-        };
+    $scope.state = {
+      groupChoice: 'new',
+      ruleSetChoice: 'new'
+    };
 
-        $scope.groupName = "New Group";
-        $scope.service = {};
+    $scope.groupName = "New Group";
+    $scope.ruleSetName = "New Rule Set";
+    $scope.service = {};
 
-        $scope.accessGroup = function() {
-            $state.go('main.service.group.' + $scope.state.groupChoice);
-        };
+    $scope.groupClass = function() {
+      if ($scope.service.group) {
+        return 'complete';
+      } else if($state.includes('main.service.group')) {
+        return 'current';
+      }
+    };
 
-        $scope.accessRuleSet = function() {
-            $state.go('main.service.contract.' + $scope.state.ruleSetChoice);
-        };
+    $scope.ruleSetClass = function() {
+      if ($scope.service.ruleSet) {
+        return 'complete';
+      } else if($state.includes('main.service.contract')) {
+        return 'current';
+      }
+    };
 
-        $scope.contractObj = [
-            {name: "SQL Access", classifiers: "SQL-Port-1443", custom: "Default"},
-            {name: "TrustSEC Access", classifiers: "TrustSEC SGACL", custom: "Default"},
-            {name: "Overlay TEP", classifiers: "Overlay-TEP-Type-HWTEP", custom: "Default"},
-            {name: "Overlay Encap", classifiers: "Overlay-Encap-Type-VXLAN", custom: "Default"},
-            {name: "HTTP Access", classifiers: "TCP-80 Default", custom: "Default"},
-        ];
+    $scope.accessGroup = function () {
+      $state.go('main.service.group.' + $scope.state.groupChoice);
+      $scope.nwContext = true;
+    };
 
-        $scope.existingContractSelection = function(selectedContract){
-            $scope.service.ruleSet = selectedContract;
-            $scope.service.name += ':' + selectedContract.name;
-            $state.go('main.service.meta');
-        };
-        $scope.existingGroupSelection = function(selectedGroup){
-            $scope.service.group = selectedGroup;
-            $scope.service.name = selectedGroup.name;
-            $scope.service.name = selectedGroup.name;
-            $state.go('main.service.contract.choose');
-        };
+    $scope.accessRuleSet = function () {
+      $state.go('main.service.contract.' + $scope.state.ruleSetChoice);
+    };
 
-        $scope.createService = function() {
-          $scope.services.push($scope.service);
-            $state.go('main.services');
-        };
+    $scope.contractObj = [
+      {name: "SQL Access", classifiers: "SQL-Port-1443", custom: "Default"},
+      {name: "TrustSEC Access", classifiers: "TrustSEC SGACL", custom: "Default"},
+      {name: "Overlay TEP", classifiers: "Overlay-TEP-Type-HWTEP", custom: "Default"},
+      {name: "Overlay Encap", classifiers: "Overlay-Encap-Type-VXLAN", custom: "Default"},
+      {name: "HTTP Access", classifiers: "TCP-80 Default", custom: "Default"},
+    ];
 
-       $scope.nameSelectedGroup = null;
-       $scope.setSelected = function(nameSelectedGroup) {
-           $scope.nameSelectedGroup = nameSelectedGroup;
-           console.log(nameSelectedGroup);
-       }
+    var setDefaultMetaData = function () {
+      var group = ($scope.service.group && $scope.service.group.name) ? $scope.service.group.name : '';
+      var ruleSet = ($scope.service.ruleSet && $scope.service.ruleSet.name) ? $scope.service.ruleSet.name : '';
+      $scope.service.name = group + ':' + ruleSet;
+    };
 
-       $scope.namesSelectedRuleSet = null;
-       $scope.setSelectedRuleSet = function(namesSelectedRuleSet) {
-           $scope.namesSelectedRuleSet = namesSelectedRuleSet;
-           console.log(namesSelectedRuleSet);
-       }
+    $scope.selectRuleSet = function (selectedContract) {
+      $scope.service.ruleSet = selectedContract;
+      setDefaultMetaData();
+    };
+    $scope.selectGroup = function (selectedGroup) {
+      $scope.service.group = selectedGroup;
+      setDefaultMetaData();
+    };
 
-       $scope.nwContext = true;
-       $scope.toggleContext = function() {
-           $scope.nwContext = $scope.nwContext === false ? true: false;
-       };
 
-    }
+   $scope.nwContext = true;
+   $scope.toggleContext = function() {
+       $scope.nwContext = $scope.nwContext === false ? true: false;
+   };
+
+    $scope.createService = function () {
+      $scope.services.push($scope.service);
+      $state.go('main.services');
+    };
+  }
+
 );

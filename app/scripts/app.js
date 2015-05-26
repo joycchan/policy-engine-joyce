@@ -66,12 +66,13 @@ angular.module("policyEngine", [
         .state("main.allocations", {
           url: 'allocations/',
           templateUrl: 'scripts/main/allocations/allocations.html',
+        controller: "AllocationsCtrl"
         })
         .state("main.allocation", {
           abstract: true,
           url: "allocations/",
           templateUrl: "scripts/main/allocations/allocation/allocation.html",
-          controller: "AllocationsCtrl"
+          controller: "AllocationCtrl"
         })
           .state("main.allocation.new", {
             url: "new/",

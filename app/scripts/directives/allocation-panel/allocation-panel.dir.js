@@ -18,7 +18,8 @@ angular.module('policyEngine')
         title: '@',
         items: '=',
         mask: '=',
-        type: '@'
+        type: '@',
+        newState: '@'
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {

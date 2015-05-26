@@ -1,17 +1,24 @@
 'use strict';
 
 angular.module('policyEngine').controller('AllocationsCtrl',
-  function($scope, $state, $http) {
+  function($scope, $state) {
 
-    $scope.maskGroups = function() {
-      return $state.is('main.allocation.existing.consume');
+    $scope.goToAllocation = function(allocation) {
+      $state.go('main.allocation.existing.' + allocation.type, { allocationId: allocation.id });
     };
 
-    $scope.maskServices = function () {
-      return $state.is('main.allocation.existing.provide');
-    };
+    $scope.listHeader = function(allocation) {
+      if (allocation.type === 'consume') {
+        return 'Assigned Services';
+      } else {
+        return 'Assigned Groups';
+      }
+    }
 
-    $scope.$state = $state;
-
+    $scope.delete = function(allocation) {
+      _.remove($scope.allocations, function(all) {
+        return all.id === allocation.id;
+      });
+    }
   }
 );

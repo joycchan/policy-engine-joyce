@@ -1,15 +1,22 @@
-<h3>Lastly, Specify a Name for the New Service</h3>
-<form>
+<h3><span class="current">Lastly, Specify a Name for the New Service</span></h3>
+<form class="form-horizontal">
     <div class="form-group">
-        <label>Name</label>
-        <input type="text" class="form-control" ng-model="service.name">
+        <label class="col-sm-2 control-label" for="name">Name</label>
+
+        <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="service.name" id="name">
+        </div>
     </div>
     <div class="form-group">
-        <label>Description</label>
-        <textarea rows="3" class="form-control" ng-model="service.description"></textarea>
+        <label class="col-sm-2 control-label" for="description">Description</label>
+
+        <div class="col-sm-6">
+            <textarea rows="3" class="form-control" ng-model="service.description" id="description"></textarea>
+        </div>
     </div>
 </form>
 
-<div class="button1">
-<div class="next-button" ng-click="createService()">Done</div>
+<div class="buttons">
+    <div class="button back" ng-click="accessRuleSet()">Back</div>
+    <div class="button next" ng-click="createService()">Done</div>
 </div>

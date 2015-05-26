@@ -1,4 +1,4 @@
-/ <span class="choice">New Group</span>
+<h3>Create or Select a Group <span class="current">/ New Group</span></h3>
 
 <div class="form-group">
     <label for="groupName">Name</label>
@@ -8,6 +8,7 @@
     <label for="groupDesc">Description</label>
     <textarea class="form-control description" id="groupDesc" ng-model="groupDesc" required placeholder="optional"></textarea>
 </div>
+
 <div>
     <form>
         <div class="network-func">
@@ -17,7 +18,7 @@
         <div ng-hide="nwContext">
         <div class="form-group">
             <label for="subnets">Subnets</label>
-            <input type="text" class="form-control new-group" id="subnets" ng-model="subnets" required placeholder="IP Address">
+            <input type="text" class="form-control new-group" id="subnets" ng-model="subnets" required placeholder="IP Address" ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'>
         </div>
         <div class="form-group">
             <label for="floodDomain">L2 Flood Domain</label>
@@ -37,7 +38,8 @@
 </div>
 <div class="import">Import from ISE</div>
 
-<div class="button1">
-    <div class="back-button" ui-sref="main.service.group.choose">Back</div>
-    <div class="next-button" ui-sref="main.service.contract.choose">Next</div>
+<div class="buttons">
+    <div class="button back" ui-sref="main.service.group.choose">Back</div>
+    <div class="button next" ui-sref="main.service.contract.choose">Next</div>
 </div>
+

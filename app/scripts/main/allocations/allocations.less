@@ -1,44 +1,36 @@
 @import "../../../styles/variables";
 
-
 .allocation-cards {
-  .allocation-card {
-    background-color: white;
-    height: 225px;
+  padding-left: 15px;
+
+  .card {
     width: 326px;
-    margin-top: 20px;
-    margin-left: 15px;
-    padding: 0 15px;
-    border: 2px solid @color-80;
-    cursor: pointer;
-    float: left;
 
-  }
-  .scircle {
-    position: relative;
-    text-align: center;
-    background-color: @color-80;
-    border: 2px solid @color-80;
-    height: 125px;
-    vertical-align: middle;
-    width: 125px;
-    border-radius: 100px;
-    padding-top: 50px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    a {
+      float: right;
+      padding: 12px;
+    }
 
-    .img-plus-serdfn {
-      background: url(../../../images/icon.png) no-repeat 0px -484px;
-      display: inline-block;
-      width: 43px;
-      height: 43px;
-      background-size: 818px;
-      cursor: pointer;
-      margin: -11px -56px;
+    .sliding-box {
+
+      h4 {
+        color: @color-60;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 17px;
+        margin-bottom: 5px;
+        display: inline-block;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 10px;
+        color: @color-60;
+        line-height: 8px;
+      }
     }
   }
-
 }
 
 .allocations {
@@ -121,7 +113,7 @@
   .show-list {
     font-weight: 300;
     font-size: 12px;
-    color: @link-blue;
+    color: @blue;
     letter-spacing: 0;
     line-height: 16px;
   }

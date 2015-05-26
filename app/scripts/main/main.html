@@ -1,4 +1,4 @@
-<div class="container">
+<div class="base" ng-class="{ service: serviceState() }">
     <div class="top-menu">
         <div class="cisco-icon"></div>
 
@@ -9,14 +9,59 @@
         <div class="menu-items">
             <input type="text" class="input-search" name="search" ng-model="search" id="search"
                    placeholder="Search Hint Text" aria-describedby="basic-addon1">
-            <span class="settings" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
-            <span class="objects" aria-expanded="true" ng-mouseenter="helpHover = true"
-                ui-sref="main.allocation.new"></span>
-            <span class="services" aria-expanded="true" ng-mouseenter="helpHover = true"
-                  ui-sref="main.services"></span>
-            <span class="account" aria-expanded="true" ng-mouseenter="helpHover = true"></span>
-        </div>
+            <div id="navbar" class="navbar-collapse collapse" style="z-index:3;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="settings current"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" ui-sref="main.services">Services </a>
+                            </li>
+                            <li><a href="#" ui-sref="main.allocations">Assignments</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="objects"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Groups</a>
+                            </li>
+                            <li><a href="#">Rule Sets</a>
+                            </li>
+                            <li><a href="#">Dependency Graphs</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="services"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Classifiers Library</a>
+                            </li>
+                            <li><a href="#">Actions Library</a>
+                            </li>
+                            <li><a href="#">Application Settings</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="account"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Account Settings</a>
+                            </li>
+                            <li><a href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+       </div>
     </div>
     <ui-view></ui-view>
 </div>
-

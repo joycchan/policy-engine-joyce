@@ -1,76 +1,55 @@
 @import "../../../styles/variables";
 
 .service-wrapper {
-  margin-left: 15px;
 
-  h3 {
-    display: inline-block;
-  }
+  .top-row {
 
-  .table-hover tr:hover {
-    background: #F7F7F7;
-  }
-  .selected{
-    background: #ECE8F2;
-    border-left:solid 3px #0096d6 ;
-  }
-
-  .button1 {
-    float: right;
-
-    .back-button {
-      display: inline-block;
-      background-color: #c4c7cc;
-      color: white;
-      border-radius: 16px;
-      height: 32px;
-      line-height: 32px;
-      padding: 0 32px;
-      cursor: pointer;
-      margin-bottom: 40px;
-      margin-right: 10px;
-    }
-    .next-button {
-      float: right;
-      display: inline-block;
-      background-color: @green;
-      color: white;
-      border-radius: 16px;
-      height: 32px;
-      line-height: 32px;
-      padding: 0 32px;
-      cursor: pointer;
-      margin-bottom: 40px;
-    }
-  }
-  .img-close {
-    background: url(../../../images/icon.png) no-repeat -33px -80px;
-    position: relative;
-    display: block;
-    width: 17px;
-    height: 21px;
-    background-size: 800px;
-    cursor: pointer;
-    float: right;
-    top: -48px;
     margin: 15px;
-  }
-  .icon-search {
-    border-radius: 2px;
-    background: transparent;
-    top: 0px;
-    border-right: 0;
+
+    h2 {
+      margin: 0;
+      display: inline-block;
+    }
+
+    .img-close {
+      background: url(../../../images/icon.png) no-repeat -33px -80px;
+      width: 17px;
+      height: 21px;
+      background-size: 800px;
+      cursor: pointer;
+      float: right;
+    }
+
   }
 
-  .search-icon {
-    height: 32px;
-    width: 201px;
-    background: url(../../../images/magnifying-glass.png) no-repeat 22px 0px;
-    padding-left: 40px;
-    margin-right: -28px;
+  .service {
+    width: 646px;
+    margin: 10px auto;
+  }
+
+  .textData {
+    letter-spacing: 0.1px;
+    width: 539px;
+  }
+
+  hr {
+    margin: 0;
+    height: 1px;
+    width: 646px;
+    background-color: @color-75;
+  }
+
+  h3 .current {
+    font-weight: normal;
   }
 
   .search-bar {
+    margin-top: 5px;
+
+    label {
+      font-weight: normal;
+    }
+
     input {
       border: 1px @color-70 solid;
       height: 32px;
@@ -81,23 +60,42 @@
     }
   }
 
-  .choice {
-    font-weight: bold;
+  .table {
+    margin-top: 20px;
+
+    tbody tr {
+      cursor: pointer;
+
+      td:first-child {
+        border-left: solid 3px white;
+      }
+
+      &:hover {
+        background-color: @color-90;
+
+        td:first-child {
+          border-left: solid 3px @color-90;
+        }
+      }
+
+      &.selected {
+        background: @color-80;
+
+        td:first-child {
+          border-left: solid 3px @blue;
+        }
+      }
+    }
   }
 
-  .service {
-    width: 646px;
-    margin: 10px auto;
-  }
-
-  .textData {
-    width: 539px;
-    font-size: 12px;
+  .buttons {
+    margin-top: 15px;
+    float: right;
   }
 
   .service-icons {
     width: 250px;
-    margin: 20px auto;
+    margin: 25px auto 30px;
 
     .img-plus {
       background: url(../../../images/icon.png) no-repeat 0px -100px;
@@ -109,52 +107,47 @@
       margin: 35px 10px;
     }
     .img-group {
-      background: url(../../../images/icon.png) no-repeat -90px -103px;
+      background: url(../../../images/icon.png) no-repeat 3px -103px;
       display: inline-block;
       width: 92px;
       height: 92px;
       background-size: 680px;
+
+      &.current {
+        background: url(../../../images/icon.png) no-repeat -90px -103px;
+        background-size: 680px;
+      }
+
+      &.complete {
+        background: url(../../../images/icon.png) no-repeat -182px -103px;
+        background-size: 680px;
+      }
     }
     .img-contract {
-      background: url(../../../images/icon.png) no-repeat 3px -193px;
-      display: inline-block;
-      width: 92px;
-      height: 92px;
-      background-size: 670px;
-    }
-    .img-groupHigh {
-      background: url(../../../images/icon.png) no-repeat -182px -103px;
+      background: url(../../../images/icon.png) no-repeat 2px -195px;
       display: inline-block;
       width: 92px;
       height: 92px;
       background-size: 680px;
-    }
-    .img-contractHigh {
-      background: url(../../../images/icon.png) no-repeat -87px -193px;
-      display: inline-block;
-      width: 92px;
-      height: 92px;
-      background-size: 670px;
-    }
-    .img-service {
-      background: url(../../../images/icon.png) no-repeat -87px -193px;
-      display: inline-block;
-      width: 92px;
-      height: 92px;
-      background-size: 670px;
+
+      &.current {
+        background: url(../../../images/icon.png) no-repeat -90px -195px;
+        background-size: 680px;
+      }
+
+      &.complete {
+        background: url(../../../images/icon.png) no-repeat -182px -195px;
+        background-size: 680px;
+      }
     }
   }
 
-  hr {
-    margin-top: 30px !important;
-    margin-bottom: 14px !important;
-    height: 1px !important;
-    width: 646px;
-    background-color: #D8D8D8;
-  }
+  .form-group {
+    margin-top: 5px;
 
-  .radio label {
-    display: flex;
+    label {
+      font-weight: normal;
+    }
   }
 
   .form-group label {
@@ -175,7 +168,7 @@
 
   .form-control.new-group {
     width: 300px;
-   height: 32px;
+    height: 32px;
     display: inline-block;
   }
 
@@ -229,5 +222,18 @@
   .network-func {
     padding-bottom: 20px;
     display: inline-flex;
+  }
+  .import {
+    float: left;
+    display: inline-block;
+    background-color: #c4c7cc;
+    color: white;
+    border-radius: 16px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 32px;
+    cursor: pointer;
+    margin-bottom: 40px;
+    margin-right: 300px;
   }
 }

@@ -1,5 +1,8 @@
 <div class="service-wrapper">
-    <h2>New Service</h2><span class="img-close"></span>
+    <div class="top-row">
+        <h2>New Service</h2>
+        <span class="img-close" ui-sref="main.services"></span>
+    </div>
 
     <div class="service">
 
@@ -8,11 +11,9 @@
             set that specifies how that work will be done.</p>
 
         <div class="service-icons">
-            <div class="img-group" ng-class="groupClass"></div>
-            <!--div class="img-groupHigh" ng-class="groupClass" ></div-->
+            <div class="img-group" ng-class="groupClass()"></div>
             <div class="img-plus mid-plus"></div>
-
-            <div class="img-contract" ng-class="contractClass"></div>
+            <div class="img-contract" ng-class="ruleSetClass()"></div>
         </div>
         <hr/>
         <ui-view></ui-view>
