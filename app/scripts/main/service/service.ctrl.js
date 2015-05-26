@@ -10,7 +10,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     var resetGroup = function() {
       $scope.newGroup = {
-        name: "New Group"
+        name: "New Group",
+        enabled: false
       };
     };
     resetGroup();
@@ -37,7 +38,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.accessGroup = function () {
       $state.go('main.service.group.' + $scope.state.groupChoice);
-      $scope.nwContext = true;
+      $scope.enabled = true;
     };
 
     $scope.saveNewGroup = function() {
@@ -73,10 +74,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
       setDefaultMetaData();
     };
 
-
-   $scope.nwContext = true;
    $scope.toggleContext = function() {
-       $scope.nwContext = $scope.nwContext === false ? true: false;
+       $scope.newGroup.enabled = !$scope.newGroup.enabled;
    };
 
     $scope.createService = function () {
