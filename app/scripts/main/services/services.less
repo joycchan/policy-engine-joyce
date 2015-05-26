@@ -14,6 +14,7 @@
     cursor: pointer;
     float: left;
     position: relative;
+    overflow: hidden;
 
     &.defined {
       border-top: solid 3px @blue;
@@ -40,11 +41,12 @@
       }
     }
 
-    &:hover {
+    &:hover .sliding-box {
+      bottom: 0;
+    }
 
-      .sliding-box {
-        display: block;
-      }
+    &.new:hover {
+      border-color: @color-70;
 
       .scircle {
         background-color: @color-70;
@@ -52,14 +54,15 @@
     }
 
     .sliding-box {
-      display: none;
-      background-color: rgba(232,236,242,0.90);
+      background-color: rgba(232, 236, 242, 0.90);
       height: 172px;
       width: 100%;
       padding-left: 15px;
       position: absolute;
-      bottom: 0;
+      bottom: -172px;
       left: 0;
+
+      transition: all 0.5s ease;
 
       h4 {
         color: @color-60;
@@ -83,7 +86,6 @@
       position: relative;
       text-align: center;
       background-color: @color-80;
-      border: 2px solid @color-80;
       height: 125px;
       vertical-align: middle;
       width: 125px;
