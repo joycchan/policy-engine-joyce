@@ -39,25 +39,17 @@
     background-color: @color-75;
   }
 
-  h3 {
-    display: inline-block;
+  h3 .current {
     font-weight: normal;
   }
 
-  .table-hover tr:hover {
-    background: #F7F7F7;
-  }
-  .selected {
-    background: #ECE8F2;
-    border-left: solid 3px #0096d6;
-  }
-
-  .buttons {
-    margin-top: 15px;
-    float: right;
-  }
-
   .search-bar {
+    margin-top: 5px;
+
+    label {
+      font-weight: normal;
+    }
+
     input {
       border: 1px @color-70 solid;
       height: 32px;
@@ -68,8 +60,35 @@
     }
   }
 
-  .choice {
-    font-weight: bold;
+  .table {
+    margin-top: 20px;
+
+    tr {
+      td:first-child {
+        border-left: solid 3px white;
+      }
+
+      &:hover {
+        background-color: @color-90;
+
+        td:first-child {
+          border-left: solid 3px @color-90;
+        }
+      }
+
+      &.selected {
+        background: @color-80;
+
+        td:first-child {
+          border-left: solid 3px @blue;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    margin-top: 15px;
+    float: right;
   }
 
   .service-icons {
@@ -119,6 +138,14 @@
       width: 92px;
       height: 92px;
       background-size: 670px;
+    }
+  }
+
+  .form-group {
+    margin-top: 5px;
+
+    label {
+      font-weight: normal;
     }
   }
 

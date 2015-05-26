@@ -1,27 +1,26 @@
-/ <span class="choice">Existing Group</span>
+<h3>Create or Select a Group <span class="current">/ Existing Group</span></h3>
 
-<div>
-    <div class="search-bar">
-        <label for="search">Search</label>
-        <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
-    </div>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Origin</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="group in groups | filter:search" ng-click="selectGroup(group)" ng-class="{selected : group.name === service.group.name}" >
-            <td>{{::group.name}}</td>
-            <td>
-                {{::group.origin}}
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<div class="search-bar">
+    <label for="search">Search</label>
+    <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
 </div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Origin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="group in groups | filter:search" ng-click="selectGroup(group)"
+        ng-class="{selected : group.name === service.group.name}">
+        <td>{{::group.name}}</td>
+        <td>
+            {{::group.origin}}
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 <div class="buttons">
     <div class="button back" ui-sref="main.service.group.choose">Back</div>
