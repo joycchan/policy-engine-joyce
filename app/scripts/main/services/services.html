@@ -2,7 +2,7 @@
 
     <h2>Services</h2>
 
-    <div ng-repeat="service in services" class="service-definition defined">
+    <div ng-repeat="service in services" class="card defined">
         <h3>{{service.name}}</h3>
 
         <div class="values">
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="service-definition" ui-sref="main.service.group.choose">
+    <div class="card new" ui-sref="main.service.group.choose">
         <div class="scircle" ui-sref="main.service.group.choose">
             <span class="img-plus-serdfn" id="plus-serdfn"></span>
         </div>

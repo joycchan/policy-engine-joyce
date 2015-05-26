@@ -1,23 +1,28 @@
-/ <span class="choice">Existing Rule Set</span>
+<h3>Create or Select a Rule Set <span class="current">/ Existing Rule Set</span></h3>
 
-<div>
-    <div class="search-bar">
-        <label for="search">Search</label>
-        <input type="text"name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
-    </div>
-    <table class="table table-hover">
-        <thead>
-        <tr><th>Name</th><th>Classifiers</th><th>Default/Custom</th></tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="obj in contractObj | filter:searchContract" ng-click="existingContractSelection(obj)"
-            ng-class="existingContract==obj ? 'grayBackground' : ''">
-            <td>{{::obj.name}}</td>
-            <td>{{::obj.classifiers}}</td>
-            <td>{{::obj.custom}}</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="search-bar">
+    <label for="search">Search</label>
+    <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
 </div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Classifiers</th>
+        <th>Default/Custom</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="ruleSet in contractObj | filter:search" ng-click="selectRuleSet(ruleSet)"
+        ng-class="{selected : ruleSet.name === service.ruleSet.name}">
+        <td>{{::ruleSet.name}}</td>
+        <td>{{::ruleSet.classifiers}}</td>
+        <td>{{::ruleSet.custom}}</td>
+    </tr>
+    </tbody>
+</table>
 
-<div class="next-button" ui-sref="main.service.meta">Next</div>
+<div class="buttons">
+    <div class="button back" ui-sref="main.service.contract.choose">Back</div>
+    <div class="button next" ui-sref="main.service.meta" ng-class="{ disabled: !service.ruleSet }">Next</div>
+</div>

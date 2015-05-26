@@ -1,5 +1,15 @@
-/ New Group
+<h3>Create or Select a Group <span class="current">/ New Group</span></h3>
 
-Add a new group form
+<div class="form-group">
+    <label for="groupName">Name</label>
+    <input type="text" class="form-control new-group" ng-model="groupName" id="groupName" required >
+</div>
+<div class="form-group">
+    <label for="groupDesc">Description</label>
+    <textarea class="form-control description" id="groupDesc" ng-model="groupDesc" required placeholder="optional"></textarea>
+</div>
 
-<a ui-sref="main.service.contract.choose">Next</a>
+<div class="buttons">
+    <div class="button back" ui-sref="main.service.group.choose">Back</div>
+    <div class="button next" ui-sref="main.service.contract.choose">Next</div>
+</div>
