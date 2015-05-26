@@ -11,6 +11,22 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.groupName = "New Group";
     $scope.service = {};
 
+    $scope.groupClass = function() {
+      if ($scope.service.group) {
+        return 'complete';
+      } else if($state.includes('main.service.group')) {
+        return 'current';
+      }
+    };
+
+    $scope.ruleSetClass = function() {
+      if ($scope.service.ruleSet) {
+        return 'complete';
+      } else if($state.includes('main.service.contract')) {
+        return 'current';
+      }
+    };
+
     $scope.accessGroup = function () {
       $state.go('main.service.group.' + $scope.state.groupChoice);
     };

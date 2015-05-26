@@ -105,39 +105,38 @@
       margin: 35px 10px;
     }
     .img-group {
-      background: url(../../../images/icon.png) no-repeat -90px -103px;
+      background: url(../../../images/icon.png) no-repeat 3px -103px;
       display: inline-block;
       width: 92px;
       height: 92px;
       background-size: 680px;
+
+      &.current {
+        background: url(../../../images/icon.png) no-repeat -90px -103px;
+        background-size: 680px;
+      }
+
+      &.complete {
+        background: url(../../../images/icon.png) no-repeat -182px -103px;
+        background-size: 680px;
+      }
     }
     .img-contract {
-      background: url(../../../images/icon.png) no-repeat 3px -193px;
-      display: inline-block;
-      width: 92px;
-      height: 92px;
-      background-size: 670px;
-    }
-    .img-groupHigh {
-      background: url(../../../images/icon.png) no-repeat -182px -103px;
+      background: url(../../../images/icon.png) no-repeat 2px -195px;
       display: inline-block;
       width: 92px;
       height: 92px;
       background-size: 680px;
-    }
-    .img-contractHigh {
-      background: url(../../../images/icon.png) no-repeat -87px -193px;
-      display: inline-block;
-      width: 92px;
-      height: 92px;
-      background-size: 670px;
-    }
-    .img-service {
-      background: url(../../../images/icon.png) no-repeat -87px -193px;
-      display: inline-block;
-      width: 92px;
-      height: 92px;
-      background-size: 670px;
+
+      &.current {
+        background: url(../../../images/icon.png) no-repeat -90px -195px;
+        background-size: 680px;
+      }
+
+      &.complete {
+        background: url(../../../images/icon.png) no-repeat -182px -195px;
+        background-size: 680px;
+      }
     }
   }
 
