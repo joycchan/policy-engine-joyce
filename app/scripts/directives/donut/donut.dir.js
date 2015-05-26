@@ -18,10 +18,10 @@ angular.module('policyEngine')
 
         var radius = 108,
           margin = {
-            top: 100,
-            bottom: 100,
-            left: 150,
-            right: 150
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0
           };
 
         var width = radius * 2 + margin.left + margin.right;
@@ -89,7 +89,7 @@ angular.module('policyEngine')
               var t = d3.select(this)
               t.append('tspan').text(d.data.name)
               if (scope.type === 'consume') {
-                t.append('tspan').text('(' + d.data.group + ')')
+                t.append('tspan').text('(' + d.data.group.name + ')')
                   .attr('x', 0).attr('dy', '15');
               }
             });
