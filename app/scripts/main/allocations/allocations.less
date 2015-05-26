@@ -1,6 +1,5 @@
 @import "../../../styles/variables";
 
-
 .allocation-cards {
   padding-left: 15px;
 
@@ -14,7 +13,51 @@
     border: 2px solid @color-80;
     cursor: pointer;
     float: left;
+    position: relative;
+    overflow: hidden;
 
+    h4 {
+      font-weight: 400;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: @blue;
+      letter-spacing: 0.55px;
+      line-height: 15px;
+      margin: 12px 0 0;
+    }
+
+    &:hover {
+      .sliding-box {
+        bottom: 0;
+      }
+    }
+
+    .sliding-box {
+      background-color: rgba(232, 236, 242, 0.90);
+      height: 172px;
+      width: 100%;
+      padding-left: 15px;
+      position: absolute;
+      bottom: -172px;
+      left: 0;
+
+      transition: all 0.5s ease;
+
+      h4 {
+        color: @color-60;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 17px;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 10px;
+        color: @color-60;
+        line-height: 8px;
+
+      }
+    }
   }
   .scircle {
     position: relative;
