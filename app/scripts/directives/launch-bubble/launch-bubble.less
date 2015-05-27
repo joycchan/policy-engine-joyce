@@ -1,11 +1,15 @@
 @import "../../../styles/variables";
 
+@launchBubbleWidth: 145px;
+@duration1: 0.1s;
+@duration2: 0.2s;
+@duration3: 0.3s;
 @zIndexLaunchBubbleStart: 1;
 @zIndexLaunchBubbleHover: 2;
 @zIndexMain: 2;
 @zIndexDrawer: 1;
 .mixin-launchBubble-drawer() {
-  height: 145px;
+  height: @launchBubbleWidth;
   opacity: 0.9;
   box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.15);
 }
@@ -15,23 +19,16 @@
 }
 
 .launchBubble {
-  height: 145px;
-  width: 145px;
+  height: @launchBubbleWidth;
+  width: @launchBubbleWidth;
   margin-bottom: 10px;
   position: relative;
   z-index: @zIndexLaunchBubbleStart;
-
-  &:hover {
-    z-index: @zIndexLaunchBubbleHover;
-    .launchBubble-drawer {
-      display: block;
-    }
-  }
 }
 
 .launchBubble-main {
-  height: 145px;
-  width: 145px;
+  height: @launchBubbleWidth;
+  width: @launchBubbleWidth;
   position: relative;
   z-index: @zIndexMain;
   border-radius: 50%;
@@ -62,27 +59,35 @@
   position: absolute;
   top: 0;
   z-index: @zIndexDrawer;
-  display: none;
 }
+
 .launchBubble-drawer-left {
   .mixin-launchBubble-drawer();
-  width: 145px;
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
   background-color: @launchBubble-drawer;
+  width: 0;
+  left: @launchBubbleWidth / 2;
+  position: relative;
+  transition: width @duration2; // drawer left width transitions
 }
+
 .launchBubble-drawer-right {
   .mixin-launchBubble-drawer();
-  width: 135px;
   background-color: @launchBubble-drawer;
   position: absolute;
   top: 0;
-  left: 145px;
+  left: @launchBubbleWidth;
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
-  padding-top: 15px;
+  padding-top: 20px;
   text-align: left;
-  padding-left: 12px;
+  width: 0;
+  transition: width @duration2 @duration1; // drawer right width transitions after drawer-left finishes
+}
+
+.launchBubble-drawer-right-content {
+  opacity: 0;
+  transition: opacity @duration1 @duration3; // content of drawer2 appears after drawer-right's width is ready to accomodate
+  padding-left: 15px;
 }
 
 .launchBubble-drawer-itemName {
@@ -120,5 +125,36 @@
   }
   .launchBubble-drawer-itemStat-badArrow {
     display: none;
+  }
+}
+
+
+// transitions
+  // pseudo-classes (:hover) are not sufficient for activating these transitions
+  // because we're transitioning multiple elements staggered, need to do reverse transiton timing on mousleave
+.is-hovered-js {
+  .launchBubble {
+    z-index: @zIndexLaunchBubbleHover;
+  }
+  .launchBubble-drawer-left {
+    width: 75.2px;
+  }
+  .launchBubble-drawer-right {
+    width: 135px;
+  }
+  .launchBubble-drawer-right-content {
+    opacity: 1;
+  }
+}
+
+.is-mouseleaved-js {
+  .launchBubble-drawer-left {
+    transition: width @duration1 @duration2; // drawer left recedes after drawer-right recedes
+  }
+  .launchBubble-drawer-right {
+    transition: width @duration1 @duration1; // drawer right recedes after content hides
+  }
+  .launchBubble-drawer-right-content {
+    transition: opacity @duration1; // content hides first
   }
 }

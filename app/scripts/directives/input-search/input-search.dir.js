@@ -11,7 +11,6 @@ angular.module('policyEngine')
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {
-
       }
     };
   });

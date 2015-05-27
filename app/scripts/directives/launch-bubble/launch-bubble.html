@@ -1,4 +1,4 @@
-<div class="launchBubble">
+<div class="launchBubble" ng-mouseover="mouseover()" ng-mouseleave="mouseleave()">
   <div class="launchBubble-main">
     <div class="launchBubble-main-itemName">{{name}}</div>
     <div class="launchBubble-main-itemStat" ng-class="{'is-goodStat': isGoodStat}">{{stat}}</div>
@@ -6,14 +6,16 @@
   <div class="launchBubble-drawer">
     <div class="launchBubble-drawer-left"></div>
     <div class="launchBubble-drawer-right">
-      <div class="launchBubble-drawer-itemName" ng-repeat-start="drawerStat in drawerStats">
-        {{drawerStat.name}}
-      </div>
-      <div class="launchBubble-drawer-itemStat" ng-repeat-end
-        ng-class="{'is-goodStat': drawerStat.isGoodStat}">
-        {{drawerStat.stat}}
-        <img class="launchBubble-drawer-itemStat-goodArrow" src="images/icon_green_arrorw_up.png">
-        <img class="launchBubble-drawer-itemStat-badArrow" src="images/icon_red_arrow_down.png">
+      <div class="launchBubble-drawer-right-content">
+        <div class="launchBubble-drawer-itemName" ng-repeat-start="drawerStat in drawerStats">
+          {{drawerStat.name}}
+        </div>
+        <div class="launchBubble-drawer-itemStat" ng-repeat-end
+          ng-class="{'is-goodStat': drawerStat.isGoodStat}">
+          {{drawerStat.stat}}
+          <img class="launchBubble-drawer-itemStat-goodArrow" src="images/icon_green_arrorw_up.png">
+          <img class="launchBubble-drawer-itemStat-badArrow" src="images/icon_red_arrow_down.png">
+        </div>
       </div>
     </div>
   </div>

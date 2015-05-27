@@ -17,7 +17,12 @@ angular.module('policyEngine')
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {
-
+        scope.mouseover = function() {
+          $(element).removeClass('is-mouseleaved-js').addClass('is-hovered-js');
+        };
+        scope.mouseleave = function() {
+          $(element).removeClass('is-hovered-js').addClass('is-mouseleaved-js');
+        }
       }
     };
   });
