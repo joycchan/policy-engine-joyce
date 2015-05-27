@@ -11,7 +11,9 @@ angular.module('policyEngine')
         // number to display
         stat: '=',
         // boolean value which will determine what color to display the stat
-        isGoodStat: '='
+        isGoodStat: '=',
+        // array of objects of stats to display on hover
+        drawerStats: '='
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {

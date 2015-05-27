@@ -19,7 +19,7 @@
     <img ng-src="{{category.img}}">
     <div class="launchSummary-category-name">{{category.category}}</div>
     <launch-bubble ng-repeat="item in mockSummaryData[category.category]"
-      name="item.name" stat="item.stat" is-good-stat="item.isGoodStat">
+      name="item.name" stat="item.stat" is-good-stat="item.isGoodStat" drawer-stats="item.drawerStats">
     </launch-bubble>
   </div>
 

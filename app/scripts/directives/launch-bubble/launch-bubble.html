@@ -6,10 +6,12 @@
   <div class="launchBubble-drawer">
     <div class="launchBubble-drawer-left"></div>
     <div class="launchBubble-drawer-right">
-      <div class="launchBubble-drawer-itemName">Last Month</div>
-      <div class="launchBubble-drawer-itemStat">8</div>
-      <!-- <div class="launchBubble-drawer-itemName">Past Quarter</div>
-      <div class="launchBubble-drawer-itemStat">8</div> -->
+      <div class="launchBubble-drawer-itemName" ng-repeat-start="drawerStat in drawerStats">
+        {{drawerStat.name}}
+      </div>
+      <div class="launchBubble-drawer-itemStat" ng-repeat-end>
+        {{drawerStat.stat}}
+      </div>
     </div>
   </div>
 </div>
