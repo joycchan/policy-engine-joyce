@@ -8,7 +8,16 @@ angular.module('policyEngine').controller('ServiceCtrl',
       ruleSetChoice: 'new'
     };
 
-    $scope.groupName = "New Group";
+    var resetGroup = function() {
+      $scope.newGroup = {
+        name: "New Group",
+        enabled: false
+      };
+    };
+    resetGroup();
+
+    $scope.ruleSetName = "New Rule Set";
+
     $scope.service = {};
 
     $scope.groupClass = function() {
@@ -29,6 +38,13 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.accessGroup = function () {
       $state.go('main.service.group.' + $scope.state.groupChoice);
+      $scope.enabled = true;
+    };
+
+    $scope.saveNewGroup = function() {
+      $scope.groups.push($scope.newGroup);
+      resetGroup();
+      $state.go('main.service.contract.choose')
     };
 
     $scope.accessRuleSet = function () {
@@ -58,9 +74,14 @@ angular.module('policyEngine').controller('ServiceCtrl',
       setDefaultMetaData();
     };
 
+   $scope.toggleContext = function() {
+       $scope.newGroup.enabled = !$scope.newGroup.enabled;
+   };
+
     $scope.createService = function () {
       $scope.services.push($scope.service);
       $state.go('main.services');
     };
   }
+
 );

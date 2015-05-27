@@ -3,6 +3,49 @@
 .allocation-cards {
   padding-left: 15px;
 
+  .catalog {
+    margin-top: 5px;
+    background-color: white;
+    min-height: 500px;
+    border: 2px solid @color-80;
+
+    .button.new {
+      background-color: @green;
+      width: 154px;
+      margin-top: 15px;
+    }
+     h4 {
+       font-weight: bold;
+       font-size: 12px;
+       color: @color-60;
+       margin-top: 28px;
+     }
+
+    .type {
+      line-height: 26px;
+    }
+
+    .circle {
+      display: inline-block;
+      margin-right: 5px;
+      height: 10px;
+      width: 10px;
+      border-radius: 999px;
+
+      &.group {
+        background-color: @consume;
+      }
+
+      &.service {
+        background-color: @provide;
+      }
+    }
+
+    p {
+      cursor: pointer;
+    }
+  }
+
   .card {
     width: 326px;
 

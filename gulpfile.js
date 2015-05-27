@@ -4,6 +4,7 @@ var gulp = require('gulp')
   , rimraf = require('rimraf')
   , minifyCss = require('gulp-minify-css')
   , less = require('gulp-less')
+  , autoprefixer = require('gulp-autoprefixer')
   , inject = require('gulp-inject')
   , templateCache = require('gulp-angular-templatecache')
   , ngmin = require('gulp-ngmin')
@@ -92,6 +93,10 @@ gulp.task('less', function () {
     .pipe(less({
       error: true,
       include: 'app'
+    }))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: true
     }))
     .pipe(gulp.dest('./tmp/scripts'))
 });

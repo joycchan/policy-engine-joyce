@@ -46,59 +46,48 @@
     cursor: pointer;
     position: relative;
     margin-left: -15px;
-    padding-left: 37px;
+    padding-left: 15px;
+    border-left: 3px solid white;
+
+    &.child {
+      padding-left: 30px;
+    }
 
     &:hover {
       border-left: 3px solid @blue;
-      padding-left: 34px;
-
-      .img-user-groups {
-        left: 12px;
-      }
     }
 
     &.dragging {
-      padding-left: 37px;
       border: 1px @color-70 solid;
       border-left: 3px solid @blue;
       z-index: 3;
     }
 
-    .img-user-groups {
-      background: url(../../../images/icon.png) no-repeat -115px -64px;
+    .img-item {
       width: 12px;
       height: 12px;
-      background-size: 613px;
       display: inline-block;
-      position: absolute;
-      top: 50%;
-      left: 15px;
-      transform: translateY(-50%);
+      position: relative;
+      top: 2px;
+      margin-right: 10px;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &.user {
+        background-image: url(../../../images/icon_users_16.png);
+      }
+
+      &.resource {
+        background-image: url(../../../images/icon_resources_16.png);
+      }
+
+      &.service {
+        background-image: url(../../../images/icon_services_16.png);
+      }
     }
+
   }
 
-  .new-button {
-    margin: 30px 0 15px;
-    background-color: @color-70;
-    height: 32px;
-    width: 128px;
-    border-radius: 16px;
-    color: white;
-    font-size: 12px;
-    line-height: 34px;
-    position: relative;
-    cursor: pointer;
-
-    .plus {
-      display: inline-block;
-      position: absolute;
-      left: 15px;
-      font-size: 28px;
-    }
-
-    .new-text {
-      padding-left: 37px;
-    }
-  }
 }
 
