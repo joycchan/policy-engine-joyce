@@ -20,16 +20,24 @@
     "parentId": "1"
   },
   {
+    "id": "12",
+    "name": "External Entities",
+    "description": "ISE (Active Directory)",
+    "type": "user"
+  },
+  {
     "id": "4",
     "name": "External Suppliers",
     "description": "ISE (Active Directory)",
-    "type": "user"
+    "type": "user",
+    "parentId": "12"
   },
   {
     "id": "5",
     "name": "External Contractors",
     "description": "ISE (Active Directory)",
-    "type": "user"
+    "type": "user",
+    "parentId": "12"
   },
   {
     "id": "6",
