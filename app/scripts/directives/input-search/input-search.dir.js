@@ -9,7 +9,7 @@ angular.module('policyEngine')
         model: '=',
         placeholder: '@',
       },
-      restrict: 'EA',
+      restrict: 'E',
       link: function postLink(scope, element, attrs) {
       }
     };

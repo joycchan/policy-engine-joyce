@@ -57,8 +57,7 @@
 }
 
 .launchSummary-productName {
-  font-family: 'CiscoSansTT';
-  font-weight: 200;
+  &:extend(.thin);
   font-size: 36px;
   color: @color-60;
   line-height: 49px;
@@ -74,13 +73,12 @@
 }
 
 .launchSummary-category--first {
-  // offsets the columns so that they will be centered
+  // offsets the first column so the columns will be centered
   .make-xs-column-offset(3);
 }
 
 .launchSummary-category-name {
-  font-family: 'CiscoSansTT';
-  font-weight: 200;
+  &:extend(.thin);
   font-size: 24px;
   color: @color-60;
   line-height: 30px;
