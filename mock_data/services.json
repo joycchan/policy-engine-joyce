@@ -5,7 +5,7 @@
       "name": "Database Group"
     },
     "ruleSet": {
-      "name": "Canned Contract"
+      "name": "SQL Access"
     }
   },
   {
@@ -14,7 +14,7 @@
       "name": "Database Group"
     },
     "ruleSet": {
-      "name": "Canned Contract"
+      "name": "SQL Access"
     }
   },
   {
@@ -23,7 +23,7 @@
       "name": "Database Group"
     },
     "ruleSet": {
-      "name": "Canned Contract"
+      "name": "SQL Access"
     }
   }
 ]

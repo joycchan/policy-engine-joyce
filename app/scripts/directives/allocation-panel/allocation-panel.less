@@ -46,19 +46,18 @@
     cursor: pointer;
     position: relative;
     margin-left: -15px;
-    padding-left: 37px;
+    padding-left: 15px;
+    border-left: 3px solid white;
+
+    &.child {
+      padding-left: 30px;
+    }
 
     &:hover {
       border-left: 3px solid @blue;
-      padding-left: 34px;
-
-      .img-item {
-        left: 12px;
-      }
     }
 
     &.dragging {
-      padding-left: 37px;
       border: 1px @color-70 solid;
       border-left: 3px solid @blue;
       z-index: 3;
@@ -68,10 +67,9 @@
       width: 12px;
       height: 12px;
       display: inline-block;
-      position: absolute;
-      top: 50%;
-      left: 15px;
-      transform: translateY(-50%);
+      position: relative;
+      top: 2px;
+      margin-right: 10px;
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat;

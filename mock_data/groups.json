@@ -7,26 +7,68 @@
   },
   {
     "id": "2",
-    "name": "All Contractors",
+    "name": "Sales",
     "description": "ISE (Active Directory)",
-    "type": "user"
+    "type": "user",
+    "parentId": "1"
   },
   {
     "id": "3",
-    "name": "Sales",
+    "name": "Marketing",
     "description": "ISE (Active Directory)",
-    "type": "user"
+    "type": "user",
+    "parentId": "1"
   },
   {
     "id": "4",
-    "name": "Marketing",
+    "name": "External Suppliers",
     "description": "ISE (Active Directory)",
     "type": "user"
   },
   {
     "id": "5",
-    "name": "App Server",
+    "name": "External Contractors",
+    "description": "ISE (Active Directory)",
+    "type": "user"
+  },
+  {
+    "id": "6",
+    "name": "App Servers - All Zones",
     "description": "VMware vCenter",
     "type": "resource"
+  },
+  {
+    "id": "7",
+    "name": "App Servers - Zone A",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "7"
+  },
+  {
+    "id": "8",
+    "name": "App Servers - Zone B",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "7"
+  },
+  {
+    "id": "9",
+    "name": "DB Servers - All Zones",
+    "description": "VMware vCenter",
+    "type": "resource"
+  },
+  {
+    "id": "10",
+    "name": "DB Servers - Zone A",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "9"
+  },
+  {
+    "id": "11",
+    "name": "DB Servers - Zone B",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "9"
   }
 ]
