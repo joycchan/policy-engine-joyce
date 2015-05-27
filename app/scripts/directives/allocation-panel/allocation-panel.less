@@ -52,7 +52,7 @@
       border-left: 3px solid @blue;
       padding-left: 34px;
 
-      .img-user-groups {
+      .img-item {
         left: 12px;
       }
     }
@@ -64,17 +64,31 @@
       z-index: 3;
     }
 
-    .img-user-groups {
-      background: url(../../../images/icon.png) no-repeat -115px -64px;
+    .img-item {
       width: 12px;
       height: 12px;
-      background-size: 613px;
       display: inline-block;
       position: absolute;
       top: 50%;
       left: 15px;
       transform: translateY(-50%);
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &.user {
+        background-image: url(../../../images/icon_users_16.png);
+      }
+
+      &.resource {
+        background-image: url(../../../images/icon_resources_16.png);
+      }
+
+      &.service {
+        background-image: url(../../../images/icon_services_16.png);
+      }
     }
+
   }
 
 }

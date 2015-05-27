@@ -3,35 +3,30 @@
     "id": "1",
     "name": "All Employees",
     "description": "ISE (Active Directory)",
-    "provided": [],
-    "consumed": []
+    "type": "user"
   },
   {
     "id": "2",
     "name": "All Contractors",
     "description": "ISE (Active Directory)",
-    "provided": [],
-    "consumed": []
+    "type": "user"
   },
   {
     "id": "3",
     "name": "Sales",
     "description": "ISE (Active Directory)",
-    "provided": [],
-    "consumed": []
+    "type": "user"
   },
   {
     "id": "4",
     "name": "Marketing",
     "description": "ISE (Active Directory)",
-    "provided": [],
-    "consumed": []
+    "type": "user"
   },
   {
     "id": "5",
     "name": "App Server",
     "description": "VMware vCenter",
-    "provided": [],
-    "consumed": []
+    "type": "resource"
   }
 ]

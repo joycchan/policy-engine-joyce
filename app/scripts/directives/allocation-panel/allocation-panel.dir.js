@@ -13,6 +13,16 @@ angular.module('policyEngine')
           }
         };
 
+        $scope.itemIcon = function(item) {
+          if ($scope.type === 'provide') {
+            return 'service';
+          } else if(item.type === 'resource') {
+            return 'resource';
+          } else {
+            return 'user';
+          }
+        };
+
       },
       scope: {
         title: '@',

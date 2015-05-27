@@ -17,7 +17,7 @@
         <div ng-repeat="item in items | filter:search">
             <div class="list-element"
                  ng-drag="true" ng-drag-data="dragData(item)">
-                <div class="img-user-groups"></div>
+                <div class="img-item" ng-class="itemIcon(item)"></div>
                 {{item.name}}
             </div>
             <hr/>
