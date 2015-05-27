@@ -1,5 +1,6 @@
 @import "../../styles/variables";
 @import "app/bower_components/bootstrap/less/mixins/clearfix";
+@import (reference) "../../bower_components/bootstrap/less/bootstrap.less";
 
 .launchNav {
   margin-top: 15px;
@@ -63,9 +64,18 @@
   line-height: 49px;
   text-align: center;
   margin-top: 14px;
+  margin-bottom: 25px;
 }
 
 .launchSummary-category {
+  // bootstrap columns are dynamically created at compilation
+  // instead of placing col-xs-2 in the html, use the mixin to make a xs-column here explicitly
+  .make-xs-column(2);
+}
+
+.launchSummary-category--first {
+  // offsets the columns so that they will be centered
+  .make-xs-column-offset(3);
 }
 
 .launchSummary-category-name {
