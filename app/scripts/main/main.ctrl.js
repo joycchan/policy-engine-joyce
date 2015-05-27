@@ -33,18 +33,18 @@ angular.module('policyEngine').controller('MainCtrl',
       });
     };
 
-    var groupCentric = function () {
+    $scope.groupCentric = function () {
       return allocationsByType('consume');
     };
 
-    var serviceCentric = function () {
+    $scope.serviceCentric = function () {
       return allocationsByType('provide');
     };
 
     $scope.serviceConsumers = function (service) {
       var groups = [];
 
-      var groupCentrics = _.filter(groupCentric(), function (allocation) {
+      var groupCentrics = _.filter($scope.groupCentric(), function (allocation) {
         return _.find(allocation.collection, function (s) {
           return s.name === service.name;
         })
@@ -54,7 +54,7 @@ angular.module('policyEngine').controller('MainCtrl',
         groups.push(allocation.item);
       });
 
-      var serviceCentrics = _.filter(serviceCentric(), function(allocation) {
+      var serviceCentrics = _.filter($scope.serviceCentric(), function(allocation) {
         return allocation.item.name === service.name;
       });
 
