@@ -52,8 +52,22 @@
     "type": "resource"
   },
   {
+    "id": "13",
+    "name": "App Servers - Zone A",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "8"
+  },
+  {
+    "id": "14",
+    "name": "App Servers - Zone B",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "8"
+  },
+  {
     "id": "9",
-    "name": "DB Servers - All Zones",
+    "name": "DB Servers",
     "description": "VMware vCenter",
     "type": "resource"
   },
