@@ -1,4 +1,15 @@
 <div class="launchBubble">
-  <div class="launchBubble-itemName">{{name}}</div>
-  <div class="launchBubble-itemStat" ng-class="{'launchBubble-itemStat--goodStat': isGoodStat}">{{stat}}</div>
+  <div class="launchBubble-main">
+    <div class="launchBubble-itemName">{{name}}</div>
+    <div class="launchBubble-itemStat" ng-class="{'launchBubble-itemStat--goodStat': isGoodStat}">{{stat}}</div>
+  </div>
+  <div class="launchBubble-drawer">
+    <div class="launchBubble-drawer-left"></div>
+    <div class="launchBubble-drawer-right">
+      <div class="launchBubble-drawer-itemName">Last Month</div>
+      <div class="launchBubble-drawer-itemStat">8</div>
+      <!-- <div class="launchBubble-drawer-itemName">Past Quarter</div>
+      <div class="launchBubble-drawer-itemStat">8</div> -->
+    </div>
+  </div>
 </div>

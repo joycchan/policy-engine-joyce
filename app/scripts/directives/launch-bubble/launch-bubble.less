@@ -1,13 +1,34 @@
 @import "../../../styles/variables";
 
+@zIndexLaunchBubbleStart: 1;
+@zIndexLaunchBubbleHover: 2;
+@zIndexMain: 2;
+@zIndexDrawer: 1;
+
 .launchBubble {
   height: 145px;
   width: 145px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: @zIndexLaunchBubbleStart;
+
+  &:hover {
+    z-index: @zIndexLaunchBubbleHover;
+    .launchBubble-drawer {
+      display: block;
+    }
+  }
+}
+
+.launchBubble-main {
+  height: 145px;
+  width: 145px;
+  position: relative;
+  z-index: @zIndexMain;
   border-radius: 50%;
+  margin: 0 auto;
   background-image: linear-gradient(-180deg, #FFFFFF 0%, #F7F7F7 100%);
   box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.35);
-  margin: 0 auto;
-  margin-bottom: 10px;
 }
 
 .launchBubble-itemName {
@@ -28,4 +49,60 @@
 
 .launchBubble-itemStat--goodStat {
   color: @launchBubble-good-stat-color;
+}
+
+.launchBubble-drawer {
+  position: absolute;
+  top: 0;
+  z-index: @zIndexDrawer;
+  display: block;
+}
+.launchBubble-drawer-left {
+  width: 145px;
+  height: 145px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background-color: @launchBubble-drawer;
+  opacity: 0.9;
+}
+.launchBubble-drawer-right {
+  width: 135px;
+  height: 145px;
+  background-color: @launchBubble-drawer;
+  position: absolute;
+  top: 0;
+  left: 145px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  opacity: 0.9;
+  padding-top: 15px;
+  text-align: left;
+  padding-left: 15px
+}
+
+.launchBubble-drawer-itemName {
+  font-family: 'CiscoSansTT';
+  font-weight: normal;
+  font-size: 10px;
+  color: @color-60;
+  letter-spacing: 0.5px;
+  line-height: 14px;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+.launchBubble-drawer-itemStat {
+  font-family: 'CiscoSansTT';
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 30px;
+  padding-top: 2px;
+}
+
+.launchBubble-drawer-itemStat--goodStat {
+  color: @launchBubble-drawer-good-stat;
+}
+
+.launchBubble-drawer-itemStat--badStat {
+  color: @launchBubble-drawer-bad-stat;
 }
