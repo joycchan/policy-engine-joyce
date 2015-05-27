@@ -1,29 +1,119 @@
 [
   {
-    "name": "SQL Basic Access",
+    "name": "Loan Management - Basic Access",
     "group": {
-      "name": "Database Group"
+      "name": "DB Servers - All Zones"
     },
     "ruleSet": {
       "name": "SQL Access"
     }
   },
   {
-    "name": "SQL VIP Access",
+    "name": "Loan Management - Gold Access",
     "group": {
-      "name": "Database Group"
+      "name": "DB Servers - All Zones"
     },
     "ruleSet": {
-      "name": "SQL Access"
+      "name": "VIP SQL Access"
     }
   },
   {
-    "name": "SQL External Access",
+    "name": "Loan Management - Internal Access",
     "group": {
-      "name": "Database Group"
+      "name": "DB Servers - All Zones"
     },
     "ruleSet": {
-      "name": "SQL Access"
+      "name": "SQL Access Inside Building"
+    }
+  },
+  {
+    "name": "Loan Management - Limited Access",
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "Limited SQL Access"
+    }
+  },
+  {
+    "name": "Loan Management - No Firewall",
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "SQL Access - No Firewall"
+    }
+  },
+  {
+    "name": "GE Capital Apps",
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "HTTP Access"
+    }
+  },
+  {
+    "name": "GE Capital Apps - No Ping",
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "HTTP Access - No Ping"
+    }
+  },
+  {
+    "name": "GE Capital Apps - Silver",
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "HTTP Access - Silver Service"
+    }
+  },
+  {
+    "name": "GE Capital Apps - Restricted",
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "HTTP Access - Firewall Chaining"
+    }
+  },
+  {
+    "name": "Internet Access",
+    "group": {
+      "name": "Internet"
+    },
+    "ruleSet": {
+      "name": "HTTP/HTTPS Access"
+    }
+  },
+  {
+    "name": "Internet Access - No FTP",
+    "group": {
+      "name": "Internet"
+    },
+    "ruleSet": {
+      "name": "HTTP/HTTPS Access - No FTP"
+    }
+  },
+  {
+    "name": "Internet Access - Gold",
+    "group": {
+      "name": "Internet"
+    },
+    "ruleSet": {
+      "name": "HTTP/HTTPS Access - Gold Service"
+    }
+  },
+  {
+    "name": "Internet Access - Firewall",
+    "group": {
+      "name": "Internet"
+    },
+    "ruleSet": {
+      "name": "HTTP/HTTPS Access - Firewall"
     }
   }
 ]

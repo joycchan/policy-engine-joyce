@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "All Employees",
+    "name": "GE Auto Loans Employees",
     "description": "ISE (Active Directory)",
     "type": "user"
   },
@@ -41,23 +41,15 @@
   },
   {
     "id": "6",
-    "name": "App Servers - All Zones",
+    "name": "Loan Management Server",
     "description": "VMware vCenter",
     "type": "resource"
   },
   {
-    "id": "7",
-    "name": "App Servers - Zone A",
-    "description": "VMware vCenter",
-    "type": "resource",
-    "parentId": "7"
-  },
-  {
     "id": "8",
-    "name": "App Servers - Zone B",
+    "name": "App Servers",
     "description": "VMware vCenter",
-    "type": "resource",
-    "parentId": "7"
+    "type": "resource"
   },
   {
     "id": "9",
