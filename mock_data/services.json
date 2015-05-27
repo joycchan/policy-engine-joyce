@@ -1,6 +1,6 @@
 [
   {
-    "name": "Loan Management - Basic Access",
+    "name": "Loan Management",
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -15,7 +15,8 @@
     },
     "ruleSet": {
       "name": "VIP SQL Access"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "Loan Management - Internal Access",
@@ -24,7 +25,8 @@
     },
     "ruleSet": {
       "name": "SQL Access Inside Building"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "Loan Management - Limited Access",
@@ -33,7 +35,8 @@
     },
     "ruleSet": {
       "name": "Limited SQL Access"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "Loan Management - No Firewall",
@@ -42,7 +45,8 @@
     },
     "ruleSet": {
       "name": "SQL Access - No Firewall"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "GE Capital Apps",
@@ -60,7 +64,8 @@
     },
     "ruleSet": {
       "name": "HTTP Access - No Ping"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "GE Capital Apps - Silver",
@@ -69,7 +74,8 @@
     },
     "ruleSet": {
       "name": "HTTP Access - Silver Service"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "GE Capital Apps - Restricted",
@@ -78,7 +84,8 @@
     },
     "ruleSet": {
       "name": "HTTP Access - Firewall Chaining"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "Internet Access",
@@ -96,7 +103,8 @@
     },
     "ruleSet": {
       "name": "HTTP/HTTPS Access - No FTP"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "Internet Access - Gold",
@@ -105,7 +113,8 @@
     },
     "ruleSet": {
       "name": "HTTP/HTTPS Access - Gold Service"
-    }
+    },
+    "parentId": "12"
   },
   {
     "name": "Internet Access - Firewall",
@@ -114,6 +123,7 @@
     },
     "ruleSet": {
       "name": "HTTP/HTTPS Access - Firewall"
-    }
+    },
+    "parentId": "12"
   }
 ]
