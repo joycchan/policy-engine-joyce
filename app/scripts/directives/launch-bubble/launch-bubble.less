@@ -1,9 +1,9 @@
 @import "../../../styles/variables";
 
 @launchBubbleWidth: 145px;
-@duration1: 0.03s;
-@duration2: 0.06s; // = 2x duration1
-@duration3: 0.09s; // = duration1 + duration2
+@duration1: 0.04s;
+@duration2: 0.08s; // = 2x duration1
+@duration3: 0.12s; // = duration1 + duration2
 @zIndexLaunchBubbleStart: 1;
 @zIndexLaunchBubbleHover: 2;
 @zIndexMain: 2;
@@ -148,6 +148,10 @@
 }
 
 .is-mouseleaved-js {
+  .launchBubble {
+    transition: z-index 0s @duration2; // the z index returns back to the start z-index, 
+    //after drawer-right recedes, so that this drawer will still be layed out on top of other bubbles that it overlaps
+  }
   .launchBubble-drawer-left {
     transition: width @duration1 @duration2; // drawer left recedes after drawer-right recedes
   }
