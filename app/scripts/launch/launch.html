@@ -12,6 +12,15 @@
     <img src="images/icon_cisco_logo_2.png">
   </div>
 </div>
-<!-- <div class="launchSummary">
-  <div>Group Based Policies</div>
-</div> -->
+<div class="launchSummary">
+  <div class="launchSummary-productName">Group Based Policies</div>
+  <div class="col-xs-3"></div>
+  <div class="launchSummary-category col-xs-2" ng-repeat="category in launchCategories">
+    <img ng-src="{{category.img}}">
+    <div class="launchSummary-category-name">{{category.category}}</div>
+    <div class="launchSummary-category-bubble" ng-repeat="item in mockSummaryData[category.category]">
+      <launch-bubble name="item.name" stat="item.stat" is-good-stat="item.isGoodStat"></launch-bubble>
+    </div>
+  </div>
+
+</div>
