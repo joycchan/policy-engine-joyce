@@ -1,1 +1,43 @@
 @import "../../../../styles/variables";
+// @import (reference) "../../../../styles/buttons";
+
+.rulesets-listView {
+  padding-top: 30px;
+  padding-left: 15px;
+}
+
+.rulesets-description {
+  color: @color-60;
+  width: 545px;
+  margin-bottom: 25px;
+}
+
+.rulesets-new {
+  width: 160px;
+  position: relative;
+  margin-bottom: 36px;
+}
+
+.rulesets-new-plus {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  top: -2px;
+}
+
+.rulesets-settings-all, .rulesets-settings-default, .rulesets-settings-custom {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.rulesets-settings-all {
+  &:extend(.bold);
+  color: @blue;
+}
+
+.rulesets-settings-all-number {
+  font-size: 36px;
+  color: @blue;
+  &:extend(.thin);
+  margin-bottom: 15px;
+}
