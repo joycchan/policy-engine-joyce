@@ -1,0 +1,96 @@
+{
+  "Service": [{
+    "name": "Health",
+    "stat": 87,
+    "isGoodStat": true,
+    "drawerStats": [{
+      "name": "Last Month",
+      "stat": 8,
+      "isGoodStat": true
+    }, {
+      "name": "Past Quarter",
+      "stat": 2,
+      "isGoodStat": false
+    }]
+  }, {
+    "name": "Count",
+    "stat": 8,
+    "isGoodStat": false,
+    "drawerStats": [{
+      "name": "Last Month",
+      "stat": 28,
+      "isGoodStat": true
+    }, {
+      "name": "Past Quarter",
+      "stat": 23,
+      "isGoodStat": false
+    }]
+  }, {
+    "name": "Connections",
+    "stat": 16,
+    "isGoodStat": false,
+    "drawerStats": [{
+      "name": "Last Month",
+      "stat": 85,
+      "isGoodStat": true
+    }, {
+      "name": "Past Quarter",
+      "stat": 22,
+      "isGoodStat": false
+    }]
+  }],
+  "Requests": [{
+    "name": "New",
+    "stat": 5,
+    "isGoodStat": true,
+    "drawerStats": [{
+      "name": "Last Month",
+      "stat": 21,
+      "isGoodStat": true
+    }, {
+      "name": "Past Quarter",
+      "stat": 7,
+      "isGoodStat": false
+    }]
+  }, {
+    "name": "All Pending",
+    "stat": 7,
+    "isGoodStat": false,
+    "drawerStats": [{
+      "name": "Last Month",
+      "stat": 23,
+      "isGoodStat": true
+    }, {
+      "name": "Past Quarter",
+      "stat": 54,
+      "isGoodStat": false
+    }]
+  }],
+  "Groups": [{
+    "name": "New",
+    "stat": 2,
+    "isGoodStat": true,
+    "drawerStats": [{
+      "name": "Last Month",
+      "stat": 1,
+      "isGoodStat": true
+    }, {
+      "name": "Past Quarter",
+      "stat": 53,
+      "isGoodStat": false
+    }]
+  }, {
+    "name": "Count",
+    "stat": 9,
+    "isGoodStat": false,
+    "drawerStats": [{
+      "name": "Last Month",
+      "stat": 23,
+      "isGoodStat": true
+    }, {
+      "name": "Past Quarter",
+      "stat": 12,
+      "isGoodStat": false
+    }]
+  }]
+}

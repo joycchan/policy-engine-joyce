@@ -1,0 +1,26 @@
+<div class="launchNav">
+  <div class="launchNav-east">
+    <div class="launchNav-east--right">
+      <input-search class="launchNav-east-inputSearch" model="search"></input-search>
+      <div class="launchNav-east-notification">27</div>
+      <div class="launchNav-east-accountSettings">
+        <img src="images/icon_account_settings_32.png">
+      </div>
+    </div>
+  </div>
+  <div class="launchNav-cisco">
+    <img src="images/icon_cisco_logo_2.png">
+  </div>
+</div>
+<div class="launchSummary">
+  <div class="launchSummary-productName">Group Based Policies</div>
+  <div class="launchSummary-category" ng-repeat="category in launchCategories"
+    ng-class="{'launchSummary-category--first': $index === 0}">
+    <img ng-src="{{category.img}}">
+    <div class="launchSummary-category-name">{{category.category}}</div>
+    <launch-bubble ng-repeat="item in mockSummaryData[category.category]"
+      name="item.name" stat="item.stat" is-good-stat="item.isGoodStat" drawer-stats="item.drawerStats">
+    </launch-bubble>
+  </div>
+
+</div>

@@ -18,5 +18,7 @@ angular.module('policyEngine').controller('MainCtrl',
     $http.get('api/services').success(function (data) {
       $scope.services = data;
     });
+
+    $scope.search = '';
   }
 );
