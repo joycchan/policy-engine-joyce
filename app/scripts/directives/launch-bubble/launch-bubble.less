@@ -26,6 +26,18 @@
   position: relative;
   z-index: @zIndexLaunchBubbleStart;
   transition: z-index 0s @duration1;
+
+  &:hover {
+    z-index: @zIndexLaunchBubbleHover;
+    transition: z-index @duration0;
+
+    .launchBubble-drawer-left {
+      left: @launchBubbleWidth / 2;
+    }
+    .launchBubble-drawer-right {
+      left: @launchBubbleWidth;
+    }
+  }
 }
 
 .launchBubble-main {
@@ -138,17 +150,5 @@
   }
   .launchBubble-drawer-itemStat-badArrow {
     display: none;
-  }
-}
-
-.launchBubble:hover {
-  z-index: @zIndexLaunchBubbleHover;
-  transition: z-index @duration0;
-
-  .launchBubble-drawer-left {
-    left: @launchBubbleWidth / 2;
-  }
-  .launchBubble-drawer-right {
-    left: @launchBubbleWidth;
   }
 }
