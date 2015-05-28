@@ -3,7 +3,7 @@
 angular.module('policyEngine').controller('AllocationsCtrl',
   function($scope, $state, assignments) {
 
-    $scope.assignments = assignments.list;
+    $scope.assignments = assignments.list();
 
     $scope.groupCentric = function () {
       return assignments.byType('consume');
@@ -23,12 +23,10 @@ angular.module('policyEngine').controller('AllocationsCtrl',
       } else {
         return 'Assigned Groups';
       }
-    }
+    };
 
     $scope.delete = function(allocation) {
-      _.remove(assignments.list, function(all) {
-        return all.id === allocation.id;
-      });
-    }
+      assignments.delete(allocation.id);
+    };
   }
 );

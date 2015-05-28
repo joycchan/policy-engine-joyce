@@ -6,12 +6,12 @@ angular.module('policyEngine').controller('AllocationExistingCtrl',
     var allocationIndex;
 
     $scope.allocation = function() {
-      return assignments.list[allocationIndex];
+      return assignments.list()[allocationIndex];
     };
 
     $scope.$watch('$routeChangeSuccess', function() {
       if ($stateParams.allocationId) {
-        allocationIndex = _.findIndex(assignments.list, function (allocation) {
+        allocationIndex = _.findIndex(assignments.list(), function (allocation) {
           return allocation.id === $stateParams.allocationId;
         });
       }

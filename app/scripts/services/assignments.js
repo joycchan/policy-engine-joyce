@@ -1,13 +1,16 @@
 'use strict';
 
 angular.module('policyEngine').factory('assignments',
-  function ($http) {
+  function () {
     var service  = {};
 
-    //scope.assignments = [{"id":"1","type":"consume","item":{"id":"1","name":"All Employees","description":"ISE (Active Directory)","provided":[],"consumed":[],"$$hashKey":"object:9"},"collection":[{"name":"SQL External Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:21"},{"name":"SQL Basic Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:19"},{"name":"SQL VIP Access","group":{"name":"Database Group"},"ruleSet":{"name":"Canned Contract"},"$$hashKey":"object:20"}],"$$hashKey":"object:29"}];
-    service.list = [];
+    var list = [];
 
-    var assignmentId = service.list.length;
+    var assignmentId = list.length;
+
+    service.list = function() {
+      return list;
+    };
 
     service.create = function (type, item) {
       assignmentId++;
@@ -17,12 +20,18 @@ angular.module('policyEngine').factory('assignments',
         item: item,
         collection: []
       };
-      service.list.push(assignment);
+      list.push(assignment);
       return assignment;
     };
 
+    service.delete = function(id) {
+      _.remove(list, function(all) {
+        return all.id === id;
+      });
+    };
+
     service.byType = function (type) {
-      return _.filter(service.list, function (assignment) {
+      return _.filter(list, function (assignment) {
         return assignment.type === type;
       });
     };
