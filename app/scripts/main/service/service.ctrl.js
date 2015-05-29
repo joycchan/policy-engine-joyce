@@ -1,37 +1,84 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state) {
+  function ($scope, $state, $modal) {
 
-    $scope.state = {
-      groupChoice: 'new',
-      ruleSetChoice: 'new'
+    $scope.newGroup = function () {
+      var modalInstance = $modal.open({
+        animation: false,
+        templateUrl: 'scripts/main/groups/new.html',
+        controller: 'NewGroupCtrl',
+        size: 'lg'
+      });
+
+      modalInstance.result.then(function (newGroup) {
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
+
     };
 
-    var resetGroup = function() {
-      $scope.newGroup = {
-        name: "New Group",
-        enabled: false
-      };
+    $scope.existingGroup = function () {
+      var modalInstance = $modal.open({
+        animation: false,
+        templateUrl: 'scripts/main/groups/new.html',
+        controller: 'NewGroupCtrl',
+        size: 'lg'
+      });
+
+      modalInstance.result.then(function (newGroup) {
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
+
     };
-    resetGroup();
+
+    $scope.newRuleSet = function () {
+      var modalInstance = $modal.open({
+        animation: false,
+        templateUrl: 'scripts/main/groups/new.html',
+        controller: 'NewGroupCtrl',
+        size: 'lg'
+      });
+
+      modalInstance.result.then(function (newGroup) {
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
+
+    };
+
+    $scope.existingRuleSet = function () {
+      var modalInstance = $modal.open({
+        animation: false,
+        templateUrl: 'scripts/main/groups/new.html',
+        controller: 'NewGroupCtrl',
+        size: 'lg'
+      });
+
+      modalInstance.result.then(function (newGroup) {
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
+
+    };
 
     $scope.ruleSetName = "New Rule Set";
 
     $scope.service = {};
 
-    $scope.groupClass = function() {
+    $scope.groupClass = function () {
       if ($scope.service.group) {
         return 'complete';
-      } else if($state.includes('main.service.group')) {
+      } else if ($state.includes('main.service.group')) {
         return 'current';
       }
     };
 
-    $scope.ruleSetClass = function() {
+    $scope.ruleSetClass = function () {
       if ($scope.service.ruleSet) {
         return 'complete';
-      } else if($state.includes('main.service.contract')) {
+      } else if ($state.includes('main.service.contract')) {
         return 'current';
       }
     };
@@ -39,12 +86,6 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.accessGroup = function () {
       $state.go('main.service.group.' + $scope.state.groupChoice);
       $scope.enabled = true;
-    };
-
-    $scope.saveNewGroup = function() {
-      $scope.groups.push($scope.newGroup);
-      resetGroup();
-      $state.go('main.service.contract.choose')
     };
 
     $scope.accessRuleSet = function () {
@@ -74,14 +115,9 @@ angular.module('policyEngine').controller('ServiceCtrl',
       setDefaultMetaData();
     };
 
-   $scope.toggleContext = function() {
-       $scope.newGroup.enabled = !$scope.newGroup.enabled;
-   };
-
     $scope.createService = function () {
       $scope.services.push($scope.service);
       $state.go('main.services');
     };
   }
-
 );
