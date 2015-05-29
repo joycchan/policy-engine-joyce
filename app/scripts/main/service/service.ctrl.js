@@ -58,9 +58,9 @@ angular.module('policyEngine').controller('ServiceCtrl',
         size: 'lg'
       });
 
-      modalInstance.result.then(function (newGroup) {
+      modalInstance.result.then(function (selectedRuleSet) {
+        $scope.service.ruleSet = selectedRuleSet;
       }, function () {
-        console.log('Modal dismissed at: ' + new Date());
       });
 
     };

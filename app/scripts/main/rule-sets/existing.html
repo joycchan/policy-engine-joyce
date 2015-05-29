@@ -1,28 +1,32 @@
-<h3>Create or Select a Rule Set <span class="current">/ Existing Rule Set</span></h3>
+<h2>Existing Rule Set</h2>
 
 <div class="search-bar">
     <label for="search">Search</label>
     <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
 </div>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Classifiers</th>
-        <th>Default/Custom</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="selectRuleSet(ruleSet)"
-        ng-class="{selected : ruleSet.name === service.ruleSet.name}">
-        <td>{{::ruleSet.name}}</td>
-        <td>{{::ruleSet.classifiers}}</td>
-        <td>{{::ruleSet.custom}}</td>
-    </tr>
-    </tbody>
-</table>
+<div class="service-wrapper">
 
-<div class="buttons">
-    <div class="button back" ui-sref="main.service.contract.choose">Back</div>
-    <div class="button next" ui-sref="main.service.meta" ng-class="{ disabled: !service.ruleSet }">Next</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Classifiers</th>
+            <th>Default/Custom</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="selectRuleSet(ruleSet)"
+            ng-class="{selected : ruleSet === selected}">
+            <td>{{::ruleSet.name}}</td>
+            <td>{{::ruleSet.classifiers}}</td>
+            <td>{{::ruleSet.custom}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="modal-footer">
+        <div class="button back" ng-click="cancel()">Cancel</div>
+        <div class="button next" ng-click="ok()">OK</div>
+    </div>
+
+
 </div>
