@@ -3,6 +3,7 @@
 .rulesList-list-edit-delete() {
   margin-right: 12px;
   display: inline-block;
+  visibility: hidden;
 
   .is-hovered, .is-not-hovered {
     width: 16px;
@@ -93,7 +94,15 @@
   td:last-child {
     text-align: right;
   }
+
+  tr:hover {
+    .rulesList-list-edit, .rulesList-list-delete {
+      visibility: visible;
+    }
+  }
 }
+
+
 
 .rulesList-list-edit {
   .rulesList-list-edit-delete();
