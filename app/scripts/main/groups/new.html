@@ -1,35 +1,35 @@
 <h2>New Group</h2>
 <div class="form-group">
     <label for="groupName">Name</label>
-    <input type="text" class="form-control new-group" ng-model="newGroup.name" id="groupName" required >
+    <input type="text" class="form-control new-group" ng-model="group.name" id="groupName" required >
 </div>
 <div class="form-group">
     <label for="groupDesc">Description</label>
-    <textarea class="form-control description" id="groupDesc" ng-model="newGroup.description" required placeholder="optional"></textarea>
+    <textarea class="form-control description" id="groupDesc" ng-model="group.description" required placeholder="optional"></textarea>
 </div>
 
 <div>
     <form>
         <div class="network-func">
-        <switch id="enabled" name="enabled" ng-model="newGroup.enabled" ng-change="toggleEnabled"  class="green"></switch> <span class="network"> Network context</span>
+        <switch id="enabled" name="enabled" ng-model="group.enabled" ng-change="toggleEnabled"  class="green"></switch> <span class="network"> Network context</span>
         </div>
         <br>
-        <div ng-show="newGroup.enabled">
+        <div ng-show="group.enabled">
         <div class="form-group">
             <label for="subnets">Subnets</label>
-            <input type="text" class="form-control new-group" id="subnets" ng-model="newGroup.subnets" required placeholder="IP Address" ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'>
+            <input type="text" class="form-control new-group" id="subnets" ng-model="group.subnets" required placeholder="IP Address" ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'>
         </div>
         <div class="form-group">
             <label for="floodDomain">L2 Flood Domain</label>
-            <input type="text" class="form-control new-group" id="floodDomain" ng-model="newGroup.floodDomain" required placeholder="16-bit UUID">
+            <input type="text" class="form-control new-group" id="floodDomain" ng-model="group.floodDomain" required placeholder="16-bit UUID">
         </div>
         <div class="form-group">
             <label for="bridgeDomain">L2 Brige Domain</label>
-            <input type="text" class="form-control new-group" id="bridgeDomain" ng-model="newGroup.bridgeDomain" required placeholder="16-bit UUID">
+            <input type="text" class="form-control new-group" id="bridgeDomain" ng-model="group.bridgeDomain" required placeholder="16-bit UUID">
         </div>
         <div class="form-group">
             <label for="context">L3 Context</label>
-            <input type="text" class="form-control new-group" id="context" ng-model="newGroup.context" required placeholder="16-bit UUID">
+            <input type="text" class="form-control new-group" id="context" ng-model="group.context" required placeholder="16-bit UUID">
         </div>
         </div>
     </form>

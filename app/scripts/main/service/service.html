@@ -3,19 +3,55 @@
         <h2>New Service</h2>
         <span class="img-close" ui-sref="main.services"></span>
     </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="name">Name</label>
 
-    <div class="service">
-
-        <p class="textData">A Service is made up of two pieces: the provider group that will be doing the work, and the
-            rule
-            set that specifies how that work will be done.</p>
-
-        <div class="service-icons">
-            <div class="img-group" ng-class="groupClass()"></div>
-            <div class="img-plus mid-plus"></div>
-            <div class="img-contract" ng-class="ruleSetClass()"></div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="service.name" id="name">
+            </div>
         </div>
-        <hr/>
-        <ui-view></ui-view>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="description">Description</label>
+
+            <div class="col-sm-6">
+                <textarea rows="3" class="form-control" ng-model="service.description" id="description"></textarea>
+            </div>
+        </div>
+    </form>
+
+
+    <p class="textData">A Service is made up of two pieces: the provider group that will be doing the work, and the
+        rule
+        set that specifies how that work will be done.</p>
+    <hr/>
+    <div class="container">
+        <div class="col-sm-4">
+            <h2>Group</h2>
+            <h3>Selected Group: {{service.group.name}}</h3>
+
+            <div class="button new" ng-click="newGroup()">
+                <div class="plus">+</div>
+                <span class="new-text">New Group</span>
+            </div>
+            <div class="button back" ng-click="importFromISE()">Import Group from ISE</div>
+            <div class="button back" ng-click="existingGroup()">Use Existing Group</div>
+
+        </div>
+        <div class="col-sm-4">
+            <h2>Rule Set</h2>
+            <h3>Selected Group: {{service.ruleSet.name}}</h3>
+
+            <div class="button new" ng-click="newRuleSet()">
+                <div class="plus">+</div>
+                <span class="new-text">New Rule Set</span>
+            </div>
+            <div class="button back" ng-click="existingRuleSet()">Use Existing Rule Set</div>
+
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="button back" ui-sref="main.services">Back</div>
+        <div class="button next" ng-click="createService()" ng-class="{ disabled: serviceIncomplete() }">OK</div>
     </div>
 </div>

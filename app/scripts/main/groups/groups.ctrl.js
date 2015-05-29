@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('policyEngine').controller('GroupsCtrl',
-  function ($scope, $modal) {
+  function ($scope, $modal, groups) {
+
+    $scope.groups = groups.list;
 
     $scope.open = function () {
 
