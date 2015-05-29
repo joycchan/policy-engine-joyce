@@ -30,7 +30,7 @@
       <tbody>
         <tr ng-repeat="rule in rulesList | filter: search.rules">
           <td>{{rule.name}}</td>
-          <td>{{rule.classifiers}}</td>
+          <td>{{rule.classifiers.join(",")}}</td>
           <td>{{rule.usedByService}}</td>
           <td>{{rule.description}}</td>
           <td>
