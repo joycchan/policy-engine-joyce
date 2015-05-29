@@ -1,66 +1,62 @@
 @import "../../../../styles/variables";
 // @import (reference) "../../../../styles/buttons";
 
-.rulesets-listView {
+.rulesList {
   padding-top: 30px;
   padding-left: 15px;
 }
 
-.rulesets-description {
+.rulesList-description {
   color: @color-60;
   width: 545px;
   margin-bottom: 25px;
 }
 
-.rulesets-new {
+.rulesList-new {
   width: 160px;
   position: relative;
   margin-bottom: 48px;
 }
 
-.rulesets-new-plus {
+.rulesList-new-plus {
   width: 14px;
   height: 14px;
   position: relative;
   top: -2px;
 }
 
-.rulesets-settingsSearch {
+.rulesList-settingsSearch {
   margin-bottom: 24px;
 }
 
-.rulesets-settings {
+.rulesList-setting-all, .rulesList-setting-default, .rulesList-setting-custom, .rulesList-setting-divider {
   display: inline-block;
+  padding-right: 6px;
 }
 
-.rulesets-settings-all, .rulesets-settings-default, .rulesets-settings-custom, .rulesets-settings-divider {
-  display: inline-block;
-  margin-right: 12px;
-}
-
-.rulesets-settings-all, .rulesets-settings-default, .rulesets-settings-custom {
+.rulesList-setting-all, .rulesList-setting-default, .rulesList-setting-custom {
   cursor: pointer;
 }
 
-.rulesets-settings-divider {
+.rulesList-setting-divider {
   height: 36px;
   border-left: 1px solid @color-75;
   vertical-align: middle;
 }
 
-.rulesets-settings-all {
+.rulesList-setting-all {
   &:extend(.bold);
   color: @blue;
 }
 
-.rulesets-settings-all-number {
+.rulesList-setting-all-number {
   font-size: 36px;
   color: @blue;
   &:extend(.thin);
   margin-bottom: 18px;
 }
 
-.rulesets-search {
+.rulesList-search {
   display: inline-block;
   float: right;
   margin-top: 28px;
@@ -70,8 +66,6 @@
   }
 }
 
-.rulesets-list {
-  table {
-    width: 100%;
-  }
+.rulesList-list {
+  width: 100%;
 }

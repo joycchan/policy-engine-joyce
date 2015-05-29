@@ -1,28 +1,25 @@
-<div class="rulesets-listView">
-  <div class="rulesets-description">
+<div class="rulesList">
+  <div class="rulesList-description">
     Rule sets are encapsulations of network rules.  A small library of default rule sets are provided for you to use or to copy.  You can also create your own from scratch.
   </div>
-  <div class="rulesets-new peBtn peBtn--primary">
-    <img class="rulesets-new-plus" src="images/icon_plus_42.png">
+  <div class="rulesList-new peBtn peBtn--primary">
+    <img class="rulesList-new-plus" src="images/icon_plus_42.png">
     New Rule Set
   </div>
-  <div class="rulesets-settingsSearch">
-    <div class="rulesets-settings">
-      <div class="rulesets-settings-all">
-        <div class="rulesets-settings-all-number">{{rulesList.length}}</div>
-        <div class="rulesets-settings-all-text">All Rule Sets</div>
+  <div class="rulesList-settingsSearch">
+      <div class="rulesList-setting-all">
+        <div class="rulesList-setting-all-number">{{rulesList.length}}</div>
+        <div class="rulesList-setting-all-text">All Rule Sets</div>
       </div>
-      <div class="rulesets-settings-divider"></div>
-      <div class="rulesets-settings-default">Default</div>
-      <div class="rulesets-settings-divider"></div>
-      <div class="rulesets-settings-custom">Custom</div>
-    </div>
-    <div class="rulesets-search">
+      <div class="rulesList-setting-divider"></div>
+      <div class="rulesList-setting-default">Default</div>
+      <div class="rulesList-setting-divider"></div>
+      <div class="rulesList-setting-custom">Custom</div>
+    <div class="rulesList-search">
       <input-search model="search.rules"></input-search>
     </div>
   </div>
-  <div class="rulesets-list">
-    <table class="listView">
+    <table class="rulesList-list listView">
       <thead>
         <th>Name</th>
         <th>Classifiers</th>
@@ -38,6 +35,4 @@
         </tr>
       </tbody>
     </table>
-  </div>
-
 </div>
