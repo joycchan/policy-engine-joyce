@@ -3,6 +3,8 @@
 angular.module('policyEngine').controller('ServiceCtrl',
   function ($scope, $state, $modal, ruleSets) {
 
+    $scope.service = {};
+
     $scope.newGroup = function () {
       var modalInstance = $modal.open({
         animation: false,
@@ -12,8 +14,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
       });
 
       modalInstance.result.then(function (newGroup) {
+        $scope.service.group = newGroup;
       }, function () {
-        console.log('Modal dismissed at: ' + new Date());
       });
 
     };
@@ -21,14 +23,14 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.existingGroup = function () {
       var modalInstance = $modal.open({
         animation: false,
-        templateUrl: 'scripts/main/groups/new.html',
-        controller: 'NewGroupCtrl',
+        templateUrl: 'scripts/main/groups/existing.html',
+        controller: 'ExistingGroupCtrl',
         size: 'lg'
       });
 
-      modalInstance.result.then(function (newGroup) {
+      modalInstance.result.then(function (selectedGroup) {
+        $scope.service.group = selectedGroup;
       }, function () {
-        console.log('Modal dismissed at: ' + new Date());
       });
 
     };
@@ -36,8 +38,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.newRuleSet = function () {
       var modalInstance = $modal.open({
         animation: false,
-        templateUrl: 'scripts/main/groups/new.html',
-        controller: 'NewGroupCtrl',
+        templateUrl: 'scripts/main/rule-sets/new.html',
+        controller: 'NewRuleSetCtrl',
         size: 'lg'
       });
 
@@ -51,8 +53,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.existingRuleSet = function () {
       var modalInstance = $modal.open({
         animation: false,
-        templateUrl: 'scripts/main/groups/new.html',
-        controller: 'NewGroupCtrl',
+        templateUrl: 'scripts/main/rule-sets/existing.html',
+        controller: 'ExistingRuleSetCtrl',
         size: 'lg'
       });
 
@@ -65,7 +67,6 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.ruleSetName = "New Rule Set";
 
-    $scope.service = {};
 
     $scope.groupClass = function () {
       if ($scope.service.group) {
@@ -102,10 +103,6 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.selectRuleSet = function (selectedContract) {
       $scope.service.ruleSet = selectedContract;
-      setDefaultMetaData();
-    };
-    $scope.selectGroup = function (selectedGroup) {
-      $scope.service.group = selectedGroup;
       setDefaultMetaData();
     };
 
