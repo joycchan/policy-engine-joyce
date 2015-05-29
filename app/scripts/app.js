@@ -118,5 +118,20 @@ angular.module("policyEngine", [
         controller: "RuleSetsListCtrl",
         templateUrl: "scripts/main/ruleSets/list/ruleSetsList.html"
       })
+      .state("main.ruleSets.edit", {
+        abstract: true,
+        url: "edit/",
+        controller: "RuleSetsEditCtrl",
+        templateUrl: "scripts/main/ruleSets/edit/edit.html"
+      })
+      .state("main.ruleSets.edit.settings", {
+        url: "settings/",
+        templateUrl: "scripts/main/ruleSets/edit/settings/settings.html"
+      })
+      .state("main.ruleSets.edit.services", {
+        url: "services/",
+        templateUrl: "scripts/main/ruleSets/edit/services/services.html"
+      })
+
   });
 
