@@ -1,7 +1,17 @@
-angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $modalInstance) {
+angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $modalInstance, groups) {
+
+  $scope.group = {
+    name: "New Group",
+    enabled: false
+  };
+
+  $scope.toggleContext = function () {
+    $scope.group.enabled = !$scope.group.enabled;
+  };
 
   $scope.ok = function () {
-    $modalInstance.close();
+    var group = groups.create($scope.group);
+    $modalInstance.close(group);
   };
 
   $scope.cancel = function () {

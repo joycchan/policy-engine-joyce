@@ -9,11 +9,6 @@ angular.module('policyEngine').controller('MainCtrl',
 
     $scope.services = [];
 
-    $scope.groups = [];
-
-    $http.get('api/groups').success(function (data) {
-      $scope.groups = data;
-    });
 
     $http.get('api/services').success(function (data) {
       $scope.services = data;

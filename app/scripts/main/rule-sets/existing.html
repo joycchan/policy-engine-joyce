@@ -1,0 +1,32 @@
+<h2>Existing Rule Set</h2>
+
+<div class="search-bar">
+    <label for="search">Search</label>
+    <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
+</div>
+<div class="service-wrapper">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Classifiers</th>
+            <th>Default/Custom</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="selectRuleSet(ruleSet)"
+            ng-class="{selected : ruleSet === selected}">
+            <td>{{::ruleSet.name}}</td>
+            <td>{{::ruleSet.classifiers}}</td>
+            <td>{{::ruleSet.custom}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="modal-footer">
+        <div class="button back" ng-click="cancel()">Cancel</div>
+        <div class="button next" ng-click="ok()">OK</div>
+    </div>
+
+
+</div>
