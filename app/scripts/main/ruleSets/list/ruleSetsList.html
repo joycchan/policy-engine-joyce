@@ -28,7 +28,7 @@
         <th></th>
       </thead>
       <tbody>
-        <tr ng-repeat="rule in rulesList track by $index | filter: search.rules">
+        <tr ng-repeat="rule in rulesList | filter: search.rules">
           <td>{{rule.name}}</td>
           <td>{{rule.classifiers.join(",")}}</td>
           <td>{{rule.usedByService}}</td>
