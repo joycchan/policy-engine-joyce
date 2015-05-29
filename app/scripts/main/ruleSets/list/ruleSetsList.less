@@ -1,28 +1,5 @@
 @import "../../../../styles/variables";
 
-.rulesList-list-edit-delete() {
-  margin-right: 12px;
-  display: inline-block;
-  visibility: hidden;
-
-  .is-hovered, .is-not-hovered {
-    width: 16px;
-    height: 16px;
-  }
-
-  .is-hovered {
-    display: none;
-  }
-  &:hover {
-    .is-not-hovered {
-      display: none;
-    }
-    .is-hovered {
-      display: inline-block;
-    }
-  }
-}
-
 .rulesList {
   padding-left: 15px;
 }
@@ -94,13 +71,4 @@
     text-align: right;
   }
 
-  tr:hover {
-    .rulesList-list-edit, .rulesList-list-delete {
-      visibility: visible;
-    }
-  }
-}
-
-.rulesList-list-edit, .rulesList-list-delete {
-  .rulesList-list-edit-delete();
 }

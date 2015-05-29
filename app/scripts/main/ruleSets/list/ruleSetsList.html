@@ -19,7 +19,7 @@
       <input-search model="search.rules"></input-search>
     </div>
   </div>
-    <table class="rulesList-list listView">
+    <table class="rulesList-list listView listView--iconsHover listView--borderHover">
       <thead>
         <th>Name</th>
         <th>Classifiers</th>
@@ -34,13 +34,13 @@
           <td>{{rule.usedByService}}</td>
           <td>{{rule.description}}</td>
           <td>
-            <div class="rulesList-list-edit">
-              <img class="is-not-hovered" src="images/icon_edit_16.png">
-              <img class="is-hovered" src="images/icon_edit_16_blue.png">
+            <div class="listView-icons">
+              <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
+              <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
             </div>
-            <div class="rulesList-list-delete">
-              <img class="is-not-hovered" src="images/icon_x_16.png">
-              <img class="is-hovered" src="images/icon_x_dark_16.png">
+            <div class="listView-icons">
+              <img class="listView-icon is-hidden-on-hover" src="images/icon_x_16.png">
+              <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
             </div>
           </td>
         </tr>

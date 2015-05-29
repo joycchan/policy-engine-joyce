@@ -33,6 +33,7 @@
   }
 }
 
+// variation in which on hover of a tr, it will add a blue border to the left of the tr
 .listView--borderHover {
   thead {
     th:first-child {
@@ -46,6 +47,47 @@
       &:hover {
         border-left: 3px solid @blue;
       }
+    }
+  }
+}
+
+// variation in which on hover of row, icon appears on right
+// when the user hovers over the icon, the icon will disappear and be replaced by the "active" version of the icon
+.listView--iconsHover {
+  td:last-child {
+    text-align: right;
+  }
+  
+  tr:hover  {
+    .listView-icons {
+      visibility: visible;
+    }
+  }
+  
+  .listView-icons {
+    margin-right: 12px;
+    display: inline-block;
+    visibility: hidden;
+
+    &:hover {
+      .listView-icon.is-displayed-on-hover {
+        display: inline-block;
+      }
+      .listView-icon.is-hidden-on-hover {
+        display: none;
+      }
+    }
+  }
+
+  .listView-icon {
+    width: 16px;
+    height: 16px;
+    
+    &.is-displayed-on-hover {
+      display: none;
+    }
+    &.is-hidden-on-hover {
+      display: inline-block;
     }
   }
 }
