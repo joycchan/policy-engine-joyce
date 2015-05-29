@@ -5,7 +5,8 @@ angular.module('policyEngine').controller('RuleSetsListCtrl',
 
     $scope.rulesList = [];
 
-    $http.get('api/ruleSets').success(function (data) {
+    $http.get('api/ruleSetsList').success(function (data) {
+      console.log("data", data);
       $scope.rulesList = data;
     });
 
