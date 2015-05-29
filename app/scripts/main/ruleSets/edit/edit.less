@@ -1,0 +1,24 @@
+@import "../../../../styles/variables";
+
+.rulesetsEdit-nav {
+  width: 630px;
+  height: 31px;
+  border-bottom: 1px solid @color-80;
+  margin-bottom: 15px;
+}
+
+.rulesetsEdit-nav-settings, .rulesetsEdit-nav-services {
+  display: inline-block;
+  font-size: 14px;
+  width: 177px;
+  padding-bottom: 8px;
+  text-align: center;
+  color: @color-60;
+  cursor: pointer;
+
+  &.is-atState {
+    color: @blue;
+    border-bottom: 3px solid @blue;
+    font-weight: bold;
+  }
+}
