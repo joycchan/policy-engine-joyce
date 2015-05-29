@@ -1,0 +1,31 @@
+[{
+  "name": "SQL Access",
+  "classifiers": "SQL-port-1443",
+  "usedByService": "None",
+  "description": "hello world"
+}, {
+  "name": "TrustSEC Access",
+  "classifiers": "TrustSEC SGACL",
+  "usedByService": "None",
+  "description": "hello world"
+}, {
+  "name": "SQL Overlay TEP",
+  "classifiers": "Overlay-TEP-Type-HWTEP",
+  "usedByService": "None",
+  "description": "hello world"
+}, {
+  "name": "Overlay Encap",
+  "classifiers": "Overlay-Encap-Type-VXLAN",
+  "usedByService": "None",
+  "description": "hello world"
+}, {
+  "name": "Canned Rule Set 5",
+  "classifiers": "GBP-udp-80",
+  "usedByService": "None",
+  "description": "hello world"
+}, {
+  "name": "My New Rule Set",
+  "classifiers": "SQL-port-1443, TrustSEC",
+  "usedByService": "My New Service",
+  "description": "hello world"
+}]

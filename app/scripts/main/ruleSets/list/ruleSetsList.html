@@ -9,14 +9,35 @@
   <div class="rulesets-settingsSearch">
     <div class="rulesets-settings">
       <div class="rulesets-settings-all">
-        <div class="rulesets-settings-all-number">6</div>
+        <div class="rulesets-settings-all-number">{{rulesList.length}}</div>
         <div class="rulesets-settings-all-text">All Rule Sets</div>
       </div>
+      <div class="rulesets-settings-divider"></div>
       <div class="rulesets-settings-default">Default</div>
+      <div class="rulesets-settings-divider"></div>
       <div class="rulesets-settings-custom">Custom</div>
     </div>
-    <div class="rulesets-search"></div>
+    <div class="rulesets-search">
+      <input-search model="search.rules"></input-search>
+    </div>
   </div>
-  <div class="rulesets-list"></div>
+  <div class="rulesets-list">
+    <table class="listView">
+      <thead>
+        <th>Name</th>
+        <th>Classifiers</th>
+        <th>Used by Service</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="rule in rulesList | filter: search.rules">
+          <td>{{rule.name}}</td>
+          <td>{{rule.classifiers}}</td>
+          <td>{{rule.usedByService}}</td>
+          <td>{{rule.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>

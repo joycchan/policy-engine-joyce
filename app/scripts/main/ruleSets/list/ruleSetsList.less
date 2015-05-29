@@ -15,7 +15,7 @@
 .rulesets-new {
   width: 160px;
   position: relative;
-  margin-bottom: 36px;
+  margin-bottom: 48px;
 }
 
 .rulesets-new-plus {
@@ -25,9 +25,27 @@
   top: -2px;
 }
 
-.rulesets-settings-all, .rulesets-settings-default, .rulesets-settings-custom {
+.rulesets-settingsSearch {
+  margin-bottom: 24px;
+}
+
+.rulesets-settings {
+  display: inline-block;
+}
+
+.rulesets-settings-all, .rulesets-settings-default, .rulesets-settings-custom, .rulesets-settings-divider {
   display: inline-block;
   margin-right: 12px;
+}
+
+.rulesets-settings-all, .rulesets-settings-default, .rulesets-settings-custom {
+  cursor: pointer;
+}
+
+.rulesets-settings-divider {
+  height: 36px;
+  border-left: 1px solid @color-75;
+  vertical-align: middle;
 }
 
 .rulesets-settings-all {
@@ -39,5 +57,21 @@
   font-size: 36px;
   color: @blue;
   &:extend(.thin);
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+}
+
+.rulesets-search {
+  display: inline-block;
+  float: right;
+  margin-top: 28px;
+
+  input {
+    width: 238px;
+  }
+}
+
+.rulesets-list {
+  table {
+    width: 100%;
+  }
 }
