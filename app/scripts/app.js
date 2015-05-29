@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "ui.router", 'ngDraggable','uiSwitch'
+  "ui.router", 'ngDraggable','uiSwitch', 'ui.bootstrap'
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
@@ -26,7 +26,8 @@ angular.module("policyEngine", [
         })
         .state("main.groups", {
           url: "groups/",
-          templateUrl: "scripts/main/groups/groups.html"
+          templateUrl: "scripts/main/groups/groups.html",
+          controller: "GroupsCtrl"
         })
 
         .state("main.service", {
