@@ -1,5 +1,20 @@
 @import "../../../../styles/variables";
-// @import (reference) "../../../../styles/buttons";
+
+.rulesList-list-edit-delete() {
+  margin-right: 12px;
+  display: inline-block;
+  .is-hovered {
+    display: none;
+  }
+  &:hover {
+    .is-not-hovered {
+      display: none;
+    }
+    .is-hovered {
+      display: inline-block;
+    }
+  }
+}
 
 .rulesList {
   padding-top: 30px;
@@ -68,4 +83,16 @@
 
 .rulesList-list {
   width: 100%;
+
+  td:last-child {
+    text-align: right;
+  }
+}
+
+.rulesList-list-edit {
+  .rulesList-list-edit-delete();
+}
+
+.rulesList-list-delete {
+  .rulesList-list-edit-delete();
 }

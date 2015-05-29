@@ -25,6 +25,7 @@
         <th>Classifiers</th>
         <th>Used by Service</th>
         <th>Description</th>
+        <th></th>
       </thead>
       <tbody>
         <tr ng-repeat="rule in rulesList | filter: search.rules">
@@ -32,6 +33,16 @@
           <td>{{rule.classifiers}}</td>
           <td>{{rule.usedByService}}</td>
           <td>{{rule.description}}</td>
+          <td>
+            <div class="rulesList-list-edit">
+              <img class="is-not-hovered" src="images/icon_edit_16.png">
+              <img class="is-hovered" src="images/icon_edit_16_blue.png">
+            </div>
+            <div class="rulesList-list-delete">
+              <img class="is-not-hovered" src="images/icon_x_16.png">
+              <img class="is-hovered" src="images/icon_x_dark_16.png">
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
