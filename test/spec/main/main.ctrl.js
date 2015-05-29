@@ -12,7 +12,7 @@ describe('Controller: MainCtrl', function () {
     $controller = _$controller_;
   }));
 
-  describe('new allocation', function() {
+  describe('main ctrl', function() {
     var $scope, controller;
 
     beforeEach(function() {
@@ -20,21 +20,5 @@ describe('Controller: MainCtrl', function () {
       controller = $controller('MainCtrl', {$scope: $scope});
     });
 
-    it('zero allocations', function() {
-      expect($scope.allocations.length).toEqual(0);
-    });
-
-    it('one new allocation', function() {
-      $scope.newAllocation();
-      expect($scope.allocations.length).toEqual(1);
-      expect($scope.allocations[0].id).toEqual('1');
-    });
-
-    it('one new allocation', function() {
-      $scope.newAllocation();
-      $scope.newAllocation();
-      expect($scope.allocations.length).toEqual(2);
-      expect($scope.allocations[1].id).toEqual('2');
-    });
-  });
+ });
 });
