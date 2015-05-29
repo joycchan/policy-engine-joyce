@@ -1,27 +1,24 @@
 @import 'colors';
 
 .listView {
+  th, td {
+    padding: 8px 8px 4px 8px;
+    line-height: 16.5px;
+  }
   thead {
     font-weight: bold;
     font-size: 12px;
     color: @color-50;
     th {
-      padding: 8px 8px 4px 6px;
       border-bottom: 1px solid @color-70;
-      line-height: 16.5px;
-    }
-    th:first-child {
-      padding-left: 10px;
     }
   }
   tbody {
     tr {
-      border-left: 3px solid white;
       cursor: pointer;
-
+      
       &:hover {
         background-color: @color-90;
-        border-left: 3px solid @blue;
       }
 
       &.is-selected {
@@ -31,9 +28,24 @@
     td {
       height: 32px;
       border-bottom: 1px solid @color-80;
-      padding: 8px 8px 4px 8px;
       color: @color-50;
-      line-height: 16.5px;
+    }
+  }
+}
+
+.listView--borderHover {
+  thead {
+    th:first-child {
+      padding-left: 10px;
+    }
+  }
+  tbody {
+    tr {
+      border-left: 3px solid white;
+
+      &:hover {
+        border-left: 3px solid @blue;
+      }
     }
   }
 }
