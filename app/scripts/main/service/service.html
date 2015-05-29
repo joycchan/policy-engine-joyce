@@ -27,7 +27,8 @@
     <hr/>
     <div class="container">
         <div class="col-sm-4">
-            <h2>Group {{service.group.name}}</h2>
+            <h2>Group</h2>
+            <h3>Selected Group: {{service.group.name}}</h3>
 
             <div class="button new" ng-click="newGroup()">
                 <div class="plus">+</div>
@@ -38,7 +39,8 @@
 
         </div>
         <div class="col-sm-4">
-            <h2>Rule Set {{service.ruleSet.name}}</h2>
+            <h2>Rule Set</h2>
+            <h3>Selected Group: {{service.ruleSet.name}}</h3>
 
             <div class="button new" ng-click="newRuleSet()">
                 <div class="plus">+</div>
@@ -49,7 +51,7 @@
         </div>
     </div>
     <div class="buttons">
-        <div class="button back" ui-sref="main.service.contract.choose">Back</div>
-        <div class="button next" ui-sref="main.service.meta" ng-class="{ disabled: !service.ruleSet }">OK</div>
+        <div class="button back" ui-sref="main.services">Back</div>
+        <div class="button next" ng-click="createService()" ng-class="{ disabled: serviceIncomplete() }">OK</div>
     </div>
 </div>

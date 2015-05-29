@@ -3,7 +3,9 @@
 angular.module('policyEngine').controller('ServiceCtrl',
   function ($scope, $state, $modal) {
 
-    $scope.service = {};
+    $scope.service = {
+      name: 'New Service'
+    };
 
     $scope.newGroup = function () {
       var modalInstance = $modal.open({
@@ -66,45 +68,13 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     };
 
-    $scope.groupClass = function () {
-      if ($scope.service.group) {
-        return 'complete';
-      } else if ($state.includes('main.service.group')) {
-        return 'current';
-      }
-    };
-
-    $scope.ruleSetClass = function () {
-      if ($scope.service.ruleSet) {
-        return 'complete';
-      } else if ($state.includes('main.service.contract')) {
-        return 'current';
-      }
-    };
-
-    $scope.accessGroup = function () {
-      $state.go('main.service.group.' + $scope.state.groupChoice);
-      $scope.enabled = true;
-    };
-
-    $scope.accessRuleSet = function () {
-      $state.go('main.service.contract.' + $scope.state.ruleSetChoice);
-    };
-
-    var setDefaultMetaData = function () {
-      var group = ($scope.service.group && $scope.service.group.name) ? $scope.service.group.name : '';
-      var ruleSet = ($scope.service.ruleSet && $scope.service.ruleSet.name) ? $scope.service.ruleSet.name : '';
-      $scope.service.name = group + ':' + ruleSet;
-    };
-
-    $scope.selectRuleSet = function (selectedContract) {
-      $scope.service.ruleSet = selectedContract;
-      setDefaultMetaData();
-    };
-
-    $scope.createService = function () {
+    $scope.createService = function() {
       $scope.services.push($scope.service);
       $state.go('main.services');
+    };
+
+    $scope.serviceIncomplete = function() {
+      return !($scope.service.name && $scope.service.group && $scope.service.ruleSet);
     };
   }
 );
