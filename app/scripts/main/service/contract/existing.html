@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="ruleSet in contractObj | filter:search" ng-click="selectRuleSet(ruleSet)"
+    <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="selectRuleSet(ruleSet)"
         ng-class="{selected : ruleSet.name === service.ruleSet.name}">
         <td>{{::ruleSet.name}}</td>
         <td>{{::ruleSet.classifiers}}</td>
