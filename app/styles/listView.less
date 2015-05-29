@@ -11,6 +11,9 @@
     color: @color-50;
     th {
       border-bottom: 1px solid @color-70;
+      &:last-child {
+        text-align: right;
+      }
     }
   }
   tbody {
@@ -57,7 +60,7 @@
   td:last-child {
     text-align: right;
   }
-  
+
   tr:hover  {
     .listView-icons {
       visibility: visible;
