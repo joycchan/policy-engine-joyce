@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state, $modal, ruleSets) {
+  function ($scope, $state, $modal) {
 
     $scope.service = {};
 
@@ -43,7 +43,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
         size: 'lg'
       });
 
-      modalInstance.result.then(function (newGroup) {
+      modalInstance.result.then(function (newRuleSet) {
+        $scope.service.ruleSet = newRuleSet;
       }, function () {
         console.log('Modal dismissed at: ' + new Date());
       });
@@ -64,9 +65,6 @@ angular.module('policyEngine').controller('ServiceCtrl',
       });
 
     };
-
-    $scope.ruleSetName = "New Rule Set";
-
 
     $scope.groupClass = function () {
       if ($scope.service.group) {
@@ -98,8 +96,6 @@ angular.module('policyEngine').controller('ServiceCtrl',
       var ruleSet = ($scope.service.ruleSet && $scope.service.ruleSet.name) ? $scope.service.ruleSet.name : '';
       $scope.service.name = group + ':' + ruleSet;
     };
-
-    $scope.ruleSets = ruleSets.list;
 
     $scope.selectRuleSet = function (selectedContract) {
       $scope.service.ruleSet = selectedContract;

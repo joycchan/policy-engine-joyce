@@ -5,8 +5,8 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $m
   };
 
   $scope.ok = function () {
-    ruleSets.create($scope.ruleSet);
-    $modalInstance.close();
+    var ruleSet = ruleSets.create($scope.ruleSet);
+    $modalInstance.close(ruleSet);
   };
 
   $scope.cancel = function () {

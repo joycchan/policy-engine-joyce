@@ -10,8 +10,8 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $mod
   };
 
   $scope.ok = function () {
-    groups.create($scope.group);
-    $modalInstance.close();
+    var group = groups.create($scope.group);
+    $modalInstance.close(group);
   };
 
   $scope.cancel = function () {
