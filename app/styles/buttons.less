@@ -9,10 +9,12 @@
   height: 32px;
   padding-left: 20px;
   padding-right: 20px;
-  text-align: center;
   padding-top: 8px;
   cursor: pointer;
-  
+  text-align: center;
+  // width: 128px;
+  display: inline-block;
+
   div, span {
     display: inline-block;
     vertical-align: top;
@@ -20,14 +22,16 @@
   .plus {
     &:extend(.thin);
     display: inline-block;
-    // position: absolute;
-    // left: 30px;
     font-size: 28px;
     line-height: 18px;
     height: 18px;
     width: 18px;
     margin-right: 3px;
   }
+}
+
+.peBtn--marginRight {
+  margin-right: 10px;
 }
 
 .peBtn--secondary {
@@ -49,6 +53,12 @@
   font-size: 12px;
   color: @color-70;
   background-color: @color-80;
+  cursor: default;
+
+  &:hover {
+    color: @color-70 !important;
+    background-color: @color-80 !important;
+  }
 }
 
 .peBtn--hover {
