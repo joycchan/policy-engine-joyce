@@ -1,5 +1,25 @@
 @import "../../../../../styles/variables";
 
+.rulesets-settings {
+  padding-left: 15px;
+}
+
+.rulesets-settings-editableItems {
+  margin-bottom: 40px;
+
+  .rulesets-settings-editableItems-header {
+    &:extend(.extra-light);
+    color: @color-60;
+    width: 85px;
+    font-size: 12px;
+  }
+
+  .rulesets-settings-editableItems-text {
+    &:extend(.extra-light);
+    color: @color-50;
+    width: 315px;
+  }
+}
 
 .rulesets-settings-helpText {
   &:extend(.extra-light);
@@ -32,6 +52,7 @@
   color: @color-60;
   font-weight: normal;
   margin-bottom: 20px;
+  &:extend(.thin);
 }
 
 .rulesets-settings-list-number {
@@ -50,5 +71,7 @@
   &:first-child {
     padding: 0;
   }
+  color: @color-50;
+  &:extend(.thin);
   padding: 12px 0;
 }
