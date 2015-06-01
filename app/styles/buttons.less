@@ -15,6 +15,10 @@
   // width: 128px;
   display: inline-block;
 
+  &:hover {
+    &:extend(.peBtn--hover);
+  }
+
   div, span {
     display: inline-block;
     vertical-align: top;
@@ -36,16 +40,10 @@
 
 .peBtn--secondary {
   background-color: @color-70;
-  &:hover {
-    &:extend(.peBtn--hover);
-  }
 }
 
 .peBtn--primary {
   background-color: @green;
-  &:hover {
-    &:extend(.peBtn--hover);
-  }
 }
 
 .peBtn--disabled {
@@ -71,7 +69,4 @@
   font-size: 12px;
   color: @color-60;
   background-color: @color-80;
-  &:hover {
-    &:extend(.peBtn--hover);
-  }
 }
