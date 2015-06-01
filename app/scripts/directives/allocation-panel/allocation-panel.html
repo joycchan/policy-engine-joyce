@@ -9,15 +9,15 @@
             </form>
         </div>
         <div class="new-button-wrapper">
-            <div class="new-button" ui-sref="{{newState}}">
+            <div class="button new" ui-sref="{{newState}}">
                 <div class="plus">+</div>
                 <span class="new-text">New {{title}}</span>
             </div>
         </div>
         <div ng-repeat="item in items | filter:search">
-            <div class="list-element"
+            <div class="list-element" ng-class="{ child: item.parentId }"
                  ng-drag="true" ng-drag-data="dragData(item)">
-                <div class="img-user-groups"></div>
+                <div class="img-item" ng-class="itemIcon(item)"></div>
                 {{item.name}}
             </div>
             <hr/>

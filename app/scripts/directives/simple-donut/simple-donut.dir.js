@@ -62,8 +62,8 @@ angular.module('policyEngine')
           g.append("path")
             .attr("d", arc)
             .style("fill", function (d, i) {
-              var provide = "#DBE79F";
-              var consume = "#6CD2B2";
+              var provide = "#62A6D1";
+              var consume = "#5DCAA2";
               if (scope.type === 'provide') {
                 return provide;
               } else if (scope.type === 'consume') {

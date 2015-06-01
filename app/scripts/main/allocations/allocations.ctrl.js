@@ -1,7 +1,17 @@
 'use strict';
 
 angular.module('policyEngine').controller('AllocationsCtrl',
-  function($scope, $state) {
+  function($scope, $state, assignments) {
+
+    $scope.assignments = assignments.list();
+
+    $scope.groupCentric = function () {
+      return assignments.byType('consume');
+    };
+
+    $scope.serviceCentric = function () {
+      return assignments.byType('provide');
+    };
 
     $scope.goToAllocation = function(allocation) {
       $state.go('main.allocation.existing.' + allocation.type, { allocationId: allocation.id });
@@ -13,12 +23,10 @@ angular.module('policyEngine').controller('AllocationsCtrl',
       } else {
         return 'Assigned Groups';
       }
-    }
+    };
 
     $scope.delete = function(allocation) {
-      _.remove($scope.allocations, function(all) {
-        return all.id === allocation.id;
-      });
-    }
+      assignments.delete(allocation.id);
+    };
   }
 );

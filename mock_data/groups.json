@@ -1,37 +1,88 @@
 [
   {
     "id": "1",
-    "name": "All Employees",
+    "name": "GE Auto Loans Employees",
     "description": "ISE (Active Directory)",
-    "provided": [],
-    "consumed": []
+    "type": "user"
   },
   {
     "id": "2",
-    "name": "All Contractors",
+    "name": "Sales",
     "description": "ISE (Active Directory)",
-    "provided": [],
-    "consumed": []
+    "type": "user",
+    "parentId": "1"
   },
   {
     "id": "3",
-    "name": "Sales",
+    "name": "Marketing",
     "description": "ISE (Active Directory)",
-    "provided": [],
-    "consumed": []
+    "type": "user",
+    "parentId": "1"
+  },
+  {
+    "id": "12",
+    "name": "External Entities",
+    "description": "ISE (Active Directory)",
+    "type": "user"
   },
   {
     "id": "4",
-    "name": "Marketing",
+    "name": "External Suppliers",
     "description": "ISE (Active Directory)",
-    "provided": [],
-    "consumed": []
+    "type": "user",
+    "parentId": "12"
   },
   {
     "id": "5",
-    "name": "App Server",
+    "name": "External Contractors",
+    "description": "ISE (Active Directory)",
+    "type": "user",
+    "parentId": "12"
+  },
+  {
+    "id": "6",
+    "name": "Loan Management Server",
     "description": "VMware vCenter",
-    "provided": [],
-    "consumed": []
+    "type": "resource"
+  },
+  {
+    "id": "8",
+    "name": "App Servers",
+    "description": "VMware vCenter",
+    "type": "resource"
+  },
+  {
+    "id": "13",
+    "name": "App Servers - Zone A",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "8"
+  },
+  {
+    "id": "14",
+    "name": "App Servers - Zone B",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "8"
+  },
+  {
+    "id": "9",
+    "name": "DB Servers",
+    "description": "VMware vCenter",
+    "type": "resource"
+  },
+  {
+    "id": "10",
+    "name": "DB Servers - Zone A",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "9"
+  },
+  {
+    "id": "11",
+    "name": "DB Servers - Zone B",
+    "description": "VMware vCenter",
+    "type": "resource",
+    "parentId": "9"
   }
 ]
