@@ -74,8 +74,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
       setDefaultMetaData();
     };
 
-   $scope.toggleContext = function() {
-       $scope.newGroup.enabled = !$scope.newGroup.enabled;
+   $scope.toggleEnabled = function() {
+       $scope.enabled = !$scope.enabled;
    };
 
     $scope.createService = function () {
