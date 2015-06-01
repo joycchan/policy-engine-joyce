@@ -1,0 +1,54 @@
+@import "../../../../../styles/variables";
+
+
+.rulesets-settings-helpText {
+  &:extend(.extra-light);
+  width: 520px;
+  color: @color-60;
+  margin-bottom: 24px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.rulesets-settings-editButton {
+  margin-bottom: 12px;
+  .button {
+    width: 128px;
+  }
+}
+
+.rulesets-settings-list {
+  width: 650px;
+  .listView {
+    width: 650px;
+    td {
+      color: @color-60;
+      vertical-align: top;
+    }
+  }
+}
+
+.rulesets-settings-list-classifierDesc {
+  color: @color-60;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.rulesets-settings-list-number {
+  min-width: 25px;
+  min-height: 25px;
+  background-color: @color-70;
+  color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  padding: 4px 5px;
+}
+
+.rulesets-settings-list-classifier, .rulesets-settings-list-action {
+  &:first-child {
+    padding: 0;
+  }
+  padding: 12px 0;
+}

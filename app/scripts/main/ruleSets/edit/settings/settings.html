@@ -1,1 +1,44 @@
-<div>settings</div>
+<div class="rulesets-settings">
+  <div class="rulesets-settings-name-description">
+    <div class="rulesets-settings-name"></div>
+    <div class="rulesets-settings-description"></div>
+  </div>
+  <div class="rulesets-settings-helpText">
+    Rules define how the network traffic behaves.  Classifiers describe types of network traffic and actions determine what to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you specify custom ones.
+  </div>
+  <div class="rulesets-settings-editButton">
+    <div class="button button--secondary">Edit Rules</div>
+  </div>
+  <div class="rulesets-settings-list">
+    <table class="listView">
+      <thead>
+        <tr>
+          <th></th>
+          <th><div>Classifier</div><div class="rulesets-settings-list-classifierDesc">Classifiers are OR'ed</div></th>
+          <th><div>Action</div><div class="rulesets-settings-list-classifierDesc">Actions are AND'ed</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="rulesets-settings-list-number">1</div></td>
+          <td>
+            <div class="rulesets-settings-list-classifier">SQL-port-1443</div>
+            <div class="rulesets-settings-list-classifier">TrustSEC-SGACL</div>
+          </td>
+          <td><div class="rulesets-settings-list-action">SQL-port-1443</div></td>
+        </tr>
+        <tr>
+          <td><div class="rulesets-settings-list-number">2</div></td>
+          <td>
+            <div class="rulesets-settings-list-classifier">Custom Overlay-Encap</div>
+            <div class="rulesets-settings-list-classifier">Custom Classifier 2</div>
+          </td>
+          <td>
+            <div class="rulesets-settings-list-action">Custom Action 1</div>
+            <div class="rulesets-settings-list-action">Custom Action 2</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
