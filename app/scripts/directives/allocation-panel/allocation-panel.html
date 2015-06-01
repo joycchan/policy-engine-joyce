@@ -9,9 +9,9 @@
             </form>
         </div>
         <div class="new-button-wrapper">
-            <div class="button new" ui-sref="{{newState}}">
+            <div class="button {{title}} new-button" ui-sref="{{newState}}">
                 <div class="plus">+</div>
-                <span class="new-text">New {{title}}</span>
+                <div class="new-text">New {{title}}</div>
             </div>
         </div>
         <div ng-repeat="item in items | filter:search">

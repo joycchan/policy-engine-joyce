@@ -30,28 +30,38 @@
             <h2>Group</h2>
             <h3>Selected Group: {{service.group.name}}</h3>
 
-            <div class="button new" ng-click="newGroup()">
-                <div class="plus">+</div>
-                <span class="new-text">New Group</span>
+            <div>
+                <div class="button button--secondary" ng-click="newGroup()">
+                    <div class="plus">+</div>
+                    <span class="new-text">New Group</span>
+                </div>
             </div>
-            <div class="button back" ng-click="importFromISE()">Import Group from ISE</div>
-            <div class="button back" ng-click="existingGroup()">Use Existing Group</div>
+            <div>
+                <div class="button button--secondary" ng-click="importFromISE()">Import Group from ISE</div>
+            </div>
+            <div>
+                <div class="button button--secondary" ng-click="existingGroup()">Use Existing Group</div>
+            </div>
 
         </div>
         <div class="col-sm-4">
             <h2>Rule Set</h2>
             <h3>Selected Group: {{service.ruleSet.name}}</h3>
 
-            <div class="button new" ng-click="newRuleSet()">
-                <div class="plus">+</div>
-                <span class="new-text">New Rule Set</span>
+            <div>
+                <div class="button button--secondary" ng-click="newRuleSet()">
+                    <div class="plus">+</div>
+                    <span class="new-text">New Rule Set</span>
+                </div>
             </div>
-            <div class="button back" ng-click="existingRuleSet()">Use Existing Rule Set</div>
+            <div>
+                <div class="button button--secondary" ng-click="existingRuleSet()">Use Existing Rule Set</div>
+            </div>
 
         </div>
     </div>
     <div class="buttons">
-        <div class="button back" ui-sref="main.services">Back</div>
-        <div class="button next" ng-click="createService()" ng-class="{ disabled: serviceIncomplete() }">OK</div>
+        <div class="button button--secondary" ui-sref="main.services">Back</div>
+        <div class="button button--secondary" ng-click="createService()" ng-class="{ 'is-disabled': serviceIncomplete() }">OK</div>
     </div>
 </div>
