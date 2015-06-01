@@ -10,47 +10,11 @@ var gulp = require('gulp')
   , ngmin = require('gulp-ngmin')
   , jshint = require('gulp-jshint')
   , rev = require('gulp-rev')
-  , express = require('express')
-  , basicAuth = require('basic-auth-connect')
-  , logfmt = require("logfmt")
-  , fs = require('fs')
   , linker = require('gulp-linker')
   , beautify = require('gulp-beautify')
+  , exec = require('child_process').exec
   ;
 
-// Constants
-var SERVER_PORT = process.env.PORT || 9000;
-
-var serveDirectories = function (directories, password) {
-  var app = express();
-  app.use(logfmt.requestLogger());
-  if (password) {
-    app.use(basicAuth('policy-engine', 'openstack'));
-  }
-
-// Create the server
-  directories.forEach(function(directory) {
-    app.use("/", express.static(directory));
-  })
-
-  var sendData = function (res, endpoint) {
-    path = 'mock_data/' + endpoint + '.json';
-    fs.readFile(path, 'utf8', function (err, data) {
-      if (err) {
-        res.status(404).send('mock data not found');
-      }
-      res.send(data);
-    });
-  };
-
-  app.get("/api/:endpoint", function (req, res) {
-    sendData(res, req.params.endpoint);
-  });
-
-  app.listen(SERVER_PORT, function () {
-    console.log('listening')
-  });
-};
 
 // Compilation tasks
 gulp.task('clean', function (cb) {
@@ -150,7 +114,7 @@ gulp.task('compile', ['clean', 'views', 'images', 'less', 'fonts', 'mockData'], 
 
     .pipe(usemin({
       css: [rev()],
-      css_libs: [minifyCss({ rebase: false }), rev()],
+      css_libs: [minifyCss({rebase: false}), rev()],
       html: [],
       js: [ngmin(), uglify(), rev()],
       js_libs: [rev()]
@@ -166,7 +130,7 @@ gulp.task('watch', ['less'], function () {
 });
 
 gulp.task('test', function () {
-  var karma = require('karma').server
+  var karma = require('karma').server;
   return karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
@@ -174,11 +138,17 @@ gulp.task('test', function () {
 });
 
 gulp.task('serve:app', ['clean', 'watch'], function () {
-  serveDirectories(['./tmp', './app'])
+  exec('NODE_ENV=development node server.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
 });
 
 gulp.task('serve:build', function () {
-  serveDirectories(['./build'], true)
+  exec('NODE_ENV=production node server.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
 });
 
 gulp.task('default', ['compile']);
