@@ -1,4 +1,4 @@
-@import 'colors';
+@import 'variables';
 
 .listView {
   th, td {
@@ -11,15 +11,12 @@
     color: @color-50;
     th {
       border-bottom: 1px solid @color-70;
-      &:last-child {
-        text-align: right;
-      }
     }
   }
   tbody {
     tr {
       cursor: pointer;
-      
+
       &:hover {
         background-color: @color-90;
       }
@@ -66,7 +63,7 @@
       visibility: visible;
     }
   }
-  
+
   .listView-icons {
     margin-right: 12px;
     display: inline-block;
@@ -85,7 +82,7 @@
   .listView-icon {
     width: 16px;
     height: 16px;
-    
+
     &.is-displayed-on-hover {
       display: none;
     }
