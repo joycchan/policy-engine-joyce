@@ -22,6 +22,7 @@ npm install -g gulp
 
 git clone https://github.com/thomasstreet/policy-engine.git
 cd policy-engine
+git checkout master
 npm install
 gulp compile
 gulp serve:build
