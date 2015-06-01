@@ -1,6 +1,6 @@
 @import 'variables';
 
-.peBtn {
+.button {
   font-family: 'CiscoSansTT';
   font-size: 12px;
   color: white;
@@ -12,13 +12,12 @@
   padding-top: 8px;
   cursor: pointer;
   text-align: center;
-  // width: 128px;
   display: inline-block;
   white-space: nowrap;
   background-color: @green;
 
   &:hover {
-    &:extend(.peBtn--hover);
+    &:extend(.button--hover);
   }
 
   div, span {
@@ -36,22 +35,11 @@
   }
 }
 
-// use on the parent element when two buttons are next to each other
-// e.g. Cancel        OK
-.peBtn-group {
-  .peBtn {
-    margin-right: 15px;
-  }
-  .peBtn:last-child {
-    margin-right: 0px;
-  }
-}
-
-.peBtn--secondary {
+.button--secondary {
   background-color: @color-70;
 }
 
-.peBtn--disabled {
+.button.is-disabled {
   &:extend(.extra-light);
   font-size: 12px;
   color: @color-70;
@@ -64,14 +52,25 @@
   }
 }
 
-.peBtn--hover {
+.button--hover {
   color: @color-80;
   background-color: @blue;
 }
 
-.peBtn--selected {
+.button.is-selected {
   &:extend(.extra-light);
   font-size: 12px;
   color: @color-60;
   background-color: @color-80;
+}
+
+// use on the parent element when two buttons are next to each other
+// e.g. Cancel        OK
+.button-group {
+  .button {
+    margin-right: 15px;
+  }
+  .button:last-child {
+    margin-right: 0px;
+  }
 }

@@ -31,16 +31,16 @@
             <h3>Selected Group: {{service.group.name}}</h3>
 
             <div>
-                <div class="peBtn peBtn--secondary" ng-click="newGroup()">
+                <div class="button button--secondary" ng-click="newGroup()">
                     <div class="plus">+</div>
                     <span class="new-text">New Group</span>
                 </div>
             </div>
             <div>
-                <div class="peBtn peBtn--secondary" ng-click="importFromISE()">Import Group from ISE</div>
+                <div class="button button--secondary" ng-click="importFromISE()">Import Group from ISE</div>
             </div>
             <div>
-                <div class="peBtn peBtn--secondary" ng-click="existingGroup()">Use Existing Group</div>
+                <div class="button button--secondary" ng-click="existingGroup()">Use Existing Group</div>
             </div>
 
         </div>
@@ -49,19 +49,19 @@
             <h3>Selected Group: {{service.ruleSet.name}}</h3>
 
             <div>
-                <div class="peBtn peBtn--secondary" ng-click="newRuleSet()">
+                <div class="button button--secondary" ng-click="newRuleSet()">
                     <div class="plus">+</div>
                     <span class="new-text">New Rule Set</span>
                 </div>
             </div>
             <div>
-                <div class="peBtn peBtn--secondary" ng-click="existingRuleSet()">Use Existing Rule Set</div>
+                <div class="button button--secondary" ng-click="existingRuleSet()">Use Existing Rule Set</div>
             </div>
 
         </div>
     </div>
     <div class="buttons">
-        <div class="peBtn peBtn--secondary" ui-sref="main.services">Back</div>
-        <div class="peBtn peBtn--secondary" ng-click="createService()" ng-class="{ 'peBtn--disabled': serviceIncomplete() }">OK</div>
+        <div class="button button--secondary" ui-sref="main.services">Back</div>
+        <div class="button button--secondary" ng-click="createService()" ng-class="{ 'is-disabled': serviceIncomplete() }">OK</div>
     </div>
 </div>
