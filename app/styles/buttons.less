@@ -21,8 +21,10 @@
   }
 
   div, span {
-    display: inline-block;
     vertical-align: top;
+  }
+  div {
+    display: inline-block;
   }
   .plus {
     &:extend(.thin);
@@ -41,7 +43,6 @@
 
 .button.is-disabled {
   &:extend(.extra-light);
-  font-size: 12px;
   color: @color-70;
   background-color: @color-80;
   cursor: default;
@@ -59,8 +60,6 @@
 
 .button.is-selected {
   &:extend(.extra-light);
-  font-size: 12px;
-  color: white;
   background-color: @color-60;
 }
 
