@@ -1,0 +1,75 @@
+@import 'variables';
+
+.button {
+  font-family: 'CiscoSansTT';
+  font-size: 12px;
+  color: white;
+  line-height: 18px;
+  border-radius: 16px;
+  height: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  white-space: nowrap;
+  background-color: @green;
+
+  &:hover {
+    &:extend(.button--hover);
+  }
+
+  div, span {
+    vertical-align: top;
+  }
+  div {
+    display: inline-block;
+  }
+  .plus {
+    &:extend(.thin);
+    display: inline-block;
+    font-size: 28px;
+    line-height: 18px;
+    height: 18px;
+    width: 18px;
+    margin-right: 3px;
+  }
+}
+
+.button--secondary {
+  background-color: @color-70;
+}
+
+.button.is-disabled {
+  &:extend(.extra-light);
+  color: @color-70;
+  background-color: @color-80;
+  cursor: default;
+
+  &:hover {
+    color: @color-70 !important;
+    background-color: @color-80 !important;
+  }
+}
+
+.button--hover {
+  color: @color-80;
+  background-color: @blue;
+}
+
+.button.is-selected {
+  &:extend(.extra-light);
+  background-color: @color-60;
+}
+
+// use on the parent element when two buttons are next to each other
+// e.g. Cancel        OK
+.button-group {
+  .button {
+    margin-right: 15px;
+  }
+  .button:last-child {
+    margin-right: 0px;
+  }
+}
