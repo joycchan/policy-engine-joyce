@@ -36,8 +36,15 @@
   }
 }
 
-.peBtn--marginRight {
-  margin-right: 10px;
+// use on the parent element when two buttons are next to each other
+// e.g. Cancel        OK
+.peBtn-group {
+  .peBtn {
+    margin-right: 15px;
+  }
+  .peBtn:last-child {
+    margin-right: 0px;
+  }
 }
 
 .peBtn--secondary {
