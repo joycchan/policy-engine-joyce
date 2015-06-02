@@ -38,8 +38,9 @@ var serveDirectories = function (app, directories) {
       method: 'PUT',
       auth: 'admin:admin',
       headers: {
-        'Content-type': 'application/yang.data+json',
-        'Accept': 'application/yang.data+json'
+        'Content-Type': 'application/yang.data+json',
+        'Accept': 'application/yang.data+json',
+        'Content-Length': body.length
       }
     };
 
@@ -236,7 +237,7 @@ var serveDirectories = function (app, directories) {
       method: 'DELETE',
       auth: 'admin:admin',
       headers: {
-        'Content-type': 'application/yang.data+json',
+        'Content-Type': 'application/yang.data+json',
         'Accept': 'application/yang.data+json'
       }
     };
