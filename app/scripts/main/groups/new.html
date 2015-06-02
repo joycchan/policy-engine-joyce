@@ -11,17 +11,15 @@
 <div>
     <form>
         <div class="network-func">
-<<<<<<< HEAD:app/scripts/main/service/group/new.html
         <switch id="enabled" name="enabled" ng-model="enabled" ng-change="toggleEnabled"  class="green"></switch> <span class="network"> Network context</span>
         </div>
         <br>
         <div ng-show="enabled">
-=======
+
         <switch id="enabled" name="enabled" ng-model="group.enabled" ng-change="toggleEnabled"  class="green"></switch> <span class="network"> Network context</span>
         </div>
         <br>
         <div ng-show="group.enabled">
->>>>>>> develop:app/scripts/main/groups/new.html
         <div class="form-group">
             <label for="subnets">Subnets</label>
             <input type="text" class="form-control new-group" id="subnets" ng-model="group.subnets" required placeholder="IP Address" ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'>

@@ -1,11 +1,9 @@
 "use strict";
 
 angular.module("policyEngine", [
-<<<<<<< HEAD
+
   "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox'
-=======
-  "ui.router", 'ngDraggable','uiSwitch', 'ui.bootstrap'
->>>>>>> develop
+
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
@@ -28,26 +26,26 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/services/services.html",
           controller: "ServicesCtrl"
         })
-<<<<<<< HEAD
+
         .state("main.configuration", {
           url: "configuration/",
           templateUrl: "scripts/main/configuration/setUp.html",
           controller: "ConfigurationCtrl"
         })
-=======
+
         .state("main.groups", {
           url: "groups/",
           templateUrl: "scripts/main/groups/groups.html",
           controller: "GroupsCtrl"
         })
 
->>>>>>> develop
+
         .state("main.service", {
           url: "service/",
           templateUrl: "scripts/main/service/service.html",
           controller: "ServiceCtrl"
         })
-<<<<<<< HEAD
+
           .state("main.service.group", {
             abstract: true,
             url: "group/",
@@ -90,10 +88,9 @@ angular.module("policyEngine", [
             url: "meta/",
             templateUrl: "scripts/main/service/meta.html"
           })
-        .state("main.allocations", {
-=======
+
        .state("main.allocations", {
->>>>>>> develop
+
           url: 'allocations/',
           templateUrl: 'scripts/main/allocations/allocations.html',
         controller: "AllocationsCtrl"

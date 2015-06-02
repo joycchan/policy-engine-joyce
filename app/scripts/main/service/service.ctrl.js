@@ -67,7 +67,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
       });
 
     };
-<<<<<<< HEAD
+
     $scope.selectGroup = function (selectedGroup) {
       $scope.service.group = selectedGroup;
       setDefaultMetaData();
@@ -76,8 +76,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
    $scope.toggleEnabled = function() {
        $scope.enabled = !$scope.enabled;
    };
-=======
->>>>>>> develop
+
 
     $scope.createService = function() {
       $scope.services.push($scope.service);

@@ -26,7 +26,6 @@ module.exports = function (config) {
       "app/bower_components/bootstrap/dist/js/bootstrap.min.js",
       "app/bower_components/ngDraggable/ngDraggable.js",
       'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/angular-bootstrap/ui-bootstrap.js',
       // endbower
 
       'app/scripts/app.js',
