@@ -1,0 +1,47 @@
+@import "../../../../../styles/variables";
+
+.rulesetsServices {
+  width: 615px;
+  position: relative;
+  left: 15px;
+  padding-right: 15px;
+}
+
+.rulesetsServices-description {
+  font-size: 12px;
+  color: @color-60;
+  margin-bottom: 16px;
+}
+
+.rulesetsServices-number-search {
+  margin-bottom: 6px;
+}
+
+.rulesetsServices-number, .rulesetsServices-search{
+  display: inline-block;
+}
+
+.rulesetsServices-number {
+  font-size: 40px;
+  color: @blue;
+  &:extend(.thin);
+  vertical-align: middle;
+
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.rulesetsServices-search {
+  float: right;
+  vertical-align: bottom;
+  margin-top: 18px;
+  input {
+    width: 240px;
+  }
+}
+
+.rulesetsServices-list {
+  width: 100%;
+}

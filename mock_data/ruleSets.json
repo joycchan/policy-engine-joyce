@@ -1,28 +1,56 @@
 [
   {
     "name": "SQL Access",
-    "classifiers": "SQL-Port-1443",
-    "custom": "Default"
+    "classifiers": ["SQL-Port-1443"],
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum",
+    "id": "1",
+    "actions": ["Allow"]
   },
   {
     "name": "TrustSEC Access",
-    "classifiers": "TrustSEC SGACL",
-    "custom": "Default"
+    "classifiers": ["TrustSEC SGACL"],
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum",
+    "id": "2",
+    "actions": ["Allow"]
   },
   {
     "name": "Overlay TEP",
-    "classifiers": "Overlay-TEP-Type-HWTEP",
-    "custom": "Default"
+    "classifiers": ["Overlay-TEP-Type-HWTEP"],
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum",
+    "id": "3",
+    "actions": ["Allow"]
   },
   {
     "name": "Overlay Encap",
-    "classifiers": "Overlay-Encap-Type-VXLAN",
-    "custom": "Default"
+    "classifiers": ["Overlay-Encap-Type-VXLAN"],
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum",
+    "id": "4",
+    "actions": ["Allow"]
   },
   {
     "name": "HTTP Access",
-    "classifiers": "TCP-80 Default",
-    "custom": "Default"
+    "classifiers": ["TCP-80 Default"],
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum",
+    "id": "5",
+    "actions": ["Allow"]
+  },
+  {
+    "name": "My New Rule Set",
+    "classifiers": ["SQL-port-1443", "TrustSEC"],
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum",
+    "id": "1",
+    "actions": ["Custom Action 1", "Custom Action 2"]
   }
 ]
-
