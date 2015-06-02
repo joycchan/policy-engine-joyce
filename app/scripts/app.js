@@ -74,15 +74,9 @@ angular.module("policyEngine", [
             templateUrl: "scripts/main/allocations/allocation/consume/consume.html"
           })
       .state("main.ruleSets", {
-        abstract: true,
         url: "rulesets/",
         controller: "RuleSetsCtrl",
         templateUrl: "scripts/main/ruleSets/ruleSets.html"
-      })
-      .state("main.ruleSets.list", {
-        url: "list/",
-        controller: "RuleSetsListCtrl",
-        templateUrl: "scripts/main/ruleSets/list/ruleSetsList.html"
       })
       .state("main.ruleSets.edit", {
         abstract: true,
