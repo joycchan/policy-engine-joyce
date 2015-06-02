@@ -30,20 +30,6 @@ var serveDirectories = function (app, directories) {
   });
 
   app.post("/assignments", function (req, res) {
-
-    var options = {
-      host: req.body.serverIP,
-      port: '8080',
-      path: '﻿/restconf/config/policy:tenants',
-      method: 'PUT',
-      auth: 'admin:admin',
-      headers: {
-        'Content-Type': 'application/yang.data+json',
-        'Accept': 'application/yang.data+json',
-        'Content-Length': body.length
-      }
-    };
-
     var body = JSON.stringify(
       {
         "policy:tenants": {
@@ -207,6 +193,19 @@ var serveDirectories = function (app, directories) {
         }
       }
     );
+
+    var options = {
+      host: req.body.serverIP,
+      port: '8080',
+      path: '﻿/restconf/config/policy:tenants',
+      method: 'PUT',
+      auth: 'admin:admin',
+      headers: {
+        'Content-Type': 'application/yang.data+json',
+        'Accept': 'application/yang.data+json',
+        'Content-Length': body.length
+      }
+    };
 
     var req = http.request(options, function (res) {
       console.log('STATUS: ' + res.statusCode);
