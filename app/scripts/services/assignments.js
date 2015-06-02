@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').factory('assignments',
-  function () {
+  function ($http) {
     var service  = {};
 
     var list = [];
@@ -20,7 +20,15 @@ angular.module('policyEngine').factory('assignments',
         item: item,
         collection: []
       };
+
       list.push(assignment);
+
+      $http.post('/assignments').success(function(response) {
+        console.log('success response', response);
+      }).error(function(response) {
+        console.log('error response', response);
+      });
+
       return assignment;
     };
 
