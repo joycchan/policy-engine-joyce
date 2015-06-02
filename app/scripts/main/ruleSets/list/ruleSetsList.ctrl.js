@@ -5,6 +5,8 @@ angular.module('policyEngine').controller('RuleSetsListCtrl',
 
     $scope.rulesList = ruleSets.list;
 
+    $scope.search = {name: ''};
+
     $scope.rulesListFilters = [
       {name: 'All Rule Sets'},
       {name: 'Default'},

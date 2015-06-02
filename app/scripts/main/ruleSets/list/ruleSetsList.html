@@ -11,7 +11,7 @@
     filters="rulesListFilters"
     filter-by="filterRulesListBy"
     is-filter-selected="isRulesListFilterSelected"
-    search-model="search.rules">
+    search-model="search.name">
   </list-count-filter-search>
     <table class="rulesList-list listView listView--iconsHover">
       <thead>
@@ -22,7 +22,7 @@
         <th></th>
       </thead>
       <tbody>
-        <tr ng-repeat="rule in rulesList() | filter: search.rules">
+        <tr ng-repeat="rule in rulesList() | filter: search">
           <td>{{rule.name}}</td>
           <td>{{rule.classifiers}}</td>
           <td>{{rule.services}}</td>
