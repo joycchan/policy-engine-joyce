@@ -1,7 +1,6 @@
 var express = require('express')
   , basicAuth = require('basic-auth-connect')
   , logfmt = require("logfmt")
-  , qs = require('qs')
   , http = require('http')
   , bodyParser = require('body-parser')
   , fs = require('fs')
@@ -44,7 +43,7 @@ var serveDirectories = function (app, directories) {
       }
     };
 
-    var body = qs.stringify(
+    var body = JSON.stringify(
       {
         "policy:tenants": {
           "tenant": [
