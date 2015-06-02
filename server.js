@@ -1,7 +1,6 @@
 var express = require('express')
   , basicAuth = require('basic-auth-connect')
   , logfmt = require("logfmt")
-  , querystring = require('querystring')
   , http = require('http')
   , bodyParser = require('body-parser')
   , fs = require('fs')
@@ -33,8 +32,9 @@ var serveDirectories = function (app, directories) {
   app.post("/assignments", function (req, res) {
 
     var options = {
-      host: req.body.serverIP + ':8080',
-      path: '/restconf/config/opendaylight-inventory:nodes',
+      host: req.body.serverIP,
+      port: '8080',
+      path: '﻿/restconf/config/policy:tenants',
       method: 'PUT',
       auth: 'admin:admin',
       headers: {
@@ -43,7 +43,7 @@ var serveDirectories = function (app, directories) {
       }
     };
 
-    var body = querystring.stringify(
+    var body = JSON.stringify(
       {
         "policy:tenants": {
           "tenant": [
@@ -220,7 +220,10 @@ var serveDirectories = function (app, directories) {
       console.log('problem with request: ' + e.message);
     });
 
+    console.log('body', body);
+
     req.write(body);
+    //console.log('req', req);
     req.end();
   });
 
@@ -237,5 +240,10 @@ exports.run = function (development) {
     app.use(basicAuth('policy-engine', 'openstack'));
     serveDirectories(app, ['./build']);
   }
+};
+
+//If server.js is called directly (i.e. in Procfile), run production server
+if(require.main === module) {
+  exports.run();
 }
 
