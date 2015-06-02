@@ -7,14 +7,12 @@
     New Rule Set
   </div>
   <div class="rulesList-settingsSearch">
-      <div class="rulesList-setting-all">
-        <div class="rulesList-setting-all-number">{{rulesList().length}}</div>
-        <div class="rulesList-setting-all-text">All Rule Sets</div>
-      </div>
-      <div class="rulesList-setting-divider"></div>
-      <div class="rulesList-setting-default">Default</div>
-      <div class="rulesList-setting-divider"></div>
-      <div class="rulesList-setting-custom">Custom</div>
+      <list-count count="rulesList().length"></list-count>
+      <list-filter ng-repeat="filter in rulesListFilters"
+        filter-name="filter.name"
+        filter-by="filterRulesListBy"
+        is-filter-selected="isRulesListFilterSelected">
+      </list-filters>
     <div class="rulesList-search">
       <input-search model="search.rules"></input-search>
     </div>

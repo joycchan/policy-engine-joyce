@@ -5,5 +5,17 @@ angular.module('policyEngine').controller('RuleSetsListCtrl',
 
     $scope.rulesList = ruleSets.list;
 
+    $scope.rulesListFilters = [
+      {name: 'All Rule Sets'},
+      {name: 'Default'},
+      {name: 'Custom'}
+    ];
+
+    $scope.filterRulesListBy = function(name) {};
+
+    $scope.isRulesListFilterSelected = function(name) {
+      return name === 'All Rule Sets' ? true : false;
+    };
+
   }
 );
