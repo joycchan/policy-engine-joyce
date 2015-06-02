@@ -237,5 +237,10 @@ exports.run = function (development) {
     app.use(basicAuth('policy-engine', 'openstack'));
     serveDirectories(app, ['./build']);
   }
+};
+
+//If server.js is called directly (i.e. in Procfile), run production server
+if(require.main === module) {
+  exports.run();
 }
 
