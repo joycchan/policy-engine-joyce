@@ -1,7 +1,9 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "ui.router", 'ngDraggable','uiSwitch', 'ui.bootstrap'
+
+  "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox'
+
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
@@ -29,18 +31,71 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/services/services.html",
           controller: "ServicesCtrl"
         })
+
+        .state("main.configuration", {
+          url: "configuration/",
+          templateUrl: "scripts/main/configuration/setUp.html",
+          controller: "ConfigurationCtrl"
+        })
+
         .state("main.groups", {
           url: "groups/",
           templateUrl: "scripts/main/groups/groups.html",
           controller: "GroupsCtrl"
         })
 
+
         .state("main.service", {
           url: "service/",
           templateUrl: "scripts/main/service/service.html",
           controller: "ServiceCtrl"
         })
+
+          .state("main.service.group", {
+            abstract: true,
+            url: "group/",
+            templateUrl: "scripts/main/service/group/group.html"
+          })
+            .state("main.service.group.choose", {
+              url: "choose/",
+              templateUrl: "scripts/main/service/group/choose.html"
+            })
+            .state("main.service.group.new", {
+              url: "new/",
+              templateUrl: "scripts/main/service/group/new.html"
+            })
+            .state("main.service.group.existing", {
+              url: "existing/",
+              templateUrl: "scripts/main/service/group/existing.html"
+            })
+          .state("main.service.contract", {
+            abstract: true,
+            url: "contract/",
+            templateUrl: "scripts/main/service/contract/contract.html"
+          })
+            .state("main.service.contract.choose", {
+              url: "choose/",
+              templateUrl: "scripts/main/service/contract/choose.html"
+            })
+            .state("main.service.contract.new", {
+              url: "new/",
+              templateUrl: "scripts/main/service/contract/new.html"
+            })
+              .state("main.service.contract.addRule", {
+                url: "addRule/",
+                templateUrl: "scripts/main/service/contract/addRule.html"
+              })
+            .state("main.service.contract.existing", {
+              url: "existing/",
+              templateUrl: "scripts/main/service/contract/existing.html"
+            })
+          .state("main.service.meta", {
+            url: "meta/",
+            templateUrl: "scripts/main/service/meta.html"
+          })
+
        .state("main.allocations", {
+
           url: 'allocations/',
           templateUrl: 'scripts/main/allocations/allocations.html',
         controller: "AllocationsCtrl"
