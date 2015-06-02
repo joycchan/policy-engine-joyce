@@ -36,6 +36,12 @@ angular.module('policyEngine').factory('assignments',
       _.remove(list, function(all) {
         return all.id === id;
       });
+      $http.delete('/assignments', { serverIP: configuration.account.serverIP }).success(function(response) {
+        console.log('success response', response);
+      }).error(function(response) {
+        console.log('error response', response);
+      });
+
     };
 
     service.byType = function (type) {
