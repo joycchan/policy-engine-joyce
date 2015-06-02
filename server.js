@@ -232,7 +232,7 @@ var serveDirectories = function (app, directories) {
     var options = {
       host: req.body.serverIP,
       port: '8080',
-      path: '﻿/restconf/config/policy:tenants',
+      path: '/restconf/config/policy:tenants',
       method: 'DELETE',
       auth: 'admin:admin',
       headers: {
