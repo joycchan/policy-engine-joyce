@@ -19,6 +19,11 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/main.html",
         controller: "MainCtrl"
       })
+      .state("main.account", {
+        url: "account/",
+        templateUrl: "scripts/main/account/account.html",
+        controller: "AccountCtrl"
+      })
         .state("main.services", {
           url: "services/",
           templateUrl: "scripts/main/services/services.html",

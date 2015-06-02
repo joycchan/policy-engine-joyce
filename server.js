@@ -3,6 +3,7 @@ var express = require('express')
   , logfmt = require("logfmt")
   , querystring = require('querystring')
   , http = require('http')
+  , bodyParser = require('body-parser')
   , fs = require('fs')
   ;
 
@@ -11,6 +12,7 @@ var SERVER_PORT = process.env.PORT || 9000;
 
 var serveDirectories = function (app, directories) {
   app.use(logfmt.requestLogger());
+  app.use(bodyParser.json()); // for parsing application/json
 
   // Create the asset server
   directories.forEach(function (directory) {
@@ -31,7 +33,7 @@ var serveDirectories = function (app, directories) {
   app.post("/assignments", function (req, res) {
 
     var options = {
-      host: 'http://10.160.31.238:8080',
+      host: req.body.serverIP + ':8080',
       path: '/restconf/config/opendaylight-inventory:nodes',
       method: 'PUT',
       auth: 'admin:admin',

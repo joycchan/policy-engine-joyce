@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').factory('assignments',
-  function ($http) {
+  function ($http, configuration) {
     var service  = {};
 
     var list = [];
@@ -23,7 +23,7 @@ angular.module('policyEngine').factory('assignments',
 
       list.push(assignment);
 
-      $http.post('/assignments').success(function(response) {
+      $http.post('/assignments', { serverIP: configuration.account.serverIP }).success(function(response) {
         console.log('success response', response);
       }).error(function(response) {
         console.log('error response', response);
