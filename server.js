@@ -33,7 +33,8 @@ var serveDirectories = function (app, directories) {
   app.post("/assignments", function (req, res) {
 
     var options = {
-      host: req.body.serverIP + ':8080',
+      host: req.body.serverIP,
+      port: '8080',
       path: '/restconf/config/opendaylight-inventory:nodes',
       method: 'PUT',
       auth: 'admin:admin',
@@ -221,6 +222,7 @@ var serveDirectories = function (app, directories) {
     });
 
     req.write(body);
+    //console.log('req', req);
     req.end();
   });
 
