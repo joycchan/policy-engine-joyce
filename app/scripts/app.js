@@ -76,21 +76,21 @@ angular.module("policyEngine", [
       .state("main.ruleSets", {
         url: "rulesets/",
         controller: "RuleSetsCtrl",
-        templateUrl: "scripts/main/ruleSets/ruleSets.html"
+        templateUrl: "scripts/main/rule-sets/rule-sets.html"
       })
-      .state("main.ruleSets.edit", {
+      .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "edit/",
+        url: "rulesets/edit/",
         controller: "RuleSetsEditCtrl",
-        templateUrl: "scripts/main/ruleSets/edit/edit.html"
+        templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })
-      .state("main.ruleSets.edit.settings", {
+      .state("main.ruleSetsEdit.settings", {
         url: "settings/",
-        templateUrl: "scripts/main/ruleSets/edit/settings/settings.html"
+        templateUrl: "scripts/main/rule-sets/edit/settings/settings.html"
       })
-      .state("main.ruleSets.edit.services", {
+      .state("main.ruleSetsEdit.services", {
         url: "services/",
-        templateUrl: "scripts/main/ruleSets/edit/services/services.html"
+        templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
 
   });

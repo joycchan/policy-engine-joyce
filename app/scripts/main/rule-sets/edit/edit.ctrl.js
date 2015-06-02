@@ -4,11 +4,13 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
   function($scope) {
     $scope.navTabLinks = [{
       'name': 'Settings',
-      'uiSref': 'main.ruleSets.edit.settings'
+      'uiSref': 'main.ruleSetsEdit.settings'
     }, {
       'name': 'Services',
-      'uiSref': 'main.ruleSets.edit.services'
+      'uiSref': 'main.ruleSetsEdit.services'
     }];
+
+    console.log("Edit")
 
   }
 );
