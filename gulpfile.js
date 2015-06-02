@@ -12,7 +12,7 @@ var gulp = require('gulp')
   , rev = require('gulp-rev')
   , linker = require('gulp-linker')
   , beautify = require('gulp-beautify')
-  , exec = require('child_process').exec
+  , server = require('./server.js')
   ;
 
 
@@ -138,17 +138,11 @@ gulp.task('test', function () {
 });
 
 gulp.task('serve:app', ['clean', 'watch'], function () {
-  exec('NODE_ENV=development node server.js', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-  });
+  server.run(true);
 });
 
 gulp.task('serve:build', function () {
-  exec('NODE_ENV=production node server.js', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-  });
+  server.run();
 });
 
 gulp.task('default', ['compile']);

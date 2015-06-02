@@ -228,11 +228,14 @@ var serveDirectories = function (app, directories) {
 };
 
 
-var app = express();
+exports.run = function (development) {
+  var app = express();
 
-if (process.env.NODE_ENV === 'development') {
-  serveDirectories(app, ['./tmp', './app']);
-} else {
-  app.use(basicAuth('policy-engine', 'openstack'));
-  serveDirectories(app, ['./build']);
+  if (development) {
+    serveDirectories(app, ['./tmp', './app']);
+  } else {
+    app.use(basicAuth('policy-engine', 'openstack'));
+    serveDirectories(app, ['./build']);
+  }
 }
+
