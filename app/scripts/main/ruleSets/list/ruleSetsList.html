@@ -8,7 +8,7 @@
   </div>
   <div class="rulesList-settingsSearch">
       <div class="rulesList-setting-all">
-        <div class="rulesList-setting-all-number">{{rulesList.length}}</div>
+        <div class="rulesList-setting-all-number">{{rulesList().length}}</div>
         <div class="rulesList-setting-all-text">All Rule Sets</div>
       </div>
       <div class="rulesList-setting-divider"></div>
@@ -28,10 +28,10 @@
         <th></th>
       </thead>
       <tbody>
-        <tr ng-repeat="rule in rulesList | filter: search.rules">
+        <tr ng-repeat="rule in rulesList() | filter: search.rules">
           <td>{{rule.name}}</td>
-          <td>{{rule.classifiers.join(",")}}</td>
-          <td>{{rule.usedByService}}</td>
+          <td>{{rule.classifiers}}</td>
+          <td>{{rule.services}}</td>
           <td>{{rule.description}}</td>
           <td>
             <div class="listView-icons">

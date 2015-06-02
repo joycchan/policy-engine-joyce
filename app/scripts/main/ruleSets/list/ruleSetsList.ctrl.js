@@ -1,13 +1,9 @@
 'use strict';
 
 angular.module('policyEngine').controller('RuleSetsListCtrl',
-  function($scope, $http) {
+  function($scope, ruleSets) {
 
-    $scope.rulesList = [];
-
-    $http.get('api/ruleSetsList').success(function (data) {
-      $scope.rulesList = data;
-    });
+    $scope.rulesList = ruleSets.list;
 
   }
 );

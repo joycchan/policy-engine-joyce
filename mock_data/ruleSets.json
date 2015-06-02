@@ -2,26 +2,43 @@
   {
     "name": "SQL Access",
     "classifiers": "SQL-Port-1443",
-    "custom": "Default"
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum"
   },
   {
     "name": "TrustSEC Access",
     "classifiers": "TrustSEC SGACL",
-    "custom": "Default"
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum"
   },
   {
     "name": "Overlay TEP",
     "classifiers": "Overlay-TEP-Type-HWTEP",
-    "custom": "Default"
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum"
   },
   {
     "name": "Overlay Encap",
     "classifiers": "Overlay-Encap-Type-VXLAN",
-    "custom": "Default"
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum"
   },
   {
     "name": "HTTP Access",
     "classifiers": "TCP-80 Default",
-    "custom": "Default"
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum"
+  },
+  {
+    "name": "My New Rule Set",
+    "classifiers": "SQL-port-1443, TrustSEC",
+    "custom": "Default",
+    "services": "None",
+    "description": "Lorem ipsum"
   }
 ]
