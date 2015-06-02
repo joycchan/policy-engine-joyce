@@ -34,7 +34,7 @@ var serveDirectories = function (app, directories) {
     var options = {
       host: req.body.serverIP,
       port: '8080',
-      path: '/restconf/config/opendaylight-inventory:nodes',
+      path: '﻿/restconf/config/policy:tenants',
       method: 'PUT',
       auth: 'admin:admin',
       headers: {
