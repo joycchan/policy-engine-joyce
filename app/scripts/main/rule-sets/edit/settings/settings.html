@@ -24,7 +24,7 @@
     Rules define how the network traffic behaves.  Classifiers describe types of network traffic and actions determine what to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you specify custom ones.
   </div>
   <div class="rulesets-settings-editButton">
-    <div class="button button--secondary">Edit Rules</div>
+    <div class="button button--secondary" ng-click="editRule()">Edit Rules</div>
   </div>
   <div class="rulesets-settings-list">
     <table class="listView">
@@ -36,23 +36,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><div class="rulesets-settings-list-number">1</div></td>
+        <tr ng-repeat="rule in rulesList()">
+          <td><div class="rulesets-settings-list-number">{{$index + 1}}</div></td>
           <td>
-            <div class="rulesets-settings-list-classifier">SQL-port-1443</div>
-            <div class="rulesets-settings-list-classifier">TrustSEC-SGACL</div>
-          </td>
-          <td><div class="rulesets-settings-list-action">SQL-port-1443</div></td>
-        </tr>
-        <tr>
-          <td><div class="rulesets-settings-list-number">2</div></td>
-          <td>
-            <div class="rulesets-settings-list-classifier">Custom Overlay-Encap</div>
-            <div class="rulesets-settings-list-classifier">Custom Classifier 2</div>
+            <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
           </td>
           <td>
-            <div class="rulesets-settings-list-action">Custom Action 1</div>
-            <div class="rulesets-settings-list-action">Custom Action 2</div>
+            <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">{{action}}</div>
           </td>
         </tr>
       </tbody>
