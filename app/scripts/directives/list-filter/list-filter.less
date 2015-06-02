@@ -7,6 +7,7 @@
 
 .listFilter-name {
   cursor: pointer;
+
   &.is-selected {
     &:extend(.bold);
     color: @blue;
@@ -19,6 +20,7 @@
   vertical-align: middle;
 }
 
+// hide the divider of the last filter
 list-filter:last-child {
   .listFilter-divider {
     display: none;
