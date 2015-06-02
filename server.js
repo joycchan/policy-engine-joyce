@@ -1,7 +1,7 @@
 var express = require('express')
   , basicAuth = require('basic-auth-connect')
   , logfmt = require("logfmt")
-  , querystring = require('querystring')
+  , qs = require('qs')
   , http = require('http')
   , bodyParser = require('body-parser')
   , fs = require('fs')
@@ -44,7 +44,7 @@ var serveDirectories = function (app, directories) {
       }
     };
 
-    var body = querystring.stringify(
+    var body = qs.stringify(
       {
         "policy:tenants": {
           "tenant": [
@@ -220,6 +220,8 @@ var serveDirectories = function (app, directories) {
     req.on('error', function (e) {
       console.log('problem with request: ' + e.message);
     });
+
+    console.log('body', body);
 
     req.write(body);
     //console.log('req', req);
