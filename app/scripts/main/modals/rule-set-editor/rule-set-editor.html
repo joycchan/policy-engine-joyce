@@ -1,5 +1,45 @@
 <div class="ruleEditor">
-  <div class="ruleEditor-classifiers">Classifiers</div>
+  <div class="ruleEditor-classifiers">
+    <div class="ruleEditor-title">Classifiers</div>
+    <input-search></input-search>
+    <div>
+      <div class="button">Add Custom Classifier</div>
+    </div>
+    <div class="ruleEditor-hDivider"></div>
+    <div class="ruleEditor-category">Category</div>
+    <div class="ruleEditor-category-dropdown">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          Dropdown
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ruleEditor-classifiersList">
+      <div ng-repeat="rule in ruleSets()">
+        {{rule.name}}
+      </div>
+    </div>
+  </div>
+
+
   <div class="ruleEditor-editor">Rule Set Editor</div>
-  <div class="ruleEditor-actions">Actions</div>
+
+  
+  <div class="ruleEditor-actions">
+    <div class="ruleEditor-title">Actions</div>
+    <input-search></input-search>
+    <div>
+      <div class="button">Add Custom Action</div>
+    </div>
+    <div class="ruleEditor-hDivider"></div>
+    <div class="ruleEditor-actionsList">
+      <div ng-repeat="action in actions">
+        {{action}}
+      </div>
+    </div>
+  </div>
 </div>

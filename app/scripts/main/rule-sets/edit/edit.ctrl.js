@@ -14,8 +14,9 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       var modalInstance = $modal.open({
         animation: false,
         templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
-        controller: 'ExistingGroupCtrl',
-        size: 'lg'
+        controller: 'RuleSetEditorCtrl',
+        size: 'lg',
+        windowClass: 'ruleEditor-modal'
       });
 
       modalInstance.result.then(function (selectedGroup) {
@@ -30,6 +31,10 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
         return rule.id == $stateParams.ruleId;
       });
     };
+
+    setTimeout(function() {
+      $scope.editRule();
+    }, 200)
 
   }
 );

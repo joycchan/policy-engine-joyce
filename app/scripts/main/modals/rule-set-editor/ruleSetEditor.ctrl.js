@@ -1,4 +1,5 @@
-angular.module('policyEngine').controller('RuleSetEditorCtrl', function ($scope, $modalInstance, ruleSets) {
+angular.module('policyEngine').controller('RuleSetEditorCtrl', 
+  function ($scope, $modalInstance, ruleSets) {
 
   // $scope.selected;
 
@@ -15,4 +16,9 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl', function ($scope,
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+
+  $scope.actions = [
+    'Allow', 'Deny', 'Redirect', 'Chain'
+  ];
+
 });
