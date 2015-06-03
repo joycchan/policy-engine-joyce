@@ -7,7 +7,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
   //   $scope.selected = selectedRuleSet;
   // };
 
-  $scope.ruleSets = ruleSets.list;
+  $scope.existingRuleSets = ruleSets.list;
 
   $scope.ok = function () {
     $modalInstance.close($scope.selected);
@@ -17,8 +17,28 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $modalInstance.dismiss('cancel');
   };
 
-  $scope.actions = [
+  $scope.existingClassifiers = [
+    'SQL-port-1443',
+    'TrustSEC SGACL',
+    'Overlay-TEP-Type-HWTEP',
+    'Overlap-Encap-TypeVX-LAN',
+    'tcp-80',
+    'tcp-0',
+    'udp-80'
+  ];
+
+  $scope.existingActions = [
     'Allow', 'Deny', 'Redirect', 'Chain'
   ];
+
+  $scope.ruleSets = [
+    {'classifiers': [], 'actions': []}
+  ];
+
+
+  // on drop
+    // get index of row dropped upon
+    // push an object/string to either classifiers/actions array of that row
+
 
 });
