@@ -21,13 +21,15 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     });
   };
 
+  $scope.deleteRuleset = function() {
 
+  };
 
   $scope.onDragComplete = function(data,evt){
     // console.log("drag success, data:", data);
   }
 
-  var isExisting = function(list, newItem) {
+  var isExistingRuleset = function(list, newItem) {
     return _.any(list, function(item) {
       return item === newItem;
     });
@@ -35,11 +37,11 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
   $scope.onDropComplete = function(data,index){
     if (data.dataType === 'classifier') {
-      if (!isExisting($scope.ruleSets()[index].classifiers, data.name) && $scope.editModeHash[index]) {
+      if (!isExistingRuleset($scope.ruleSets()[index].classifiers, data.name) && $scope.editModeHash[index]) {
         $scope.ruleSets()[index].classifiers.push(data.name);
       }
     } else {
-      if (!isExisting($scope.ruleSets()[index].actions, data.name) && $scope.editModeHash[index]) {
+      if (!isExistingRuleset($scope.ruleSets()[index].actions, data.name) && $scope.editModeHash[index]) {
         $scope.ruleSets()[index].actions.push(data.name);
       }
     }
@@ -51,12 +53,12 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
   $scope.editModeHash = {
      // setting state for dev purposes
-    0: true,
-    // 1: true
+    // 0: true,
   };
 
   $scope.toggleEditRuleset = function(index) {
-    $scope.editModeHash[index] = !$scope.editModeHash[index];
+     $scope.editModeHash[index] = !$scope.editModeHash[index];
+    console.log("$scope.editModeHash", $scope.editModeHash);
   };
 
   $scope.isInEditModeForAnyRule = function() {
