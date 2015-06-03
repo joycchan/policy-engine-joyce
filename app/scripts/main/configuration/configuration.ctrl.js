@@ -2,7 +2,9 @@
 
 angular.module('policyEngine').controller('ConfigurationCtrl',
     function ($scope) {
-       $scope.portNo = 123;
-        $scope.port = 123;
+       $scope.config = {
+           portNo : 123,
+           port : 123
+           };
     }
 );

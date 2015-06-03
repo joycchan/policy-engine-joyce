@@ -1,4 +1,4 @@
-
+@import "../../../styles/variables";
 
 .setup{
 
@@ -105,7 +105,7 @@
       width: 51%;
       border-left: 1px solid #e9e8e6;
       padding-left: 65px;
-      margin-top: -16px;
+      margin-top: 7px;
       padding-bottom: 20px;
 
       .form-group label {
@@ -153,11 +153,20 @@
 
     .gateway {
       margin-top: -57px;
+      padding-bottom: 65px;
     }
     
     .final {
       float: right;
       margin-right: 30px;
+    }
+
+    .ng-invalid {
+      border: 1px solid red;
+    }
+
+    .ng-untouched {
+      border: 1px solid @color-70
     }
   }
 }
