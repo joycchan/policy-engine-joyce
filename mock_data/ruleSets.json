@@ -36,21 +36,12 @@
     "actions": ["Allow"]
   },
   {
-    "name": "HTTP Access",
-    "classifiers": ["TCP-80 Default"],
+    "name": "HTTP & ICMP Access",
+    "classifiers": ["TCP-80 Default", " ICMP"],
     "custom": "Default",
     "services": "None",
     "description": "Lorem ipsum",
     "id": "5",
     "actions": ["Allow"]
-  },
-  {
-    "name": "My New Rule Set",
-    "classifiers": ["SQL-port-1443", "TrustSEC"],
-    "custom": "Default",
-    "services": "None",
-    "description": "Lorem ipsum",
-    "id": "1",
-    "actions": ["Custom Action 1", "Custom Action 2"]
   }
 ]

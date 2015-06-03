@@ -1,0 +1,123 @@
+@import "../../../styles/variables";
+
+.nav-bar {
+  background-color: white;
+  height: 90px;
+  width: 100%;
+  border-bottom: 1px solid @color-70;
+  clear: both;
+  position: relative;
+
+  .cisco-icon {
+    background: url(../../../images/icon_cisco_logo_2.png) no-repeat;
+    display: inline-block;
+    width: 84px;
+    height: 40.3px;
+    margin: 0 20px;
+    position: relative;
+    top: 10px;
+  }
+
+  .title {
+    display: inline-block;
+    height: 90px;
+    line-height: 96px;
+  }
+
+  .menu-items {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    height: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    span {
+      margin-right: -18px;
+      margin-top: -17px;
+    }
+
+    .nav li a:hover {
+      background-color: transparent;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: @color-80;
+    }
+
+    .dropdown-hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown {
+      margin-left: 8px;
+    }
+  }
+
+  .main-search input {
+    width: 237px;
+    position: absolute;
+    right: 203px;
+  }
+
+  #navbar {
+    background-color: transparent;
+    z-index: 3;
+  }
+
+  .icon {
+    background-repeat: no-repeat;
+    display: block;
+    width: 38px;
+    height: 38px;
+
+    &.services {
+      background-image: url(../../../images/icon_header_services_normal.png);
+
+      &:hover {
+        background-image: url(../../../images/icon_header_services_hover.png) !important;
+      }
+
+      &.current {
+        background-image: url(../../../images/icon_header_services_selected.png);
+      }
+    }
+
+    &.groups {
+      background-image: url(../../../images/icon_header_groups_normal.png);
+
+      &:hover {
+        background-image: url(../../../images/icon_header_groups_hover.png) !important;
+      }
+
+      &.current {
+        background-image: url(../../../images/icon_header_groups_selected.png);
+      }
+    }
+
+    &.setup {
+      background-image: url(../../../images/icon_header_setup_normal.png);
+
+      &:hover {
+        background-image: url(../../../images/icon_header_setup_hover.png) !important;
+      }
+
+      &.current {
+        background-image: url(../../../images/icon_header_setup_selected.png);
+      }
+    }
+
+    &.account {
+      background-image: url(../../../images/icon_header_account_normal.png);
+
+      &:hover {
+        background-image: url(../../../images/icon_header_account_hover.png) !important;
+      }
+
+      &.current {
+        background-image: url(../../../images/icon_header_account_selected.png);
+      }
+    }
+  }
+}
