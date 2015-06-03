@@ -6,8 +6,8 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $mod
   };
 
   $scope.subnets = [
-    'WebServer-Subnet',
-    'AppServer Subnet'
+    '10.0.35.1/24',
+    '10.0.36.1/24',
   ];
 
   $scope.l2Contexts = [
