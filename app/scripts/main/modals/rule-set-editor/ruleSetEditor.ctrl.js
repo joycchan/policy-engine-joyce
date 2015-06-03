@@ -1,11 +1,5 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl', 
-  function ($scope, $modalInstance, ruleSets) {
-
-  // $scope.selected;
-
-  // $scope.selectRuleSet = function (selectedRuleSet) {
-  //   $scope.selected = selectedRuleSet;
-  // };
+  function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams) {
 
   $scope.existingRuleSets = ruleSets.list;
 
@@ -17,28 +11,45 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $modalInstance.dismiss('cancel');
   };
 
-  $scope.existingClassifiers = [
-    'SQL-port-1443',
-    'TrustSEC SGACL',
-    'Overlay-TEP-Type-HWTEP',
-    'Overlap-Encap-TypeVX-LAN',
-    'tcp-80',
-    'tcp-0',
-    'udp-80'
-  ];
+  $scope.existingClassifiers = Classifiers.list;
 
-  $scope.existingActions = [
-    'Allow', 'Deny', 'Redirect', 'Chain'
-  ];
+  $scope.existingActions = Actions.list;
 
-  $scope.ruleSets = [
-    {'classifiers': [], 'actions': []}
-  ];
+  $scope.ruleSets = function() {
+    return _.filter(ruleSets.list(), function(rule) {
+      return rule.id == $stateParams.ruleId;
+    });
+  };
 
 
-  // on drop
-    // get index of row dropped upon
-    // push an object/string to either classifiers/actions array of that row
+
+  $scope.onDragComplete = function(data,evt){
+    // console.log("drag success, data:", data);
+  }
+
+  var isExisting = function(list, newItem) {
+    return _.any(list, function(item) {
+      return item === newItem;
+    });
+  }
+
+  $scope.onDropComplete = function(data,index){
+    console.log("drop success, data:", data);
+    console.log("index", index);
+    if (data.dataType === 'classifier') {
+      if (!isExisting($scope.ruleSets()[index].classifiers, data.name)) {
+        $scope.ruleSets()[index].classifiers.push(data.name);
+      }
+    } else {
+      if (!isExisting($scope.ruleSets()[index].actions, data.name)) {
+        $scope.ruleSets()[index].actions.push(data.name);
+      }
+    }
+  }
+
+  $scope.decorateData = function(data, dataType) {
+    return _.extend(data, {'dataType': dataType});
+  };
 
 
 });

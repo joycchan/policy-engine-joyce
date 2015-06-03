@@ -1,0 +1,9 @@
+[{
+  "name": "Allow"
+}, {
+  "name": "Deny"
+}, {
+  "name": "Redirect"
+}, {
+  "name": "Chain"
+}]

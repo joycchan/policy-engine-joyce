@@ -19,8 +19,8 @@
       </div>
     </div>
     <div class="ruleEditor-classifiersList">
-      <div ng-repeat="classifier in existingClassifiers" ng-drag="true" ng-drag-data="rule" ng-drop-success="drop($data, $event)">
-        {{classifier}}
+      <div ng-repeat="classifier in existingClassifiers()" ng-drag="true" ng-drag-data="decorateData(classifier, 'classifier')" ng-drag-success="onDragComplete($data,$event)">
+        {{classifier.name}}
       </div>
     </div>
   </div>
@@ -31,11 +31,27 @@
     <div class="ruleEditor-editor-help">
       Rules define how the network behaves.  Classifiers describe types of network traffic and actions deterimne waht to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you can specify your custom rule.
     </div>
-    <div>Classifier
-      <div></div>
-    </div>
-    <div>Action
-      <div></div>
+    <div>
+      <table class="listView ruleEditor-listView">
+        <thead>
+          <tr>
+            <th></th>
+            <th><div>Classifier</div><div class="rulesets-settings-list-classifierDesc">Classifiers are OR'ed</div></th>
+            <th><div>Action</div><div class="rulesets-settings-list-classifierDesc">Actions are AND'ed</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="rule in ruleSets()" ng-drop="true" ng-drop-success="onDropComplete($data, $index)">
+            <td><div class="rulesets-settings-list-number">{{$index + 1}}</div></td>
+            <td>
+              <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
+            </td>
+            <td>
+              <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">{{action}}</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   
@@ -47,8 +63,8 @@
     </div>
     <div class="ruleEditor-hDivider"></div>
     <div class="ruleEditor-actionsList">
-      <div ng-repeat="action in existingActions">
-        {{action}}
+      <div ng-repeat="action in existingActions()" ng-drag="true" ng-drag-data="decorateData(action, 'action')" ng-drag-success="onDragComplete($data,$event)">
+        {{action.name}}
       </div>
     </div>
   </div>
