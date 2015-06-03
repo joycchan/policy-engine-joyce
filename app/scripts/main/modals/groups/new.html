@@ -1,36 +1,42 @@
 <h2>New Group</h2>
 <div class="form-group">
     <label for="groupName">Name</label>
-    <input type="text" class="form-control new-group" ng-model="group.name" id="groupName" required >
+    <input type="text" class="form-control new-group" ng-model="group.name" id="groupName" required>
 </div>
 <div class="form-group">
     <label for="groupDesc">Description</label>
-    <textarea class="form-control description" id="groupDesc" ng-model="group.description" required placeholder="optional"></textarea>
+    <textarea class="form-control description" id="groupDesc" ng-model="group.description" required
+              placeholder="optional"></textarea>
 </div>
 
 <div>
     <form>
         <div class="network-func">
-        <switch id="enabled" name="enabled" ng-model="group.enabled" ng-change="toggleEnabled"  class="green"></switch> <span class="network"> Network context</span>
+            <switch id="enabled" name="enabled" ng-model="group.enabled" ng-change="toggleEnabled"
+                    class="green"></switch>
+            <span class="network"> Network context</span>
         </div>
         <br>
+
         <div ng-show="group.enabled">
-        <div class="form-group">
-            <label for="subnets">Subnets</label>
-            <input type="text" class="form-control new-group" id="subnets" ng-model="group.subnets" required placeholder="IP Address" ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'>
-        </div>
-        <div class="form-group">
-            <label for="floodDomain">L2 Flood Domain</label>
-            <input type="text" class="form-control new-group" id="floodDomain" ng-model="group.floodDomain" required placeholder="16-bit UUID">
-        </div>
-        <div class="form-group">
-            <label for="bridgeDomain">L2 Brige Domain</label>
-            <input type="text" class="form-control new-group" id="bridgeDomain" ng-model="group.bridgeDomain" required placeholder="16-bit UUID">
-        </div>
-        <div class="form-group">
-            <label for="context">L3 Context</label>
-            <input type="text" class="form-control new-group" id="context" ng-model="group.context" required placeholder="16-bit UUID">
-        </div>
+            <div class="form-group">
+                <label for="subnet">Subnet</label>
+                <select ng-model="group.subnet" class="form-control new-group">
+                    <option ng-repeat="subnet in subnets" value="subnet" id="subnet">{{subnet}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="l2Context">L2 Context</label>
+                <select ng-model="group.l2Context" class="form-control new-group">
+                    <option ng-repeat="l2Context in l2Contexts" value="l2Context" id="l2Context">{{l2Context}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="l3Context">L3 Context</label>
+                <select ng-model="group.l3Context" class="form-control new-group">
+                    <option ng-repeat="l3Context in l3Contexts" value="l3Context" id="l3Context">{{l3Context}}</option>
+                </select>
+            </div>
         </div>
     </form>
 </div>
