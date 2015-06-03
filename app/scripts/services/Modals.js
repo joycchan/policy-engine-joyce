@@ -30,6 +30,14 @@ angular.module('policyEngine').factory('Modals',
         windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'ExistingRuleSetCtrl',
         size: 'lg'
+      },
+      'rulesetEditor': {
+        animation: false,
+        templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
+        controller: 'RuleSetEditorCtrl',
+        size: 'lg',
+        windowClass: 'ruleEditor-modal',
+        windowTemplateUrl: 'scripts/templates/modal/window.html'
       }
     };
 

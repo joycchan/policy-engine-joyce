@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('RuleSetsCtrl',
-  function($scope, ruleSets) {
+  function($scope, $modal, Modals, ruleSets) {
 
     $scope.rulesList = ruleSets.list;
 
@@ -17,6 +17,15 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
 
     $scope.isRulesListFilterSelected = function(name) {
       return name === 'All Rule Sets' ? true : false;
+    };
+
+    $scope.newRuleset = function() {
+      console.log("sdfjkdslf")
+      var modalInstance = $modal.open(Modals.newRuleset);
+
+      modalInstance.result.then(function (newRule) {
+      }, function () {
+      });
     };
 
 

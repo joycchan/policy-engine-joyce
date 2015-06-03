@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('RuleSetsEditCtrl',
-  function($scope, $modal, $stateParams, ruleSets) {
+  function($scope, $modal, $stateParams, ruleSets, Modals) {
     $scope.navTabLinks = [{
       'name': 'Settings',
       'uiSref': 'main.ruleSetsEdit.settings'
@@ -9,17 +9,9 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
     }];
 
     $scope.editRule = function () {
-      var modalInstance = $modal.open({
-        animation: false,
-        templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
-        controller: 'RuleSetEditorCtrl',
-        size: 'lg',
-        windowClass: 'ruleEditor-modal',
-        windowTemplateUrl: 'scripts/templates/modal/window.html'
-      });
+      var modalInstance = $modal.open(Modals.rulesetEditor);
 
-      modalInstance.result.then(function (selectedGroup) {
-        $scope.service.group = selectedGroup;
+      modalInstance.result.then(function () {
       }, function () {
       });
 
