@@ -34,8 +34,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
   }
 
   $scope.onDropComplete = function(data,index){
-    console.log("drop success, data:", data);
-    console.log("index", index);
     if (data.dataType === 'classifier') {
       if (!isExisting($scope.ruleSets()[index].classifiers, data.name) && $scope.editModeHash[index]) {
         $scope.ruleSets()[index].classifiers.push(data.name);
@@ -51,7 +49,11 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     return _.extend(data, {'dataType': dataType});
   };
 
-  $scope.editModeHash = {};
+  $scope.editModeHash = {
+     // setting state for dev purposes
+    0: true,
+    // 1: true
+  };
 
   $scope.toggleEditRuleset = function(index) {
     $scope.editModeHash[index] = !$scope.editModeHash[index];

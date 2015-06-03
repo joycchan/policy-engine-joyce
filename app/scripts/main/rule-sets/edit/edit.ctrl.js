@@ -33,7 +33,7 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
     };
 
     setTimeout(function() {
-      $scope.editRule();
+      $scope.editRule(); // setting state for dev purposes
     }, 200)
 
   }

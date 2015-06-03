@@ -49,18 +49,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="rule in ruleSets()" ng-drop="true" ng-drop-success="onDropComplete($data, $index)">
+          <tr ng-repeat="rule in ruleSets()" ng-drop="true" ng-drop-success="onDropComplete($data, $index)" class="rulesets-listView-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
             <td class="ruleEditor-listView-numberEdit">
               <div class="rulesets-settings-list-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
               <div class="rulesets-listView-numberEdit-edit" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
             </td>
             <td>
-              <div>
+              <div class="rulesets-listView-itemContainer">
                 <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
               </div>
             </td>
             <td>
-              <div>
+              <div class="rulesets-listView-itemContainer">
                 <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">{{action}}</div>
               </div>
             </td>

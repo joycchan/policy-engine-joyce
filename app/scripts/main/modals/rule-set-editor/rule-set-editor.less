@@ -100,6 +100,30 @@
   // margin: 0px 0px 15px 0;
 }
 
+.rulesets-listView-row {
+  &.is-inEditMode {
+    .rulesets-listView-itemContainer {
+      border: 1px dashed @color-70;
+      padding: 4px;
+      border-radius: 8px;
+    }
+    .rulesets-settings-list-classifier, .rulesets-settings-list-action {
+      &:extend(.extra-light);
+      height: 20px;
+      border-radius: 5px;
+      background-color: @rulesetEditor-rowItem-editMode-BG;
+      color: white;
+      line-height: 18px;
+      font-size: 12px;
+      padding: 2px;
+      margin: 4px;
+    }
+    .rulesets-settings-list-action {
+      background-color: @launchNav-notification-backgroundColor;
+    }
+  }
+}
+
 .rulesets-listView-numberEdit-edit {
   min-width: 25px;
   min-height: 25px;
