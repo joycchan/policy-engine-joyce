@@ -24,7 +24,7 @@
       <div
         class="ruleEditor-listItem"
         ng-repeat="classifier in existingClassifiers()"
-        ng-drag="true"
+        ng-drag="isInEditModeForAnyRule()"
         ng-drag-data="decorateData(classifier, 'classifier')"
         ng-drag-success="onDragComplete($data,$event)">
         {{classifier.name}}
@@ -39,7 +39,7 @@
       Rules define how the network behaves.  Classifiers describe types of network traffic and actions deterimne waht to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you can specify your custom rule.
     </div>
     <div class="ruleEditor-listView">
-      <table class="listView">
+      <table class="listView listView--iconsHover">
         <thead>
           <tr>
             <th></th>
@@ -50,7 +50,10 @@
         </thead>
         <tbody>
           <tr ng-repeat="rule in ruleSets()" ng-drop="true" ng-drop-success="onDropComplete($data, $index)">
-            <td><div class="rulesets-settings-list-number">{{$index + 1}}</div></td>
+            <td class="ruleEditor-listView-numberEdit">
+              <div class="rulesets-settings-list-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
+              <div class="rulesets-listView-numberEdit-edit" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
+            </td>
             <td>
               <div>
                 <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
@@ -61,7 +64,18 @@
                 <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">{{action}}</div>
               </div>
             </td>
-            <td></td>
+            <td>
+              <div ng-hide="editModeHash[$index]">
+                <div class="listView-icons" ng-click="toggleEditRuleset($index)">
+                  <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
+                  <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
+                </div>
+                <div class="listView-icons">
+                  <img class="listView-icon is-hidden-on-hover" src="images/icon_x_16.png">
+                  <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
+                </div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -80,7 +94,7 @@
     <div class="ruleEditor-list">
       <div class="ruleEditor-listItem"
         ng-repeat="action in existingActions()"
-        ng-drag="true"
+        ng-drag="isInEditModeForAnyRule()"
         ng-drag-data="decorateData(action, 'action')"
         ng-drag-success="onDragComplete($data,$event)">
         {{action.name}}
