@@ -11,6 +11,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
       var modalInstance = $modal.open({
         animation: false,
         templateUrl: 'scripts/main/modals/groups/new.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'NewGroupCtrl',
         size: 'lg'
       });
@@ -26,6 +27,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
       var modalInstance = $modal.open({
         animation: false,
         templateUrl: 'scripts/main/modals/groups/existing.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'ExistingGroupCtrl',
         size: 'lg'
       });
@@ -41,6 +43,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
       var modalInstance = $modal.open({
         animation: false,
         templateUrl: 'scripts/main/modals/rule-sets/new.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'NewRuleSetCtrl',
         size: 'lg'
       });
@@ -57,6 +60,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
       var modalInstance = $modal.open({
         animation: false,
         templateUrl: 'scripts/main/modals/rule-sets/existing.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'ExistingRuleSetCtrl',
         size: 'lg'
       });
