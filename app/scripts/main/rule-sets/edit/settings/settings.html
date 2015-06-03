@@ -1,0 +1,51 @@
+<div class="rulesets-settings">
+  <div class="rulesets-settings-editableItems">
+    <!-- <div class="rulesets-settings-name"></div> -->
+    <!-- <div class="rulesets-settings-description"></div> -->
+    <div class="media">
+      <div class="media-left rulesets-settings-editableItems-header">
+          Name
+      </div>
+      <div class="media-body rulesets-settings-editableItems-text">
+        My Rule set
+      </div>
+    </div>
+    <div class="media">
+      <div class="media-left rulesets-settings-editableItems-header">
+          Description
+      </div>
+      <div class="media-body rulesets-settings-editableItems-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet leo tellus, eu varius justo auctor vitae. Duis consequat lectus.
+      </div>
+    </div>
+
+  </div>
+  <div class="rulesets-settings-helpText">
+    Rules define how the network traffic behaves.  Classifiers describe types of network traffic and actions determine what to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you specify custom ones.
+  </div>
+  <div class="rulesets-settings-editButton">
+    <div class="button button--secondary" ng-click="editRule()">Edit Rules</div>
+  </div>
+  <div class="rulesets-settings-list">
+    <table class="listView">
+      <thead>
+        <tr>
+          <th></th>
+          <th><div>Classifier</div><div class="rulesets-settings-list-classifierDesc">Classifiers are OR'ed</div></th>
+          <th><div>Action</div><div class="rulesets-settings-list-classifierDesc">Actions are AND'ed</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="rule in rulesList()">
+          <td><div class="rulesets-settings-list-number">{{$index + 1}}</div></td>
+          <td>
+            <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
+          </td>
+          <td>
+            <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">{{action}}</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

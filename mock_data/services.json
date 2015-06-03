@@ -49,7 +49,7 @@
     "parentId": "12"
   },
   {
-    "name": "GE Capital Apps",
+    "name": "Apps",
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -58,7 +58,7 @@
     }
   },
   {
-    "name": "GE Capital Apps - No Ping",
+    "name": "Apps - No Ping",
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -68,7 +68,7 @@
     "parentId": "12"
   },
   {
-    "name": "GE Capital Apps - Silver",
+    "name": "Apps - Silver",
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -78,7 +78,7 @@
     "parentId": "12"
   },
   {
-    "name": "GE Capital Apps - Restricted",
+    "name": "Apps - Restricted",
     "group": {
       "name": "DB Servers - All Zones"
     },

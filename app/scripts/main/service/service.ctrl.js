@@ -10,7 +10,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.newGroup = function () {
       var modalInstance = $modal.open({
         animation: false,
-        templateUrl: 'scripts/main/groups/new.html',
+        templateUrl: 'scripts/main/modals/groups/new.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'NewGroupCtrl',
         size: 'lg'
       });
@@ -25,7 +26,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.existingGroup = function () {
       var modalInstance = $modal.open({
         animation: false,
-        templateUrl: 'scripts/main/groups/existing.html',
+        templateUrl: 'scripts/main/modals/groups/existing.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'ExistingGroupCtrl',
         size: 'lg'
       });
@@ -40,7 +42,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.newRuleSet = function () {
       var modalInstance = $modal.open({
         animation: false,
-        templateUrl: 'scripts/main/rule-sets/new.html',
+        templateUrl: 'scripts/main/modals/rule-sets/new.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'NewRuleSetCtrl',
         size: 'lg'
       });
@@ -56,7 +59,8 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.existingRuleSet = function () {
       var modalInstance = $modal.open({
         animation: false,
-        templateUrl: 'scripts/main/rule-sets/existing.html',
+        templateUrl: 'scripts/main/modals/rule-sets/existing.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'ExistingRuleSetCtrl',
         size: 'lg'
       });

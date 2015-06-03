@@ -55,7 +55,7 @@ angular.module("policyEngine", [
 
           url: 'allocations/',
           templateUrl: 'scripts/main/allocations/allocations.html',
-        controller: "AllocationsCtrl"
+          controller: "AllocationsCtrl"
         })
         .state("main.allocation", {
           abstract: true,
@@ -85,5 +85,25 @@ angular.module("policyEngine", [
             controller: "ConsumeCtrl",
             templateUrl: "scripts/main/allocations/allocation/consume/consume.html"
           })
+      .state("main.ruleSets", {
+        url: "rulesets/",
+        controller: "RuleSetsCtrl",
+        templateUrl: "scripts/main/rule-sets/rule-sets.html"
+      })
+      .state("main.ruleSetsEdit", {
+        abstract: true,
+        url: "rulesets/edit/:ruleId/",
+        controller: "RuleSetsEditCtrl",
+        templateUrl: "scripts/main/rule-sets/edit/edit.html"
+      })
+      .state("main.ruleSetsEdit.settings", {
+        url: "settings/",
+        templateUrl: "scripts/main/rule-sets/edit/settings/settings.html"
+      })
+      .state("main.ruleSetsEdit.services", {
+        url: "services/",
+        templateUrl: "scripts/main/rule-sets/edit/services/services.html"
+      })
+
   });
 

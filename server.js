@@ -1,7 +1,6 @@
 var express = require('express')
   , basicAuth = require('basic-auth-connect')
   , logfmt = require("logfmt")
-  , querystring = require('querystring')
   , http = require('http')
   , bodyParser = require('body-parser')
   , fs = require('fs')
@@ -31,19 +30,7 @@ var serveDirectories = function (app, directories) {
   });
 
   app.post("/assignments", function (req, res) {
-
-    var options = {
-      host: req.body.serverIP + ':8080',
-      path: '/restconf/config/opendaylight-inventory:nodes',
-      method: 'PUT',
-      auth: 'admin:admin',
-      headers: {
-        'Content-type': 'application/yang.data+json',
-        'Accept': 'application/yang.data+json'
-      }
-    };
-
-    var body = querystring.stringify(
+    var body = JSON.stringify(
       {
         "policy:tenants": {
           "tenant": [
@@ -207,6 +194,19 @@ var serveDirectories = function (app, directories) {
       }
     );
 
+    var options = {
+      host: req.body.serverIP,
+      port: '8080',
+      path: '/restconf/config/policy:tenants',
+      method: 'PUT',
+      auth: 'admin:admin',
+      headers: {
+        'Content-Type': 'application/yang.data+json',
+        'Accept': 'application/yang.data+json',
+        'Content-Length': body.length
+      }
+    };
+
     var req = http.request(options, function (res) {
       console.log('STATUS: ' + res.statusCode);
       console.log('HEADERS: ' + JSON.stringify(res.headers));
@@ -220,7 +220,41 @@ var serveDirectories = function (app, directories) {
       console.log('problem with request: ' + e.message);
     });
 
+    console.log('body', body);
+
     req.write(body);
+    console.log('req', req);
+    req.end();
+  });
+
+  app.delete("/assignments", function (req, res) {
+
+    var options = {
+      host: req.body.serverIP,
+      port: '8080',
+      path: '/restconf/config/policy:tenants',
+      method: 'DELETE',
+      auth: 'admin:admin',
+      headers: {
+        'Content-Type': 'application/yang.data+json',
+        'Accept': 'application/yang.data+json'
+      }
+    };
+
+    var req = http.request(options, function (res) {
+      console.log('STATUS: ' + res.statusCode);
+      console.log('HEADERS: ' + JSON.stringify(res.headers));
+      res.setEncoding('utf8');
+      res.on('data', function (chunk) {
+        console.log('BODY: ' + chunk);
+      });
+    });
+
+    req.on('error', function (e) {
+      console.log('problem with request: ' + e.message);
+    });
+
+    console.log('req', req);
     req.end();
   });
 

@@ -1,0 +1,28 @@
+@import "../../../styles/variables";
+
+.listFilter-name, .listFilter-divider {
+  display: inline-block;
+  padding-right: 6px;
+}
+
+.listFilter-name {
+  cursor: pointer;
+
+  &.is-selected {
+    &:extend(.bold);
+    color: @blue;
+  }
+}
+
+.listFilter-divider {
+  height: 36px;
+  border-left: 1px solid @color-75;
+  vertical-align: middle;
+}
+
+// hide the divider of the last filter
+list-filter:last-child {
+  .listFilter-divider {
+    display: none;
+  }
+}

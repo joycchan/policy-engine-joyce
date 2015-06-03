@@ -10,6 +10,7 @@ angular.module('policyEngine').controller('GroupsCtrl',
       var modalInstance = $modal.open({
         animation: false,
         templateUrl: 'scripts/main/groups/new.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'NewGroupCtrl',
         size: 'lg'
      });

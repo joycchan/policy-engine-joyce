@@ -2000,7 +2000,7 @@ angular.module('ui.bootstrap.modal', [])
     return {
       restrict: 'EA',
       replace: true,
-      templateUrl: 'template/modal/backdrop.html',
+      templateUrl: 'scripts/templates/modal/backdrop.html',
       compile: function (tElement, tAttrs) {
         tElement.addClass(tAttrs.backdropClass);
         return linkFn;
