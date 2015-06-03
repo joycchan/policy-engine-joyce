@@ -1,4 +1,8 @@
 @import "../../../../styles/variables";
+.padding-15 {
+  padding: 0 15px 15px 15px;
+}
+@ruleEditor-height: 90vh;
 
 .ruleEditor-modal {
   // overwriting angular-ui classes
@@ -13,7 +17,7 @@
 }
 
 .ruleEditor {
-  height: 90vh;
+  height: @ruleEditor-height;
 }
 
 .ruleEditor-classifiers, .ruleEditor-actions, .ruleEditor-editor {
@@ -24,6 +28,15 @@
 .ruleEditor-classifiers, .ruleEditor-actions {
   width: 220px;
   background-color: @color-90;
+  height: @ruleEditor-height;
+}
+
+.ruleEditor-classifiers {
+  border-right: 1px solid @color-70;
+}
+
+.ruleEditor-actions {
+  border-left: 1px solid @color-70;
 }
 
 .ruleEditor-editor {
@@ -32,14 +45,27 @@
 }
 
 .ruleEditor-title {
+  &:extend(.padding-15);
   &:extend(.thin);
+  padding-top: 15px;
   font-size: 18px;
   color: @color-60;
   line-height: 26px;
-
+  
   &.ruleEditor-title--editor {
     color: @color-70;
   }
+}
+
+.ruleEditor-search {
+  &:extend(.padding-15);
+  input {
+    height: 32px;
+  }
+}
+
+.ruleEditor-addButton {
+  &:extend(.padding-15);
 }
 
 .ruleEditor-hDivider {
@@ -47,18 +73,58 @@
 }
 
 .ruleEditor-category {
+  &:extend(.padding-15);
+  padding-top: 15px;
+  padding-bottom: 5px;
   font-size: 12px;
   color: @color-60;
   line-height: 18px;
 }
 
+.ruleEditor-category-dropdown {
+  &:extend(.padding-15);
+  padding-top: 5px;
+  // overwriting bootstrap styles
+  .btn {
+    width: 190px;
+    text-align: left;
+
+    .caret {
+      left: 140px;
+      position: relative;
+    }
+  }
+}
+
+.ruleEditor-list {
+  // margin: 0px 0px 15px 0;
+}
+
+.ruleEditor-listItem {
+  &:extend(.extra-light);
+  cursor: pointer;
+  font-size: 12px;
+  color: @color-50;
+  line-height: 36px;
+  border-left: 3px solid @color-90;
+  padding-left: 15px;
+  &:hover {
+    background-color: @color-80;
+    border-left: 3px solid @blue;
+  }
+}
+
 .ruleEditor-editor-help {
   &:extend(.extra-light);
+  &:extend(.padding-15);
   font-size: 12px;
   color: @color-60;
   line-height: 18px;
 }
 
 .ruleEditor-listView {
-  width: 100%;
+  &:extend(.padding-15);
+  .listView {
+    width: 100%;
+  }
 }

@@ -51,5 +51,8 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     return _.extend(data, {'dataType': dataType});
   };
 
+  // $scope.isEditableHash = {};
+
+
 
 });
