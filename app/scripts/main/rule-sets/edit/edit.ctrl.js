@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('policyEngine').controller('RuleSetsEditCtrl',
   function($scope, $modal, $stateParams, ruleSets) {
     $scope.navTabLinks = [{
@@ -14,6 +12,7 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       var modalInstance = $modal.open({
         animation: false,
         templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'ExistingGroupCtrl',
         size: 'lg'
       });
