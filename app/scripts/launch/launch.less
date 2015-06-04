@@ -2,8 +2,8 @@
 @import "app/bower_components/bootstrap/less/mixins/clearfix";
 @import (reference) "../../bower_components/bootstrap/less/bootstrap.less";
 
-.launchNav {
-  margin-top: 15px;
+.launch {
+  background-color: white;
 }
 
 .launchNav-east {
@@ -54,6 +54,9 @@
 
 .launchSummary {
   text-align: center;
+  // override bootstrap container - hack todo: clean
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .launchSummary-productName {
@@ -70,6 +73,9 @@
   // bootstrap columns are dynamically created at compilation
   // instead of placing col-xs-2 in the html, use the mixin to make a xs-column here explicitly
   .make-xs-column(2);
+  // override bootstrap container - hack todo: clean
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .launchSummary-category--first {
@@ -79,7 +85,7 @@
 
 .launchSummary-category-name {
   &:extend(.thin);
-  font-size: 24px;
+  font-size: 32px;
   color: @color-60;
   line-height: 30px;
   margin-bottom: 15px;
