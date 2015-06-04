@@ -20,7 +20,6 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
     };
 
     $scope.newRuleset = function() {
-      console.log("sdfjkdslf")
       var modalInstance = $modal.open(Modals.newRuleset);
 
       modalInstance.result.then(function (newRule) {

@@ -15,7 +15,7 @@ angular.module("policyEngine", [
       })
       .state("main", {
         abstract: true,
-        url: "/",
+        url: "/?{ruleId}",
         templateUrl: "scripts/main/main.html",
         controller: "MainCtrl"
       })
@@ -80,7 +80,7 @@ angular.module("policyEngine", [
       })
       .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "rulesets/edit/:ruleId/",
+        url: "rulesets/edit/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })

@@ -1,10 +1,22 @@
-angular.module('policyEngine').controller('ExistingRuleSetCtrl', function ($scope, $modalInstance, ruleSets) {
+angular.module('policyEngine').controller('ExistingRuleSetCtrl',
+  function ($scope, $modalInstance, ruleSets, $state, $modal, Modals) {
 
   $scope.selected;
 
   $scope.selectRuleSet = function (selectedRuleSet) {
     $scope.selected = selectedRuleSet;
+    $state.go('.', {'ruleId': selectedRuleSet.id});
   };
+
+  $scope.editRuleSet = function(ruleset) {
+    $scope.selectRuleSet(ruleset);
+    // $modalInstance.dismiss('cancel');
+    var modalInstance = $modal.open(Modals.rulesetEditor);
+
+    modalInstance.result.then(function () {
+    }, function () {
+    });
+  }
 
   $scope.ruleSets = ruleSets.list;
 
@@ -15,4 +27,5 @@ angular.module('policyEngine').controller('ExistingRuleSetCtrl', function ($scop
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+
 });
