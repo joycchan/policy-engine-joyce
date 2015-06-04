@@ -23,7 +23,7 @@ angular.module('policyEngine').factory('assignments',
 
       list.push(assignment);
 
-      $http.post('/assignments', { serverIP: configuration.account.serverIP }).success(function(response) {
+      $http.post('/assignments', undefined, { params: { serverIP: configuration.account.serverIP }}).success(function(response) {
         console.log('success response', response);
       }).error(function(response) {
         console.log('error response', response);
@@ -36,7 +36,7 @@ angular.module('policyEngine').factory('assignments',
       _.remove(list, function(all) {
         return all.id === id;
       });
-      $http.delete('/assignments', { serverIP: configuration.account.serverIP }).success(function(response) {
+      $http.delete('/assignments', { params: { serverIP: configuration.account.serverIP } }).success(function(response) {
         console.log('success response', response);
       }).error(function(response) {
         console.log('error response', response);
