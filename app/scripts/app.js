@@ -34,7 +34,24 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/groups/groups.html",
           controller: "GroupsCtrl"
         })
-
+        .state("main.groupsEdit", {
+          abstract: true,
+          url: "groups/edit/",
+          controller: "GroupsEditCtrl",
+          templateUrl: "scripts/main/groups/edit/edit.html"
+        })
+        .state("main.groupsEdit.settings", {
+          url: "settings/",
+          templateUrl: "scripts/main/groups/edit/settings/settings.html"
+        })
+        .state("main.groupsEdit.servicesProvided", {
+          url: "services/provided/",
+          templateUrl: "scripts/main/groups/edit/servicesProvided/servicesProvided.html"
+        })
+        .state("main.groupsEdit.services", {
+          url: "services/consumed/",
+          templateUrl: "scripts/main/groups/edit/servicesConsumed/servicesConsumed.html"
+        })
         .state("main.service", {
           url: "service/",
           templateUrl: "scripts/main/service/service.html",
