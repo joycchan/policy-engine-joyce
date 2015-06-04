@@ -1,38 +1,41 @@
 <div class="rulesets">
   <div class="rulesets-breadcrumbs">
-    <div class="rulesets-breadcrumbs-breadcrumb">Rule Sets</div>
+    <div class="rulesets-breadcrumbs-breadcrumb">Groups</div>
   </div>
   <div class="rulesList">
     <div class="rulesList-helpText">
-      Rule sets are encapsulations of network rules.  A small library of default rule sets are provided for you to use or to copy.  You can also create your own from scratch.
+      Groups encapsulate users who have things in common like role and location. Groups also
+        encapsulate resources like application servers and firewalls that have things in common.
     </div>
-    <div class="rulesList-new button" ng-click="newRuleset()">
+    <div class="rulesList-new button" ng-click="open()">
       <div class="plus">+</div>
-      New Rule Set
+      New Group
     </div>
     <list-count-filter-search class="rulesList-countFilterSearch"
-      count="rulesList().length"
-      filters="rulesListFilters"
-      filter-by="filterRulesListBy"
+      count="groups().length"
+      filters="groupFilters"
+      filter-by=""
       is-filter-selected="isRulesListFilterSelected"
-      search-model="search.name">
+      search-model="">
     </list-count-filter-search>
       <table class="rulesList-list listView listView--iconsHover">
         <thead>
           <th>Name</th>
-          <th>Classifiers</th>
-          <th>Used by Service</th>
+          <th>Origin</th>
           <th>Description</th>
+          <th>Services Provided</th>
+          <th>Services Consumed</th>
           <th></th>
         </thead>
         <tbody>
-          <tr ng-repeat="rule in rulesList() | filter: search">
-            <td>{{rule.name}}</td>
-            <td>{{rule.classifiers.join(',')}}</td>
-            <td>{{rule.services}}</td>
-            <td>{{rule.description}}</td>
+          <tr ng-repeat="group in groups() | filter: search">
+            <td>{{group.name}}</td>
+            <td>{{group.origin}}</td>
+            <td>{{group.description}}</td>
+            <td>{{group.servicesProvided}}</td>
+            <td>{{group.servicesConsumed}}</td>
             <td>
-              <div class="listView-icons" ui-sref="main.ruleSetsEdit.settings({'ruleId': rule.id})">
+              <div class="listView-icons" ui-sref="main.groupsEdit.settings">
                 <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
                 <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
               </div>

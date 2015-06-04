@@ -17,7 +17,7 @@ angular.module("policyEngine", [
       })
       .state("main", {
         abstract: true,
-        url: "/",
+        url: "/?{ruleId}",
         templateUrl: "scripts/main/main.html",
         controller: "MainCtrl"
       })
@@ -43,8 +43,24 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/groups/groups.html",
           controller: "GroupsCtrl"
         })
-
-
+        .state("main.groupsEdit", {
+          abstract: true,
+          url: "groups/edit/",
+          controller: "GroupsEditCtrl",
+          templateUrl: "scripts/main/groups/edit/edit.html"
+        })
+        .state("main.groupsEdit.settings", {
+          url: "settings/",
+          templateUrl: "scripts/main/groups/edit/settings/settings.html"
+        })
+        .state("main.groupsEdit.servicesProvided", {
+          url: "services/provided/",
+          templateUrl: "scripts/main/groups/edit/servicesProvided/servicesProvided.html"
+        })
+        .state("main.groupsEdit.services", {
+          url: "services/consumed/",
+          templateUrl: "scripts/main/groups/edit/servicesConsumed/servicesConsumed.html"
+        })
         .state("main.service", {
           url: "service/",
           templateUrl: "scripts/main/service/service.html",
@@ -92,7 +108,7 @@ angular.module("policyEngine", [
       })
       .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "rulesets/edit/:ruleId/",
+        url: "rulesets/edit/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })
@@ -105,5 +121,10 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
 
+  })
+  .run(function($rootScope) {
+    $rootScope.$on('$stateChangeSuccess',function(){
+      $("html, body").animate({ scrollTop: 0 }, 0);
+    })
   });
 

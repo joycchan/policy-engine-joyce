@@ -1,20 +1,14 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state, $modal) {
+  function ($scope, $state, $modal, Modals) {
 
     $scope.service = {
       name: 'New Service'
     };
 
     $scope.newGroup = function () {
-      var modalInstance = $modal.open({
-        animation: false,
-        templateUrl: 'scripts/main/modals/groups/new.html',
-        windowTemplateUrl: 'scripts/templates/modal/window.html',
-        controller: 'NewGroupCtrl',
-        size: 'lg'
-      });
+      var modalInstance = $modal.open(Modals.newGroup);
 
       modalInstance.result.then(function (newGroup) {
         $scope.service.group = newGroup;
@@ -24,13 +18,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
     };
 
     $scope.existingGroup = function () {
-      var modalInstance = $modal.open({
-        animation: false,
-        templateUrl: 'scripts/main/modals/groups/existing.html',
-        windowTemplateUrl: 'scripts/templates/modal/window.html',
-        controller: 'ExistingGroupCtrl',
-        size: 'lg'
-      });
+      var modalInstance = $modal.open(Modals.existingGroup);
 
       modalInstance.result.then(function (selectedGroup) {
         $scope.service.group = selectedGroup;
@@ -40,16 +28,19 @@ angular.module('policyEngine').controller('ServiceCtrl',
     };
 
     $scope.newRuleSet = function () {
-      var modalInstance = $modal.open({
-        animation: false,
-        templateUrl: 'scripts/main/modals/rule-sets/new.html',
-        windowTemplateUrl: 'scripts/templates/modal/window.html',
-        controller: 'NewRuleSetCtrl',
-        size: 'lg'
-      });
+      $state.go('.', {ruleId: ''});
+      // this is to clear the ruleId just in case that the ruleID param
+      // still exists in the url.  When we go to the rule set editor,
+      // it uses this param to know what to ng-repeat over
+      // TODO: clean this up so that rule set editor does not depend on this.
+      var modalInstance = $modal.open(Modals.newRuleset);
 
       modalInstance.result.then(function (newRuleSet) {
         $scope.service.ruleSet = newRuleSet;
+
+        var modalInstance = $modal.open(Modals.rulesetEditor);
+        modalInstance.result.then(function () {}, function () {});
+
       }, function () {
         console.log('Modal dismissed at: ' + new Date());
       });
@@ -57,13 +48,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
     };
 
     $scope.existingRuleSet = function () {
-      var modalInstance = $modal.open({
-        animation: false,
-        templateUrl: 'scripts/main/modals/rule-sets/existing.html',
-        windowTemplateUrl: 'scripts/templates/modal/window.html',
-        controller: 'ExistingRuleSetCtrl',
-        size: 'lg'
-      });
+      var modalInstance = $modal.open(Modals.existingRuleset);
 
       modalInstance.result.then(function (selectedRuleSet) {
         $scope.service.ruleSet = selectedRuleSet;

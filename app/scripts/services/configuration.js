@@ -4,7 +4,8 @@ angular.module('policyEngine').factory('configuration',
   function () {
     return {
       account: {
-        serverIP: "localhost"
+        serverIP: "localhost",
+        serverPort: '8181'
       }
     }
   });

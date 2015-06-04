@@ -1,6 +1,9 @@
 [
   {
     "name": "Loan Management",
+    "category": {
+      "name": "Loan Management"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -10,6 +13,9 @@
   },
   {
     "name": "Loan Management - Gold Access",
+    "category": {
+      "name": "Loan Management"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -20,6 +26,9 @@
   },
   {
     "name": "Loan Management - Internal Access",
+    "category": {
+      "name": "Loan Management"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -30,6 +39,9 @@
   },
   {
     "name": "Loan Management - Limited Access",
+    "category": {
+      "name": "Loan Management"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -40,6 +52,9 @@
   },
   {
     "name": "Loan Management - No Firewall",
+    "category": {
+      "name": "Loan Management"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -50,6 +65,9 @@
   },
   {
     "name": "Apps",
+    "category": {
+      "name": "Apps"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -59,6 +77,9 @@
   },
   {
     "name": "Apps - No Ping",
+    "category": {
+      "name": "Apps"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -68,17 +89,23 @@
     "parentId": "12"
   },
   {
-    "name": "Apps - Silver",
+    "name": "Apps - Gold",
+    "category": {
+      "name": "Apps"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
     "ruleSet": {
-      "name": "HTTP Access - Silver Service"
+      "name": "HTTP Access - Gold Service"
     },
     "parentId": "12"
   },
   {
     "name": "Apps - Restricted",
+    "category": {
+      "name": "Apps"
+    },
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -89,40 +116,52 @@
   },
   {
     "name": "Internet Access",
+    "category": {
+      "name": "Internet"
+    },
     "group": {
       "name": "Internet"
     },
     "ruleSet": {
-      "name": "HTTP/HTTPS Access"
+      "name": "HTTP Access"
     }
   },
   {
     "name": "Internet Access - No FTP",
+    "category": {
+      "name": "Internet"
+    },
     "group": {
       "name": "Internet"
     },
     "ruleSet": {
-      "name": "HTTP/HTTPS Access - No FTP"
+      "name": "HTTP Access - No FTP"
     },
     "parentId": "12"
   },
   {
     "name": "Internet Access - Gold",
+    "category": {
+      "name": "Internet"
+    },
     "group": {
       "name": "Internet"
     },
     "ruleSet": {
-      "name": "HTTP/HTTPS Access - Gold Service"
+      "name": "HTTP Access - Gold Service"
     },
     "parentId": "12"
   },
   {
     "name": "Internet Access - Firewall",
+    "category": {
+      "name": "Internet"
+    },
     "group": {
       "name": "Internet"
     },
     "ruleSet": {
-      "name": "HTTP/HTTPS Access - Firewall"
+      "name": "HTTP Access - Firewall"
     },
     "parentId": "12"
   }
