@@ -56,12 +56,17 @@
             </td>
             <td>
               <div class="rulesets-listView-itemContainer">
-                <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
+                <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">
+                  {{classifier}}
+                </div>
+                <div ng-show="rule.classifiers.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN CLASSIFIERS FROM LEFT</div>
               </div>
             </td>
             <td>
               <div class="rulesets-listView-itemContainer">
-                <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">{{action}}</div>
+                <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">
+                  {{action}}</div>
+                  <div ng-show="rule.actions.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN RULES FROM RIGHT</div>
               </div>
             </td>
             <td>

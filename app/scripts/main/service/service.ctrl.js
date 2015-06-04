@@ -31,6 +31,10 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
       modalInstance.result.then(function (newRuleSet) {
         $scope.service.ruleSet = newRuleSet;
+
+        var modalInstance = $modal.open(Modals.rulesetEditor);
+        modalInstance.result.then(function () {}, function () {});
+
       }, function () {
         console.log('Modal dismissed at: ' + new Date());
       });
