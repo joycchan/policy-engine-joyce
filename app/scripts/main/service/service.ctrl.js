@@ -21,7 +21,6 @@ angular.module('policyEngine').controller('ServiceCtrl',
       var modalInstance = $modal.open(Modals.existingGroup);
 
       modalInstance.result.then(function (selectedGroup) {
-        $scope.service.group = selectedGroup;
       }, function () {
       });
 

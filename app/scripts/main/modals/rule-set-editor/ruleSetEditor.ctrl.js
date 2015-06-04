@@ -53,7 +53,8 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
   $scope.editModeHash = {
      // setting state for dev purposes
-    // 0: true,
+    0: true
+    // ,
   };
 
   $scope.toggleEditRuleset = function(index) {
@@ -72,5 +73,12 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     // allow user to add new rule, upon hover of bottom of table + click
     // allow user to delte individual classifiers and actions
 
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
 
 });

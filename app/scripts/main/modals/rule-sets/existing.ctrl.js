@@ -10,7 +10,6 @@ angular.module('policyEngine').controller('ExistingRuleSetCtrl',
 
   $scope.editRuleSet = function(ruleset) {
     $scope.selectRuleSet(ruleset);
-    // $modalInstance.dismiss('cancel');
     var modalInstance = $modal.open(Modals.rulesetEditor);
 
     modalInstance.result.then(function () {
