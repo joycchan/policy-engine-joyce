@@ -2,86 +2,125 @@
   {
     "id": "1",
     "name": "Employees",
-    "description": "ISE (Active Directory)",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
     "type": "user"
   },
   {
     "id": "2",
     "name": "Sales",
-    "description": "ISE (Active Directory)",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 4,
     "type": "user",
     "parentId": "1"
   },
   {
     "id": "3",
     "name": "Marketing",
-    "description": "ISE (Active Directory)",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 4,
     "type": "user",
     "parentId": "1"
   },
   {
     "id": "12",
     "name": "External Entities",
-    "description": "ISE (Active Directory)",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 1,
     "type": "user"
   },
   {
     "id": "4",
     "name": "External Suppliers",
-    "description": "ISE (Active Directory)",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
     "type": "user",
     "parentId": "12"
   },
   {
     "id": "5",
     "name": "External Contractors",
-    "description": "ISE (Active Directory)",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 3,
     "type": "user",
     "parentId": "12"
   },
   {
     "id": "6",
     "name": "Loan Management Server",
-    "description": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "origin": "VMware vCenter",
     "type": "resource"
   },
   {
     "id": "8",
     "name": "App Servers",
-    "description": "VMware vCenter",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
     "type": "resource"
   },
   {
     "id": "13",
     "name": "App Servers - Zone A",
-    "description": "VMware vCenter",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 3,
+    "servicesConsumed": 4,
     "type": "resource",
     "parentId": "8"
   },
   {
     "id": "14",
     "name": "App Servers - Zone B",
-    "description": "VMware vCenter",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 3,
+    "servicesConsumed": 2,
     "type": "resource",
     "parentId": "8"
   },
   {
     "id": "9",
     "name": "DB Servers",
-    "description": "VMware vCenter",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 4,
+    "servicesConsumed": 2,
     "type": "resource"
   },
   {
     "id": "10",
     "name": "DB Servers - Zone A",
-    "description": "VMware vCenter",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 2,
+    "servicesConsumed": 1,
     "type": "resource",
     "parentId": "9"
   },
   {
     "id": "11",
     "name": "DB Servers - Zone B",
-    "description": "VMware vCenter",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 1,
+    "servicesConsumed": 3,
     "type": "resource",
     "parentId": "9"
   }
