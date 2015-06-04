@@ -2,6 +2,9 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $m
 
   $scope.ruleSet = {
     name: "New Rule Set",
+    classifiers: [],
+    actions: [],
+    custom: "Custom"
   };
 
   $scope.ok = function () {
