@@ -5,21 +5,11 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $mod
     enabled: false
   };
 
-  $scope.subnets = [
+  $scope.pools = [
     '10.0.35.1/24',
     '10.0.36.1/24',
-  ];
-
-  $scope.l2Contexts = [
-    'VXLAN-ID-1',
-    'VXLAN-ID-2',
-    'VLAN-ID-1',
-    'VLAN-ID-2'
-  ];
-
-  $scope.l3Contexts = [
-    'Router-ID-1',
-    'Router-ID-2'
+    'MAC pool#1',
+    'MAC pool#2'
   ];
 
   $scope.toggleContext = function () {

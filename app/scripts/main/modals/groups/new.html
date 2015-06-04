@@ -14,28 +14,38 @@
         <div class="network-func">
             <switch id="enabled" name="enabled" ng-model="group.enabled" ng-change="toggleEnabled"
                     class="green"></switch>
-            <span class="network">Overlay Connectivity</span>
+            <span class="network">Network Context</span>
         </div>
-        <br>
+    </form>
+    <br>
 
-        <div ng-show="group.enabled">
-            <div class="form-group">
-                <label for="subnet">Subnet</label>
-                <select ng-model="group.subnet" class="form-control new-group">
-                    <option ng-repeat="subnet in subnets" value="subnet" id="subnet">{{subnet}}</option>
-                </select>
+    <form ng-show="group.enabled">
+        <div class="container">
+            <h4 class="col-sm-4">Select EPG Pool(s)</h4>
+
+            <div class="col-sm-offset-1 col-sm-10">
+                <div ng-repeat="pool in pools" class="checkbox">
+                    <label>
+                        <input type="checkbox">{{pool}}
+                    </label>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="l2Context">L2 Context</label>
-                <select ng-model="group.l2Context" class="form-control new-group">
-                    <option ng-repeat="l2Context in l2Contexts" value="l2Context" id="l2Context">{{l2Context}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="l3Context">L3 Context</label>
-                <select ng-model="group.l3Context" class="form-control new-group">
-                    <option ng-repeat="l3Context in l3Contexts" value="l3Context" id="l3Context">{{l3Context}}</option>
-                </select>
+        </div>
+        <div class="container">
+            <h4 class="col-sm-4">Overlay Connectivity</h4>
+            <div class="col-sm-offset-1 col-sm-10">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="overlayConnectivity" id="enabled" value="enabled">
+                        <div class="label-text">Enabled</div>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="overlayConnectivity" id="disabled" value="disabled" checked>
+                        <div class="label-text">Disabled</div>
+                    </label>
+                </div>
             </div>
         </div>
     </form>
