@@ -1,32 +1,62 @@
-<div class="services">
+<div class="services container-fluid">
 
     <h2>Services</h2>
 
-    <div ng-repeat="service in services" class="card defined">
-        <h3>{{service.name}}</h3>
-
-        <div class="values">
-            <h4>Provider Group</h4>
-
-            <div class="value">{{service.group.name}}</div>
-            <h4>Rule Set</h4>
-
-            <div class="value">{{service.ruleSet.name}}</div>
+    <div class="col-sm-2 catalog">
+        <div class="section">
+            <div class="button new-button" ui-sref="main.service">
+                <div class="plus">+</div>
+                <span class="new-text">New Service</span>
+            </div>
+            <h4>All Categories</h4>
+            <div ng-repeat="category in categories" ng-click="addFilter('category', category)">{{category.name}}</div>
+            <div class="reset" ng-click="removeFilter('category')" ng-show="filters['category']">Reset</div>
         </div>
-        <div class="sliding-box">
-            <h4>Assigned Groups</h4>
-            <div ng-hide="serviceConsumers(service).length">
-                <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
+
+        <div class="section">
+            <h4>Provider Group</h4>
+            <div ng-repeat="group in providerGroups" ng-click="addFilter('group', group)">
+                {{group.name}}
             </div>
-            <div ng-show="serviceConsumers(service).length">
-                <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
+            <div class="reset" ng-click="removeFilter('group')" ng-show="filters['group']">Reset</div>
+        </div>
+        <div class="section">
+            <h4>Rule Set</h4>
+            <div ng-repeat="ruleSet in ruleSets" ng-click="addFilter('ruleSet', ruleSet)">
+                {{ruleSet.name}}
             </div>
+            <div class="reset" ng-click="removeFilter('ruleSet')" ng-show="filters['ruleSet']">Reset</div>
         </div>
     </div>
 
-    <div class="card new" ui-sref="main.service">
-        <div class="scircle">
-            <span class="img-plus-serdfn" id="plus-serdfn"></span>
+    <div class="col-sm-10">
+
+        <div ng-repeat="service in filteredServices" class="card defined">
+            <h3>{{service.name}}</h3>
+
+            <div class="values">
+                <h4>Provider Group</h4>
+
+                <div class="value">{{service.group.name}}</div>
+                <h4>Rule Set</h4>
+
+                <div class="value">{{service.ruleSet.name}}</div>
+            </div>
+            <div class="sliding-box">
+                <h4>Assigned Groups</h4>
+
+                <div ng-hide="serviceConsumers(service).length">
+                    <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
+                </div>
+                <div ng-show="serviceConsumers(service).length">
+                    <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="card new" ui-sref="main.service">
+            <div class="scircle">
+                <span class="img-plus-serdfn" id="plus-serdfn"></span>
+            </div>
         </div>
     </div>
 </div>
