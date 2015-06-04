@@ -34,7 +34,7 @@ var serveDirectories = function (app, directories) {
       var params = url.parse(req.url, true).query;
       return {
         host: params.serverIP,
-        port: '8080',
+        port: params.serverPort,
         path: '/restconf/config/policy:tenants',
         auth: 'admin:admin',
         headers: {

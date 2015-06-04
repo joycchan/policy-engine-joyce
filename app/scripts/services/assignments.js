@@ -2,13 +2,20 @@
 
 angular.module('policyEngine').factory('assignments',
   function ($http, configuration) {
-    var service  = {};
+    var service = {};
 
     var list = [];
 
     var assignmentId = list.length;
 
-    service.list = function() {
+    var odlParams = function () {
+      return {
+        serverIP: configuration.account.serverIP,
+        serverPort: configuration.account.serverPort
+      }
+    };
+
+    service.list = function () {
       return list;
     };
 
@@ -23,22 +30,22 @@ angular.module('policyEngine').factory('assignments',
 
       list.push(assignment);
 
-      $http.post('/assignments', undefined, { params: { serverIP: configuration.account.serverIP }}).success(function(response) {
+      $http.post('/assignments', undefined, { params: odlParams() }).success(function (response) {
         console.log('success response', response);
-      }).error(function(response) {
+      }).error(function (response) {
         console.log('error response', response);
       });
 
       return assignment;
     };
 
-    service.delete = function(id) {
-      _.remove(list, function(all) {
+    service.delete = function (id) {
+      _.remove(list, function (all) {
         return all.id === id;
       });
-      $http.delete('/assignments', { params: { serverIP: configuration.account.serverIP } }).success(function(response) {
+      $http.delete('/assignments', { params: odlParams() }).success(function (response) {
         console.log('success response', response);
-      }).error(function(response) {
+      }).error(function (response) {
         console.log('error response', response);
       });
 
@@ -59,15 +66,15 @@ angular.module('policyEngine').factory('assignments',
         })
       });
 
-      _.each(groupCentrics, function(assignment) {
+      _.each(groupCentrics, function (assignment) {
         groups.push(assignment.item);
       });
 
-      var serviceCentrics = _.filter(service.serviceCentric(), function(assignment) {
+      var serviceCentrics = _.filter(service.serviceCentric(), function (assignment) {
         return assignment.item.name === service.name;
       });
 
-      _.each(serviceCentrics, function(assignment) {
+      _.each(serviceCentrics, function (assignment) {
         groups = groups.concat(assignment.collection);
       });
 
