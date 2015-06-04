@@ -5,6 +5,16 @@ angular.module('policyEngine').controller('GroupsCtrl',
 
     $scope.groups = groups.list;
 
+    $scope.groupFilters = [
+      {name: 'All Groups'},
+      {name: 'User Group'},
+      {name: 'Resource Group'}
+    ];
+
+    $scope.isRulesListFilterSelected = function(name) {
+      return name === 'All Groups' ? true : false;
+    };
+
     $scope.open = function () {
 
       var modalInstance = $modal.open({

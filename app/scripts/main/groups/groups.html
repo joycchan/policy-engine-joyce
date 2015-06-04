@@ -1,26 +1,52 @@
-<div class="groups">
-    <h2>Groups</h2>
-
-    <p>Groups encapsulate users who have things in common like role and location. Groups also
-        encapsulate resources like application servers and firewalls that have things in common.</p>
-
-    <div class="button newGroup" ng-click="open()">
-        <div class="plus">+</div>
-        <span class="new-text">New Group</span>
+<div class="rulesets">
+  <div class="rulesets-breadcrumbs">
+    <div class="rulesets-breadcrumbs-breadcrumb">Groups</div>
+  </div>
+  <div class="rulesList">
+    <div class="rulesList-helpText">
+      Groups encapsulate users who have things in common like role and location. Groups also
+        encapsulate resources like application servers and firewalls that have things in common.
     </div>
-
-    <table class="table">
+    <div class="rulesList-new button">
+      <div class="plus">+</div>
+      New Group
+    </div>
+    <list-count-filter-search class="rulesList-countFilterSearch"
+      count="groups().length"
+      filters="groupFilters"
+      filter-by=""
+      is-filter-selected="isRulesListFilterSelected"
+      search-model="">
+    </list-count-filter-search>
+      <table class="rulesList-list listView listView--iconsHover">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
+          <th>Name</th>
+          <th>Origin</th>
+          <th>Description</th>
+          <th>Services Provided</th>
+          <th>Services Consumed</th>
+          <th></th>
         </thead>
         <tbody>
-        <tr ng-repeat="group in groups()">
+          <tr ng-repeat="group in groups() | filter: search">
             <td>{{group.name}}</td>
+            <td>{{group.origin}}</td>
             <td>{{group.description}}</td>
-        </tr>
+            <td>{{group.servicesProvided}}</td>
+            <td>{{group.servicesConsumed}}</td>
+            <td>
+              <div class="listView-icons" ui-sref=".({'groupId': group.id})">
+                <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
+                <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
+              </div>
+              <div class="listView-icons">
+                <img class="listView-icon is-hidden-on-hover" src="images/icon_x_16.png">
+                <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
+              </div>
+            </td>
+          </tr>
         </tbody>
-    </table>
+      </table>
+  </div>
+
 </div>

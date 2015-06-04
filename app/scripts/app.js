@@ -15,7 +15,7 @@ angular.module("policyEngine", [
       })
       .state("main", {
         abstract: true,
-        url: "/",
+        url: "/?groupId",
         templateUrl: "scripts/main/main.html",
         controller: "MainCtrl"
       })
