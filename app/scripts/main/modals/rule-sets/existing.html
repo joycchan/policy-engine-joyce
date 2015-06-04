@@ -2,24 +2,33 @@
 
 <div class="search-bar">
     <label for="search">Search</label>
-    <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
+    <input-search model="search"></input-search>
 </div>
 <div class="service-wrapper">
 
-    <table class="table">
+    <table class="listView existingRuleList-list listView--iconsHover listView--borderHover">
         <thead>
         <tr>
             <th>Name</th>
             <th>Classifiers</th>
             <th>Default/Custom</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="selectRuleSet(ruleSet)"
-            ng-class="{selected : ruleSet === selected}">
-            <td>{{::ruleSet.name}}</td>
-            <td>{{::ruleSet.classifiers.join(',')}}</td>
-            <td>{{::ruleSet.custom}}</td>
+            ng-class="{'is-selected' : ruleSet === selected}">
+            <td>{{ruleSet.name}}</td>
+            <td>{{ruleSet.classifiers.join(',')}}</td>
+            <td>{{ruleSet.custom}}</td>
+            <td>
+              <div>
+                <div class="listView-icons" ng-click="editRuleSet(ruleSet)">
+                  <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
+                  <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
+                </div>
+              </div>
+            </td>
         </tr>
         </tbody>
     </table>
