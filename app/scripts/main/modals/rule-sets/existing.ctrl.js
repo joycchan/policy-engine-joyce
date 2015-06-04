@@ -5,7 +5,6 @@ angular.module('policyEngine').controller('ExistingRuleSetCtrl',
 
   $scope.selectRuleSet = function (selectedRuleSet) {
     $scope.selected = selectedRuleSet;
-    $state.go('.', {'ruleId': selectedRuleSet.id});
   };
 
   $scope.editRuleSet = function(ruleset) {
