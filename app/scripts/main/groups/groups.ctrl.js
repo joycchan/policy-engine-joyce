@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('GroupsCtrl',
-  function ($scope, $modal, groups) {
+  function ($scope, $modal, groups, Modals) {
 
     $scope.groups = groups.list;
 
@@ -17,13 +17,7 @@ angular.module('policyEngine').controller('GroupsCtrl',
 
     $scope.open = function () {
 
-      var modalInstance = $modal.open({
-        animation: false,
-        templateUrl: 'scripts/main/groups/new.html',
-        windowTemplateUrl: 'scripts/templates/modal/window.html',
-        controller: 'NewGroupCtrl',
-        size: 'lg'
-     });
+      var modalInstance = $modal.open(Modals.newGroup);
 
       modalInstance.result.then(function (newGroup) {
       }, function () {
