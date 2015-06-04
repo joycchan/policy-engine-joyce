@@ -89,7 +89,7 @@
     "parentId": "12"
   },
   {
-    "name": "Apps - Silver",
+    "name": "Apps - Gold",
     "category": {
       "name": "Apps"
     },
@@ -97,7 +97,7 @@
       "name": "DB Servers - All Zones"
     },
     "ruleSet": {
-      "name": "HTTP Access - Silver Service"
+      "name": "HTTP Access - Gold Service"
     },
     "parentId": "12"
   },
@@ -123,7 +123,7 @@
       "name": "Internet"
     },
     "ruleSet": {
-      "name": "HTTP/HTTPS Access"
+      "name": "HTTP Access"
     }
   },
   {
@@ -135,7 +135,7 @@
       "name": "Internet"
     },
     "ruleSet": {
-      "name": "HTTP/HTTPS Access - No FTP"
+      "name": "HTTP Access - No FTP"
     },
     "parentId": "12"
   },
@@ -148,7 +148,7 @@
       "name": "Internet"
     },
     "ruleSet": {
-      "name": "HTTP/HTTPS Access - Gold Service"
+      "name": "HTTP Access - Gold Service"
     },
     "parentId": "12"
   },
@@ -161,7 +161,7 @@
       "name": "Internet"
     },
     "ruleSet": {
-      "name": "HTTP/HTTPS Access - Firewall"
+      "name": "HTTP Access - Firewall"
     },
     "parentId": "12"
   }
