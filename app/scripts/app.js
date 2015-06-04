@@ -110,5 +110,10 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
 
+  })
+  .run(function($rootScope) {
+    $rootScope.$on('$stateChangeSuccess',function(){
+      $("html, body").animate({ scrollTop: 0 }, 0);
+    })
   });
 
