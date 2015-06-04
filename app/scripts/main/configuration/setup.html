@@ -5,7 +5,7 @@
         <span class="img-close"></span>
     </div>
  <div class="configuration">
-    <div class=apic>
+    <div class="apic emcontrol">
      <h1>APIC-EM Controller</h1>
         <span class="info" popover="APIC-EM Controller" popover-trigger="mouseenter"></span>
         <div class="form-group">
@@ -62,7 +62,7 @@
             <label for="truststore">
                 Truststore Certificate
             </label>
-            <input type="text" class="form-control"  ng-model="config.truststore" id="truststore" placeholder="Browse for certificate file" ng-value="filename.name" readonly>
+            <input type="text" class="form-control"  ng-model="config.truststore" id="truststore" placeholder="Browse for certificate file" value="filename" readonly >
             <div class="fileUpload button button--secondary">
                 <span>Browse...</span>
                 <input type="file" class="upload" accept="application/text" ng-model="config.truststore"  valid-file required filename="filename">
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <hr class="network">
+
      <hr class = "engine">
 
     <div class="apic">
@@ -142,7 +142,7 @@
      </div>
      <div class="buttons final">
          <div class="button button--secondary" ui-sref="main.services">Cancel</div>
-         <div class="button next" ui-sref="main.services" ng-disabled="configuration.$invalid">OK</div>
+         <div class="button next" ui-sref="main.services" ng-disabled="ise.$invalid">OK</div>
      </div>
  </div>
 
