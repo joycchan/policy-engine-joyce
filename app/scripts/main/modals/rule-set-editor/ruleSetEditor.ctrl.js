@@ -29,12 +29,12 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     });
   }
 
-  var isAllowedToBeAdded = function(index) {
+  var isAllowedToBeAdded = function(index, data) {
     return !isExistingRuleset($scope.selectedRuleset[index].classifiers, data.name) && $scope.editModeHash[index];
   };
 
   $scope.onDropComplete = function(data,index){
-    if (isAllowedToBeAdded(index)) {
+    if (isAllowedToBeAdded(index, data)) {
       data.dataType === 'classifier' ? $scope.selectedRuleset[index].classifiers.push(data.name) : $scope.selectedRuleset[index].actions.push(data.name);
     }
   }
