@@ -53,7 +53,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.createService = function() {
       $scope.services.push($scope.service);
-      $state.go('main.services');
+      $state.go('main.services.cards');
     };
 
     $scope.serviceIncomplete = function() {

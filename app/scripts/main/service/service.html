@@ -1,7 +1,7 @@
 <div class="service-wrapper">
     <div class="top-row">
         <h2>New Service</h2>
-        <span class="img-close" ui-sref="main.services"></span>
+        <span class="img-close" ui-sref="main.services.cards"></span>
     </div>
     <form class="form-horizontal">
         <div class="form-group">
@@ -49,7 +49,7 @@
         </div>
 
     <div class="nav-buttons">
-        <div class="button button--secondary" ui-sref="main.services">Back</div>
+        <div class="button button--secondary" ui-sref="main.services.cards">Back</div>
         <div class="button button--secondary" ng-click="createService()"
              ng-class="{ 'is-disabled': serviceIncomplete() }">OK
         </div>
