@@ -1,8 +1,9 @@
 @import "../../../styles/variables";
 
-.setup{
+.configuration {
+  background-color: white;
 
-   .top-row {
+  .top-row {
     margin: 15px;
 
     h2 {
@@ -20,155 +21,115 @@
       margin-top: 0px;
     }
 
-     .complete {
-       background: url(../../../images/icon_status_ok_32.png);
-       height: 32px;
-       width: 32px;
-       display: inline-block;
-       margin: 10px;
-       float: left;
-     }
+    .complete {
+      background: url(../../../images/icon_status_ok_32.png);
+      height: 32px;
+      width: 32px;
+      display: inline-block;
+      margin: 10px;
+      float: left;
+    }
 
   }
 
-  .configuration {
+  .info {
+    background: url(../../../images/icon_info_16.png);
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+  }
+  .popover {
+    background-color: rgba(252, 240, 114, 1);
+  }
+  h1 {
+    font-weight: 300;
+    margin-right: 8px;
+  }
 
-    background-color: white;
-    height: 690px;
-    width: 79%;
-    margin-left: 360px;
+  ::-webkit-input-placeholder {
+    font-style: oblique;
+    font-size: 12px;
+    color: #C4C7CC;
+    line-height: 18px;
+  }
 
-    .info {
-      background: url(../../../images/icon_info_16.png);
-      height: 16px;
-      width: 16px;
-      display: inline-block;
-    }
-    .popover {
-      background-color: rgba(252, 240, 114, 1);
-    }
-    h1 {
-      font-weight: 300;
-      margin-right: 8px;
-    }
+  .form-group label {
+    width: 80px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #71757F;
+    margin-right: 10px;
+  }
 
-    ::-webkit-input-placeholder {
-      font-style: oblique;
-      font-size: 12px;
-      color: #C4C7CC;
-      line-height: 18px;
-    }
+  .form-control:focus {
+    border-color: #ccc;
+    box-shadow: none;
+    outline: 0 none;
+  }
 
-    .form-group label {
-      width: 80px;
-      font-size: 12px;
-      line-height: 18px;
-      color: #71757F;
-      margin-right: 10px;
-    }
+  .form-control {
+    width: 300px;
+    height: 32px;
+    display: inline-block;
+  }
 
-    .form-control:focus {
-      border-color: #ccc;
-      box-shadow: none;
-      outline: 0 none;
-    }
+  .form-group label {
+    width: 130px;
+  }
 
-    .form-control {
-      width: 300px;
-      height: 32px;
-      display: inline-block;
-    }
+  .button {
+    margin-bottom: 0px;
+  }
 
-    .engine {
-      float: right;
-      width: 579px;
-      margin-right: -610px;
-      margin-top: 351px;
-      padding-top: 10px;
-    }
+  .fileUpload {
+    position: relative;
+    overflow: hidden;
+    top: 13px;
+  }
+  .fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 
-    .apic {
-       //background-color: white;
-       float:left;
-       margin-left: 0px;
-      width: 30%;
-    }
+  }
 
-    .emcontrol {
-      margin-bottom: 10px;
-      padding-bottom: 25px;
-      border-bottom: 1px solid #e9e8e6;
-      width: 29%;
-    }
+  .btn-default {
+    color: #0096d6;
+    margin-right: 8px;
+    border: 1px solid #c4c7cc;
 
-    .ise {
-     // background-color: white;
-      float: right;
-      width: 70%;
-      border-left: 1px solid #e9e8e6;
-      padding-left: 37px;
-      margin-top: 7px;
-      padding-bottom: 31px;
-
-      .form-group label {
-        width: 130px;
-      }
-
-      .button {
-        margin-bottom: 0px;
-      }
-
-      .fileUpload {
-        position: relative;
-        overflow: hidden;
-        top: 13px;
-      }
-      .fileUpload input.upload {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 0;
-        padding: 0;
-        font-size: 20px;
-        cursor: pointer;
-        opacity: 0;
-        filter: alpha(opacity=0);
-      }
-
+    &:hover {
+      background-color: #FFF;
+      border-color: #c4c7cc;
     }
 
-    .btn-default {
-      color: #0096d6;
-      margin-right: 8px;
-      border: 1px solid #c4c7cc;
-
-      &:hover {
-        background-color: #FFF;
-        border-color: #c4c7cc;
-      }
-
-      &:focus {
-        background-color: #FFF;
-        border-color: #c4c7cc;
-      }
+    &:focus {
+      background-color: #FFF;
+      border-color: #c4c7cc;
     }
+  }
 
-    .gateway {
-      margin-top: -19px;
-      padding-bottom: 57px;
-    }
-    
-    .final {
-      float: right;
-      margin-right: 30px;
-    }
+  .gateway {
+    margin-top: -19px;
+    padding-bottom: 57px;
+  }
 
-    .ng-invalid {
-      border: 1px solid red;
-    }
+  .final {
+    float: right;
+    margin-right: 30px;
+  }
 
-    .ng-untouched {
-      border: 1px solid @color-70
-    }
+  .ng-invalid {
+    border: 1px solid red;
+  }
+
+  .ng-untouched {
+    border: 1px solid @color-70
   }
 }
