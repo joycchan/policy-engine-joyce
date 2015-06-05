@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl', 
-  function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams) {
+  function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset) {
 
   $scope.existingRuleSets = ruleSets.list;
 
@@ -80,5 +80,11 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+
+  $scope.selectedRuleset = selectedRuleset; // local from resolve
+  console.log("$scope.selectedRuleset", $scope.selectedRuleset);
+  // setTimeout(function() {
+  //   console.log("$scope.selectedRuleset()", $scope.selectedRuleset;
+  // }, 5000);
 
 });

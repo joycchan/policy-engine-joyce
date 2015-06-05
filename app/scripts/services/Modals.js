@@ -38,6 +38,12 @@ angular.module('policyEngine').factory('Modals',
         size: 'lg',
         windowClass: 'ruleEditor-modal',
         windowTemplateUrl: 'scripts/templates/modal/window.html'
+        // resolve: it expects scope.selectedRuleset to be resolved.
+        // e.g. resolve: {
+        // selectedRuleset: function() {
+          // return $scope.selected;
+        // }
+      }
       }
     };
 
