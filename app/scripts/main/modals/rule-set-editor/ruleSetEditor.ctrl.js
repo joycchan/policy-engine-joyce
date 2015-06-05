@@ -29,15 +29,13 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     });
   }
 
+  var isAllowedToBeAdded = function(index) {
+    return !isExistingRuleset($scope.selectedRuleset[index].classifiers, data.name) && $scope.editModeHash[index];
+  };
+
   $scope.onDropComplete = function(data,index){
-    if (data.dataType === 'classifier') {
-      if (!isExistingRuleset($scope.selectedRuleset[index].classifiers, data.name) && $scope.editModeHash[index]) {
-        $scope.selectedRuleset[index].classifiers.push(data.name);
-      }
-    } else {
-      if (!isExistingRuleset($scope.selectedRuleset[index].actions, data.name) && $scope.editModeHash[index]) {
-        $scope.selectedRuleset[index].actions.push(data.name);
-      }
+    if (isAllowedToBeAdded(index)) {
+      data.dataType === 'classifier' ? $scope.selectedRuleset[index].classifiers.push(data.name) : $scope.selectedRuleset[index].actions.push(data.name);
     }
   }
 
