@@ -1,6 +1,6 @@
 <div ng-class="{ 'service-special': serviceState() }" class="clearfix">
     <nav-bar menu="menu"></nav-bar>
-    <div class="config-flash" ng-style="{ height: configFlashHeight }" ng-show="notConfig()">
+    <div class="config-flash" ng-class="configFlashClass">
         <div class="button next" ui-sref="main.configuration">Run Setup</div>
         <div class="text">
             Hook up the group policy engine with the rest of your network infrastructure, like ISE and APIC-EM.
