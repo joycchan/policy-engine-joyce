@@ -8,10 +8,11 @@ angular.module('policyEngine').factory('assignments',
 
     var assignmentId = list.length;
 
-    var odlParams = function () {
+    var params = function () {
       return {
-        serverIP: configuration.account.serverIP,
-        serverPort: configuration.account.serverPort
+        type: configuration.account.type,
+        ip: configuration.account[configuration.account.type].ip,
+        port: configuration.account[configuration.account.type].port
       }
     };
 
@@ -30,7 +31,7 @@ angular.module('policyEngine').factory('assignments',
 
       list.push(assignment);
 
-      $http.post('/assignments', undefined, { params: odlParams() }).success(function (response) {
+      $http.post('/assignments', undefined, { params: params() }).success(function (response) {
         console.log('success response', response);
       }).error(function (response) {
         console.log('error response', response);
@@ -43,7 +44,7 @@ angular.module('policyEngine').factory('assignments',
       _.remove(list, function (all) {
         return all.id === id;
       });
-      $http.delete('/assignments', { params: odlParams() }).success(function (response) {
+      $http.delete('/assignments', { params: params() }).success(function (response) {
         console.log('success response', response);
       }).error(function (response) {
         console.log('error response', response);
