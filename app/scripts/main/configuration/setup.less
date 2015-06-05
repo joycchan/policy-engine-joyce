@@ -1,0 +1,133 @@
+@import "../../../styles/variables";
+
+.configuration {
+  background-color: white;
+
+  h1 {
+    margin: 0 0 20px;
+  }
+
+  .top-row {
+    padding: 15px 15px 0;
+
+    h2 {
+      margin: 0 0 20px;
+      display: inline-block;
+    }
+
+    .img-close {
+      background: url(../../../images/icon.png) no-repeat -33px -80px;
+      width: 17px;
+      height: 21px;
+      background-size: 800px;
+      cursor: pointer;
+      float: right;
+      margin-top: 0px;
+    }
+
+    .complete {
+      background: url(../../../images/icon_status_ok_32.png);
+      height: 32px;
+      width: 32px;
+      display: inline-block;
+      margin: 10px;
+      float: left;
+    }
+
+  }
+
+  .first-column {
+    input {
+      width: 302px;
+    }
+  }
+
+  .second-column {
+    border-left: 1px solid @color-80;
+    padding-left: 30px;
+
+    input {
+      width: 276px;
+    }
+  }
+
+  hr {
+    border-top: 1px solid @color-80;
+  }
+
+  .info {
+    background: url(../../../images/icon_info_16.png);
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-left: 8px;
+  }
+  .popover {
+    background-color: rgba(252, 240, 114, 1);
+  }
+
+  ::-webkit-input-placeholder {
+    font-style: oblique;
+    font-size: 12px;
+    color: #C4C7CC;
+    line-height: 18px;
+  }
+
+  .form-group label {
+    width: 80px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #71757F;
+    margin-right: 10px;
+  }
+
+  .form-control:focus {
+    border-color: #ccc;
+    box-shadow: none;
+    outline: 0 none;
+  }
+
+  .form-control {
+    display: inline-block;
+  }
+
+  .form-group label {
+    width: 130px;
+  }
+
+  .file-upload {
+    margin-left: 5px;
+  }
+
+  .file-upload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+
+  }
+
+  .gateway {
+    margin-top: -19px;
+    padding-bottom: 57px;
+  }
+
+  .final {
+    margin: 0 20% 60px;
+    display: inline-block;
+    float: right;
+  }
+
+  .ng-invalid {
+    border: 1px solid red;
+  }
+
+  .ng-untouched {
+    border: 1px solid @color-70
+  }
+}

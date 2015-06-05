@@ -1,0 +1,188 @@
+<div class="configuration clearfix">
+
+    <div class="top-row">
+        <h2>Setup</h2>
+        <span class="img-close" ui-sref="main.services"></span>
+    </div>
+   <div class="container-fluid">
+
+        <div class="col-sm-5 first-column form-horizontal">
+            <h1>APIC-EM Controller</h1>
+            <span class="info" popover="APIC-EM Controller" popover-trigger="mouseenter"></span>
+
+            <div class="form-group">
+                <label for="hostname">
+                    Hostname
+                </label>
+                <input type="text" class="form-control" ng-model="config.hostname" id="hostname"
+                       placeholder="IP address of the APIC-EM controller"
+                       ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="Username">
+                    Username
+                </label>
+                <input type="text" class="form-control" ng-model="config.Username" id="Username" placeholder="Username"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="Password">
+                    Password
+                </label>
+                <input type="password" class="form-control" ng-model="config.Password" id="Password"
+                       placeholder="Password" ng-pattern='/^(?=.*?[a-zA-Z]+.*?)(?=.*?[0-9].*)(.*)$/' ng-minlength="6"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="portNo">
+                    Port Number
+                </label>
+                <input type="text" class="form-control" id="portNo" ng-model="config.portNo" required>
+            </div>
+            <hr>
+            <h1>Network Configuration Server</h1><span class="info" popover="Network Configuration Server"
+                                                       popover-trigger="mouseenter"></span>
+
+            <div class="form-group">
+                <label for="Name">
+                    Name
+                </label>
+                <input type="text" class="form-control" ng-model="config.Name" id="Name"
+                       placeholder="Name of NCS server" required>
+            </div>
+            <div class="form-group">
+                <label for="ipAddress">
+                    IP Address
+                </label>
+                <input type="text" class="form-control" ng-model="config.ipAddress" id="ipAddress"
+                       placeholder="IP address of NCS server"
+                       ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="port">
+                    Port Number
+                </label>
+                <input type="text" class="form-control" ng-model="config.port" id="port" required>
+            </div>
+            <div class="form-group">
+                <label for="usernameNCS">
+                    Username
+                </label>
+                <input type="text" class="form-control" ng-model="config.usernameNcs" id="usernameNcs"
+                       placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <label for="PasswordNcs">
+                    Password
+                </label>
+                <input type="password" class="form-control" ng-model="config.PasswordNcs" id="PasswordNcs"
+                       placeholder="Password" ng-pattern='/^(?=.*?[a-zA-Z]+.*?)(?=.*?[0-9].*)(.*)$/' ng-minlength="6"
+                       required>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label></label>
+                    <checkbox ng-model="checkboxModel"></checkbox>
+                    Allow Only TCP connections
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7 second-column">
+            <h1>Identity Service Engine</h1><span class="info" popover="ISE Controller"
+                                                  popover-trigger="mouseenter"></span>
+
+            <div class="form-group">
+                <label for="hostnameIse">
+                    Hostname
+                </label>
+                <input type="text" class="form-control" ng-model="config.hostnameIse" id="hostnameIse"
+                       placeholder="IP address of the ISE server"
+                       ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="keystore">
+                    Keystore Certificate
+                </label>
+                <input type="text" class="form-control" ng-model="config.keystore" id="keystore"
+                       placeholder="Browse for certificate file" readonly>
+
+                <div class="file-upload button button--secondary">
+                    <span>Browse...</span>
+                    <input type="file" class="upload">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="keystorepass">
+                    Keystore Password
+                </label>
+                <input type="password" class="form-control" ng-model="config.keystorepass" id="keystorepass"
+                       placeholder="Keystore Password" ng-pattern='/^(?=.*?[a-zA-Z]+.*?)(?=.*?[0-9].*)(.*)$/'
+                       ng-minlength="6" required>
+            </div>
+            <div class="form-group">
+                <label for="truststore">
+                    Truststore Certificate
+                </label>
+                <input type="text" class="form-control" ng-model="config.truststore" id="truststore"
+                       placeholder="Browse for certificate file" value="filename" readonly>
+
+                <div class="file-upload button button--secondary">
+                    <span>Browse...</span>
+                    <input type="file" class="upload" accept="application/text" ng-model="config.truststore"
+                           valid-file
+                           required filename="filename">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="truststorepass">
+                    Truststore Password
+                </label>
+                <input type="password" class="form-control" ng-model="config.truststorepass" id="truststorepass"
+                       placeholder="Truststore Password" ng-pattern='/^(?=.*?[a-zA-Z]+.*?)(?=.*?[0-9].*)(.*)$/'
+                       ng-minlength="6" required>
+            </div>
+
+            <hr>
+            <h1>Gateway & Switches </h1><span class="info" popover="Gateway & Switches"
+                                              popover-trigger="mouseenter"></span>
+
+            <div class="form-group">
+                <label for="gateway">
+                    Gateway
+                </label>
+                <input type="text" class="form-control" ng-model="config.hostnameIse" id="gateway"
+                       placeholder="IP address of gateway"
+                       ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="campus">
+                    Campus switch
+                </label>
+                <input type="text" class="form-control" ng-model="config.campus" id="campus"
+                       placeholder="IP address of Campus Switch"
+                       ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="datacenter">
+                    Datacenter switch
+                </label>
+                <input type="text" class="form-control" ng-model="config.datacenter" id="datacenter"
+                       placeholder="IP address of datacenter switch"
+                       ng-pattern='/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/'
+                       required>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="buttons final">
+        <div class="button button--secondary" ui-sref="main.services">Cancel</div>
+        <div class="button next" ui-sref="main.services" ng-disabled="ise.$invalid" ng-click="hideConfigFlash()">OK</div>
+    </div>
+</div>
+

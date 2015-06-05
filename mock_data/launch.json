@@ -39,7 +39,7 @@
       "isGoodStat": false
     }]
   }],
-  "Requests": [{
+  "Assignments": [{
     "name": "New",
     "stat": 5,
     "isGoodStat": true,
