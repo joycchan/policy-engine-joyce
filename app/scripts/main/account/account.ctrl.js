@@ -5,8 +5,8 @@ angular.module('policyEngine').controller('AccountCtrl',
 
     $scope.account = configuration.account;
 
-    $scope.isOdl = function() {
-      return configuration.account.type === 'odl';
+    $scope.isOvs = function() {
+      return configuration.account.type === 'ovs';
     };
 
     $scope.isApic = function() {
