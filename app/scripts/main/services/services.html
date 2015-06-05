@@ -1,11 +1,3 @@
-<div class="setup">
-    <div class="run" ui-sref="main.configuration">Run Setup</div>
-    <p>
-        Hook up the group policy engine with the rest of your network infrastructure, like ISE and APIC-EM.
-    </p>
-    <div class="img-close"></div>
-</div>
-<div class="services">
 <div class="services container-fluid">
 
     <h2>Services</h2>
@@ -17,12 +9,14 @@
                 <span class="new-text">New Service</span>
             </div>
             <h4>All Categories</h4>
+
             <div ng-repeat="category in categories" ng-click="addFilter('category', category)">{{category.name}}</div>
             <div class="reset" ng-click="removeFilter('category')" ng-show="filters['category']">Reset</div>
         </div>
 
         <div class="section">
             <h4>Provider Group</h4>
+
             <div ng-repeat="group in providerGroups" ng-click="addFilter('group', group)">
                 {{group.name}}
             </div>
@@ -30,6 +24,7 @@
         </div>
         <div class="section">
             <h4>Rule Set</h4>
+
             <div ng-repeat="ruleSet in ruleSets" ng-click="addFilter('ruleSet', ruleSet)">
                 {{ruleSet.name}}
             </div>
@@ -67,5 +62,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>
