@@ -1,7 +1,7 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl', 
   function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset) {
 
-  $scope.existingRuleSets = ruleSets.list;
+  // $scope.existingRuleSets = ruleSets.list;
 
   $scope.ok = function () {
     $modalInstance.close($scope.selected);
@@ -15,11 +15,11 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
   $scope.existingActions = Actions.list;
 
-  $scope.ruleSets = function() {
-    return _.filter(ruleSets.list(), function(rule) {
-      return rule.id == $stateParams.ruleId;
-    });
-  };
+  // $scope.selectedRuleset = function() {
+  //   return _.filter(ruleSets.list(), function(rule) {
+  //     return rule.id == $stateParams.ruleId;
+  //   });
+  // };
 
   $scope.deleteRuleset = function() {
 
@@ -37,12 +37,12 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
   $scope.onDropComplete = function(data,index){
     if (data.dataType === 'classifier') {
-      if (!isExistingRuleset($scope.ruleSets()[index].classifiers, data.name) && $scope.editModeHash[index]) {
-        $scope.ruleSets()[index].classifiers.push(data.name);
+      if (!isExistingRuleset($scope.selectedRuleset()[index].classifiers, data.name) && $scope.editModeHash[index]) {
+        $scope.selectedRuleset()[index].classifiers.push(data.name);
       }
     } else {
-      if (!isExistingRuleset($scope.ruleSets()[index].actions, data.name) && $scope.editModeHash[index]) {
-        $scope.ruleSets()[index].actions.push(data.name);
+      if (!isExistingRuleset($scope.selectedRuleset()[index].actions, data.name) && $scope.editModeHash[index]) {
+        $scope.selectedRuleset()[index].actions.push(data.name);
       }
     }
   }
@@ -82,7 +82,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
   };
 
   $scope.selectedRuleset = selectedRuleset; // local from resolve
-  console.log("$scope.selectedRuleset", $scope.selectedRuleset);
+  // console.log("$scope.selectedRuleset", $scope.selectedRuleset());
   // setTimeout(function() {
   //   console.log("$scope.selectedRuleset()", $scope.selectedRuleset;
   // }, 5000);
