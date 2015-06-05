@@ -34,13 +34,16 @@
     background-color: @color-75;
   }
 
-  .selected-label {
-    font-size: 12px;
+  h3 .current {
     font-weight: bold;
-    color: @color-60;
-    line-height: 18px;
-  }
 
+    .selected-label {
+      font-size: 12px;
+      font-weight: bold;
+      color: @color-60;
+      line-height: 18px;
+    }
+  }
   .buttons {
     margin: 15px 0 25px;
   }
@@ -64,6 +67,10 @@
 
   .table {
     margin-top: 20px;
+
+    thead tr {
+      font-weight: bold;
+    }
 
     tbody tr {
       cursor: pointer;
@@ -107,6 +114,19 @@
     cursor: pointer;
     margin-bottom: 40px;
     margin-right: 300px;
+  }
+
+  .rules {
+    float: left;
+    display: inline-block;
+    background-color: #c4c7cc;
+    color: white;
+    border-radius: 16px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 32px;
+    cursor: pointer;
+    margin : 20px 325px 20px 0;
   }
 }
 

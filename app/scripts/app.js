@@ -1,11 +1,13 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "ui.router", 'ngDraggable','uiSwitch', 'ui.bootstrap'
+
+  "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox'
+
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/services/");
+    $urlRouterProvider.otherwise("/launch/");
 
     $stateProvider
       .state("launch", {
@@ -15,7 +17,7 @@ angular.module("policyEngine", [
       })
       .state("main", {
         abstract: true,
-        url: "/?{ruleId}",
+        url: "/",
         templateUrl: "scripts/main/main.html",
         controller: "MainCtrl"
       })
@@ -29,6 +31,13 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/services/services.html",
           controller: "ServicesCtrl"
         })
+
+        .state("main.configuration", {
+          url: "configuration/",
+          templateUrl: "scripts/main/configuration/setup.html",
+          controller: "ConfigurationCtrl"
+        })
+
         .state("main.groups", {
           url: "groups/",
           templateUrl: "scripts/main/groups/groups.html",
@@ -57,7 +66,9 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/service/service.html",
           controller: "ServiceCtrl"
         })
+
        .state("main.allocations", {
+
           url: 'allocations/',
           templateUrl: 'scripts/main/allocations/allocations.html',
           controller: "AllocationsCtrl"
@@ -97,7 +108,7 @@ angular.module("policyEngine", [
       })
       .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "rulesets/edit/",
+        url: "rulesets/edit/{ruleId}/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })

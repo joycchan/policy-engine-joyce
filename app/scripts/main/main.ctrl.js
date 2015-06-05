@@ -13,6 +13,16 @@ angular.module('policyEngine').controller('MainCtrl',
       $scope.services = data;
     });
 
+    $scope.configFlashClass = '';
+
+    $scope.hideConfigFlash = function() {
+      $scope.configFlashClass = 'hide-flash';
+    };
+
+    $scope.notConfig = function() {
+      return !$state.is('main.configuration');
+    };
+
     $scope.menu = [
       {
         cssClass: 'services',

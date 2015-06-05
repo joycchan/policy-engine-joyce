@@ -17,6 +17,8 @@ module.exports = function (config) {
       // bower:js
       "app/bower_components/jquery/dist/jquery.min.js",
       "app/bower_components/angular/angular.js",
+      "app/bower_components/angular-bootstrap/ui-bootstrap.js",
+      "app/bower_components/angular-bootstrap-checkbox/angular-bootstrap-checkbox.js",
       "app/bower_components/angular-ui-switch/angular-ui-switch.js",
       "app/bower_components/angular-ui-router/release/angular-ui-router.js",
       "app/bower_components/lodash/lodash.min.js",
@@ -24,7 +26,6 @@ module.exports = function (config) {
       "app/bower_components/bootstrap/dist/js/bootstrap.min.js",
       "app/bower_components/ngDraggable/ngDraggable.js",
       'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/angular-bootstrap/ui-bootstrap.js',
       // endbower
 
       'app/scripts/app.js',

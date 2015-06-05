@@ -31,13 +31,20 @@ angular.module('policyEngine').factory('Modals',
         controller: 'ExistingRuleSetCtrl',
         size: 'lg'
       },
-      'rulesetEditor': {
-        animation: false,
-        templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
-        controller: 'RuleSetEditorCtrl',
-        size: 'lg',
-        windowClass: 'ruleEditor-modal',
-        windowTemplateUrl: 'scripts/templates/modal/window.html'
+      'rulesetEditor': function(rulesetsList) {
+        return {
+          animation: false,
+          templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
+          controller: 'RuleSetEditorCtrl',
+          size: 'lg',
+          windowClass: 'ruleEditor-modal',
+          windowTemplateUrl: 'scripts/templates/modal/window.html',
+          resolve: {
+            selectedRuleset: function() {
+              return rulesetsList;
+            }
+          }
+        }
       }
     };
 
