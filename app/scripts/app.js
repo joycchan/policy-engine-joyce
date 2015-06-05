@@ -1,7 +1,9 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "ui.router", 'ngDraggable','uiSwitch', 'ui.bootstrap'
+
+  "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox'
+
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
@@ -29,6 +31,13 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/services/services.html",
           controller: "ServicesCtrl"
         })
+
+        .state("main.configuration", {
+          url: "configuration/",
+          templateUrl: "scripts/main/configuration/setup.html",
+          controller: "ConfigurationCtrl"
+        })
+
         .state("main.groups", {
           url: "groups/",
           templateUrl: "scripts/main/groups/groups.html",
@@ -57,7 +66,9 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/service/service.html",
           controller: "ServiceCtrl"
         })
+
        .state("main.allocations", {
+
           url: 'allocations/',
           templateUrl: 'scripts/main/allocations/allocations.html',
           controller: "AllocationsCtrl"
