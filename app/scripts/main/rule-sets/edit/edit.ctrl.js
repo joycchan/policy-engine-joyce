@@ -18,7 +18,7 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       var _selected = {
         resolve: {
           selectedRuleset: function() {
-            return $scope.rulesList;
+            return $scope.rulesList();
           }
         }
       };
