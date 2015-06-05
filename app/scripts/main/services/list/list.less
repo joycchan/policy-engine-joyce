@@ -1,1 +1,67 @@
 @import "../../../../styles/variables";
+
+.service-listItem {
+  background-color: white;
+  width: 900px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-top: 14px;
+}
+
+.listView.service-listItem-table {
+  tbody tr:hover {
+    background-color: #f7f7f7;
+
+    td:first-child {
+      input {
+        visibility: visible;
+      }
+    }
+  }
+  th {
+    font-size: 12px;
+    color: #333439;
+    line-height: 16px;
+  }
+  th:first-child {
+    width: 1%;
+  }
+  th:nth-child(2) {
+    width: 26%;
+  }
+  th:nth-child(3) {
+    width: 18%;
+  }
+  th:nth-child(4) {
+    width: 25%;
+  }
+  th:nth-child(5) {
+    width: 21%;
+  }
+  th:nth-child(6) {
+    width: 12%;
+  }
+  td {
+    font-size: 12px;
+    color: #333439;
+    line-height: 41px;
+  }
+
+  td:first-child {
+    input {
+      visibility: hidden;
+    }
+  }
+
+  .service-listItem-row.is-selected {
+    td:first-child {
+      input {
+        visibility: visible;
+      }
+    }
+  }
+  
+}

@@ -43,6 +43,14 @@ angular.module('policyEngine').controller('ServicesCtrl',
       $scope.categories = _.uniq(_.map($scope.services, function(service) { return service.category }), 'name');
       $scope.filteredServices = $scope.services;
     });
+
+
+    $scope.selectedCheckBoxes = {};
+
+    $scope.isRowInListSelected = function(id) {
+      return $scope.selectedCheckBoxes[id] === true;
+    }
+
   }
 );
 
