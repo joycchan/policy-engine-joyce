@@ -10,45 +10,19 @@
 </div>
 
 <div>
-    <form>
-        <div class="network-func">
-            <switch id="enabled" name="enabled" ng-model="group.enabled" ng-change="toggleEnabled"
-                    class="green"></switch>
-            <span class="network">Network Context</span>
-        </div>
-    </form>
     <br>
-
-    <form ng-show="group.enabled">
-        <div class="container">
-            <h4 class="col-sm-4">Select Endpoint Pool(s)</h4>
-
-            <div class="col-sm-offset-1 col-sm-10">
+    <div class="container">
+        <h4 class="col-sm-4">Select Endpoint Pool(s)</h4>
+        <div class="col-sm-offset-1 col-sm-10">
+            <form class="pool-selection">
                 <div ng-repeat="pool in pools" class="checkbox">
                     <label>
                         <input type="checkbox">{{pool}}
                     </label>
                 </div>
-            </div>
+            </form>
         </div>
-        <div class="container">
-            <h4 class="col-sm-4">Overlay Connectivity</h4>
-            <div class="col-sm-offset-1 col-sm-10">
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="overlayConnectivity" id="enabled" value="enabled">
-                        <div class="label-text">Enabled</div>
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" name="overlayConnectivity" id="disabled" value="disabled" checked>
-                        <div class="label-text">Disabled</div>
-                    </label>
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
 <div class="modal-footer button-group">
     <div class="button button--secondary" ng-click="cancel()">Cancel</div>

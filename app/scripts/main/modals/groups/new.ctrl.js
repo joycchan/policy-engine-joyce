@@ -1,8 +1,7 @@
 angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $modalInstance, groups) {
 
   $scope.group = {
-    name: "New Group",
-    enabled: false
+    name: "New Group"
   };
 
   $scope.pools = [
@@ -11,10 +10,6 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $mod
     'MAC pool#1',
     'MAC pool#2'
   ];
-
-  $scope.toggleContext = function () {
-    $scope.group.enabled = !$scope.group.enabled;
-  };
 
   $scope.ok = function () {
     var group = groups.create($scope.group);
