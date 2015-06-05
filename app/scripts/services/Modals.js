@@ -31,19 +31,20 @@ angular.module('policyEngine').factory('Modals',
         controller: 'ExistingRuleSetCtrl',
         size: 'lg'
       },
-      'rulesetEditor': {
-        animation: false,
-        templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
-        controller: 'RuleSetEditorCtrl',
-        size: 'lg',
-        windowClass: 'ruleEditor-modal',
-        windowTemplateUrl: 'scripts/templates/modal/window.html'
-        // resolve: rulesetEditor expects to be passed in an array of rulesets to display.
-        // e.g. resolve: {
-        // selectedRuleset: function() {
-          // return $scope.selected;
-        // }
-      // }
+      'rulesetEditor': function(rulesetsList) {
+        return {
+          animation: false,
+          templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
+          controller: 'RuleSetEditorCtrl',
+          size: 'lg',
+          windowClass: 'ruleEditor-modal',
+          windowTemplateUrl: 'scripts/templates/modal/window.html',
+          resolve: {
+            selectedRuleset: function() {
+              return rulesetsList;
+            }
+          }
+        }
       }
     };
 

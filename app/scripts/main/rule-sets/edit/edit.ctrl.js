@@ -15,17 +15,7 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
     };
 
     $scope.editRule = function () {
-      var _selected = {
-        resolve: {
-          selectedRuleset: function() {
-            return $scope.rulesList();
-          }
-        }
-      };
-
-      var _modalConfig = _.extend(Modals.rulesetEditor, _selected);
-
-      var modalInstance = $modal.open(_modalConfig);
+      var modalInstance = $modal.open(Modals.rulesetEditor($scope.rulesList()));
 
       modalInstance.result.then(function () {
       }, function () {
