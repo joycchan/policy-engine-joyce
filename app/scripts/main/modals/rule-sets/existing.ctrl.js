@@ -9,11 +9,10 @@ angular.module('policyEngine').controller('ExistingRuleSetCtrl',
 
   $scope.editRuleSet = function(ruleset) {
     $scope.selectRuleSet(ruleset);
-
     var _selected = {
       resolve: {
         selectedRuleset: function() {
-          return $scope.selected;
+          return [$scope.selected];
         }
       }
     };
