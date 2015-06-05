@@ -2,14 +2,34 @@
 
     <h2>Account Settings</h2>
 
-    <div>
+    <div class="tabNav">
+        <div class="tabNav-link" ng-class="{ 'is-active': isOdl() }" ng-click="account.type = 'odl'">
+            ODL
+        </div>
+        <div class="tabNav-link" ng-class="{ 'is-active': isApic() }" ng-click="account.type = 'apic'">
+            APIC
+        </div>
+    </div>
+
+    <div ng-show="isOdl()">
         <div class="form-group">
             <label for="server-ip">ODL Server IP Address</label>
-            <input type="text" class="form-control new-group" ng-model="account.serverIP" id="server-ip">
+            <input type="text" class="form-control new-group" ng-model="account.odl.ip" id="server-ip">
         </div>
         <div class="form-group">
             <label for="server-port">ODL Server Port</label>
-            <input type="text" class="form-control new-group" ng-model="account.serverPort" id="server-port">
+            <input type="text" class="form-control new-group" ng-model="account.odl.port" id="server-port">
         </div>
+    </div>
+    <div ng-show="isApic()">
+        <div class="form-group">
+            <label for="server-ip">APIC Server IP Address</label>
+            <input type="text" class="form-control new-group" ng-model="account.apic.ip" id="server-ip">
+        </div>
+        <div class="form-group">
+            <label for="server-port">APIC Server Port</label>
+            <input type="text" class="form-control new-group" ng-model="account.apic.port" id="server-port">
+        </div>
+
     </div>
 </div>
