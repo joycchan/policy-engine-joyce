@@ -43,7 +43,7 @@ angular.module('policyEngine').factory('Modals',
         // selectedRuleset: function() {
           // return $scope.selected;
         // }
-      }
+      // }
       }
     };
 

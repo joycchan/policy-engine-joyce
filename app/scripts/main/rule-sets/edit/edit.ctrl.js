@@ -8,24 +8,29 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       'uiSref': 'main.ruleSetsEdit.services'
     }];
 
-    $scope.editRule = function () {
-      var modalInstance = $modal.open(Modals.rulesetEditor);
-
-      modalInstance.result.then(function () {
-      }, function () {
-      });
-
-    };
-
     $scope.rulesList = function() {
       return _.filter(ruleSets.list(), function(rule) {
         return rule.id == $stateParams.ruleId;
       });
     };
 
-    // setTimeout(function() {
-    //   $scope.editRule(); // setting state for dev purposes
-    // }, 200)
+    $scope.editRule = function () {
+      var _selected = {
+        resolve: {
+          selectedRuleset: function() {
+            return $scope.rulesList;
+          }
+        }
+      };
+
+      var _modalConfig = _.extend(Modals.rulesetEditor, _selected);
+
+      var modalInstance = $modal.open(_modalConfig);
+
+      modalInstance.result.then(function () {
+      }, function () {
+      });
+    };
 
   }
 );
