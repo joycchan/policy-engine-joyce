@@ -64,7 +64,7 @@ var serveDirectories = function (app, directories) {
     if (body) {
       req.write(body);
     }
-    //console.log('req', req);
+    console.log('req', req);
     req.end();
 
   };
@@ -209,7 +209,7 @@ var serveDirectories = function (app, directories) {
           }
         }
       );
-      var odlPolicy = JSON.stringify(
+      var ovsPolicy = JSON.stringify(
         {
           "policy:tenants": {
             "tenant": [
@@ -374,7 +374,7 @@ var serveDirectories = function (app, directories) {
       );
 
       var params = parseParams(req);
-      var body = (params.type === 'apic') ? apicPolicy : odlPolicy;
+      var body = (params.type === 'apic') ? apicPolicy : ovsPolicy;
 
       var options = reqOptions(params);
       options['method'] = 'PUT';

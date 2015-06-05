@@ -4,8 +4,8 @@ angular.module('policyEngine').factory('configuration',
   function () {
     return {
       account: {
-        type: 'odl',
-        odl: {
+        type: 'ovs',
+        ovs: {
           ip: "localhost",
           port: '8181'
         },
