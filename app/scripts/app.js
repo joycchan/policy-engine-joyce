@@ -7,7 +7,7 @@ angular.module("policyEngine", [
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/services/");
+    $urlRouterProvider.otherwise("/launch/");
 
     $stateProvider
       .state("launch", {

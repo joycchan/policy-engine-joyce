@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('LaunchCtrl',
-  function($scope, $http) {
+  function($scope, $http, groups, assignments) {
 
       $scope.mockSummaryData = {};
 
@@ -11,9 +11,17 @@ angular.module('policyEngine').controller('LaunchCtrl',
 
       $scope.launchCategories = [
         {'category': 'Service', img: 'images/icon_services_32.png', state: 'main.services'},
-        {'category': 'Requests', img: 'images/icon_requests_32.png', state: 'main.allocations'},
+        {'category': 'Assignments', img: 'images/icon_requests_32.png', state: 'main.allocations'},
         {'category': 'Groups', img: 'images/icon_groups_32.png', state: 'main.groups'}
       ];
+
+      $scope.groupCount = function() {
+        return groups.list().length;
+      };
+
+      $scope.assignmentsCount = function() {
+        return groups.list().length;
+      }
 
   }
 );
