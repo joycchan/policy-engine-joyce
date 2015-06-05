@@ -10,9 +10,9 @@ angular.module('policyEngine').controller('LaunchCtrl',
       });
 
       $scope.launchCategories = [
-        {'category': 'Service', img: 'images/icon_services_32.png'},
-        {'category': 'Requests', img: 'images/icon_requests_32.png'},
-        {'category': 'Groups', img: 'images/icon_groups_32.png'}
+        {'category': 'Service', img: 'images/icon_services_32.png', state: 'main.services'},
+        {'category': 'Requests', img: 'images/icon_requests_32.png', state: 'main.allocations'},
+        {'category': 'Groups', img: 'images/icon_groups_32.png', state: 'main.groups'}
       ];
 
   }

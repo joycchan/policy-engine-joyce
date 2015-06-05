@@ -16,7 +16,7 @@
     <div class="launchSummary container">
         <div class="launchSummary-productName">Group Based Policies</div>
         <div class="launchSummary-category" ng-repeat="category in launchCategories"
-             ng-class="{'launchSummary-category--first': $index === 0}">
+             ng-class="{'launchSummary-category--first': $index === 0}" ui-sref="{{category.state}}">
             <img ng-src="{{category.img}}">
 
             <div class="launchSummary-category-name">{{category.category}}</div>
