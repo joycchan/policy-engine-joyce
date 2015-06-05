@@ -28,17 +28,11 @@ angular.module('policyEngine').controller('ServiceCtrl',
     };
 
     $scope.newRuleSet = function () {
-      $state.go('.', {ruleId: ''});
-      // this is to clear the ruleId just in case that the ruleID param
-      // still exists in the url.  When we go to the rule set editor,
-      // it uses this param to know what to ng-repeat over
-      // TODO: clean this up so that rule set editor does not depend on this.
       var modalInstance = $modal.open(Modals.newRuleset);
 
       modalInstance.result.then(function (newRuleSet) {
         $scope.service.ruleSet = newRuleSet;
-
-        var modalInstance = $modal.open(Modals.rulesetEditor);
+        var modalInstance = $modal.open(Modals.rulesetEditor([$scope.service.ruleSet]));
         modalInstance.result.then(function () {}, function () {});
 
       }, function () {
