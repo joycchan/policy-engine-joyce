@@ -4,8 +4,15 @@ angular.module('policyEngine').factory('configuration',
   function () {
     return {
       account: {
-        serverIP: "localhost",
-        serverPort: '8181'
+        type: 'ovs',
+        ovs: {
+          ip: "localhost",
+          port: '8181'
+        },
+        apic: {
+          ip: "10.194.126.196",
+          port: '8080'
+        }
       }
     }
   });

@@ -30,11 +30,14 @@ var serveDirectories = function (app, directories) {
     });
   });
 
-  var reqOptions = function (req) {
-    var params = url.parse(req.url, true).query;
+  var parseParams = function(req) {
+    return url.parse(req.url, true).query;
+  };
+
+  var reqOptions = function (params) {
     return {
-      host: params.serverIP,
-      port: params.serverPort,
+      host: params.ip,
+      port: params.port,
       path: '/restconf/config/policy:tenants',
       auth: 'admin:admin',
       headers: {
@@ -67,7 +70,146 @@ var serveDirectories = function (app, directories) {
   };
 
   app.post("/assignments", function (req, res) {
-      var body = JSON.stringify(
+      var apicPolicy = JSON.stringify(
+        {
+          "policy:tenants": {
+            "tenant": [
+              {
+                "contract": [
+                  {
+                    "clause": [
+                      {
+                        "name": "allow-http-clause",
+                        "subject-refs": [
+                          "allow-http-subject"
+                        ]
+                      }
+                    ],
+                    "id": "22282cca-9a13-4d0c-a67e-a933ebb0b0ae",
+                    "subject": [
+                      {
+                        "name": "allow-http-subject",
+                        "rule": [
+                          {
+                            "classifier-ref": [
+                              {
+                                "direction": "in",
+                                "name": "http-dest"
+                              },
+                              {
+                                "direction": "out",
+                                "name": "http-src"
+                              }
+                            ],
+                            "name": "allow-http-rule"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "endpoint-group": [
+                  {
+                    "consumer-named-selector": [
+                      {
+                        "contract": [
+                          "22282cca-9a13-4d0c-a67e-a933ebb0b0ae"
+                        ],
+                        "name": "e593f05d-96be-47ad-acd5-ba81465680d5-1eaf9a67-a171-42a8-9282-71cf702f61dd-22282cca-9a13-4d0c-a67e-a933ebb0b0ae"
+                      }
+                    ],
+                    "id": "0214f0fc-2fca-4ecb-97ab-37846463f932",
+                    "network-domain": "77284c12-a569-4585-b244-af9b078acfe4",
+                    "provider-named-selector": []
+                  },
+                  {
+                    "consumer-named-selector": [],
+                    "id": "49f85151-cc8e-402e-9738-8b37edccdf9b",
+                    "network-domain": "472ab051-554e-45be-a133-281f0a53412a",
+                    "provider-named-selector": [
+                      {
+                        "contract": [
+                          "22282cca-9a13-4d0c-a67e-a933ebb0b0ae"
+                        ],
+                        "name": "e593f05d-96be-47ad-acd5-ba81465680d5-1eaf9a67-a171-42a8-9282-71cf702f61dd-22282cca-9a13-4d0c-a67e-a933ebb0b0ae"
+                      }
+                    ]
+                  }
+                ],
+                "id": "11111111-1111-1111-1111-111111111111",
+                "l2-bridge-domain": [
+                  {
+                    "id": "70aeb9ea-4ca1-4fb9-9780-22b04b84a0d6",
+                    "parent": "f2311f52-890f-4095-8b85-485ec8b92b3c"
+                  }
+                ],
+                "l2-flood-domain": [
+                  {
+                    "id": "34cc1dd1-2c8c-4e61-a177-588b2d4133b4",
+                    "parent": "70aeb9ea-4ca1-4fb9-9780-22b04b84a0d6"
+                  },
+                  {
+                    "id": "6e669acf-2fd9-48ea-a9b0-cd98d933a6b8",
+                    "parent": "70aeb9ea-4ca1-4fb9-9780-22b04b84a0d6"
+                  }
+                ],
+                "l3-context": [
+                  {
+                    "id": "f2311f52-890f-4095-8b85-485ec8b92b3c"
+                  }
+                ],
+                "subject-feature-instances": {
+                  "classifier-instance": [
+                    {
+                      "classifier-definition-id": "4250ab32-e8b8-445a-aebb-e1bd2cdd291f",
+                      "name": "http-dest",
+                      "parameter-value": [
+                        {
+                          "name": "type",
+                          "string-value": "TCP"
+                        },
+                        {
+                          "int-value": "80",
+                          "name": "destport"
+                        }
+                      ]
+                    },
+                    {
+                      "classifier-definition-id": "4250ab32-e8b8-445a-aebb-e1bd2cdd291f",
+                      "name": "http-src",
+                      "parameter-value": [
+                        {
+                          "name": "type",
+                          "string-value": "TCP"
+                        },
+                        {
+                          "int-value": "0",
+                          "name": "sourceport"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "subnet": [
+                  {
+                    "id": "77284c12-a569-4585-b244-af9b078acfe4",
+                    "ip-prefix": "10.194.1.1/24",
+                    "parent": "34cc1dd1-2c8c-4e61-a177-588b2d4133b4",
+                    "virtual-router-ip": "10.194.1.1"
+                  },
+                  {
+                    "id": "472ab051-554e-45be-a133-281f0a53412a",
+                    "ip-prefix": "10.194.132.1/24",
+                    "parent": "6e669acf-2fd9-48ea-a9b0-cd98d933a6b8",
+                    "virtual-router-ip": "10.194.132.1"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      );
+      var ovsPolicy = JSON.stringify(
         {
           "policy:tenants": {
             "tenant": [
@@ -231,7 +373,10 @@ var serveDirectories = function (app, directories) {
         }
       );
 
-      var options = reqOptions(req);
+      var params = parseParams(req);
+      var body = (params.type === 'apic') ? apicPolicy : ovsPolicy;
+
+      var options = reqOptions(params);
       options['method'] = 'PUT';
       options['Content-Length'] = body.length;
 
@@ -241,7 +386,8 @@ var serveDirectories = function (app, directories) {
 
   app.delete("/assignments", function (req, res) {
 
-    var options = reqOptions(req);
+    var params = parseParams(req);
+    var options = reqOptions(params);
     options.method = 'DELETE';
 
     sendRequest(options);
