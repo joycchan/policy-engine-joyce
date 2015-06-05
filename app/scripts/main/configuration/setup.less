@@ -3,11 +3,15 @@
 .configuration {
   background-color: white;
 
+  h1 {
+    margin: 0 0 20px;
+  }
+
   .top-row {
-    margin: 15px;
+    padding: 15px 15px 0;
 
     h2 {
-      margin: 0;
+      margin: 0 0 20px;
       display: inline-block;
     }
 
@@ -32,18 +36,34 @@
 
   }
 
+  .first-column {
+    input {
+      width: 302px;
+    }
+  }
+
+  .second-column {
+    border-left: 1px solid @color-80;
+    padding-left: 30px;
+
+    input {
+      width: 276px;
+    }
+  }
+
+  hr {
+    border-top: 1px solid @color-80;
+  }
+
   .info {
     background: url(../../../images/icon_info_16.png);
     height: 16px;
     width: 16px;
     display: inline-block;
+    margin-left: 8px;
   }
   .popover {
     background-color: rgba(252, 240, 114, 1);
-  }
-  h1 {
-    font-weight: 300;
-    margin-right: 8px;
   }
 
   ::-webkit-input-placeholder {
@@ -68,8 +88,6 @@
   }
 
   .form-control {
-    width: 300px;
-    height: 32px;
     display: inline-block;
   }
 
@@ -77,16 +95,14 @@
     width: 130px;
   }
 
-  .button {
-    margin-bottom: 0px;
-  }
-
-  .fileUpload {
+  .file-upload {
     position: relative;
     overflow: hidden;
     top: 13px;
+    left: 5px;
   }
-  .fileUpload input.upload {
+
+  .file-upload input.upload {
     position: absolute;
     top: 0;
     right: 0;
@@ -99,30 +115,15 @@
 
   }
 
-  .btn-default {
-    color: #0096d6;
-    margin-right: 8px;
-    border: 1px solid #c4c7cc;
-
-    &:hover {
-      background-color: #FFF;
-      border-color: #c4c7cc;
-    }
-
-    &:focus {
-      background-color: #FFF;
-      border-color: #c4c7cc;
-    }
-  }
-
   .gateway {
     margin-top: -19px;
     padding-bottom: 57px;
   }
 
   .final {
+    margin: 0 20% 60px;
+    display: inline-block;
     float: right;
-    margin-right: 30px;
   }
 
   .ng-invalid {
