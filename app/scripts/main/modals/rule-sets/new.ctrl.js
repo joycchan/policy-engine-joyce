@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $modalInstance, ruleSets) {
+angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, ruleSets, $modal, Modals) {
 
   $scope.ruleSet = {
     name: "New Rule Set",
@@ -13,11 +13,16 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $m
   };
 
   $scope.ok = function () {
-    var ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
-    $modalInstance.close(ruleSet);
+    $scope.service.ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
+    var modalInstance = $modal.open(Modals.rulesetEditor([$scope.service.ruleSet]));
+    modalInstance.result.then(function () {
+      $state.go('main.service');
+    }, function () {
+      $state.go('main.service');
+    });
   };
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $state.go('main.service');
   };
 });

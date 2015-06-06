@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope, $modalInstance, groups) {
+angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope, $state, groups) {
 
   $scope.selected;
 
@@ -9,10 +9,11 @@ angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope,
   $scope.groups = groups.list;
 
   $scope.ok = function () {
-    $modalInstance.close($scope.selected);
+    $scope.service.group = $scope.selected;
+    $state.go('main.service');
   };
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $state.go('main.service');
   };
 });

@@ -66,6 +66,42 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/service/service.html",
           controller: "ServiceCtrl"
         })
+          .state("main.service.newGroup", {
+            url: 'newGroup/',
+            views: {
+              group: {
+                templateUrl: 'scripts/main/modals/groups/new.html',
+                controller: 'NewGroupCtrl',
+              }
+            }
+          })
+          .state("main.service.existingGroup", {
+            url: 'existingGroup/',
+            views: {
+              group: {
+                templateUrl: 'scripts/main/modals/groups/existing.html',
+                controller: 'ExistingGroupCtrl'
+              }
+            }
+          })
+          .state("main.service.newRuleSet", {
+            url: 'newRuleSet/',
+            views: {
+              ruleSet: {
+                templateUrl: 'scripts/main/modals/rule-sets/new.html',
+                controller: 'NewRuleSetCtrl'
+              }
+            }
+          })
+          .state("main.service.existingRuleSet", {
+            url: 'existingRuleSet/',
+            views: {
+              ruleSet: {
+                templateUrl: 'scripts/main/modals/rule-sets/existing.html',
+                controller: 'ExistingRuleSetCtrl',
+              }
+            }
+          })
 
        .state("main.allocations", {
 
@@ -124,7 +160,7 @@ angular.module("policyEngine", [
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeSuccess',function(){
-      $("html, body").animate({ scrollTop: 0 }, 0);
+      //$("html, body").animate({ scrollTop: 0 }, 0);
     })
   });
 
