@@ -29,7 +29,7 @@ angular.module('policyEngine').controller('MainCtrl',
         sections: [
           {
             label: 'Services',
-            state: 'main.services'
+            state: 'main.services.cards'
           },
           {
             label: 'Assignments',

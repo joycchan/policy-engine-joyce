@@ -1,7 +1,7 @@
 <div class="service-wrapper">
     <div class="top-row">
         <h2>New Service</h2>
-        <span class="img-close" ui-sref="main.services"></span>
+        <span class="img-close" ui-sref="main.services.cards"></span>
     </div>
     <form class="form-horizontal meta">
         <div class="form-group">
@@ -40,16 +40,18 @@
 
         <div class="buttons">
             <div class="button button--secondary" ui-sref="main.service.newGroup"
-                    ng-class="{'is-selected': option.group === 'new'}" ng-click="option.group = 'new'">
+                 ng-class="{'is-selected': option.group === 'new'}" ng-click="option.group = 'new'">
                 <div class="plus">+</div>
                 <span class="new-text">New Group</span>
             </div>
             <div class="button button--secondary"
                  ng-class="{'is-selected': option.group === 'import'}" ng-click="option.group = 'import'">
-                    Import Group from ISE</div>
+                Import Group from ISE
+            </div>
             <div class="button button--secondary" ui-sref="main.service.existingGroup"
                  ng-class="{'is-selected': option.group === 'existing'}" ng-click="option.group = 'existing'">
-                 Use Existing Group</div>
+                Use Existing Group
+            </div>
         </div>
         <div ui-view="group" class="component" autoscroll></div>
 
@@ -74,14 +76,15 @@
             </div>
             <div class="button button--secondary" ui-sref="main.service.existingRuleSet"
                  ng-class="{'is-selected': option.ruleSet === 'existing'}" ng-click="option.group = 'existing'">
-                 Use Existing Rule Set</div>
+                Use Existing Rule Set
+            </div>
         </div>
         <div ui-view="ruleSet" class="component" autoscroll></div>
 
         <hr/>
 
         <div class="nav-buttons">
-            <div class="button button--secondary" ui-sref="main.services">Cancel</div>
+            <div class="button button--secondary" ui-sref="main.services.cards">Cancel</div>
             <div class="button" ng-click="createService()"
                  ng-class="{ 'is-disabled': serviceIncomplete() }">OK
             </div>

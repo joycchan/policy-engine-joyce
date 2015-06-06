@@ -32,34 +32,32 @@
         </div>
     </div>
 
-    <div class="col-sm-10">
-
-        <div ng-repeat="service in filteredServices" class="card defined">
-            <h3>{{service.name}}</h3>
-
-            <div class="values">
-                <h4>Provider Group</h4>
-
-                <div class="value">{{service.group.name}}</div>
-                <h4>Rule Set</h4>
-
-                <div class="value">{{service.ruleSet.name}}</div>
-            </div>
-            <div class="sliding-box">
-                <h4>Assigned Groups</h4>
-
-                <div ng-hide="serviceConsumers(service).length">
-                    <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
-                </div>
-                <div ng-show="serviceConsumers(service).length">
-                    <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
+    <div class="col-sm-9">
+        <div class="services-navCardsList">
+            <div class="services-navCardsList-search">Search <input-search></input-search></div>
+            <div class="services-navCardsList-dropdown">
+                <span>Sort by </span>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    Newest to Oldest
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Newest to Oldest</a></li>
+                  </ul>
                 </div>
             </div>
-        </div>
-        <div class="card new" ui-sref="main.service">
-            <div class="scircle">
-                <span class="img-plus-serdfn" id="plus-serdfn"></span>
+            <div class="services-navCardsList-toggleIcons">
+                <div class="toggleIconSet" ui-sref="main.services.cards" ui-sref-active="active">
+                    <img class="toggleIcon-active" src="images/icon_view_cards_active.png">
+                    <img class="toggleIcon-inactive" src="images/icon_view_cards_inactive.png">
+                </div>
+                <div class="toggleIconSet" ui-sref="main.services.list" ui-sref-active="active">
+                    <img class="toggleIcon-active" src="images/icon_view_list_active.png">
+                    <img class="toggleIcon-inactive" src="images/icon_view_list_inactive.png">
+                </div>
             </div>
         </div>
     </div>
+    <ui-view class="container-fluid"></ui-view>
 </div>
