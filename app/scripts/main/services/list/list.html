@@ -1,5 +1,5 @@
 <div class="col-sm-9">
-  <div ng-repeat="service in filteredServices" class="service-listItem">
+  <div class="service-listItem">
     <table class="listView listView--hover listView--iconsHover service-listItem-table">
       <thead>
         <th></th>
@@ -9,8 +9,8 @@
         <th>Assigned To</th>
         <th></th>
       </thead>
-      <tbody>
-        <tr class="service-listItem-row" ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
+      <tbody ng-repeat="service in filteredServices">
+        <tr  class="service-listItem-row" ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
           <td>
             <input type="checkbox" ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
           </td>
@@ -29,14 +29,17 @@
             </div>
           </td>
         </tr>
-        <tr ng-repeat="group in serviceConsumers(service)" ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
+        <!-- this level is for ng-repeating over serviceConsumers(service).  I think you want the ability to have these underneath their respective rows. -->
+
+        
+       <!--  <tr ng-repeat="group in serviceConsumers(service)" ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
           <td>
               <input type="checkbox" ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
           </td>
           <td>{{group.name}}</td>
           <td>{{group.group.name}}</td>
           <td>{{group.ruleSet.name}}</td>
-          <td><!-- assigned to --></td>
+          <td>assigned to</td>
           <td>
             <div class="listView-icons">
               <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
@@ -47,7 +50,7 @@
               <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
             </div>
           </td>
-        </tr>
+        </tr> -->
       </tbody>
     </table>
   </div>
