@@ -1,65 +1,63 @@
-<div class="col-sm-10t ">
-    <div class="service-listItem">
-        <table class="listView listView--hover listView--iconsHover service-listItem-table">
-            <thead>
-            <th></th>
-            <th>Name</th>
-            <th>Provider Group</th>
-            <th>Rule set</th>
-            <th>Assigned To</th>
-            <th></th>
-            </thead>
-            <tbody ng-repeat="service in filteredServices">
-            <tr class="service-listItem-row"
-                ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
-                <td>
-                    <input type="checkbox"
-                           ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
-                </td>
-                <td>{{service.name}}</td>
-                <td>{{service.group.name}}</td>
-                <td>{{service.ruleSet.name}}</td>
-                <td ng-hide="serviceConsumers(service).length">
-                    <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
-                </td>
-                <td ng-show="serviceConsumers(service).length">
-                    <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
-                </td>
+<div class="service-listItem">
+    <table class="listView listView--hover listView--iconsHover service-listItem-table">
+        <thead>
+        <th></th>
+        <th>Name</th>
+        <th>Provider Group</th>
+        <th>Rule set</th>
+        <th>Assigned To</th>
+        <th></th>
+        </thead>
+        <tbody ng-repeat="service in filteredServices">
+        <tr class="service-listItem-row"
+            ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
+            <td>
+                <input type="checkbox"
+                       ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
+            </td>
+            <td>{{service.name}}</td>
+            <td>{{service.group.name}}</td>
+            <td>{{service.ruleSet.name}}</td>
+            <td ng-hide="serviceConsumers(service).length">
+                <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
+            </td>
+            <td ng-show="serviceConsumers(service).length">
+                {{serviceConsumersString(service)}}
+            </td>
 
-                <td>
-                    <div class="listView-icons">
-                        <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
-                        <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
-                    </div>
-                    <div class="listView-icons">
-                        <img class="listView-icon is-hidden-on-hover" src="images/icon_x_16.png">
-                        <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
-                    </div>
-                </td>
-            </tr>
-            <!-- this level is for ng-repeating over serviceConsumers(service).  I think you want the ability to have these underneath their respective rows. -->
+            <td>
+                <div class="listView-icons">
+                    <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
+                    <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
+                </div>
+                <div class="listView-icons">
+                    <img class="listView-icon is-hidden-on-hover" src="images/icon_x_16.png">
+                    <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
+                </div>
+            </td>
+        </tr>
+        <!-- this level is for ng-repeating over serviceConsumers(service).  I think you want the ability to have these underneath their respective rows. -->
 
 
-            <!--  <tr ng-repeat="group in serviceConsumers(service)" ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
-               <td>
-                   <input type="checkbox" ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
-               </td>
-               <td>{{group.name}}</td>
-               <td>{{group.group.name}}</td>
-               <td>{{group.ruleSet.name}}</td>
-               <td>assigned to</td>
-               <td>
-                 <div class="listView-icons">
-                   <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
-                   <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
-                 </div>
-                 <div class="listView-icons">
-                   <img class="listView-icon is-hidden-on-hover" src="images/icon_x_16.png">
-                   <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
-                 </div>
-               </td>
-             </tr> -->
-            </tbody>
-        </table>
-    </div>
+        <!--  <tr ng-repeat="group in serviceConsumers(service)" ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
+           <td>
+               <input type="checkbox" ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
+           </td>
+           <td>{{group.name}}</td>
+           <td>{{group.group.name}}</td>
+           <td>{{group.ruleSet.name}}</td>
+           <td>assigned to</td>
+           <td>
+             <div class="listView-icons">
+               <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
+               <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
+             </div>
+             <div class="listView-icons">
+               <img class="listView-icon is-hidden-on-hover" src="images/icon_x_16.png">
+               <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
+             </div>
+           </td>
+         </tr> -->
+        </tbody>
+    </table>
 </div>
