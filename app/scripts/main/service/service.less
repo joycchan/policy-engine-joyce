@@ -45,9 +45,8 @@
 
   hr {
     margin: 0;
-    height: 1px;
     width: 100%;
-    background-color: @color-80;
+    border-color: @color-90;
   }
 
   .components {
@@ -75,6 +74,26 @@
       width: 16px;
       margin-left: 7px;
       margin-bottom: -4px;
+    }
+
+    .component {
+      width: 900px;
+      background-color: @color-90;
+      padding-left: 45px;
+      padding-top: 1px;
+      clear: both;
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .ep-pools {
+        border-left: 1px solid @color-80;
+      }
+
+      .button-group {
+        padding: 15px 0 15px 480px;
+      }
     }
 
     hr {
@@ -108,6 +127,7 @@
       background: url(../../../images/magnifying-glass.png) no-repeat 10px 7px;
       padding-left: 40px;
       margin-left: 10px;
+      background-color: white;
     }
   }
 
@@ -122,14 +142,14 @@
       cursor: pointer;
 
       td:first-child {
-        border-left: solid 3px white;
+        border-left: solid 3px @color-90;
       }
 
       &:hover {
-        background-color: @color-90;
+        background-color: @color-80;
 
         td:first-child {
-          border-left: solid 3px @color-90;
+          border-left: solid 3px @color-80;
         }
       }
 

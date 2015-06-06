@@ -39,14 +39,19 @@
         </span>
 
         <div class="buttons">
-            <div class="button button--secondary" ui-sref="main.service.newGroup">
+            <div class="button button--secondary" ui-sref="main.service.newGroup"
+                    ng-class="{'is-selected': option.group === 'new'}" ng-click="option.group = 'new'">
                 <div class="plus">+</div>
                 <span class="new-text">New Group</span>
             </div>
-            <div class="button button--secondary" ng-click="importFromISE()">Import Group from ISE</div>
-            <div class="button button--secondary" ui-sref="main.service.existingGroup">Use Existing Group</div>
+            <div class="button button--secondary"
+                 ng-class="{'is-selected': option.group === 'import'}" ng-click="option.group = 'import'">
+                    Import Group from ISE</div>
+            <div class="button button--secondary" ui-sref="main.service.existingGroup"
+                 ng-class="{'is-selected': option.group === 'existing'}" ng-click="option.group = 'existing'">
+                 Use Existing Group</div>
         </div>
-        <div ui-view="group" autoscroll></div>
+        <div ui-view="group" class="component" autoscroll></div>
 
         <hr/>
 
@@ -62,13 +67,16 @@
         </span>
 
         <div class="buttons">
-            <div class="button button--secondary" ui-sref="main.service.newRuleSet">
+            <div class="button button--secondary" ui-sref="main.service.newRuleSet"
+                 ng-class="{'is-selected': option.ruleSet === 'new'}" ng-click="option.group = 'new'">
                 <div class="plus">+</div>
                 <span class="new-text">New Rule Set</span>
             </div>
-            <div class="button button--secondary" ui-sref="main.service.existingRuleSet">Use Existing Rule Set</div>
+            <div class="button button--secondary" ui-sref="main.service.existingRuleSet"
+                 ng-class="{'is-selected': option.ruleSet === 'existing'}" ng-click="option.group = 'existing'">
+                 Use Existing Rule Set</div>
         </div>
-        <div ui-view="ruleSet" autoscroll></div>
+        <div ui-view="ruleSet" class="component" autoscroll></div>
 
         <hr/>
 

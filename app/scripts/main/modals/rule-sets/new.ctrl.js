@@ -12,14 +12,19 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
     // TODO: remove client-side id generation
   };
 
+  $scope.addRules = function () {
+    $modal.open(Modals.rulesetEditor([$scope.ruleSet]));
+  };
+
+  $scope.disabled = function () {
+    return ($scope.ruleSet.classifiers.length === 0) || ($scope.ruleSet.actions.length === 0);
+  };
+
   $scope.ok = function () {
-    $scope.service.ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
-    var modalInstance = $modal.open(Modals.rulesetEditor([$scope.service.ruleSet]));
-    modalInstance.result.then(function () {
+    if (!$scope.disabled()) {
+      $scope.service.ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
       $state.go('main.service');
-    }, function () {
-      $state.go('main.service');
-    });
+    }
   };
 
   $scope.cancel = function () {

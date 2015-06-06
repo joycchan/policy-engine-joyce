@@ -1,15 +1,28 @@
-<h2>New Rule Set</h2>
-<div>
-    <div class="form-group">
-        <label for="ruleSetName">Name</label>
-        <input type="text" class="form-control new-group" ng-model="ruleSet.name" id="ruleSetName" required >
+
+<h1>New Rule Set</h1>
+<div class="rulesets-settings">
+    <div>
+        <div class="form-group">
+            <label for="ruleSetName">Name</label>
+            <input type="text" class="form-control new-group" ng-model="ruleSet.name" id="ruleSetName" required>
+        </div>
+        <div class="form-group">
+            <label for="ruleSetDesc">Description</label>
+            <textarea class="form-control description" id="ruleSetDesc" ng-model="ruleSet.description" required
+                      placeholder="Optional"></textarea>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="ruleSetDesc">Description</label>
-        <textarea class="form-control description" id="ruleSetDesc" ng-model="ruleSet.description" required placeholder="optional"></textarea>
+
+    <div class="rulesets-settings-helpText">
+        Rules define how the network traffic behaves. Classifiers describe types of network traffic and actions
+        determine what to do with that type of traffic. You can pair up existing classifiers and actions from the
+        libraries, or you specify custom ones.
+    </div>
+    <div class="rulesets-settings-editButton">
+        <div class="button button--secondary" ng-click="addRules()">Add Rules</div>
     </div>
 </div>
-<div class="modal-footer button-group">
+<div class="button-group">
     <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-    <div class="button" ng-click="ok()">OK</div>
+    <div class="button" ng-click="ok()" ng-class="{ 'is-disabled': disabled() }">Create</div>
 </div>

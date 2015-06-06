@@ -1,41 +1,29 @@
-<h2>Existing Rule Set</h2>
+<h1>Use Existing Rule Set</h1>
 
 <div class="search-bar">
     <label for="search">Search</label>
-    <input-search model="search"></input-search>
+    <input-search model="search" id="search"></input-search>
 </div>
-<div class="service-wrapper">
-
-    <table class="listView existingRuleList-list listView--iconsHover listView--borderHover">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Classifiers</th>
-            <th>Default/Custom</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="selectRuleSet(ruleSet)"
-            ng-class="{'is-selected' : ruleSet === selected}">
-            <td>{{ruleSet.name}}</td>
-            <td>{{ruleSet.classifiers.join(',')}}</td>
-            <td>{{ruleSet.custom}}</td>
-            <td>
-              <div>
-                <div class="listView-icons" ng-click="editRuleSet(ruleSet)">
-                  <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
-                  <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
-                </div>
-              </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="modal-footer button-group">
-        <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-        <div class="button" ng-click="ok()">OK</div>
-    </div>
-
-
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Classifiers</th>
+        <th>Default/Custom</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="selectRuleSet(ruleSet)"
+        ng-class="{'selected' : ruleSet === selected}">
+        <td>{{ruleSet.name}}</td>
+        <td>{{ruleSet.classifiers.join(',')}}</td>
+        <td>{{ruleSet.custom}}</td>
+    </tr>
+    </tbody>
+</table>
+<div class="modal-footer button-group">
+    <div class="button button--secondary" ng-click="cancel()">Cancel</div>
+    <div class="button" ng-click="ok()">Use</div>
 </div>
+
