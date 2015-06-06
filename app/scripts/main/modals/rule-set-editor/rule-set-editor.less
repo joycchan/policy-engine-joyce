@@ -101,11 +101,20 @@
 }
 
 .rulesets-listView-row {
+  td:not(:first-child) {
+    vertical-align: top;
+  }
+
   &.is-inEditMode {
     .rulesets-listView-itemContainer {
       border: 1px dashed @color-70;
       padding: 4px;
       border-radius: 8px;
+      width: 210px;
+
+      &.drag-enter {
+        border-color: @blue;
+      }
     }
     .rulesets-settings-list-classifier, .rulesets-settings-list-action, .rulesets-settings-list-item {
       &:extend(.extra-light);
@@ -115,7 +124,8 @@
       color: white;
       line-height: 18px;
       font-size: 12px;
-      padding: 2px;
+      padding: 2px 8px;
+      display: inline-block;
       margin: 4px;
     }
     .rulesets-settings-list-action {

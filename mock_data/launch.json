@@ -5,34 +5,34 @@
     "isGoodStat": true,
     "drawerStats": [{
       "name": "Last Month",
-      "stat": 8,
+      "stat": 83,
       "isGoodStat": true
     }, {
       "name": "Past Quarter",
-      "stat": 2,
+      "stat": 92,
       "isGoodStat": false
     }]
   }, {
     "name": "Count",
-    "stat": 8,
+    "stat": 10,
     "isGoodStat": false,
     "drawerStats": [{
       "name": "Last Month",
-      "stat": 28,
+      "stat": 6,
       "isGoodStat": true
     }, {
       "name": "Past Quarter",
-      "stat": 23,
-      "isGoodStat": false
+      "stat": 4,
+      "isGoodStat": true
     }]
   }, {
     "name": "Connections",
-    "stat": 16,
+    "stat": 0,
     "isGoodStat": false,
     "drawerStats": [{
       "name": "Last Month",
-      "stat": 85,
-      "isGoodStat": true
+      "stat": 5,
+      "isGoodStat": false
     }, {
       "name": "Past Quarter",
       "stat": 22,
@@ -41,25 +41,25 @@
   }],
   "Assignments": [{
     "name": "New",
-    "stat": 5,
+    "stat": 0,
     "isGoodStat": true,
     "drawerStats": [{
       "name": "Last Month",
       "stat": 21,
-      "isGoodStat": true
+      "isGoodStat": false
     }, {
       "name": "Past Quarter",
       "stat": 7,
       "isGoodStat": false
     }]
   }, {
-    "name": "All Pending",
-    "stat": 7,
+    "name": "Count",
+    "stat": 0,
     "isGoodStat": false,
     "drawerStats": [{
       "name": "Last Month",
       "stat": 23,
-      "isGoodStat": true
+      "isGoodStat": false
     }, {
       "name": "Past Quarter",
       "stat": 54,
@@ -76,8 +76,8 @@
       "isGoodStat": true
     }, {
       "name": "Past Quarter",
-      "stat": 53,
-      "isGoodStat": false
+      "stat": 0,
+      "isGoodStat": true
     }]
   }, {
     "name": "Count",
@@ -85,7 +85,7 @@
     "isGoodStat": false,
     "drawerStats": [{
       "name": "Last Month",
-      "stat": 23,
+      "stat": 7,
       "isGoodStat": true
     }, {
       "name": "Past Quarter",
