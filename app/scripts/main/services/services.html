@@ -32,26 +32,26 @@
         </div>
     </div>
 
-    <div class="col-sm-9 services-navCardsList">
-        <div class="services-navCardsList-search">Search <input-search></input-search></div>
-        <div class="services-navCardsList-dropdown">
-            <span>Sort by </span>
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                Newest to Oldest
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Newest to Oldest</a></li>
-              </ul>
+    <div class="col-sm-9">
+        <div class="services-navCardsList">
+            <div class="services-navCardsList-search">Search <input-search></input-search></div>
+            <div class="services-navCardsList-dropdown">
+                <span>Sort by </span>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    Newest to Oldest
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Newest to Oldest</a></li>
+                  </ul>
+                </div>
+            </div>
+            <div class="services-navCardsList-toggleIcons">
+                <img src="images/icon_view_cards_inactive.png" ui-sref="main.services.cards">
+                <img src="images/icon_view_list_inactive.png" ui-sref="main.services.list">
             </div>
         </div>
-        <div class="services-navCardsList-toggleIcons">
-            <img src="images/icon_view_cards_inactive.png" ui-sref="main.services.cards">
-            <img src="images/icon_view_list_inactive.png" ui-sref="main.services.list">
-        </div>
     </div>
-    <div class="col-sm-10">
-        <ui-view></ui-view>
-    </div>
+    <ui-view class="container-fluid"></ui-view>
 </div>
