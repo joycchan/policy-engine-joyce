@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('ExistingRuleSetCtrl',
-  function ($scope, $modalInstance, ruleSets, $state, $modal, Modals) {
+  function ($scope, ruleSets, $state, $modal, Modals) {
 
   $scope.selected;
 
@@ -19,11 +19,12 @@ angular.module('policyEngine').controller('ExistingRuleSetCtrl',
   $scope.ruleSets = ruleSets.list;
 
   $scope.ok = function () {
-    $modalInstance.close($scope.selected);
+    $scope.service.ruleSet = $scope.selected;
+    $state.go('main.service');
   };
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $state.go('main.service');
   };
 
 });

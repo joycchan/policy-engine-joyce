@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $modalInstance, ruleSets) {
+angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, ruleSets, $modal, Modals) {
 
   $scope.ruleSet = {
     name: "New Rule Set",
@@ -12,12 +12,22 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $m
     // TODO: remove client-side id generation
   };
 
+  $scope.addRules = function () {
+    $modal.open(Modals.rulesetEditor([$scope.ruleSet]));
+  };
+
+  $scope.disabled = function () {
+    return ($scope.ruleSet.classifiers.length === 0) || ($scope.ruleSet.actions.length === 0);
+  };
+
   $scope.ok = function () {
-    var ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
-    $modalInstance.close(ruleSet);
+    if (!$scope.disabled()) {
+      $scope.service.ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
+      $state.go('main.service');
+    }
   };
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $state.go('main.service');
   };
 });

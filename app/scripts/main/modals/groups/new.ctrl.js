@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $modalInstance, groups) {
+angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, groups, $state) {
 
   $scope.group = {
     name: "New Group"
@@ -12,11 +12,11 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $mod
   ];
 
   $scope.ok = function () {
-    var group = groups.create($scope.group);
-    $modalInstance.close(group);
+    $scope.service.group = groups.create($scope.group);
+    $state.go('main.service');
   };
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $state.go('main.service');
   };
 });
