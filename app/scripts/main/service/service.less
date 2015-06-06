@@ -1,10 +1,11 @@
 @import "../../../styles/variables";
 
 .service-wrapper {
-  padding-left: 15px;
+  width: 800px;
+  padding: 0 30px;
 
   .top-row {
-    margin: 15px 0;
+    margin: 12px 0 20px;
 
     h2 {
       margin: 0;
@@ -22,30 +23,75 @@
 
   }
 
-  .textData {
+  form {
+    padding-left: 30px;
+
+    &.meta {
+      input {
+        width: 294px;
+      }
+      textarea {
+        width: 294px;
+      }
+    }
+  }
+
+  p {
     letter-spacing: 0.1px;
     width: 539px;
+    font-weight: 300;
+    line-height: 18px;
   }
 
   hr {
     margin: 0;
     height: 1px;
-    width: 646px;
-    background-color: @color-75;
+    width: 100%;
+    background-color: @color-80;
   }
 
-  h3 .current {
-    font-weight: bold;
+  .components {
+    padding: 0 15px;
+    width: 755px;
 
-    .selected-label {
+    p {
+      width: 320px;
+      margin-bottom: 20px;
+    }
+
+    .bold-text {
+      display: inline-block;
       font-size: 12px;
       font-weight: bold;
       color: @color-60;
       line-height: 18px;
     }
+
+    .selected-icon {
+      display: inline-block;
+      background: url(../../../images/icon_status_ok_32.png) no-repeat;
+      background-size: cover;
+      height: 16px;
+      width: 16px;
+      margin-left: 7px;
+      margin-bottom: -4px;
+    }
+
+    hr {
+      width: 100%;
+    }
+  }
+
+  h3 .current {
+    font-weight: bold;
+
   }
   .buttons {
     margin: 15px 0 25px;
+
+    .button {
+      margin-right: 8px;
+    }
   }
 
   .search-bar {
@@ -126,7 +172,7 @@
     line-height: 32px;
     padding: 0 32px;
     cursor: pointer;
-    margin : 20px 325px 20px 0;
+    margin: 20px 325px 20px 0;
   }
 }
 

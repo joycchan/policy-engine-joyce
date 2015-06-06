@@ -3,7 +3,7 @@
         <h2>New Service</h2>
         <span class="img-close" ui-sref="main.services"></span>
     </div>
-    <form class="form-horizontal">
+    <form class="form-horizontal meta">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="name">Name</label>
 
@@ -21,12 +21,23 @@
     </form>
 
 
-    <p class="textData">A Service is made up of two pieces: the provider group that will be doing the work, and the
+    <p>A Service is made up of two pieces: the provider group that will be doing the work, and the
         rule
         set that specifies how that work will be done.</p>
     <hr/>
-        <h2>Group</h2>
-        <span class="selected-label">Selected Group: {{service.group.name}}</span>
+    <div class="components">
+
+        <h1>Group</h1>
+
+        <p>The group used for your new service can be a new group, an imported group, or an existing group</p>
+
+        <span ng-hide="service.group" class="bold-text">Select one of the options below:</span>
+        <span ng-show="service.group">
+            <span class="bold-text">Selected:</span>
+            {{service.group.name}}
+            <div class="selected-icon"></div>
+        </span>
+
         <div class="buttons">
             <div class="button button--secondary" ng-click="newGroup()">
                 <div class="plus">+</div>
@@ -36,9 +47,18 @@
             <div class="button button--secondary" ng-click="existingGroup()">Use Existing Group</div>
         </div>
 
-        <h2>Rule Set</h2>
+        <hr/>
 
-        <span class="selected-label">Selected Group: {{service.ruleSet.name}}</span>
+        <h1>Rule Set</h1>
+
+        <p>The rule set used for your new service can be a new rule set or an existing rule set.</p>
+
+        <span ng-hide="service.ruleSet" class="bold-text">Select one of the options below:</span>
+        <span ng-show="service.ruleSet">
+            <span class="bold-text">Selected:</span>
+            {{service.ruleSet.name}}
+            <div class="selected-icon"></div>
+        </span>
 
         <div class="buttons">
             <div class="button button--secondary" ng-click="newRuleSet()">
@@ -48,10 +68,13 @@
             <div class="button button--secondary" ng-click="existingRuleSet()">Use Existing Rule Set</div>
         </div>
 
-    <div class="nav-buttons">
-        <div class="button button--secondary" ui-sref="main.services">Back</div>
-        <div class="button button--secondary" ng-click="createService()"
-             ng-class="{ 'is-disabled': serviceIncomplete() }">OK
+        <hr/>
+
+        <div class="nav-buttons">
+            <div class="button button--secondary" ui-sref="main.services">Cancel</div>
+            <div class="button" ng-click="createService()"
+                 ng-class="{ 'is-disabled': serviceIncomplete() }">OK
+            </div>
         </div>
     </div>
 </div>

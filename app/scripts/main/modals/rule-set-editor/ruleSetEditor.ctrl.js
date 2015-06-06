@@ -33,6 +33,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       if (data.dataType === 'classifier'
         && !isExistingRuleset($scope.selectedRuleset[index].classifiers, data.name)
         && $scope.editModeHash[index]) {
+
         $scope.selectedRuleset[index].classifiers.push(data.name);
       }
     };
@@ -41,6 +42,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       if (data.dataType === 'action'
         && !isExistingRuleset($scope.selectedRuleset[index].actions, data.name)
         && $scope.editModeHash[index]) {
+
         $scope.selectedRuleset[index].actions.push(data.name);
       }
     };
