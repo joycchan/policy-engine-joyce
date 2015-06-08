@@ -70,12 +70,12 @@
 
         <div class="buttons">
             <div class="button button--secondary" ui-sref="main.service.newRuleSet"
-                 ng-class="{'is-selected': option.ruleSet === 'new'}" ng-click="option.group = 'new'">
+                 ng-class="{'is-selected': option.ruleSet === 'new'}" ng-click="option.ruleSet = 'new'">
                 <div class="plus">+</div>
                 <span class="new-text">New Rule Set</span>
             </div>
             <div class="button button--secondary" ui-sref="main.service.existingRuleSet"
-                 ng-class="{'is-selected': option.ruleSet === 'existing'}" ng-click="option.group = 'existing'">
+                 ng-class="{'is-selected': option.ruleSet === 'existing'}" ng-click="option.ruleSet = 'existing'">
                 Use Existing Rule Set
             </div>
         </div>
