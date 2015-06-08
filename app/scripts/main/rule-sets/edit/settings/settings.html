@@ -31,18 +31,18 @@
       <thead>
         <tr>
           <th></th>
-          <th><div>Classifier</div><div class="rulesets-settings-list-classifierDesc">Classifiers are OR'ed</div></th>
-          <th><div>Action</div><div class="rulesets-settings-list-classifierDesc">Actions are AND'ed</div></th>
+          <th><div>Classifier</div><div class="listView-headerDescription">Classifiers are OR'ed</div></th>
+          <th><div>Action</div><div class="listView-headerDescription">Actions are AND'ed</div></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="rule in rulesList()">
           <td><div class="listView-number">{{$index + 1}}</div></td>
           <td>
-            <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
+            <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
           </td>
           <td>
-            <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">{{action}}</div>
+            <div class="listView-innerList" ng-repeat="action in rule.actions">{{action}}</div>
           </td>
         </tr>
       </tbody>

@@ -42,8 +42,8 @@
         <thead>
           <tr>
             <th></th>
-            <th><div>Classifier</div><div class="rulesets-settings-list-classifierDesc">Classifiers are OR'ed</div></th>
-            <th><div>Action</div><div class="rulesets-settings-list-classifierDesc">Actions are AND'ed</div></th>
+            <th><div>Classifier</div><div class="listView-headerDescription">Classifiers are OR'ed</div></th>
+            <th><div>Action</div><div class="listView-headerDescription">Actions are AND'ed</div></th>
             <th></th>
           </tr>
         </thead>
@@ -55,7 +55,7 @@
             </td>
             <td>
               <div class="rulesets-listView-itemContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
-                <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">
+                <div class="rulesets-settings-list-classifier listView-innerList" ng-repeat="classifier in rule.classifiers">
                   {{classifier}}
                 </div>
                 <div ng-show="rule.classifiers.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN CLASSIFIERS FROM LEFT</div>
@@ -63,7 +63,7 @@
             </td>
             <td>
               <div class="rulesets-listView-itemContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
-                <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">
+                <div class="rulesets-settings-list-action listView-innerList" ng-repeat="action in rule.actions">
                   {{action}}</div>
                   <div ng-show="rule.actions.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN RULES FROM RIGHT</div>
               </div>
