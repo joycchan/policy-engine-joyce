@@ -2,7 +2,7 @@
   <div class="ruleEditor-classifiers">
     <div class="ruleEditor-title">Classifiers</div>
     <div class="ruleEditor-search">
-      <input-search></input-search>
+      <input-search model="search.classifiers.name"></input-search>
     </div>
     <div class="ruleEditor-addButton">
       <div class="button">Add Custom Classifier</div>
@@ -23,7 +23,7 @@
     <div class="ruleEditor-list">
       <div
         class="ruleEditor-listItem"
-        ng-repeat="classifier in existingClassifiers()"
+        ng-repeat="classifier in existingClassifiers() | filter: search.classifiers"
         ng-drag="isInEditModeForAnyRule()"
         ng-drag-data="decorateData(classifier, 'classifier')">
         {{classifier.name}}
@@ -94,7 +94,7 @@
   <div class="ruleEditor-actions">
     <div class="ruleEditor-title">Actions</div>
     <div class="ruleEditor-search">
-      <input-search></input-search>
+      <input-search model="search.actions.name"></input-search>
     </div>
     <div class="ruleEditor-addButton">
       <div class="button">Add Custom Action</div>
@@ -102,7 +102,7 @@
     <div class="ruleEditor-hDivider"></div>
     <div class="ruleEditor-list">
       <div class="ruleEditor-listItem"
-        ng-repeat="action in existingActions()"
+        ng-repeat="action in existingActions() | filter: search.actions"
         ng-drag="isInEditModeForAnyRule()"
         ng-drag-data="decorateData(action, 'action')">
         {{action.name}}

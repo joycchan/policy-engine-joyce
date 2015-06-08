@@ -59,6 +59,11 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       });
     };
 
+    $scope.search = {
+      classifiers: {name:''},
+      actions: {name:''}
+    };
+
     // to do
     // allow user to delete rule, upon hover of table row + click on X
     // allow user to add new rule, upon hover of bottom of table + click
