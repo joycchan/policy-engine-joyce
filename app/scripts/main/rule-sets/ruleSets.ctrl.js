@@ -13,10 +13,26 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
       {name: 'Custom'}
     ];
 
-    $scope.filterRulesListBy = function(name) {};
+    $scope.filter = "All Rule Sets";
+
+    $scope.filterRulesListBy = function(name) {
+      $scope.filter = name;
+
+      if(name === 'Default')
+      {
+        $scope.rulesList = function() {return ruleSets.byCustom('Default')};
+      }
+      else if(name === 'Custom')
+      {
+        $scope.rulesList = function() {return ruleSets.byCustom('Custom')};
+      }
+      else {
+        $scope.rulesList = function() {return ruleSets.byCustom('')};
+      }
+    };
 
     $scope.isRulesListFilterSelected = function(name) {
-      return name === 'All Rule Sets' ? true : false;
+      return name === $scope.filter;
     };
 
     $scope.newRuleset = function() {

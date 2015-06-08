@@ -1,15 +1,15 @@
 <div class="ruleEditor">
-  <div class="ruleEditor-classifiers">
-    <div class="ruleEditor-title">Classifiers</div>
-    <div class="ruleEditor-search">
-      <input-search></input-search>
+  <div class="classifiers">
+    <div class="title">Classifiers</div>
+    <div class="search">
+      <input-search model="search.classifiers.name"></input-search>
     </div>
-    <div class="ruleEditor-addButton">
+    <div class="addButton">
       <div class="button">Add Custom Classifier</div>
     </div>
-    <div class="ruleEditor-hDivider"></div>
-    <div class="ruleEditor-category">Category</div>
-    <div class="ruleEditor-category-dropdown">
+    <div class="hDivider"></div>
+    <div class="category">Category</div>
+    <div class="category-dropdown">
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
           All
@@ -20,43 +20,42 @@
         </ul>
       </div>
     </div>
-    <div class="ruleEditor-list">
+    <div class="list">
       <div
-        class="ruleEditor-listItem"
-        ng-repeat="classifier in existingClassifiers()"
+        class="listItem"
+        ng-repeat="classifier in existingClassifiers() | filter: search.classifiers"
         ng-drag="isInEditModeForAnyRule()"
-        ng-drag-data="decorateData(classifier, 'classifier')"
-        ng-drag-success="onDragComplete($data,$event)">
+        ng-drag-data="decorateData(classifier, 'classifier')">
         {{classifier.name}}
       </div>
     </div>
   </div>
 
 
-  <div class="ruleEditor-editor">
-    <div class="ruleEditor-title ruleEditor-title--editor">Rule Set Editor</div>
-    <div class="ruleEditor-editor-help">
+  <div class="editor">
+    <div class="title title--editor">Rule Set Editor</div>
+    <div class="editor-help">
       Rules define how the network behaves.  Classifiers describe types of network traffic and actions deterimne waht to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you can specify your custom rule.
     </div>
-    <div class="ruleEditor-listView">
+    <div class="listView">
       <table class="listView listView--iconsHover">
         <thead>
           <tr>
             <th></th>
-            <th><div>Classifier</div><div class="rulesets-settings-list-classifierDesc">Classifiers are OR'ed</div></th>
-            <th><div>Action</div><div class="rulesets-settings-list-classifierDesc">Actions are AND'ed</div></th>
+            <th><div>Classifier</div><div class="listView-headerDescription">Classifiers are OR'ed</div></th>
+            <th><div>Action</div><div class="listView-headerDescription">Actions are AND'ed</div></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="rule in selectedRuleset" class="rulesets-listView-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
-            <td class="ruleEditor-listView-numberEdit">
-              <div class="rulesets-settings-list-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
+            <td class="listView-numberEdit">
+              <div class="listView-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
               <div class="rulesets-listView-numberEdit-edit" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
             </td>
             <td>
               <div class="rulesets-listView-itemContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
-                <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">
+                <div class="rulesets-settings-list-classifier listView-innerList" ng-repeat="classifier in rule.classifiers">
                   {{classifier}}
                 </div>
                 <div ng-show="rule.classifiers.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN CLASSIFIERS FROM LEFT</div>
@@ -64,7 +63,7 @@
             </td>
             <td>
               <div class="rulesets-listView-itemContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
-                <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">
+                <div class="rulesets-settings-list-action listView-innerList" ng-repeat="action in rule.actions">
                   {{action}}</div>
                   <div ng-show="rule.actions.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN RULES FROM RIGHT</div>
               </div>
@@ -80,27 +79,26 @@
       </table>
     </div>
 
-    <div class="ruleEditor-openClose button-group">
+    <div class="openClose button-group">
         <div class="button button--secondary" ng-click="cancel()">Cancel</div>
         <div class="button" ng-click="ok()">OK</div>
     </div>
   </div>
   
-  <div class="ruleEditor-actions">
-    <div class="ruleEditor-title">Actions</div>
-    <div class="ruleEditor-search">
-      <input-search></input-search>
+  <div class="actions">
+    <div class="title">Actions</div>
+    <div class="search">
+      <input-search model="search.actions.name"></input-search>
     </div>
-    <div class="ruleEditor-addButton">
+    <div class="addButton">
       <div class="button">Add Custom Action</div>
     </div>
-    <div class="ruleEditor-hDivider"></div>
-    <div class="ruleEditor-list">
-      <div class="ruleEditor-listItem"
-        ng-repeat="action in existingActions()"
+    <div class="hDivider"></div>
+    <div class="list">
+      <div class="listItem"
+        ng-repeat="action in existingActions() | filter: search.actions"
         ng-drag="isInEditModeForAnyRule()"
-        ng-drag-data="decorateData(action, 'action')"
-        ng-drag-success="onDragComplete($data,$event)">
+        ng-drag-data="decorateData(action, 'action')">
         {{action.name}}
       </div>
     </div>

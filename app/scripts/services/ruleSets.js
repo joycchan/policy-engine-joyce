@@ -10,14 +10,26 @@ angular.module('policyEngine').factory('ruleSets',
       return list;
     };
 
-    service.create = function (group) {
-      list.push(group);
-      return group;
+    service.create = function (ruleSet) {
+      list.push(ruleSet);
+      return ruleSet;
     };
 
     $http.get('api/ruleSets').success(function (data) {
       list = data;
     });
+
+    service.byCustom = function (custom) {
+      return _.filter(list, function (ruleSet) {
+        if(custom === "")
+        {
+          return ruleSet;
+        }
+        else {
+          return ruleSet.custom === custom;
+        }
+      });
+    };
 
     return service;
   });

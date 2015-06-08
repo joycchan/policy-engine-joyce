@@ -20,7 +20,7 @@
   {
     "name": "Overlay TEP",
     "classifiers": ["Overlay-TEP-Type-HWTEP"],
-    "custom": "Default",
+    "custom": "Custom",
     "services": "None",
     "description": "Lorem ipsum",
     "id": "3",
@@ -38,7 +38,7 @@
   {
     "name": "HTTP & ICMP Access",
     "classifiers": ["TCP-80 Default", " ICMP"],
-    "custom": "Default",
+    "custom": "Custom",
     "services": "None",
     "description": "Lorem ipsum",
     "id": "5",

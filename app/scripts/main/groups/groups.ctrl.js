@@ -11,8 +11,26 @@ angular.module('policyEngine').controller('GroupsCtrl',
       {name: 'Resource Group'}
     ];
 
+    $scope.filter = "All Groups";
+
+    $scope.filterGroupsListBy = function(name) {
+      $scope.filter = name;
+
+      if(name === 'User Group')
+      {
+        $scope.groups = function() {return groups.byType('user')};
+      }
+      else if(name === 'Resource Group')
+      {
+        $scope.groups = function() {return groups.byType('resource')};
+      }
+      else {
+        $scope.groups = function() {return groups.byType('')};
+      }
+    };
+
     $scope.isRulesListFilterSelected = function(name) {
-      return name === 'All Groups' ? true : false;
+      return name === $scope.filter;
     };
 
     $scope.open = function () {

@@ -3,6 +3,10 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
     $scope.selectedRuleset = selectedRuleset; // local from resolve
 
+    $scope.existingClassifiers = Classifiers.list;
+
+    $scope.existingActions = Actions.list;
+
     $scope.ok = function () {
       $modalInstance.close($scope.selected);
     };
@@ -10,18 +14,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-
-    $scope.existingClassifiers = Classifiers.list;
-
-    $scope.existingActions = Actions.list;
-
-    $scope.deleteRuleset = function () {
-
-    };
-
-    $scope.onDragComplete = function (data, evt) {
-      // console.log("drag success, data:", data);
-    }
 
     var isExistingRuleset = function (list, newItem) {
       return _.any(list, function (item) {
@@ -67,17 +59,14 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       });
     };
 
+    $scope.search = {
+      classifiers: {name:''},
+      actions: {name:''}
+    };
+
     // to do
     // allow user to delete rule, upon hover of table row + click on X
     // allow user to add new rule, upon hover of bottom of table + click
     // allow user to delte individual classifiers and actions
-
-    $scope.ok = function () {
-      $modalInstance.close();
-    };
-
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
-    };
 
   });
