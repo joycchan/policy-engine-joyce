@@ -37,7 +37,7 @@
     <div class="editor-help">
       Rules define how the network behaves.  Classifiers describe types of network traffic and actions deterimne waht to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you can specify your custom rule.
     </div>
-    <div class="listView">
+    <div class="rulesList">
       <table class="listView listView--iconsHover">
         <thead>
           <tr>
@@ -48,24 +48,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="rule in selectedRuleset" class="rulesets-listView-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
-            <td class="listView-numberEdit">
+          <tr ng-repeat="rule in selectedRuleset" class="rulesList-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
+            <td>
               <div class="listView-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
-              <div class="rulesets-listView-numberEdit-edit" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
+              <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
             </td>
             <td>
-              <div class="rulesets-listView-itemContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
-                <div class="rulesets-settings-list-classifier listView-innerList" ng-repeat="classifier in rule.classifiers">
+              <div class="rulesItemContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
+                <div class="rulesItem listView-innerList" ng-repeat="classifier in rule.classifiers">
                   {{classifier}}
                 </div>
-                <div ng-show="rule.classifiers.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN CLASSIFIERS FROM LEFT</div>
+                <div ng-show="rule.classifiers.length === 0" class="drag-text">DRAG IN CLASSIFIERS FROM LEFT</div>
               </div>
             </td>
             <td>
-              <div class="rulesets-listView-itemContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
-                <div class="rulesets-settings-list-action listView-innerList" ng-repeat="action in rule.actions">
+              <div class="rulesItemContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
+                <div class="rulesItem rulesItem--action listView-innerList" ng-repeat="action in rule.actions">
                   {{action}}</div>
-                  <div ng-show="rule.actions.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN RULES FROM RIGHT</div>
+                  <div ng-show="rule.actions.length === 0" class="drag-text">DRAG IN RULES FROM RIGHT</div>
               </div>
             </td>
             <td>

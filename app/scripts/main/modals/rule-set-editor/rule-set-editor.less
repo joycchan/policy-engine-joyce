@@ -95,49 +95,62 @@
     }
   }
 
-  .list {
-    // margin: 0px 0px 15px 0;
+  .rulesList {
+    &:extend(.padding-15);
+    .listView {
+      table-layout: fixed;
+      width: 100%;
+      th:nth-child(1) {
+        width: 8%;
+      }
+      th:nth-child(2) {
+        width: 38%;
+      }
+      th:nth-child(3) {
+        width: 38%;
+      }
+      th:nth-child(4) {
+        width: 16%;
+      }
+    }
   }
 
-  .rulesets-listView-row {
+  .rulesList-row {
     td:not(:first-child) {
       vertical-align: top;
     }
 
     &.is-inEditMode {
-      .rulesets-listView-itemContainer {
+      .rulesItemContainer {
         border: 1px dashed @color-70;
         padding: 4px;
         border-radius: 8px;
-
-        &.drag-enter {
-          border-color: @blue;
-        }
-      }
-      .rulesets-settings-list-classifier, .rulesets-settings-list-action, .rulesets-settings-list-item {
-        &:extend(.extra-light);
-        height: 20px;
-        border-radius: 5px;
-        background-color: @rulesetEditor-rowItem-editMode-BG;
-        color: white;
-        line-height: 18px;
-        font-size: 12px;
-        padding: 2px 8px;
-        display: inline-block;
-        margin: 4px;
-      }
-      .rulesets-settings-list-action {
-        background-color: @launchNav-notification-backgroundColor;
       }
     }
   }
 
-  .rulesets-listView-numberEdit-edit {
+  .rulesItem {
+    &:extend(.extra-light);
+    height: 20px;
+    border-radius: 5px;
+    background-color: @rulesetEditor-rowItem-editMode-BG;
+    color: white;
+    line-height: 18px;
+    font-size: 12px;
+    padding: 2px 8px;
+    display: inline-block;
+    margin: 4px;
+  }
+  .rulesItem--action {
+    background-color: @launchNav-notification-backgroundColor;
+  }
+
+  .editIcon {
     min-width: 25px;
     min-height: 25px;
   }
 
-  .ruleSets-listView-targetHelpText {
+  .drag-text {
     font-size: 11px;
     color: @color-70;
     line-height: 18px;
@@ -165,26 +178,6 @@
     font-size: 12px;
     color: @color-60;
     line-height: 18px;
-  }
-
-  .listView {
-    &:extend(.padding-15);
-    .listView {
-      table-layout: fixed;
-      width: 100%;
-      th:nth-child(1) {
-        width: 8%;
-      }
-      th:nth-child(2) {
-        width: 38%;
-      }
-      th:nth-child(3) {
-        width: 38%;
-      }
-      th:nth-child(4) {
-        width: 16%;
-      }
-    }
   }
 
   .openClose {
