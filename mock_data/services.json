@@ -2,7 +2,7 @@
   {
     "name": "Loan Management",
     "category": {
-      "name": "Loan Management"
+      "name": "Business and Productivity Tools"
     },
     "group": {
       "name": "DB Servers - All Zones"
@@ -14,7 +14,7 @@
   {
     "name": "Apps - No Ping",
     "category": {
-      "name": "Apps"
+      "name": "Database"
     },
     "group": {
       "name": "DB Servers - All Zones"
@@ -26,7 +26,7 @@
   {
     "name": "Apps - Gold",
     "category": {
-      "name": "Apps"
+      "name": "Database"
     },
     "group": {
       "name": "DB Servers - All Zones"
@@ -38,7 +38,7 @@
   {
     "name": "Internet Access",
     "category": {
-      "name": "Internet"
+      "name": "Internet Security"
     },
     "group": {
       "name": "Internet"
