@@ -2,7 +2,7 @@
 
     <h2>Services</h2>
 
-    <div class="col-sm-2 catalog">
+    <div class="col-sm-2 catalog" ng-hide="categoriesState()">
         <div class="section">
             <div class="button new-button" ui-sref="main.service">
                 <div class="plus">+</div>
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class="col-sm-10">
+    <div ng-class="{ 'col-sm-10': !categoriesState() }">
         <div class="services-navCardsList">
             <div class="services-navCardsList-search">Search <input-search></input-search></div>
             <div class="services-navCardsList-dropdown">
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="services-navCardsList-toggleIcons">
-                <div class="toggleIconSet" ui-sref="main.services.cards" ui-sref-active="active">
+                <div class="toggleIconSet" ui-sref="main.services.categories" ui-sref-active="active">
                     <img class="toggleIcon-active" src="images/icon_view_cards_active.png">
                     <img class="toggleIcon-inactive" src="images/icon_view_cards_inactive.png">
                 </div>

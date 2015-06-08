@@ -41,6 +41,31 @@
     width: 235px;
     position: relative;
 
+    &.category {
+      width: 326px;
+      padding: 0;
+
+      h3 {
+        padding-left: 15px;
+      }
+
+      &.categories-new {
+        background-color: @color-80;
+        padding: 15px;
+
+        .button {
+          margin-bottom: 25px;
+        }
+      }
+
+      .metric {
+        font-weight: 200;
+        font-size: 36px;
+        color: @blue;
+        line-height: 48px;
+      }
+    }
+
     &.defined {
       border-top: solid 3px @blue;
     }

@@ -40,6 +40,10 @@ angular.module("policyEngine", [
           url: "list/",
           templateUrl: "scripts/main/services/list/list.html",
         })
+        .state("main.services.categories", {
+          url: "categories/",
+          templateUrl: "scripts/main/services/categories/categories.html",
+        })
         .state("main.configuration", {
           url: "configuration/",
           templateUrl: "scripts/main/configuration/setup.html",

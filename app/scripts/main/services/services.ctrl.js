@@ -3,6 +3,15 @@
 angular.module('policyEngine').controller('ServicesCtrl',
   function ($scope, $state, assignments) {
 
+    $scope.categoriesState = function() {
+      return $state.is('main.services.categories');
+    };
+
+    $scope.goToCategory = function(category) {
+      $scope.addFilter('category', category);
+      $state.go('main.services.cards');
+    };
+
     $scope.assignService = function (service) {
       var allocation = assignments.create('provide', service)
       $state.go('main.allocation.existing.provide', {allocationId: allocation.id});
@@ -14,10 +23,23 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return _.pluck($scope.serviceConsumers(service), 'name').join(', ');
     };
 
+    $scope.servicesByCategory = function(category) {
+      return _.filter($scope.services, function(service) {
+        return service.category.name == category.name;
+      });
+    };
+
+    $scope.deleteCategory = function(category) {
+      _.remove($scope.categories, function(c) {
+        return c.name === category.name;
+      });
+    };
+
     $scope.deleteService = function(service) {
       _.remove($scope.services, function(s) {
         return s.name === service.name;
       });
+      filterServices();
     };
 
     $scope.filteredServices = [];
@@ -53,7 +75,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
         image: '../../../images/photo_backup.png'
       },
       {
-        name: 'Business & Productivity Tools',
+        name: 'Business and Productivity Tools',
         image: '../../../images/photo_business.png'
       },
       {
