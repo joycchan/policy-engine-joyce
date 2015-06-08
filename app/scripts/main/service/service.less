@@ -87,8 +87,95 @@
         font-size: 20px;
       }
 
+      .meta {
+        border-right: 1px solid @color-80;
+
+        .form-group:last-child {
+          margin-bottom: 0;
+        }
+
+        label {
+          width: 62px;
+        }
+      }
+
       .ep-pools {
-        border-left: 1px solid @color-80;
+        padding-left: 20px;
+        min-height: 200px;
+      }
+
+      .pool-list {
+        width: 250px;
+        min-height: 64px;
+        background-color: white;
+        padding: 5px;
+        border: 1px solid @color-70;
+        border-radius: 3px;
+        cursor: pointer;
+
+        .helper-text {
+          font-style: italic;
+        }
+
+        .selected-pool {
+          display: inline-block;
+          background-color: @light-blue;
+          height: 20px;
+          line-height: 20px;
+          font-weight: 300;
+          color: white;
+          padding: 0 10px;
+          border-radius: 5px;
+          margin-bottom: 5px;
+          margin-right: 5px;
+
+          .delete-pool {
+            display: inline-block;
+            background: url(../../../images/icon_x_16.png) no-repeat;
+            background-size: cover;
+            height: 12px;
+            width: 12px;
+            margin-left: 6px;
+            margin-bottom: -2px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .pool-selection {
+        width: 250px;
+        max-height: 0;
+        border: none;
+        transition: max-height 0.2s ease;
+        overflow: hidden;
+        background-color: white;
+        border-radius: 3px;
+        line-height: 32px;
+        font-weight: 300;
+        color: @color-50;
+        position: absolute;
+
+        &.expanded {
+          border: 1px solid @color-70;
+          max-height: 500px;
+        }
+
+        input-search input {
+          margin: 10px;
+          width: 230px;
+        }
+
+        .pool {
+          padding-left: 10px;
+          cursor: pointer;
+
+          &.selected {
+            background-color: @light-blue;
+          }
+          &:last-child {
+            margin-bottom: 10px;
+          }
+        }
       }
 
       .button-group {
@@ -194,8 +281,4 @@
     cursor: pointer;
     margin: 20px 325px 20px 0;
   }
-}
-
-form.pool-selection {
-  line-height: 22px;
 }

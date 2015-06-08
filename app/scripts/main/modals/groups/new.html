@@ -1,7 +1,7 @@
 <h1>New Group</h1>
 <div class="container-fluid">
 
-    <div class="col-sm-7 form-horizontal">
+    <div class="col-sm-6 form-horizontal meta">
 
         <div class="form-group">
             <label for="groupName">Name</label>
@@ -14,16 +14,31 @@
         </div>
     </div>
 
-    <div class="col-sm-5 ep-pools">
-        Select Endpoint Pool(s)
+    <div class="col-sm-6 ep-pools">
+        <div class="row">
 
-        <form class="pool-selection">
-            <div ng-repeat="pool in pools" class="checkbox">
-                <label>
-                    <input type="checkbox">{{pool}}
-                </label>
+            <div class="col-sm-3">
+                Endpoint Pools
             </div>
-        </form>
+            <div class="col-sm-9">
+                <div class="pool-list" ng-click="poolsExpanded = !poolsExpanded">
+                    <div ng-show="selectedPools.length === 0 && !poolsExpanded" class="helper-text">
+                        Click here to add one or more pools
+                    </div>
+                    <div ng-repeat="pool in selectedPools" class="selected-pool">
+                        {{pool}}
+                        <div ng-click="removePool(pool); $event.stopPropagation();" class="delete-pool"></div>
+                    </div>
+                </div>
+                <div ng-class="{ expanded: poolsExpanded }" class="pool-selection">
+                    <input-search class="main-search" model="search" placeholder=""></input-search>
+                    <div ng-repeat="pool in pools | filter:search" ng-click="togglePool(pool)"
+                         ng-class="{ selected: poolSelected(pool) }" class="pool">
+                        {{pool}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="button-group">
