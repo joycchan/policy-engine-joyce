@@ -14,6 +14,12 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return _.pluck($scope.serviceConsumers(service), 'name').join(', ');
     };
 
+    $scope.deleteService = function(service) {
+      _.remove($scope.services, function(s) {
+        return s.name === service.name;
+      });
+    };
+
     $scope.filteredServices = [];
 
     $scope.filters = {};
@@ -39,9 +45,38 @@ angular.module('policyEngine').controller('ServicesCtrl',
       filterServices();
     };
 
-    $scope.categories = [];
     $scope.providerGroups = [];
     $scope.ruleSets = [];
+    $scope.categories = [
+      {
+        name: 'Backup and Storage',
+        image: '../../../images/photo_backup.png'
+      },
+      {
+        name: 'Business & Productivity Tools',
+        image: '../../../images/photo_business.png'
+      },
+      {
+        name: 'Database',
+        image: '../../../images/photo_database.png'
+      },
+      {
+        name: 'Email',
+        image: '../../../images/photo_email.png'
+      },
+      {
+        name: 'Internet Security',
+        image: '../../../images/photo_internet.png'
+      },
+      {
+        name: 'Software Updates',
+        image: '../../../images/photo_software.png'
+      },
+      {
+        name: 'Voice & Video',
+        image: '../../../images/photo_voice.png'
+      }
+    ];
 
     $scope.$watch('services', function () {
       $scope.providerGroups = _.uniq(_.map($scope.services, function (service) {
@@ -49,9 +84,6 @@ angular.module('policyEngine').controller('ServicesCtrl',
       }), 'name');
       $scope.ruleSets = _.uniq(_.map($scope.services, function (service) {
         return service.ruleSet
-      }), 'name');
-      $scope.categories = _.uniq(_.map($scope.services, function (service) {
-        return service.category
       }), 'name');
       $scope.filteredServices = $scope.services;
     });

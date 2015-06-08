@@ -1,7 +1,5 @@
 @import "../../../styles/variables";
 
-
-
 .services {
 
   h2 {
@@ -39,8 +37,9 @@
     }
   }
 
-    .card {
-    width: 326px;
+  .card {
+    width: 235px;
+    position: relative;
 
     &.defined {
       border-top: solid 3px @blue;
@@ -85,6 +84,14 @@
       }
     }
 
+    .buttons {
+      width: 164px;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
   }
 }
 
@@ -97,7 +104,7 @@
   position: relative;
 }
 
-.services-navCardsList-search, .services-navCardsList-dropdown, .services-navCardsList-toggleIcons{
+.services-navCardsList-search, .services-navCardsList-dropdown, .services-navCardsList-toggleIcons {
   display: inline-block;
 }
 
@@ -115,8 +122,10 @@
     display: inline-block;
   }
 }
+
 .services-navCardsList-toggleIcons {
-  position: absolute; right: 10px;
+  position: absolute;
+  right: 10px;
   top: 18px;
   cursor: pointer;
 }

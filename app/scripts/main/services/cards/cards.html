@@ -18,6 +18,10 @@
         <div ng-show="serviceConsumers(service).length">
             <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
         </div>
+        <div class="buttons">
+            <div class="button is-selected">Rename</div>
+            <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
+        </div>
     </div>
 </div>
 <div class="card new" ui-sref="main.service">
