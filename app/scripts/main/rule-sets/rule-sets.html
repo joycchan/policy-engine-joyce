@@ -11,7 +11,7 @@
       New Rule Set
     </div>
     <list-count-filter-search class="rulesList-countFilterSearch"
-      count="rulesList().length"
+      count="rulesList.length"
       filters="rulesListFilters"
       filter-by="filterRulesListBy"
       is-filter-selected="isRulesListFilterSelected"
@@ -26,7 +26,7 @@
           <th></th>
         </thead>
         <tbody>
-          <tr ng-repeat="rule in rulesList() | filter: search">
+          <tr ng-repeat="rule in rulesList | filter: search">
             <td>{{rule.name}}</td>
             <td>{{rule.classifiers.join(',')}}</td>
             <td>{{rule.services}}</td>

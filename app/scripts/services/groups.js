@@ -6,9 +6,7 @@ angular.module('policyEngine').factory('groups',
 
     var list = [];
 
-    service.list = function () {
-      return list;
-    };
+    service.list = list;
 
     service.create = function (group) {
       list.push(group);
@@ -18,6 +16,18 @@ angular.module('policyEngine').factory('groups',
     $http.get('api/groups').success(function (data) {
       list = data;
     });
+
+    service.byType = function (type) {
+      return _.filter(list, function (group) {
+        if(type === "")
+        {
+          return group;
+        }
+        else {
+          return group.type === type;
+        }
+      });
+    };
 
     return service;
   });
