@@ -50,7 +50,7 @@
         <tbody>
           <tr ng-repeat="rule in selectedRuleset" class="rulesets-listView-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
             <td class="listView-numberEdit">
-              <div class="rulesets-settings-list-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
+              <div class="listView-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
               <div class="rulesets-listView-numberEdit-edit" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
             </td>
             <td>

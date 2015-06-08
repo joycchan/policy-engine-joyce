@@ -32,7 +32,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="rulesets-settings-list-number">{{$index + 1}}</div></td>
+          <td><div class="listView-number">{{$index + 1}}</div></td>
           <td>
               <a ng-click="addRules()" ng-hide="ruleSet.classifiers.length" class="click-here">Click here to add rules</a>
             <div class="rulesets-settings-list-classifier" ng-repeat="classifier in ruleSet.classifiers">{{classifier}}</div>
