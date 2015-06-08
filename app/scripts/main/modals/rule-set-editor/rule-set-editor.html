@@ -25,8 +25,7 @@
         class="ruleEditor-listItem"
         ng-repeat="classifier in existingClassifiers()"
         ng-drag="isInEditModeForAnyRule()"
-        ng-drag-data="decorateData(classifier, 'classifier')"
-        ng-drag-success="onDragComplete($data,$event)">
+        ng-drag-data="decorateData(classifier, 'classifier')">
         {{classifier.name}}
       </div>
     </div>
@@ -105,8 +104,7 @@
       <div class="ruleEditor-listItem"
         ng-repeat="action in existingActions()"
         ng-drag="isInEditModeForAnyRule()"
-        ng-drag-data="decorateData(action, 'action')"
-        ng-drag-success="onDragComplete($data,$event)">
+        ng-drag-data="decorateData(action, 'action')">
         {{action.name}}
       </div>
     </div>
