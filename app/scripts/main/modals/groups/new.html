@@ -22,10 +22,10 @@
             </div>
             <div class="col-sm-9">
                 <div class="pool-list" ng-click="poolsExpanded = !poolsExpanded">
-                    <div ng-show="selectedPools.length === 0 && !poolsExpanded" class="helper-text">
+                    <div ng-show="group.pools.length === 0 && !poolsExpanded" class="helper-text">
                         Click here to add one or more pools
                     </div>
-                    <div ng-repeat="pool in selectedPools" class="selected-pool">
+                    <div ng-repeat="pool in group.pools" class="selected-pool">
                         {{pool}}
                         <div ng-click="removePool(pool); $event.stopPropagation();" class="delete-pool"></div>
                     </div>

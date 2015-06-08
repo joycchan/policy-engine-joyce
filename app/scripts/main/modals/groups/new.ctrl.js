@@ -1,7 +1,8 @@
 angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, groups, $state) {
 
   $scope.group = {
-    name: "New Group"
+    name: "New Group",
+    pools: []
   };
 
   $scope.pools = [
@@ -17,25 +18,23 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, grou
     '10.30.0.3/24'
   ];
 
-  $scope.selectedPools = [];
-
   $scope.poolsExpanded = false;
 
   $scope.removePool = function(pool) {
-    _.remove($scope.selectedPools, function(p) {
+    _.remove($scope.group.pools, function(p) {
       return p === pool;
     });
   };
 
   $scope.poolSelected = function(pool) {
-    return _.includes($scope.selectedPools, pool);
+    return _.includes($scope.group.pools, pool);
   };
 
   $scope.togglePool = function(pool) {
     if($scope.poolSelected(pool)) {
       $scope.removePool(pool);
     } else {
-      $scope.selectedPools.push(pool);
+      $scope.group.pools.push(pool);
     }
   };
 
