@@ -21,6 +21,29 @@
     <div class="rulesets-settings-editButton">
         <div class="button button--secondary" ng-click="addRules()">Add Rules</div>
     </div>
+      <div class="rulesets-settings-list">
+    <table class="listView">
+      <thead>
+        <tr>
+          <th></th>
+          <th><div>Classifier</div><div class="rulesets-settings-list-classifierDesc">Classifiers are OR'ed</div></th>
+          <th><div>Action</div><div class="rulesets-settings-list-classifierDesc">Actions are AND'ed</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="rulesets-settings-list-number">{{$index + 1}}</div></td>
+          <td>
+              <a ng-click="addRules()" ng-hide="ruleSet.classifiers.length" class="click-here">Click here to add rules</a>
+            <div class="rulesets-settings-list-classifier" ng-repeat="classifier in ruleSet.classifiers">{{classifier}}</div>
+          </td>
+          <td>
+            <div class="rulesets-settings-list-action" ng-repeat="action in ruleSet.actions">{{action}}</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <div class="button-group">
     <div class="button button--secondary" ng-click="cancel()">Cancel</div>
