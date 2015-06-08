@@ -6,7 +6,9 @@ angular.module('policyEngine').factory('groups',
 
     var list = [];
 
-    service.list = list;
+    service.list = function() {
+      return list;
+    };
 
     service.create = function (group) {
       list.push(group);

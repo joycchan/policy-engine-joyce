@@ -12,7 +12,7 @@
       New Group
     </div>
     <list-count-filter-search class="rulesList-countFilterSearch"
-      count="groups.length"
+      count="groups().length"
       filters="groupFilters"
       filter-by="filterGroupsListBy"
       is-filter-selected="isRulesListFilterSelected"
@@ -28,7 +28,7 @@
           <th></th>
         </thead>
         <tbody>
-          <tr ng-repeat="group in groups | filter: search">
+          <tr ng-repeat="group in groups() | filter: search">
             <td>{{group.name}}</td>
             <td>{{group.origin}}</td>
             <td>{{group.description}}</td>

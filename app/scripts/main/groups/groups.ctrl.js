@@ -3,8 +3,7 @@
 angular.module('policyEngine').controller('GroupsCtrl',
   function ($scope, $modal, groups, Modals) {
 
-    $scope.groups = groups.byType('');
-
+    $scope.groups = groups.list;
 
     $scope.groupFilters = [
       {name: 'All Groups'},
@@ -12,22 +11,26 @@ angular.module('policyEngine').controller('GroupsCtrl',
       {name: 'Resource Group'}
     ];
 
+    $scope.filter = "All Groups";
+
     $scope.filterGroupsListBy = function(name) {
+      $scope.filter = name;
+
       if(name === 'User Group')
       {
-        $scope.groups = groups.byType('user');
+        $scope.groups = function() {return groups.byType('user')};
       }
       else if(name === 'Resource Group')
       {
-        $scope.groups = groups.byType('resource');
+        $scope.groups = function() {return groups.byType('resource')};
       }
       else {
-        $scope.groups = groups.byType('');
+        $scope.groups = function() {return groups.byType('')};
       }
     };
 
     $scope.isRulesListFilterSelected = function(name) {
-      return name === 'All Groups' ? true : false;
+      return name === $scope.filter;
     };
 
     $scope.open = function () {
