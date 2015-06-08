@@ -13,10 +13,10 @@ angular.module('policyEngine').controller('MainCtrl',
       $scope.services = data;
     });
 
-    $scope.configFlashHeight = 60;
+    $scope.configFlashClass = '';
 
     $scope.hideConfigFlash = function() {
-      $scope.configFlashHeight = 0;
+      $scope.configFlashClass = 'hide-flash';
     };
 
     $scope.notConfig = function() {
@@ -29,7 +29,7 @@ angular.module('policyEngine').controller('MainCtrl',
         sections: [
           {
             label: 'Services',
-            state: 'main.services'
+            state: 'main.services.categories'
           },
           {
             label: 'Assignments',

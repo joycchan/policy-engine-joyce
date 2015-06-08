@@ -12,7 +12,14 @@
   background-color: white;
   padding-left: 15px;
   overflow: hidden;
-  transition: height 0.2s ease;
+  border-bottom: 2px solid @color-90;
+  transition: all 0.2s ease;
+  height: 60px;
+
+  &.hide-flash {
+    height: 0;
+    border-bottom: none;
+  }
 
   .text {
     display: inline-block;

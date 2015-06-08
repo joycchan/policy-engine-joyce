@@ -49,13 +49,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="rule in ruleSets()" ng-drop="true" ng-drop-success="onDropComplete($data, $index)" class="rulesets-listView-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
+          <tr ng-repeat="rule in selectedRuleset" class="rulesets-listView-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
             <td class="ruleEditor-listView-numberEdit">
               <div class="rulesets-settings-list-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
               <div class="rulesets-listView-numberEdit-edit" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
             </td>
             <td>
-              <div class="rulesets-listView-itemContainer">
+              <div class="rulesets-listView-itemContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
                 <div class="rulesets-settings-list-classifier" ng-repeat="classifier in rule.classifiers">
                   {{classifier}}
                 </div>
@@ -63,7 +63,7 @@
               </div>
             </td>
             <td>
-              <div class="rulesets-listView-itemContainer">
+              <div class="rulesets-listView-itemContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
                 <div class="rulesets-settings-list-action" ng-repeat="action in rule.actions">
                   {{action}}</div>
                   <div ng-show="rule.actions.length === 0" class="ruleSets-listView-targetHelpText">DRAG IN RULES FROM RIGHT</div>
@@ -71,26 +71,11 @@
             </td>
             <td>
               <div ng-hide="editModeHash[$index]">
-                <div class="listView-icons" ng-click="toggleEditRuleset($index)">
-                  <img class="listView-icon is-hidden-on-hover" src="images/icon_edit_16.png">
-                  <img class="listView-icon is-displayed-on-hover" src="images/icon_edit_16_blue.png">
-                </div>
-                <div class="listView-icons">
-                  <img class="listView-icon is-hidden-on-hover" src="images/icon_x_16.png">
-                  <img class="listView-icon is-displayed-on-hover" src="images/icon_x_dark_16.png">
-                </div>
+                <list-view-icon ng-click="toggleEditRuleset($index)" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+                <list-view-icon inactive-src="images/icon_x_16.png" active-src="images/icon_x_dark_16.png"></list-view-icon>
               </div>
             </td>
           </tr>
-        <!--   <tr>
-            <td class="ruleEditor-listView-numberEdit">
-              <div class="rulesets-settings-list-number">{{ruleSets().length + 1}}</div>
-            </td>
-            <td colspan="3">
-              <div class="rulesets-settings-list-item">
-              </div>
-            </td>
-          </tr> -->
         </tbody>
       </table>
     </div>

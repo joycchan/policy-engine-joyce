@@ -1,46 +1,47 @@
-<h2>New Group</h2>
-<div class="form-group">
-    <label for="groupName">Name</label>
-    <input type="text" class="form-control new-group" ng-model="group.name" id="groupName" required>
-</div>
-<div class="form-group">
-    <label for="groupDesc">Description</label>
-    <textarea class="form-control description" id="groupDesc" ng-model="group.description" required
-              placeholder="optional"></textarea>
-</div>
+<h1>New Group</h1>
+<div class="container-fluid">
 
-<div>
-    <form>
-        <div class="network-func">
-            <switch id="enabled" name="enabled" ng-model="group.enabled" ng-change="toggleEnabled"
-                    class="green"></switch>
-            <span class="network">Overlay Connectivity</span>
-        </div>
-        <br>
+    <div class="col-sm-6 form-horizontal meta">
 
-        <div ng-show="group.enabled">
-            <div class="form-group">
-                <label for="subnet">Subnet</label>
-                <select ng-model="group.subnet" class="form-control new-group">
-                    <option ng-repeat="subnet in subnets" value="subnet" id="subnet">{{subnet}}</option>
-                </select>
+        <div class="form-group">
+            <label for="groupName">Name</label>
+            <input type="text" class="form-control new-group" ng-model="group.name" id="groupName" required>
+        </div>
+        <div class="form-group">
+            <label for="groupDesc">Description</label>
+            <textarea class="form-control description" id="groupDesc" ng-model="group.description" required
+                      placeholder="optional"></textarea>
+        </div>
+    </div>
+
+    <div class="col-sm-6 ep-pools">
+        <div class="row">
+
+            <div class="col-sm-3">
+                Endpoint Pools
             </div>
-            <div class="form-group">
-                <label for="l2Context">L2 Context</label>
-                <select ng-model="group.l2Context" class="form-control new-group">
-                    <option ng-repeat="l2Context in l2Contexts" value="l2Context" id="l2Context">{{l2Context}}</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="l3Context">L3 Context</label>
-                <select ng-model="group.l3Context" class="form-control new-group">
-                    <option ng-repeat="l3Context in l3Contexts" value="l3Context" id="l3Context">{{l3Context}}</option>
-                </select>
+            <div class="col-sm-9">
+                <div class="pool-list" ng-click="poolsExpanded = !poolsExpanded">
+                    <div ng-show="group.pools.length === 0 && !poolsExpanded" class="helper-text">
+                        Click here to add one or more pools
+                    </div>
+                    <div ng-repeat="pool in group.pools" class="selected-pool">
+                        {{pool}}
+                        <div ng-click="removePool(pool); $event.stopPropagation();" class="delete-pool"></div>
+                    </div>
+                </div>
+                <div ng-class="{ expanded: poolsExpanded }" class="pool-selection">
+                    <input-search class="main-search" model="search" placeholder=""></input-search>
+                    <div ng-repeat="pool in pools | filter:search" ng-click="togglePool(pool)"
+                         ng-class="{ selected: poolSelected(pool) }" class="pool">
+                        {{pool}}
+                    </div>
+                </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>
-<div class="modal-footer button-group">
+<div class="button-group">
     <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-    <div class="button" ng-click="ok()">OK</div>
+    <div class="button" ng-click="ok()">Create</div>
 </div>

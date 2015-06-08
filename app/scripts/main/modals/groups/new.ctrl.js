@@ -1,37 +1,49 @@
-angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, $modalInstance, groups) {
+angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, groups, $state) {
 
   $scope.group = {
     name: "New Group",
-    enabled: false
+    pools: []
   };
 
-  $scope.subnets = [
+  $scope.pools = [
     '10.0.35.1/24',
     '10.0.36.1/24',
+    '10.4.28.1/24',
+    '10.4.30.1/24',
+    '10.20.101.1/24',
+    '10.20.102.1/24',
+    '10.20.102.2/24',
+    '10.30.0.1/24',
+    '10.30.0.2/24',
+    '10.30.0.3/24'
   ];
 
-  $scope.l2Contexts = [
-    'VXLAN-ID-1',
-    'VXLAN-ID-2',
-    'VLAN-ID-1',
-    'VLAN-ID-2'
-  ];
+  $scope.poolsExpanded = false;
 
-  $scope.l3Contexts = [
-    'Router-ID-1',
-    'Router-ID-2'
-  ];
+  $scope.removePool = function(pool) {
+    _.remove($scope.group.pools, function(p) {
+      return p === pool;
+    });
+  };
 
-  $scope.toggleContext = function () {
-    $scope.group.enabled = !$scope.group.enabled;
+  $scope.poolSelected = function(pool) {
+    return _.includes($scope.group.pools, pool);
+  };
+
+  $scope.togglePool = function(pool) {
+    if($scope.poolSelected(pool)) {
+      $scope.removePool(pool);
+    } else {
+      $scope.group.pools.push(pool);
+    }
   };
 
   $scope.ok = function () {
-    var group = groups.create($scope.group);
-    $modalInstance.close(group);
+    $scope.service.group = groups.create($scope.group);
+    $state.go('main.service');
   };
 
   $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    $state.go('main.service');
   };
 });

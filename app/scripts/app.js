@@ -17,7 +17,7 @@ angular.module("policyEngine", [
       })
       .state("main", {
         abstract: true,
-        url: "/?{ruleId}",
+        url: "/",
         templateUrl: "scripts/main/main.html",
         controller: "MainCtrl"
       })
@@ -29,9 +29,21 @@ angular.module("policyEngine", [
         .state("main.services", {
           url: "services/",
           templateUrl: "scripts/main/services/services.html",
-          controller: "ServicesCtrl"
+          controller: "ServicesCtrl",
+          abstract: true
         })
-
+        .state("main.services.cards", {
+          url: "cards/",
+          templateUrl: "scripts/main/services/cards/cards.html",
+        })
+        .state("main.services.list", {
+          url: "list/",
+          templateUrl: "scripts/main/services/list/list.html",
+        })
+        .state("main.services.categories", {
+          url: "categories/",
+          templateUrl: "scripts/main/services/categories/categories.html",
+        })
         .state("main.configuration", {
           url: "configuration/",
           templateUrl: "scripts/main/configuration/setup.html",
@@ -66,6 +78,42 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/service/service.html",
           controller: "ServiceCtrl"
         })
+          .state("main.service.newGroup", {
+            url: 'newGroup/',
+            views: {
+              group: {
+                templateUrl: 'scripts/main/modals/groups/new.html',
+                controller: 'NewGroupCtrl',
+              }
+            }
+          })
+          .state("main.service.existingGroup", {
+            url: 'existingGroup/',
+            views: {
+              group: {
+                templateUrl: 'scripts/main/modals/groups/existing.html',
+                controller: 'ExistingGroupCtrl'
+              }
+            }
+          })
+          .state("main.service.newRuleSet", {
+            url: 'newRuleSet/',
+            views: {
+              ruleSet: {
+                templateUrl: 'scripts/main/modals/rule-sets/new.html',
+                controller: 'NewRuleSetCtrl'
+              }
+            }
+          })
+          .state("main.service.existingRuleSet", {
+            url: 'existingRuleSet/',
+            views: {
+              ruleSet: {
+                templateUrl: 'scripts/main/modals/rule-sets/existing.html',
+                controller: 'ExistingRuleSetCtrl',
+              }
+            }
+          })
 
        .state("main.allocations", {
 
@@ -108,7 +156,7 @@ angular.module("policyEngine", [
       })
       .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "rulesets/edit/",
+        url: "rulesets/edit/{ruleId}/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })
@@ -124,7 +172,7 @@ angular.module("policyEngine", [
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeSuccess',function(){
-      $("html, body").animate({ scrollTop: 0 }, 0);
+      //$("html, body").animate({ scrollTop: 0 }, 0);
     })
   });
 

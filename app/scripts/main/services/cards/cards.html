@@ -1,0 +1,31 @@
+<div ng-repeat="service in filteredServices" class="card defined">
+    <h3>{{service.name}}</h3>
+
+    <div class="values">
+        <h4>Provider Group</h4>
+
+        <div class="value">{{service.group.name}}</div>
+        <h4>Rule Set</h4>
+
+        <div class="value">{{service.ruleSet.name}}</div>
+    </div>
+    <div class="sliding-box">
+        <h4>Assigned Groups</h4>
+
+        <div ng-hide="serviceConsumers(service).length">
+            <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
+        </div>
+        <div ng-show="serviceConsumers(service).length">
+            <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
+        </div>
+        <div class="buttons">
+            <div class="button is-selected">Rename</div>
+            <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
+        </div>
+    </div>
+</div>
+<div class="card new" ui-sref="main.service" ng-show="services.length === 0">
+    <div class="scircle">
+        <span class="img-plus-serdfn" id="plus-serdfn"></span>
+    </div>
+</div>
