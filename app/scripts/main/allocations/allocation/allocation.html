@@ -1,13 +1,11 @@
 <div class="allocations">
     <div class="side-panel col-xs-3">
-        <allocation-panel title="Group" items="groups()" mask="maskGroups" type="consume"
-                new-state="main.service.group.new"></allocation-panel>
+        <allocation-panel title="Group" items="groups()" mask="maskGroups" type="consume"></allocation-panel>
     </div>
     <div class="col-xs-6 middle-panel">
         <ui-view></ui-view>
     </div>
     <div class="side-panel col-xs-3">
-        <allocation-panel title="Service" items="services" mask="maskServices" type="provide"
-                          new-state="main.service.group.choose"></allocation-panel>
+        <allocation-panel title="Service" items="services" mask="maskServices" type="provide"></allocation-panel>
     </div>
 </div>

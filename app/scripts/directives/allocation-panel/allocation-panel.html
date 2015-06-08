@@ -8,12 +8,6 @@
                 <input type="text" ng-model="search">
             </form>
         </div>
-        <div class="new-button-wrapper">
-            <div class="button {{title}} new-button" ui-sref="{{newState}}">
-                <div class="plus">+</div>
-                <div class="new-text">New {{title}}</div>
-            </div>
-        </div>
         <div ng-repeat="item in items | filter:search">
             <div class="list-element" ng-class="{ child: item.parentId }"
                  ng-drag="true" ng-drag-data="dragData(item)">
