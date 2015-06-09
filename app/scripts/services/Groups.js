@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('policyEngine').factory('groups',
+angular.module('policyEngine').factory('Groups',
   function ($http) {
 
     var list = [];
 
-    var groups = {
+    var Groups = {
 
       list: function () {
         return list;
@@ -40,6 +40,6 @@ angular.module('policyEngine').factory('groups',
       list = data;
     });
 
-    return groups;
+    return Groups;
   });
 

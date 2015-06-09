@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('LaunchCtrl',
-  function($scope, $http, groups, assignments) {
+  function($scope, $http, Groups, assignments) {
 
       $scope.mockSummaryData = {};
 
@@ -16,11 +16,11 @@ angular.module('policyEngine').controller('LaunchCtrl',
       ];
 
       $scope.groupCount = function() {
-        return groups.list().length;
+        return Groups.list().length;
       };
 
       $scope.assignmentsCount = function() {
-        return groups.list().length;
+        return Groups.list().length;
       }
 
   }
