@@ -11,19 +11,23 @@ angular.module('policyEngine').controller('LaunchCtrl',
 
     $scope.Services = Services;
 
-    $scope.connections = function() {
-      return _.sum(_.map(assignments.list(), function(assignment) {
+    $scope.connections = function () {
+      return _.sum(_.map(assignments.list(), function (assignment) {
         console.log('assignment', assignment);
         return assignment.collection.length;
       }));
     };
 
-    $scope.assignmentCount = function() {
+    $scope.assignmentCount = function () {
       return assignments.list().length;
     };
 
     $scope.groupCount = function () {
       return Groups.list().length;
+    };
+
+    $scope.newGroupCount = function () {
+      return _.max([0, $scope.groupCount() - 13]);
     };
 
   }
