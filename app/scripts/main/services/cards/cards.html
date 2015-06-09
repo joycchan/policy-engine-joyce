@@ -1,31 +1,76 @@
-<div ng-repeat="service in filteredServices" class="card defined">
-    <h3>{{service.name}}</h3>
+<div ng-hide="filtered['category']">
 
-    <div class="values">
-        <h4>Provider Group</h4>
-
-        <div class="value">{{service.group.name}}</div>
-        <h4>Rule Set</h4>
-
-        <div class="value">{{service.ruleSet.name}}</div>
-    </div>
-    <div class="sliding-box">
-        <h4>Assigned Groups</h4>
-
-        <div ng-hide="serviceConsumers(service).length">
-            <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
+    <div class="categories-new card category">
+        <div class="button new-button" ui-sref="main.service">
+            <div class="plus">+</div>
+            <span class="new-text">New Service</span>
         </div>
-        <div ng-show="serviceConsumers(service).length">
-            <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
+        <div class="metric">
+            <ng-pluralize count="categories.length"
+                          when="{'0': 'Zero Categories',
+                         'one': '1 Category',
+                         'other': '{} Categories'}"></ng-pluralize>
         </div>
-        <div class="buttons">
-            <div class="button is-selected">Rename</div>
-            <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
+        <div class="metric">
+            <ng-pluralize count="services().length"
+                          when="{'0': 'Zero Services',
+                         'one': '1 Service',
+                         'other': '{} Services'}"></ng-pluralize>
         </div>
     </div>
+    <div ng-repeat="category in categories" class="card category"
+         ng-click="addFilter('category', category)">
+        <h3>{{category.name}}</h3>
+        <img ng-src="{{category.image}}"/>
+
+        <div class="sliding-box">
+            <h4>Newly Added Services</h4>
+
+            <div ng-hide="servicesByCategory(category).length">
+                <p>None</p>
+            </div>
+            <div ng-show="servicesByCategory(category).length">
+                <p ng-repeat="service in servicesByCategory(category)">{{service.name}}</p>
+            </div>
+            <div class="buttons">
+                <div class="button is-selected">Rename</div>
+                <div ng-click="deleteCategory(category)" class="button button--danger">Delete</div>
+            </div>
+        </div>
+    </div>
+
 </div>
-<div class="card new" ui-sref="main.service" ng-show="services.length === 0">
-    <div class="scircle">
-        <span class="img-plus-serdfn" id="plus-serdfn"></span>
+<div ng-show="filtered['category']">
+
+    <div ng-repeat="service in filteredServices" class="card defined">
+        <h3>{{service.name}}</h3>
+
+        <div class="values">
+            <h4>Provider Group</h4>
+
+            <div class="value">{{service.group.name}}</div>
+            <h4>Rule Set</h4>
+
+            <div class="value">{{service.ruleSet.name}}</div>
+        </div>
+        <div class="sliding-box">
+            <h4>Assigned Groups</h4>
+
+            <div ng-hide="serviceConsumers(service).length">
+                <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
+            </div>
+            <div ng-show="serviceConsumers(service).length">
+                <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
+            </div>
+            <div class="buttons">
+                <div class="button is-selected">Rename</div>
+                <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
+            </div>
+        </div>
+    </div>
+    <div class="card new" ui-sref="main.service" ng-show="services().length === 0">
+        <div class="scircle">
+            <span class="img-plus-serdfn" id="plus-serdfn"></span>
+        </div>
     </div>
 </div>

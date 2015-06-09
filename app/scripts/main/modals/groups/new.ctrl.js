@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, groups, $state) {
+angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Groups, $state) {
 
   $scope.group = {
     name: "New Group",
@@ -39,7 +39,7 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, grou
   };
 
   $scope.ok = function () {
-    $scope.service.group = groups.create($scope.group);
+    $scope.service.group = Groups.create($scope.group);
     $state.go('main.service');
   };
 
