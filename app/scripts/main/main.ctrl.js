@@ -1,17 +1,13 @@
 'use strict';
 
 angular.module('policyEngine').controller('MainCtrl',
-  function ($scope, $http, $state, assignments) {
+  function ($scope, $state, Services) {
 
     $scope.serviceState = function () {
       return $state.includes('main.service');
     };
 
-    $scope.services = [];
-
-    $http.get('api/services').success(function (data) {
-      $scope.services = data;
-    });
+    $scope.services = Services.list;
 
     $scope.configFlashClass = '';
 

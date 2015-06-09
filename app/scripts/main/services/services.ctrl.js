@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, assignments) {
+  function ($scope, $state, assignments, Services) {
 
     $scope.categoriesState = function() {
       return $state.is('main.services.categories');
@@ -23,11 +23,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return _.pluck($scope.serviceConsumers(service), 'name').join(', ');
     };
 
-    $scope.servicesByCategory = function(category) {
-      return _.filter($scope.services, function(service) {
-        return service.category.name == category.name;
-      });
-    };
+    $scope.servicesByCategory = Services.byCategory;
 
     $scope.deleteCategory = function(category) {
       _.remove($scope.categories, function(c) {
@@ -36,9 +32,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.deleteService = function(service) {
-      _.remove($scope.services, function(s) {
-        return s.name === service.name;
-      });
+      Services.delete(service);
       filterServices();
     };
 
@@ -47,7 +41,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
     $scope.filters = {};
 
     var filterServices = function () {
-      $scope.filteredServices = $scope.services;
+      $scope.filteredServices = Services.list();
       _.each(['category', 'group', 'ruleSet'], function (type) {
         if ($scope.filters[type]) {
           $scope.filteredServices = _.filter($scope.filteredServices, function (service) {
@@ -100,14 +94,14 @@ angular.module('policyEngine').controller('ServicesCtrl',
       }
     ];
 
-    $scope.$watch('services', function () {
-      $scope.providerGroups = _.uniq(_.map($scope.services, function (service) {
+    $scope.$watch(function() { return Services.list(); }, function () {
+      $scope.providerGroups = _.uniq(_.map(Services.list(), function (service) {
         return service.group
       }), 'name');
-      $scope.ruleSets = _.uniq(_.map($scope.services, function (service) {
+      $scope.ruleSets = _.uniq(_.map(Services.list(), function (service) {
         return service.ruleSet
       }), 'name');
-      $scope.filteredServices = $scope.services;
+      $scope.filteredServices = Services.list();
     });
 
 

@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state, $modal, Modals) {
+  function ($scope, $state, Services) {
 
     $scope.service = {
       name: 'New Service'
     };
 
     $scope.createService = function() {
-      $scope.services.unshift($scope.service);
+      Services.create($scope.service);
       $state.go('main.services.list');
     };
 
