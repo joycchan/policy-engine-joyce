@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, assignments, Services) {
+  function ($scope, $state, assignments, PolicyStore) {
 
     $scope.filtered = {
       category: false,
@@ -44,7 +44,9 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return _.pluck($scope.serviceConsumers(service), 'name').join(', ');
     };
 
-    $scope.servicesByCategory = Services.byCategory;
+    $scope.servicesByCategory = function(category) {
+      _.filter(PolicyStore.Tables.Services.all(), {category: {name: 'category'}});
+    };
 
     $scope.deleteCategory = function(category) {
       _.remove($scope.categories, function(c) {
@@ -52,7 +54,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       });
     };
 
-    $scope.deleteService = Services.delete;
+    $scope.deleteService = PolicyStore.Actions.DeleteService;
 
     $scope.providerGroups = [];
     $scope.ruleSets = [];
@@ -94,10 +96,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
     }
 
     $scope.$watch(function () {
-      return Services.list();
-    }, function () {
-      $scope.providerGroups = Services.uniqueProviderGroups();
-      $scope.ruleSets = Services.uniqueRuleSets();
+      return PolicyStore.Tables.Services.all();
+    }, function (newServices) {
+      $scope.providerGroups = _.uniq(_.pluck('group'), 'name');
+      $scope.ruleSets = _.uniq(_.pluck('ruleSet'), 'name');
     });
   }
 );

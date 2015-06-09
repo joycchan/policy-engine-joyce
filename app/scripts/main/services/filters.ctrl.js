@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesFilterCtrl',
-  function ($scope, $stateParams, Services) {
+  function ($scope, $stateParams, PolicyStore) {
 
     $scope.filteredServices = [];
 
@@ -18,9 +18,9 @@ angular.module('policyEngine').controller('ServicesFilterCtrl',
     };
 
     $scope.$watchGroup(['$routeChangeSuccess', function () {
-      return Services.list();
+      return PolicyStore.Tables.Services.all();
     }], function () {
-      $scope.filteredServices = filterServices(Services.list());
+      $scope.filteredServices = filterServices(PolicyStore.Tables.Services.all());
       //Store a hash of which filters are in use so that service.html can display "Reset" links appropriately
       _.each(['category', 'group', 'ruleSet'], function (type) {
         $scope.filtered[type] = !!$stateParams[type];

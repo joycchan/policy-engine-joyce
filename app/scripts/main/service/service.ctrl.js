@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state, Services) {
+  function ($scope, $state, PolicyStore) {
 
     $scope.service = {
       name: 'New Service'
@@ -9,7 +9,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.createService = function() {
       if(!$scope.serviceIncomplete()) {
-        Services.create($scope.service);
+        PolicyStore.Actions.CreateService($scope.service);
         $state.go('main.services.filters.list');
       }
     };
