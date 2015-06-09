@@ -122,23 +122,25 @@
     line-height: 18px;
   }
 
-  .rulesList {
+  .rulesListContainer {
     &:extend(.padding-15);
-    .listView {
-      table-layout: fixed;
-      width: 100%;
-      th:nth-child(1) {
-        width: 8%;
-      }
-      th:nth-child(2) {
-        width: 38%;
-      }
-      th:nth-child(3) {
-        width: 38%;
-      }
-      th:nth-child(4) {
-        width: 16%;
-      }
+    padding-bottom: 0;
+  }
+
+  .rulesList {
+    table-layout: fixed;
+    width: 100%;
+    td:nth-child(1), th:nth-child(1) {
+      width: 8%;
+    }
+    td:nth-child(2),th:nth-child(2) {
+      width: 38%;
+    }
+    td:nth-child(3), th:nth-child(3) {
+      width: 38%;
+    }
+    td:nth-child(4), th:nth-child(4) {
+      width: 16%;
     }
   }
 
@@ -185,7 +187,23 @@
     min-height: 25px;
   }
 
-  .newRuleContainer {
+  .addRuleContainer {
+    &:extend(.rulesListContainer);
+    &:hover {
+      .addRule {
+        visibility: visible;
+      }
+    }
+  }
+
+  .addRule {
+    visibility: hidden;
+    &.is-disabled {
+      visibility: hidden !important;
+    }
+  }
+
+  .addRuleTextContainer {
     .dashedListContainer(@blue);
     text-align: left;
     width: 82%;

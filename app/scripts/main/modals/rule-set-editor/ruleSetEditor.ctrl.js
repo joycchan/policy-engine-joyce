@@ -4,14 +4,15 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $scope.classifiersFilter = ruleSets.classifiersFilter;
 
     $scope.selectedRuleset = selectedRuleset; // local from resolve
-    console.log("$scope.selectedRuleset", $scope.selectedRuleset);
 
     $scope.existingClassifiers = Classifiers.list;
 
     $scope.existingActions = Actions.list;
 
     $scope.ok = function () {
-      $modalInstance.close($scope.selectedRuleset);
+      if ($scope.areAllRulesValid()) {
+        $modalInstance.close($scope.selectedRuleset);
+      }
     };
 
     $scope.cancel = function () {
@@ -68,8 +69,20 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     };
 
     $scope.addRule = function() {
-      $scope.selectedRuleset.rules.push(ruleSets.generateEmptyRule());
-      $scope.editModeHash[$scope.selectedRuleset.rules.length - 1] = true;
+      if ($scope.areAllRulesValid()) {
+        $scope.selectedRuleset.rules.push(ruleSets.generateEmptyRule());
+        $scope.editModeHash[$scope.selectedRuleset.rules.length - 1] = true;
+      }
+    };
+
+    $scope.areAllRulesValid = function() {
+      return _.all($scope.selectedRuleset.rules, function(rule) {
+        return doesRuleIncludeActionAndClassifier(rule);
+      })
+    }
+
+    var doesRuleIncludeActionAndClassifier = function(rule) {
+      return (rule.actions && rule.actions.length) && (rule.classifiers && rule.classifiers.length);
     };
 
     // to do
