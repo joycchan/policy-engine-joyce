@@ -5,7 +5,8 @@ angular.module('policyEngine')
     return {
       templateUrl: 'scripts/directives/nav-bar/nav-bar.html',
       scope: {
-        menu: '='
+        menu: '=',
+        menubar: '='
       },
       restrict: 'E',
 

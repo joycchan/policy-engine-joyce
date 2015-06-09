@@ -23,37 +23,14 @@ angular.module('policyEngine').controller('MainCtrl',
       return !$state.is('main.configuration');
     };
 
+    $scope.menubar = [
+      {'category': 'Services', state: 'main.services.categories'},
+      {'category': 'Assignments', state: 'main.allocations'},
+      {'category': 'Groups', state: 'main.groups'},
+      {'category': 'Rule Sets', state: 'main.ruleSets'}
+    ];
+
     $scope.menu = [
-      {
-        cssClass: 'services',
-        sections: [
-          {
-            label: 'Services',
-            state: 'main.services.categories'
-          },
-          {
-            label: 'Assignments',
-            state: 'main.allocations'
-          }
-        ]
-      },
-      {
-        cssClass: 'groups',
-        sections: [
-          {
-            label: 'Groups',
-            state: 'main.groups'
-          },
-          {
-            label: 'Rule Sets',
-            state: 'main.ruleSets'
-          },
-          {
-            label: 'Dependency Graphs',
-            state: '#'
-          }
-        ]
-      },
       {
         cssClass: 'setup',
         sections: [
@@ -66,7 +43,7 @@ angular.module('policyEngine').controller('MainCtrl',
             state: '#'
           },
           {
-            label: 'Application Settings',
+            label: 'Setup',
             state: 'main.configuration'
           }
         ]
