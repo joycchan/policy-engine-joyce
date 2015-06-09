@@ -15,9 +15,14 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
     };
 
     $scope.editRule = function () {
+      // we should get a copy of $scope.rulesList()
+      // edit that in the modal
       var modalInstance = $modal.open(Modals.rulesetEditor($scope.rulesList()));
 
       modalInstance.result.then(function () {
+        // when we return from the modal,
+        // search through the rules list,
+        // use the service to edit it
       }, function () {
       });
     };

@@ -31,5 +31,15 @@ angular.module('policyEngine').factory('ruleSets',
       });
     };
 
+    // service.generateEmptyRuleSet = function() {
+      
+    //}
+
+    // service.edit = function(id, data) {
+      // find item in list via id property
+      // make a put request
+      // on success, set the the new list to data returned from server
+    }
+
     return service;
   });
