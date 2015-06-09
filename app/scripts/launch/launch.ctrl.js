@@ -1,27 +1,30 @@
 'use strict';
 
 angular.module('policyEngine').controller('LaunchCtrl',
-  function($scope, $http, Groups, assignments) {
+  function ($scope, $http, Groups, assignments, Services) {
 
-      $scope.mockSummaryData = {};
+    $scope.mockSummaryData = {};
 
-      $http.get('api/launch').success(function (data) {
-        $scope.mockSummaryData = data;
-      });
+    $http.get('api/launch').success(function (data) {
+      $scope.mockSummaryData = data;
+    });
 
-      $scope.launchCategories = [
-        {'category': 'Service', img: 'images/icon_services_32.png', state: 'main.services.filters.cards'},
-        {'category': 'Assignments', img: 'images/icon_requests_32.png', state: 'main.allocations'},
-        {'category': 'Groups', img: 'images/icon_groups_32.png', state: 'main.groups'}
-      ];
+    $scope.Services = Services;
 
-      $scope.groupCount = function() {
-        return Groups.list().length;
-      };
+    $scope.connections = function() {
+      return _.sum(_.map(assignments.list(), function(assignment) {
+        console.log('assignment', assignment);
+        return assignment.collection.length;
+      }));
+    };
 
-      $scope.assignmentsCount = function() {
-        return Groups.list().length;
-      }
+    $scope.assignmentCount = function() {
+      return assignments.list().length;
+    };
+
+    $scope.groupCount = function () {
+      return Groups.list().length;
+    };
 
   }
 );
