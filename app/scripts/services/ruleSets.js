@@ -15,14 +15,21 @@ angular.module('policyEngine').factory('ruleSets',
       return ruleSet;
     };
 
+    service.delete = function (ruleSet) {
+      _.remove(list, function (s) {
+        return s.name === ruleSet.name;
+      });
+      //reset list object id to trigger watches on Services.list()
+      list = angular.copy(list);
+    };
+
     $http.get('api/ruleSets').success(function (data) {
       list = data;
     });
 
     service.byCustom = function (custom) {
       return _.filter(list, function (ruleSet) {
-        if(custom === "")
-        {
+        if (custom === "") {
           return ruleSet;
         }
         else {
