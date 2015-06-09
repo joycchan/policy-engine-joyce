@@ -3,11 +3,10 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
   $scope.newRuleSet = ruleSets.generateEmptyRuleSet();
 
   $scope.addRules = function () {
-    var modalInstance = $modal.open(Modals.rulesetEditor($scope.newRuleSet)); // pass scope.ruleSets into here
+    var modalInstance = $modal.open(Modals.rulesetEditor($scope.newRuleSet));
     
-    modalInstance.result.then(function (newRuleSet) {
-      console.log("newRuleSet", newRuleSet);
-      // when the modal closes, set the modified array of data to $scope.newRuleSets
+    modalInstance.result.then(function (updatedRuleSet) {
+      $scope.newRuleSet = updatedRuleSet;
     }, function () {
     });
   };
@@ -16,24 +15,14 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
     return ($scope.newRuleSet.rules[0].classifiers.length === 0 || $scope.newRuleSet.rules[0].actions.length === 0);
   };
 
+  $scope.ok = function () {
+    if (!$scope.disabled()) {
+      $scope.service.ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
+      $state.go('main.service');
+    }
+  };
 
-  // OK the rules in rulesets
-    // make sure that the rule set has classifiers and actions in it
-    // add it to rulesets service
-    // return back to service view
-
-  // CANCEL
-    // return back to service view.
-    // (reset the data? i think it should be deleted automatically)
-
-  // $scope.ok = function () {
-  //   if (!$scope.disabled()) {
-  //     $scope.service.ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
-  //     $state.go('main.service');
-  //   }
-  // };
-
-  // $scope.cancel = function () {
-  //   $state.go('main.service');
-  // };
+  $scope.cancel = function () {
+    $state.go('main.service');
+  };
 });

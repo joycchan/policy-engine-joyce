@@ -36,12 +36,12 @@
           <td>
               <a ng-click="addRules()" ng-hide="rule.classifiers.length" class="click-here">Click here to add rules</a>
             <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">
-              <!-- {{classifier}} -->
+              {{classifier.name}}
             </div>
           </td>
           <td>
             <div class="listView-innerList" ng-repeat="action in rule.actions">
-              <!-- {{action}} -->
+              {{action.name}}
             </div>
           </td>
         </tr>
