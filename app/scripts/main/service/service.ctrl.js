@@ -9,7 +9,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.createService = function() {
       Services.create($scope.service);
-      $state.go('main.services.list');
+      $state.go('main.services.filtered.list');
     };
 
     $scope.serviceIncomplete = function() {

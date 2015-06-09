@@ -25,7 +25,7 @@ angular.module('policyEngine').controller('MainCtrl',
         sections: [
           {
             label: 'Services',
-            state: 'main.services.categories'
+            state: 'main.services.filters.cards'
           },
           {
             label: 'Assignments',
