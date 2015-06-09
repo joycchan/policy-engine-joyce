@@ -20,7 +20,7 @@ angular.module('policyEngine').controller('MainCtrl',
     };
 
     $scope.menubar = [
-      {'category': 'Services', state: 'main.services.categories'},
+      {'category': 'Services', state: 'main.services.filters.cards'},
       {'category': 'Assignments', state: 'main.allocations'},
       {'category': 'Groups', state: 'main.groups'},
       {'category': 'Rule Sets', state: 'main.ruleSets'}
