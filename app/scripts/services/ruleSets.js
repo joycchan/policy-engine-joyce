@@ -56,6 +56,13 @@ angular.module('policyEngine').factory('ruleSets',
       };
     };
 
+    service.generateEmptyRule = function() {
+      return {
+        classifiers: [],
+        actions: []
+      };
+    };
+
     service.classifiersFilter = function(rules) {
       return _.map(rules, function(rule) {
         return _.pluck(rule.classifiers, 'name');

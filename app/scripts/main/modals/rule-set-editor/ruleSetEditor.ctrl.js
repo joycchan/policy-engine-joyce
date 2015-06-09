@@ -67,10 +67,9 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       actions: {name:''}
     };
 
-    $scope.addRuleSet = function() {
-      // push an empty rule set object to $scope.selectedRuleset
-      // set scope.editModeHash to true for the last item in the list so user can edit it
-
+    $scope.addRule = function() {
+      $scope.selectedRuleset.rules.push(ruleSets.generateEmptyRule());
+      $scope.editModeHash[$scope.selectedRuleset.rules.length - 1] = true;
     };
 
     // to do

@@ -20,14 +20,12 @@
         </ul>
       </div>
     </div>
-    <div class="list">
-      <div
-        class="listItem"
-        ng-repeat="classifier in existingClassifiers() | filter: search.classifiers"
-        ng-drag="isInEditModeForAnyRule()"
-        ng-drag-data="decorateData(classifier, 'classifier')">
-        {{classifier.name}}
-      </div>
+    <div
+      class="listItem"
+      ng-repeat="classifier in existingClassifiers() | filter: search.classifiers"
+      ng-drag="isInEditModeForAnyRule()"
+      ng-drag-data="decorateData(classifier, 'classifier')">
+      {{classifier.name}}
     </div>
   </div>
 
@@ -55,17 +53,17 @@
             </td>
             <td>
               <div class="rulesItemContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
-                <div class="rulesItem listView-innerList" ng-repeat="classifier in rule.classifiers">
+                <div class="rulesItem rulesItem--classifier listView-innerList" ng-repeat="classifier in rule.classifiers">
                   {{classifier.name}}
                 </div>
-                <div ng-show="rule.classifiers.length === 0" class="drag-text">DRAG IN CLASSIFIERS FROM LEFT</div>
+                <div class="rulesItem rulesItem--empty" ng-show="rule.classifiers.length === 0">DRAG IN CLASSIFIERS FROM LEFT</div>
               </div>
             </td>
             <td>
               <div class="rulesItemContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
                 <div class="rulesItem rulesItem--action listView-innerList" ng-repeat="action in rule.actions">
                   {{action.name}}</div>
-                  <div ng-show="rule.actions.length === 0" class="drag-text">DRAG IN RULES FROM RIGHT</div>
+                  <div class="rulesItem--empty" ng-show="rule.actions.length === 0">DRAG IN ACTIONS FROM RIGHT</div>
               </div>
             </td>
             <td>
@@ -74,6 +72,14 @@
                 <list-view-icon inactive-src="images/icon_x_16.png" active-src="images/icon_x_dark_16.png"></list-view-icon>
               </div>
             </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="listView-number" ng-hide="editModeHash[$index]">{{selectedRuleset.rules.length + 1}}</div>
+            </td>
+            <td colspan="3"><div class="newRuleContainer" ng-click="addRule()">
+              <div class="rulesItem rulesItem--new">Add new rule</div>
+            </div></td>
           </tr>
         </tbody>
       </table>
@@ -94,13 +100,11 @@
       <div class="button">Add Custom Action</div>
     </div>
     <div class="hDivider"></div>
-    <div class="list">
-      <div class="listItem"
-        ng-repeat="action in existingActions() | filter: search.actions"
-        ng-drag="isInEditModeForAnyRule()"
-        ng-drag-data="decorateData(action, 'action')">
-        {{action.name}}
-      </div>
+    <div class="listItem"
+      ng-repeat="action in existingActions() | filter: search.actions"
+      ng-drag="isInEditModeForAnyRule()"
+      ng-drag-data="decorateData(action, 'action')">
+      {{action.name}}
     </div>
   </div>
 </div>

@@ -2,6 +2,11 @@
 .padding-15 {
   padding: 0 15px 15px 15px;
 }
+.dashedListContainer(@color) {
+  border: 1px dashed @color;
+  padding: 4px;
+  border-radius: 8px;
+}
 @ruleEditor-height: 90vh;
 
 .ruleEditor-modal {
@@ -95,6 +100,28 @@
     }
   }
 
+  .listItem {
+    &:extend(.extra-light);
+    cursor: pointer;
+    font-size: 12px;
+    color: @color-50;
+    line-height: 36px;
+    border-left: 3px solid @color-90;
+    padding-left: 15px;
+    &:hover {
+      background-color: @color-80;
+      border-left: 3px solid @blue;
+    }
+  }
+
+  .editor-help {
+    &:extend(.extra-light);
+    &:extend(.padding-15);
+    font-size: 12px;
+    color: @color-60;
+    line-height: 18px;
+  }
+
   .rulesList {
     &:extend(.padding-15);
     .listView {
@@ -122,9 +149,7 @@
 
     &.is-inEditMode {
       .rulesItemContainer {
-        border: 1px dashed @color-70;
-        padding: 4px;
-        border-radius: 8px;
+        .dashedListContainer(@color-70);
       }
     }
   }
@@ -133,16 +158,26 @@
     &:extend(.extra-light);
     height: 20px;
     border-radius: 5px;
-    background-color: @rulesetEditor-rowItem-editMode-BG;
     color: white;
     line-height: 18px;
     font-size: 12px;
     padding: 2px 8px;
     display: inline-block;
     margin: 4px;
-  }
-  .rulesItem--action {
-    background-color: @launchNav-notification-backgroundColor;
+
+    &--classifier {
+      background-color: @rulesetEditor-rowItem-editMode-BG;
+    }
+    &--action {
+      background-color: @launchNav-notification-backgroundColor;
+    }
+    &--empty {
+      font-size: 11px;
+      color: @color-70;
+    }
+    &--new {
+      color: @blue;
+    }
   }
 
   .editIcon {
@@ -150,34 +185,10 @@
     min-height: 25px;
   }
 
-  .drag-text {
-    font-size: 11px;
-    color: @color-70;
-    line-height: 18px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  .listItem {
-    &:extend(.extra-light);
-    cursor: pointer;
-    font-size: 12px;
-    color: @color-50;
-    line-height: 36px;
-    border-left: 3px solid @color-90;
-    padding-left: 15px;
-    &:hover {
-      background-color: @color-80;
-      border-left: 3px solid @blue;
-    }
-  }
-
-  .editor-help {
-    &:extend(.extra-light);
-    &:extend(.padding-15);
-    font-size: 12px;
-    color: @color-60;
-    line-height: 18px;
+  .newRuleContainer {
+    .dashedListContainer(@blue);
+    text-align: left;
+    width: 82%;
   }
 
   .openClose {
