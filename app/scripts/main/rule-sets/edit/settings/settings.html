@@ -36,7 +36,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="rule in rulesList().rules">
+        <tr ng-repeat="rule in ruleSet().rules">
           <td><div class="listView-number">{{$index + 1}}</div></td>
           <td>
             <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">{{classifier.name}}</div>

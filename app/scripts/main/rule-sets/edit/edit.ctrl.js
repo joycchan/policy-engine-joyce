@@ -8,21 +8,18 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       'uiSref': 'main.ruleSetsEdit.services'
     }];
 
-    $scope.rulesList = function() {
+    $scope.ruleSet = function() {
       return _.find(ruleSets.list(), function(rule) {
-        return rule.id == $stateParams.ruleId;
+        return rule.id === $stateParams.ruleId;
       });
     };
 
     $scope.editRule = function () {
-      // we should get a copy of $scope.rulesList()
-      // edit that in the modal
-      var modalInstance = $modal.open(Modals.rulesetEditor($scope.rulesList()));
+      // edit a copy of $scope.ruleSet(), so that the model will update only if we click "ok" in the modal
+      var modalInstance = $modal.open(Modals.rulesetEditor(angular.copy($scope.ruleSet())));
 
-      modalInstance.result.then(function () {
-        // when we return from the modal,
-        // search through the rules list,
-        // use the service to edit it
+      modalInstance.result.then(function (updatedRuleSet) {
+        ruleSets.update(updatedRuleSet);
       }, function () {
       });
     };

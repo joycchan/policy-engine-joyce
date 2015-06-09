@@ -15,6 +15,14 @@ angular.module('policyEngine').factory('ruleSets',
       return ruleSet;
     };
 
+    service.update = function(updatedRuleSet) {
+      var matchingRuleSetInList = _.find(list, function(ruleSet) {
+        return ruleSet.id === updatedRuleSet.id;
+      });
+      _.merge(matchingRuleSetInList, updatedRuleSet);
+      // TODO: update this so that it does a PUT request instead of handling that here
+    };
+
     $http.get('api/ruleSets').success(function (data) {
       list = data;
       console.log("list", list);
@@ -40,19 +48,13 @@ angular.module('policyEngine').factory('ruleSets',
           actions: [],
         }],
         custom: "Custom",
-        id: Math.floor(Math.random() * 10000)
+        id: (Math.floor(Math.random() * 10000)).toString()
         // while the user is in main.ruleSetsEdit, the id allows the user to select a rule set out of the list to modify
         // logic in that state depends on $stateParams because it is not a modal w/ one parent controller
         // whereas in main.service, the data is on one controller which is the state of truth for the modals' data
         // TODO: remove client-side id generation
       };
     };
-
-    // service.edit = function(id, data) {
-      // find item in list via id property
-      // make a put request
-      // on success, set the the new list to data returned from server
-    // }
 
     service.classifiersFilter = function(rules) {
       return _.map(rules, function(rule) {
