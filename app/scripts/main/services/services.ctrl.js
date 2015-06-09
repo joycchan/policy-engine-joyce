@@ -1,15 +1,36 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, assignments) {
+  function ($scope, $state, assignments, Services) {
 
-    $scope.categoriesState = function() {
-      return $state.is('main.services.categories');
+    $scope.filtered = {
+      category: false,
+      group: false,
+      ruleSet: false
     };
 
-    $scope.goToCategory = function(category) {
-      $scope.addFilter('category', category);
-      $state.go('main.services.cards');
+    $scope.categoryState = function() {
+      return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
+    };
+
+    $scope.cardsState = function() {
+      return $state.is('main.services.filters.cards');
+    };
+
+    $scope.goToCategoryState = function() {
+      $state.go('main.services.filters.cards', { category: undefined, group: undefined, ruleSet: undefined });
+    };
+
+    $scope.addFilter = function (type, object) {
+      var params = {};
+      params[type] = object.name;
+      $state.go('.', params);
+    };
+
+    $scope.removeFilter = function(type) {
+      var params = {};
+      params[type] = undefined;
+      $state.go('.', params);
     };
 
     $scope.assignService = function (service) {
@@ -23,11 +44,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return _.pluck($scope.serviceConsumers(service), 'name').join(', ');
     };
 
-    $scope.servicesByCategory = function(category) {
-      return _.filter($scope.services, function(service) {
-        return service.category.name == category.name;
-      });
-    };
+    $scope.servicesByCategory = Services.byCategory;
 
     $scope.deleteCategory = function(category) {
       _.remove($scope.categories, function(c) {
@@ -35,37 +52,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       });
     };
 
-    $scope.deleteService = function(service) {
-      _.remove($scope.services, function(s) {
-        return s.name === service.name;
-      });
-      filterServices();
-    };
-
-    $scope.filteredServices = [];
-
-    $scope.filters = {};
-
-    var filterServices = function () {
-      $scope.filteredServices = $scope.services;
-      _.each(['category', 'group', 'ruleSet'], function (type) {
-        if ($scope.filters[type]) {
-          $scope.filteredServices = _.filter($scope.filteredServices, function (service) {
-            return service[type].name === $scope.filters[type].name;
-          });
-        }
-      });
-    };
-
-    $scope.addFilter = function (filter, value) {
-      $scope.filters[filter] = value;
-      filterServices();
-    };
-
-    $scope.removeFilter = function (filter) {
-      delete $scope.filters[filter];
-      filterServices();
-    };
+    $scope.deleteService = Services.delete;
 
     $scope.providerGroups = [];
     $scope.ruleSets = [];
@@ -100,23 +87,18 @@ angular.module('policyEngine').controller('ServicesCtrl',
       }
     ];
 
-    $scope.$watch('services', function () {
-      $scope.providerGroups = _.uniq(_.map($scope.services, function (service) {
-        return service.group
-      }), 'name');
-      $scope.ruleSets = _.uniq(_.map($scope.services, function (service) {
-        return service.ruleSet
-      }), 'name');
-      $scope.filteredServices = $scope.services;
-    });
-
-
     $scope.selectedCheckBoxes = {};
 
     $scope.isRowInListSelected = function (id) {
       return $scope.selectedCheckBoxes[id] === true;
     }
 
+    $scope.$watch(function () {
+      return Services.list();
+    }, function () {
+      $scope.providerGroups = Services.uniqueProviderGroups();
+      $scope.ruleSets = Services.uniqueRuleSets();
+    });
   }
 );
 

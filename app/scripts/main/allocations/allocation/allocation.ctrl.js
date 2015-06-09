@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('policyEngine').controller('AllocationCtrl',
-  function($scope, $state, groups) {
+  function($scope, $state, Groups, Services) {
+
+    $scope.services = Services.list;
 
     $scope.maskGroups = function() {
       return $state.is('main.allocation.existing.consume');
@@ -11,7 +13,7 @@ angular.module('policyEngine').controller('AllocationCtrl',
       return $state.is('main.allocation.existing.provide');
     };
 
-    $scope.groups = groups.list;
+    $scope.groups = Groups.list;
 
     $scope.$state = $state;
 

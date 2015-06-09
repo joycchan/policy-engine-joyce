@@ -21,6 +21,14 @@ angular.module('policyEngine').factory('ruleSets',
       });
       _.merge(matchingRuleSetInList, updatedRuleSet);
       // TODO: update this so that it does a PUT request instead of handling that here
+    }
+
+    service.delete = function (ruleSet) {
+      _.remove(list, function (s) {
+        return s.name === ruleSet.name;
+      });
+      //reset list object id to trigger watches on Services.list()
+      list = angular.copy(list);
     };
 
     $http.get('api/ruleSets').success(function (data) {
@@ -30,8 +38,7 @@ angular.module('policyEngine').factory('ruleSets',
 
     service.byCustom = function (custom) {
       return _.filter(list, function (ruleSet) {
-        if(custom === "")
-        {
+        if (custom === "") {
           return ruleSet;
         }
         else {

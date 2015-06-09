@@ -32,18 +32,20 @@ angular.module("policyEngine", [
           controller: "ServicesCtrl",
           abstract: true
         })
-        .state("main.services.cards", {
-          url: "cards/",
-          templateUrl: "scripts/main/services/cards/cards.html",
-        })
-        .state("main.services.list", {
-          url: "list/",
-          templateUrl: "scripts/main/services/list/list.html",
-        })
-        .state("main.services.categories", {
-          url: "categories/",
-          templateUrl: "scripts/main/services/categories/categories.html",
-        })
+          .state("main.services.filters", {
+            url: "?category?group?ruleSet",
+            templateUrl: "scripts/main/services/filters.html",
+            controller: "ServicesFilterCtrl",
+            abstract: true
+          })
+            .state("main.services.filters.cards", {
+              url: "cards/",
+              templateUrl: "scripts/main/services/cards/cards.html",
+            })
+            .state("main.services.filters.list", {
+              url: "list/",
+              templateUrl: "scripts/main/services/list/list.html",
+            })
         .state("main.configuration", {
           url: "configuration/",
           templateUrl: "scripts/main/configuration/setup.html",
