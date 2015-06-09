@@ -15,15 +15,42 @@
     </div>
     <div class="launchSummary container">
         <div class="launchSummary-productName">Group Based Policies</div>
-        <div class="launchSummary-category" ng-repeat="category in launchCategories"
-             ng-class="{'launchSummary-category--first': $index === 0}" ui-sref="{{category.state}}">
-            <img ng-src="{{category.img}}">
+        <div class="launchSummary-category launchSummary-category--first" ui-sref="main.services.filters.cards">
+            <img src="images/icon_services_32.png">
 
-            <div class="launchSummary-category-name">{{category.category}}</div>
-            <launch-bubble ng-repeat="item in mockSummaryData[category.category]"
-                           name="item.name" stat="item.stat" is-good-stat="item.isGoodStat"
-                           drawer-stats="item.drawerStats">
+            <div class="launchSummary-category-name">Services</div>
+            <launch-bubble name="'Health'" stat="'98'" is-good-stat="true"
+                           drawer-stats="mockSummaryData['Service'][0].drawerStats">
+            </launch-bubble>
+            <launch-bubble name="'Count'" stat="Services.list().length" is-good-stat="false"
+                           drawer-stats="mockSummaryData['Service'][1].drawerStats">
+            </launch-bubble>
+            <launch-bubble name="'Connections'" stat="connections()" is-good-stat="false"
+                           drawer-stats="mockSummaryData['Service'][2].drawerStats">
             </launch-bubble>
         </div>
+        <div class="launchSummary-category" ui-sref="main.allocations">
+            <img src="images/icon_requests_32.png">
+
+            <div class="launchSummary-category-name">Assignments</div>
+            <launch-bubble name="'New'" stat="assignmentCount()" is-good-stat="true"
+                           drawer-stats="mockSummaryData['Assignments'][0].drawerStats">
+            </launch-bubble>
+            <launch-bubble name="'Count'" stat="assignmentCount()" is-good-stat="false"
+                           drawer-stats="mockSummaryData['Assignments'][1].drawerStats">
+            </launch-bubble>
+        </div>
+        <div class="launchSummary-category" ui-sref="main.groups">
+            <img src="images/icon_groups_32.png">
+
+            <div class="launchSummary-category-name">Groups</div>
+            <launch-bubble name="'New'" stat="groupCount()" is-good-stat="true"
+                           drawer-stats="mockSummaryData['Groups'][0].drawerStats">
+            </launch-bubble>
+            <launch-bubble name="'Count'" stat="groupCount()" is-good-stat="false"
+                           drawer-stats="mockSummaryData['Groups'][1].drawerStats">
+            </launch-bubble>
+        </div>
+
     </div>
 </div>

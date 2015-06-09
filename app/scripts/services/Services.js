@@ -19,6 +19,8 @@ angular.module('policyEngine').factory('Services',
         _.remove(list, function (s) {
           return s.name === service.name;
         });
+        //reset list object id to trigger watches on Services.list()
+        list = angular.copy(list);
       },
 
       byCategory: function (category) {

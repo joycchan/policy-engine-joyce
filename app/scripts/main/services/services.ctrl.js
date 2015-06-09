@@ -52,9 +52,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       });
     };
 
-    $scope.deleteService = function(service) {
-      Services.delete(service);
-    };
+    $scope.deleteService = Services.delete;
 
     $scope.providerGroups = [];
     $scope.ruleSets = [];

@@ -8,8 +8,10 @@ angular.module('policyEngine').controller('ServiceCtrl',
     };
 
     $scope.createService = function() {
-      Services.create($scope.service);
-      $state.go('main.services.filters.list');
+      if(!$scope.serviceIncomplete()) {
+        Services.create($scope.service);
+        $state.go('main.services.filters.list');
+      }
     };
 
     $scope.serviceIncomplete = function() {
