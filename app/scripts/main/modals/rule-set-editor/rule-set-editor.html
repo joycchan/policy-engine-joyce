@@ -52,18 +52,18 @@
               <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
             </td>
             <td>
-              <div class="rulesItemContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
-                <div class="rulesItem rulesItem--classifier listView-innerList" ng-repeat="classifier in rule.classifiers">
+              <div class="subRuleContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
+                <div class="subRule subRule--classifier listView-innerList" ng-repeat="classifier in rule.classifiers">
                   {{classifier.name}}
                 </div>
-                <div class="rulesItem rulesItem--empty" ng-show="rule.classifiers.length === 0">DRAG IN CLASSIFIERS FROM LEFT</div>
+                <div class="subRule subRule--empty" ng-show="rule.classifiers.length === 0">DRAG IN CLASSIFIERS FROM LEFT</div>
               </div>
             </td>
             <td>
-              <div class="rulesItemContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
-                <div class="rulesItem rulesItem--action listView-innerList" ng-repeat="action in rule.actions">
+              <div class="subRuleContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
+                <div class="subRule subRule--action listView-innerList" ng-repeat="action in rule.actions">
                   {{action.name}}</div>
-                  <div class="rulesItem--empty" ng-show="rule.actions.length === 0">DRAG IN ACTIONS FROM RIGHT</div>
+                  <div class="subRule--empty" ng-show="rule.actions.length === 0">DRAG IN ACTIONS FROM RIGHT</div>
               </div>
             </td>
             <td>
@@ -84,7 +84,7 @@
           </td>
           <td colspan="2">
             <div class="addRuleTextContainer" ng-click="addRule()">
-              <div class="rulesItem rulesItem--new">Add new rule</div>
+              <div class="subRule subRule--new">Add new rule</div>
             </div>
           </td>
         </tr>

@@ -56,7 +56,7 @@
     color: @color-60;
     line-height: 26px;
     
-    &.title--editor {
+    &--editor {
       color: @color-70;
     }
   }
@@ -133,10 +133,7 @@
     td:nth-child(1), th:nth-child(1) {
       width: 8%;
     }
-    td:nth-child(2),th:nth-child(2) {
-      width: 38%;
-    }
-    td:nth-child(3), th:nth-child(3) {
+    td:nth-child(2),th:nth-child(2), td:nth-child(3), th:nth-child(3) {
       width: 38%;
     }
     td:nth-child(4), th:nth-child(4) {
@@ -150,13 +147,13 @@
     }
 
     &.is-inEditMode {
-      .rulesItemContainer {
+      .subRuleContainer {
         .dashedListContainer(@color-70);
       }
     }
   }
 
-  .rulesItem {
+  .subRule {
     &:extend(.extra-light);
     height: 20px;
     border-radius: 5px;
@@ -188,7 +185,7 @@
   }
 
   .addRuleContainer {
-    &:extend(.rulesListContainer);
+    &:extend(.ruleEditor.rulesListContainer);
     &:hover {
       .addRule {
         visibility: visible;
