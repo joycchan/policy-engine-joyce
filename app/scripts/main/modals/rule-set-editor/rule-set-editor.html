@@ -48,7 +48,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="rule in selectedRuleset" class="rulesList-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
+          <tr ng-repeat="rule in selectedRuleset.rules" class="rulesList-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
             <td>
               <div class="listView-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
               <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
@@ -56,7 +56,7 @@
             <td>
               <div class="rulesItemContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
                 <div class="rulesItem listView-innerList" ng-repeat="classifier in rule.classifiers">
-                  {{classifier}}
+                  {{classifier.name}}
                 </div>
                 <div ng-show="rule.classifiers.length === 0" class="drag-text">DRAG IN CLASSIFIERS FROM LEFT</div>
               </div>
@@ -64,7 +64,7 @@
             <td>
               <div class="rulesItemContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
                 <div class="rulesItem rulesItem--action listView-innerList" ng-repeat="action in rule.actions">
-                  {{action}}</div>
+                  {{action.name}}</div>
                   <div ng-show="rule.actions.length === 0" class="drag-text">DRAG IN RULES FROM RIGHT</div>
               </div>
             </td>

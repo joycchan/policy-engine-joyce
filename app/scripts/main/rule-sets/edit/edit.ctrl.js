@@ -9,7 +9,7 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
     }];
 
     $scope.rulesList = function() {
-      return _.filter(ruleSets.list(), function(rule) {
+      return _.find(ruleSets.list(), function(rule) {
         return rule.id == $stateParams.ruleId;
       });
     };

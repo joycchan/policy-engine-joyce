@@ -1,14 +1,17 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
   function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset) {
 
+    $scope.classifiersFilter = ruleSets.classifiersFilter;
+
     $scope.selectedRuleset = selectedRuleset; // local from resolve
+    console.log("$scope.selectedRuleset", $scope.selectedRuleset);
 
     $scope.existingClassifiers = Classifiers.list;
 
     $scope.existingActions = Actions.list;
 
     $scope.ok = function () {
-      $modalInstance.close($scope.selected);
+      $modalInstance.close($scope.selectedRuleset);
     };
 
     $scope.cancel = function () {
@@ -23,19 +26,19 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
     $scope.addClassifier = function (data, index) {
       if (data.dataType === 'classifier'
-        && !isExistingRuleset($scope.selectedRuleset[index].classifiers, data.name)
+        && !isExistingRuleset($scope.selectedRuleset.rules[index].classifiers, data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleset[index].classifiers.push(data.name);
+        $scope.selectedRuleset.rules[index].classifiers.push({"name": data.name});
       }
     };
 
     $scope.addAction = function (data, index) {
       if (data.dataType === 'action'
-        && !isExistingRuleset($scope.selectedRuleset[index].actions, data.name)
+        && !isExistingRuleset($scope.selectedRuleset.rules[index].actions, data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleset[index].actions.push(data.name);
+        $scope.selectedRuleset.rules[index].actions.push({"name": data.name});
       }
     };
 
@@ -67,7 +70,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $scope.addRuleSet = function() {
       // push an empty rule set object to $scope.selectedRuleset
       // set scope.editModeHash to true for the last item in the list so user can edit it
-      
+
     };
 
     // to do

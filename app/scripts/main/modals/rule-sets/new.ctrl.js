@@ -1,20 +1,19 @@
 angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, ruleSets, $modal, Modals) {
 
-  $scope.newRuleSets = [
-    ruleSets.generateEmptyRuleSet()
-  ];
+  $scope.newRuleSet = ruleSets.generateEmptyRuleSet();
 
   $scope.addRules = function () {
-    $modal.open(Modals.rulesetEditor($scope.newRuleSets)); // pass scope.ruleSets into here
+    var modalInstance = $modal.open(Modals.rulesetEditor($scope.newRuleSet)); // pass scope.ruleSets into here
     
-    modalInstance.result.then(function () {
+    modalInstance.result.then(function (newRuleSet) {
+      console.log("newRuleSet", newRuleSet);
       // when the modal closes, set the modified array of data to $scope.newRuleSets
     }, function () {
     });
   };
 
   $scope.disabled = function () {
-    return ($scope.newRuleSets[0].classifiers.length === 0) || ($scope.newRuleSets[0].actions.length === 0);
+    return ($scope.newRuleSet.rules[0].classifiers.length === 0 || $scope.newRuleSet.rules[0].actions.length === 0);
   };
 
 

@@ -43,6 +43,8 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
       });
     };
 
+    $scope.classifiersFilter = ruleSets.classifiersFilter;
+
 
   }
 );

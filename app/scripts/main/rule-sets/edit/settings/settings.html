@@ -36,13 +36,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="rule in rulesList()">
+        <tr ng-repeat="rule in rulesList().rules">
           <td><div class="listView-number">{{$index + 1}}</div></td>
           <td>
-            <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
+            <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">{{classifier.name}}</div>
           </td>
           <td>
-            <div class="listView-innerList" ng-repeat="action in rule.actions">{{action}}</div>
+            <div class="listView-innerList" ng-repeat="action in rule.actions">{{action.name}}</div>
           </td>
         </tr>
       </tbody>

@@ -27,4 +27,6 @@ angular.module('policyEngine').controller('ExistingRuleSetCtrl',
     $state.go('main.service');
   };
 
+  $scope.classifiersFilter = ruleSets.classifiersFilter;
+
 });

@@ -31,16 +31,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="ruleSet in newRuleSets">
+        <tr ng-repeat="rule in newRuleSet.rules">
           <td><div class="listView-number">{{$index + 1}}</div></td>
           <td>
-              <a ng-click="addRules()" ng-hide="ruleSet.classifiers.length" class="click-here">Click here to add rules</a>
-            <div class="listView-innerList" ng-repeat="classifier in ruleSet.classifiers">
+              <a ng-click="addRules()" ng-hide="rule.classifiers.length" class="click-here">Click here to add rules</a>
+            <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">
               <!-- {{classifier}} -->
             </div>
           </td>
           <td>
-            <div class="listView-innerList" ng-repeat="action in ruleSet.actions">
+            <div class="listView-innerList" ng-repeat="action in rule.actions">
               <!-- {{action}} -->
             </div>
           </td>
