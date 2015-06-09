@@ -98,12 +98,8 @@ angular.module('policyEngine').controller('ServicesCtrl',
     $scope.$watch(function () {
       return Services.list();
     }, function () {
-      $scope.providerGroups = _.uniq(_.map(Services.list(), function (service) {
-        return service.group
-      }), 'name');
-      $scope.ruleSets = _.uniq(_.map(Services.list(), function (service) {
-        return service.ruleSet
-      }), 'name');
+      $scope.providerGroups = Services.uniqueProviderGroups();
+      $scope.ruleSets = Services.uniqueRuleSets();
     });
   }
 );

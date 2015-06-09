@@ -25,6 +25,18 @@ angular.module('policyEngine').factory('Services',
         return _.filter(list, function (service) {
           return service.category.name == category.name;
         });
+      },
+
+      uniqueProviderGroups: function() {
+        return _.uniq(_.map(Services.list(), function (service) {
+          return service.group
+        }), 'name');
+      },
+
+      uniqueRuleSets: function() {
+        return _.uniq(_.map(Services.list(), function (service) {
+          return service.ruleSet
+        }), 'name');
       }
     };
 

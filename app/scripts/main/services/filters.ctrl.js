@@ -3,15 +3,6 @@
 angular.module('policyEngine').controller('ServicesFilterCtrl',
   function ($scope, $stateParams, Services) {
 
-    $scope.$watchGroup(['$routeChangeSuccess', function () {
-      return Services.list();
-    }], function () {
-      $scope.filteredServices = filterServices(Services.list());
-      _.each(['category', 'group', 'ruleSet'], function (type) {
-        $scope.filtered[type] = !!$stateParams[type];
-      });
-    });
-
     $scope.filteredServices = [];
 
     var filterServices = function (allServices) {
@@ -26,9 +17,14 @@ angular.module('policyEngine').controller('ServicesFilterCtrl',
       return result;
     };
 
-    $scope.removeFilter = function (filter) {
-      delete $scope.filters[filter];
-      filterServices();
-    };
+    $scope.$watchGroup(['$routeChangeSuccess', function () {
+      return Services.list();
+    }], function () {
+      $scope.filteredServices = filterServices(Services.list());
+      //Store a hash of which filters are in use so that service.html can display "Reset" links appropriately
+      _.each(['category', 'group', 'ruleSet'], function (type) {
+        $scope.filtered[type] = !!$stateParams[type];
+      });
+    });
 
   });
