@@ -4,6 +4,7 @@ angular.module('policyEngine').controller('GroupsCtrl',
   function ($scope, $modal, groups, Modals) {
 
     $scope.groups = groups.list;
+    $scope.deleteGroup = groups.delete;
 
     $scope.groupFilters = [
       {name: 'All Groups'},

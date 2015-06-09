@@ -36,7 +36,7 @@
             <td>{{group.servicesConsumed}}</td>
             <td>
               <list-view-icon ui-sref="main.groupsEdit.settings" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
-              <list-view-icon inactive-src="images/icon_x_16.png" active-src="images/icon_x_dark_16.png"></list-view-icon>
+              <list-view-icon ng-click="deleteGroup(group)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
             </td>
           </tr>
         </tbody>
