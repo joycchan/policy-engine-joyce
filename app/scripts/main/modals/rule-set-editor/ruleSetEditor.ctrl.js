@@ -1,8 +1,6 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
   function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset) {
 
-    $scope.classifiersFilter = ruleSets.classifiersFilter;
-
     $scope.selectedRuleset = selectedRuleset; // local from resolve
 
     $scope.existingClassifiers = Classifiers.list;

@@ -33,7 +33,6 @@ angular.module('policyEngine').factory('ruleSets',
 
     $http.get('api/ruleSets').success(function (data) {
       list = data;
-      console.log("list", list);
     });
 
     service.byCustom = function (custom) {
@@ -68,12 +67,6 @@ angular.module('policyEngine').factory('ruleSets',
         classifiers: [],
         actions: []
       };
-    };
-
-    service.classifiersFilter = function(rules) {
-      return _.map(rules, function(rule) {
-        return _.pluck(rule.classifiers, 'name');
-      }).join(', ');
     };
 
     return service;
