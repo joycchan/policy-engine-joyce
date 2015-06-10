@@ -90,8 +90,17 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
     $scope.deleteRule = function(index) {
       $scope.selectedRuleSet.rules.splice(index, 1);
+    };
+
+    $scope.deleteClassifier = function(rulesIndex, classifier) {
+      _.remove($scope.selectedRuleSet.rules[rulesIndex].classifiers, function(c) {
+        return c.name === classifier.name;
+      });
+    };
+    $scope.deleteAction = function(rulesIndex, action) {
+      _.remove($scope.selectedRuleSet.rules[rulesIndex].actions, function(c) {
+        return c.name === action.name;
+      });
     }
-    // $scope.deleteClassifier
-    // $scope.deleteAction
 
   });

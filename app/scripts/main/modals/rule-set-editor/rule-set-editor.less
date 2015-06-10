@@ -184,6 +184,31 @@
     min-height: 25px;
   }
 
+  .deleteSubRuleContainer {
+    display: inline-block;
+    margin-left: 10px;
+    &:hover {
+      .deleteSubRule.is-hidden-on-hover {
+        display: none;
+      }
+      .deleteSubRule.is-displayed-on-hover {
+        display: block;
+      }
+    }
+  }
+
+  .deleteSubRule {
+    width: 10px;
+    height: 10px;
+
+    &.is-hidden-on-hover {
+      display: block;
+    }
+    &.is-displayed-on-hover {
+      display: none;
+    }
+  }
+
   .addRuleContainer {
     &:extend(.ruleEditor.rulesListContainer);
     &:hover {

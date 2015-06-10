@@ -55,6 +55,10 @@
               <div class="subRuleContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
                 <div class="subRule subRule--classifier listView-innerList" ng-repeat="classifier in rule.classifiers">
                   {{classifier.name}}
+                  <div class="deleteSubRuleContainer" ng-click="deleteClassifier($parent.$index, classifier)">
+                    <img class="deleteSubRule is-hidden-on-hover" src="images/icon_x_16.png">
+                    <img class="deleteSubRule is-displayed-on-hover" src="images/icon_x_dark_16.png">
+                  </div>
                 </div>
                 <div class="subRule subRule--empty" ng-show="rule.classifiers.length === 0">DRAG IN CLASSIFIERS FROM LEFT</div>
               </div>
@@ -62,7 +66,12 @@
             <td>
               <div class="subRuleContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
                 <div class="subRule subRule--action listView-innerList" ng-repeat="action in rule.actions">
-                  {{action.name}}</div>
+                  {{action.name}}
+                  <div class="deleteSubRuleContainer" ng-click="deleteAction($parent.$index, action)">
+                    <img class="deleteSubRule is-hidden-on-hover" src="images/icon_x_16.png">
+                    <img class="deleteSubRule is-displayed-on-hover" src="images/icon_x_dark_16.png">
+                  </div>
+                </div>
                   <div class="subRule--empty" ng-show="rule.actions.length === 0">DRAG IN ACTIONS FROM RIGHT</div>
               </div>
             </td>
