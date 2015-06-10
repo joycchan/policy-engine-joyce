@@ -19,7 +19,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
     var isExistingRuleSet = function (list, newItem) {
       return _.any(list, function (item) {
-        return item === newItem;
+        return item.name === newItem;
       });
     }
 
