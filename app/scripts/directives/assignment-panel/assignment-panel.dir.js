@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('policyEngine')
-  .directive('allocationPanel', function () {
+  .directive('assignmentPanel', function () {
     return {
-      templateUrl: 'scripts/directives/allocation-panel/allocation-panel.html',
+      templateUrl: 'scripts/directives/assignment-panel/assignment-panel.html',
       controller: function ($scope) {
 
         $scope.dragData = function(item) {
