@@ -150,6 +150,9 @@
       .subRuleContainer {
         .dashedListContainer(@color-70);
       }
+      .deleteSubRuleContainer {
+        visibility: visible;
+      }
     }
   }
 
@@ -185,13 +188,14 @@
   }
 
   .deleteSubRuleContainer {
+    visibility: hidden;
     display: inline-block;
     margin-left: 10px;
     &:hover {
-      .deleteSubRule.is-hidden-on-hover {
+      .deleteSubRule.is-hiddenOnHover {
         display: none;
       }
-      .deleteSubRule.is-displayed-on-hover {
+      .deleteSubRule.is-displayedOnHover {
         display: block;
       }
     }
@@ -201,10 +205,10 @@
     width: 10px;
     height: 10px;
 
-    &.is-hidden-on-hover {
+    &.is-hiddenOnHover {
       display: block;
     }
-    &.is-displayed-on-hover {
+    &.is-displayedOnHover {
       display: none;
     }
   }
