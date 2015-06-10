@@ -1,43 +1,42 @@
 @import "../../../styles/variables";
 
 .nav-bar {
-  background-color: white;
-  height: 90px;
+  background-color: @color-50;
+  height: 120px;
   width: 100%;
   border-bottom: 1px solid @color-70;
   clear: both;
   position: relative;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  padding-top: 30px;
 
-  .cisco-icon {
-    background: url(../../../images/icon_cisco_logo_2.png) no-repeat;
-    display: inline-block;
-    width: 84px;
-    height: 40.3px;
-    margin: 0 20px;
-    position: relative;
-    top: 10px;
-    cursor: pointer;
+  h1 {
+    color: @color-80;
+    margin: 0 0 0 100px;
   }
 
-  .title {
-    display: inline-block;
-    height: 90px;
-    line-height: 96px;
+  ::-webkit-input-placeholder {
+    font-size: 13px;
+  }
+
+  .cisco-icon {
+    background: url(../../../images/icon_cisco_logo_white.png) no-repeat;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 60px;
+    height: 32px;
+    cursor: pointer;
   }
 
   .menu-items {
     display: inline-block;
     position: absolute;
-    right: 15px;
+    right: 5px;
     height: 32px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 30px;
     z-index: 10;
-
-    span {
-      margin-right: -18px;
-      margin-top: -17px;
-    }
+    padding-top: 5px;
 
     .nav li a:hover {
       background-color: transparent;
@@ -59,7 +58,13 @@
   .main-search input {
     width: 237px;
     position: absolute;
-    right: 203px;
+    top: 0;
+    right: 110px;
+    background-color: @color-100;
+    border: 1px solid @color-70;
+    border-radius: 3px;
+    color: @color-60;
+    font-size: 13px;
   }
 
   #navbar {
@@ -73,52 +78,53 @@
     width: 38px;
     height: 38px;
 
-    &.services {
-      background-image: url(../../../images/icon_header_services_normal.png);
-
-      &:hover {
-        background-image: url(../../../images/icon_header_services_hover.png) !important;
-      }
-
-      &.current {
-        background-image: url(../../../images/icon_header_services_selected.png);
-      }
-    }
-
-    &.groups {
-      background-image: url(../../../images/icon_header_groups_normal.png);
-
-      &:hover {
-        background-image: url(../../../images/icon_header_groups_hover.png) !important;
-      }
-
-      &.current {
-        background-image: url(../../../images/icon_header_groups_selected.png);
-      }
-    }
-
     &.setup {
-      background-image: url(../../../images/icon_header_setup_normal.png);
+      background-image: url(../../../images/icon_settings_20_white.png);
 
       &:hover {
-        background-image: url(../../../images/icon_header_setup_hover.png) !important;
+        background-image: url(../../../images/icon_settings_20_blue.png) !important;
       }
 
       &.current {
-        background-image: url(../../../images/icon_header_setup_selected.png);
+        background-image: url(../../../images/icon_settings_20_white.png);
       }
     }
 
     &.account {
-      background-image: url(../../../images/icon_header_account_normal.png);
+      background-image: url(../../../images/icon_account_settings_20_white.png);
 
       &:hover {
-        background-image: url(../../../images/icon_header_account_hover.png) !important;
+        background-image: url(../../../images/icon_account_settings_20_blue.png) !important;
       }
 
       &.current {
-        background-image: url(../../../images/icon_header_account_selected.png);
+        background-image: url(../../../images/icon_account_settings_20_white.png);
       }
     }
+  }
+
+  .menubar {
+    position: absolute;
+    bottom: 0;
+    left: 115px;
+  }
+
+  .menubar-category {
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.1px;
+    line-height: 18px;
+    color: @color-80;
+    height: 25px;
+    padding-left: 17px;
+
+    &.selected {
+      font-weight: bold;
+      border-bottom: 3px solid @blue;
+   }
+
   }
 }
