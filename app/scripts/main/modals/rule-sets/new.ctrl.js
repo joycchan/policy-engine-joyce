@@ -17,7 +17,7 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
 
   $scope.ok = function () {
     if (!$scope.disabled()) {
-      $scope.service.ruleSet = ruleSets.create($scope.newRuleSet); 
+      $scope.service.ruleSet = ruleSets.create($scope.newRuleSet); // $scope.service is in the parent controller
       $state.go('main.service');
     }
   };
