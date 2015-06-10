@@ -1,24 +1,22 @@
-<div class="rulesets">
-  <div class="rulesets-breadcrumbs">
-    <div class="rulesets-breadcrumbs-breadcrumb">Groups</div>
-  </div>
-  <div class="rulesList">
-    <div class="rulesList-helpText">
+<div class="objectsList">
+  <div class="objectsList-breadcrumb">Groups</div>
+  <div class="objectsList-container">
+    <div class="objectsList-helpText">
       Groups encapsulate users who have things in common like role and location. Groups also
         encapsulate resources like application servers and firewalls that have things in common.
     </div>
-    <div class="rulesList-new button" ng-click="open()">
+    <div class="objectsList-new button" ng-click="open()">
       <div class="plus">+</div>
       New Group
     </div>
-    <list-count-filter-search class="rulesList-countFilterSearch"
+    <list-count-filter-search class="objectsList-countFilterSearch"
       count="groups().length"
       filters="groupFilters"
       filter-by="filterGroupsListBy"
-      is-filter-selected="isRulesListFilterSelected"
+      is-filter-selected="isobjectsListFilterSelected"
       search-model="search.name">
     </list-count-filter-search>
-      <table class="rulesList-list listView listView--iconsHover">
+      <table class="objectsList-list listView listView--iconsHover">
         <thead>
           <th>Name</th>
           <th>Origin</th>
