@@ -1,11 +1,11 @@
-<div class="allocation" ng-drop-success="onDropComplete($data,$event)">
+<div class="assignment" ng-drop-success="onDropComplete($data,$event)">
     <div class="instructions">Now drag in groups that this group will provide services to</div>
-    <donut data="allocation().collection" type="provide" name="allocation().item.name" drop="onDropComplete"></donut>
+    <donut data="assignment().collection" type="provide" name="assignment().item.name" drop="onDropComplete"></donut>
     <div class="services-header">
         Groups Served
     </div>
     <div class="services-number provide">
-        {{allocation().collection.length}}
+        {{assignment().collection.length}}
     </div>
     <div class="show-list">Show List</div>
 </div>

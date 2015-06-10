@@ -21,7 +21,7 @@ angular.module('policyEngine').controller('MainCtrl',
 
     $scope.menubar = [
       { name: 'Services', state: 'main.services.filters.cards', selectionState: 'main.services', width: 82},
-      { name: 'Assignments', state: 'main.allocations', selectionState: 'main.allocations', width: 108},
+      { name: 'Assignments', state: 'main.assignments', selectionState: 'main.assignments', width: 108},
       { name: 'Groups', state: 'main.groups', selectionState: 'main.groups', width: 74},
       { name: 'Rule Sets', state: 'main.ruleSets', selectionState: 'main.ruleSets', width: 86}
    ];
