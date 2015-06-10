@@ -130,14 +130,17 @@
   .rulesList {
     table-layout: fixed;
     width: 100%;
+    td:last-child {
+      text-align: left;
+    }
     td:nth-child(1), th:nth-child(1) {
-      width: 8%;
+      width: 7%;
     }
-    td:nth-child(2),th:nth-child(2), td:nth-child(3), th:nth-child(3) {
-      width: 38%;
+    td:nth-child(2),th:nth-child(2) {
+      width: 47.5%;
     }
-    td:nth-child(4), th:nth-child(4) {
-      width: 16%;
+    td:nth-child(3), th:nth-child(3) {
+      width: 47.5%;
     }
   }
 
@@ -154,6 +157,11 @@
         visibility: visible;
       }
     }
+  }
+
+  .subRuleContainer {
+    width: 100%;
+    display: inline-
   }
 
   .subRule {
@@ -190,7 +198,8 @@
   .deleteSubRuleContainer {
     visibility: hidden;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 5px;
+
     &:hover {
       .deleteSubRule.is-hiddenOnHover {
         display: none;
@@ -213,7 +222,14 @@
     }
   }
 
+  .editDeleteIconsContainer {
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+  }
+
   .addRuleContainer {
+    &:extend(.padding-15);
     &:extend(.ruleEditor.rulesListContainer);
     &:hover {
       .addRule {
