@@ -34,8 +34,8 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.assignService = function (service) {
-      var allocation = assignments.create('provide', service)
-      $state.go('main.allocation.existing.provide', {allocationId: allocation.id});
+      var assignment = assignments.create('provide', service)
+      $state.go('main.assignment.existing.provide', {assignmentId: assignment.id});
     };
 
     $scope.serviceConsumers = assignments.serviceConsumers;
