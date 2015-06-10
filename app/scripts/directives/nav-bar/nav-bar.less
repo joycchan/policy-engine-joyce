@@ -7,10 +7,12 @@
   border-bottom: 1px solid @color-70;
   clear: both;
   position: relative;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  padding-top: 30px;
 
   h1 {
     color: @color-80;
+    margin: 0 0 0 100px;
   }
 
   ::-webkit-input-placeholder {
@@ -19,35 +21,22 @@
 
   .cisco-icon {
     background: url(../../../images/icon_cisco_logo_white.png) no-repeat;
-    display: inline-block;
-    width: 84px;
-    height: 40.3px;
-    margin: 0 20px;
-    position: relative;
-    top: 10px;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 60px;
+    height: 32px;
     cursor: pointer;
-  }
-
-  .title {
-    display: inline-block;
-    height: 90px;
-    line-height: 96px;
-    width: 90%;
   }
 
   .menu-items {
     display: inline-block;
     position: absolute;
-    right: 15px;
+    right: 5px;
     height: 32px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 30px;
     z-index: 10;
-
-    span {
-      margin-right: -18px;
-      margin-top: -17px;
-    }
+    padding-top: 5px;
 
     .nav li a:hover {
       background-color: transparent;
@@ -69,7 +58,8 @@
   .main-search input {
     width: 237px;
     position: absolute;
-    right: 132px;
+    top: 0;
+    right: 110px;
     background-color: @color-100;
     border: 1px solid @color-70;
     border-radius: 3px;
@@ -113,25 +103,28 @@
     }
   }
 
+  .menubar {
+    position: absolute;
+    bottom: 0;
+    left: 115px;
+  }
+
   .menubar-category {
-    margin-left: 115px;
+    margin-left: 20px;
     display: inline-block;
     margin-top: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.1px;
+    line-height: 18px;
+    color: @color-80;
+    height: 25px;
+    padding-left: 17px;
 
-    .menubar-category-name {
-      font-size: 12px;
-      letter-spacing: 0.1px;
-      line-height: 18px;
-      color: @color-80;
-      height: 25px;
-      padding: 0px 20px;
-      width: 100%;
-
-      &:hover {
-        font-weight: bold;
-        border-bottom: 3px solid @blue;
-      }
-
+    &.selected {
+      font-weight: bold;
+      border-bottom: 3px solid @blue;
     }
+
   }
 }

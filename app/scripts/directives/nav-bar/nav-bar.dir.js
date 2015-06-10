@@ -22,6 +22,10 @@ angular.module('policyEngine')
           return classes;
         };
 
+        scope.selected = function(item) {
+          return $state.includes(item.selectionState);
+        };
+
         scope.search = '';
       }
     };
