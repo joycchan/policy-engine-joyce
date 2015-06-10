@@ -17,7 +17,7 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
 
   $scope.ok = function () {
     if (!$scope.disabled()) {
-      $scope.service.ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
+      $scope.service.ruleSet = ruleSets.create($scope.newRuleSet); 
       $state.go('main.service');
     }
   };
