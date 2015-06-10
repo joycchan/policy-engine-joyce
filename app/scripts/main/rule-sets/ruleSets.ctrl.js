@@ -37,8 +37,8 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
       return name === $scope.filter;
     };
 
-    $scope.newRuleset = function() {
-      var modalInstance = $modal.open(Modals.newRuleset);
+    $scope.newRuleSet = function() {
+      var modalInstance = $modal.open(Modals.newRuleSet);
 
       modalInstance.result.then(function (newRule) {
       }, function () {

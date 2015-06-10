@@ -46,10 +46,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="rule in selectedRuleset.rules" class="rulesList-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
+          <tr ng-repeat="rule in selectedRuleSet.rules" class="rulesList-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
             <td>
               <div class="listView-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
-              <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleset($index)"><img src="images/icon_edit_16_blue.png"></div>
+              <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleSet($index)"><img src="images/icon_edit_16_blue.png"></div>
             </td>
             <td>
               <div class="subRuleContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
@@ -68,7 +68,7 @@
             </td>
             <td>
               <div ng-hide="editModeHash[$index]">
-                <list-view-icon ng-click="toggleEditRuleset($index)" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+                <list-view-icon ng-click="toggleEditRuleSet($index)" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
                 <list-view-icon inactive-src="images/icon_x_16.png" active-src="images/icon_x_dark_16.png"></list-view-icon>
               </div>
             </td>
@@ -80,7 +80,7 @@
       <table class="addRule listView rulesList" ng-class="{'is-disabled': !areAllRulesValid()}">
         <tr>
           <td>
-            <div class="listView-number" ng-hide="editModeHash[$index]">{{selectedRuleset.rules.length + 1}}</div>
+            <div class="listView-number" ng-hide="editModeHash[$index]">{{selectedRuleSet.rules.length + 1}}</div>
           </td>
           <td colspan="2">
             <div class="addRuleTextContainer" ng-click="addRule()">
