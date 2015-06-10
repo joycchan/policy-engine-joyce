@@ -11,6 +11,15 @@
     }, {
       "actions": [{"name": "Custom Action 1"}, {"name": "Custom Action 2"}],
       "classifiers": [{"name": "SQL-port-1443"}, {"name": "TrustSEC"}]
+    },{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-TEP-Type-HWTEP"}, {"name": "TrustSEC SGACL"}, {"name": "Overlay-Encap-Type-VXLAN"}]
+    },{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-Encap-Type-VXLAN"}, {"name": "Overlay-TEP-Type-HWTEP"}, {"name": "Overlay-TEP-Type-HWTEP"}]
+    }, {
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "TCP-80 Default"}, {"name": " ICMP"}, {"name": "Overlay-Encap-Type-VXLAN"}, {"name": "Overlay-TEP-Type-HWTEP"}]
     }]
   },
   {

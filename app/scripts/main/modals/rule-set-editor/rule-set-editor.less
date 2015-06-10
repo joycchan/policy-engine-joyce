@@ -108,6 +108,7 @@
     line-height: 36px;
     border-left: 3px solid @color-90;
     padding-left: 15px;
+    position: relative;
     &:hover {
       background-color: @color-80;
       border-left: 3px solid @blue;
@@ -121,6 +122,13 @@
     color: @color-60;
     line-height: 18px;
   }
+
+  .editor-scrollable {
+    overflow-y: auto;
+    position: relative;
+    height: calc(52vh);
+  }
+
 
   .rulesListContainer {
     &:extend(.padding-15);
