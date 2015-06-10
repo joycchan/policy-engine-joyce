@@ -16,10 +16,11 @@ angular.module('policyEngine').factory('ruleSets',
     };
 
     service.update = function(updatedRuleSet) {
-      var matchingRuleSetInList = _.find(list, function(ruleSet) {
+      var matchingRuleSetIndex = _.findIndex(list, function(ruleSet) {
         return ruleSet.id === updatedRuleSet.id;
       });
-      _.merge(matchingRuleSetInList, updatedRuleSet);
+      list[matchingRuleSetIndex] = updatedRuleSet;
+
       // TODO: update this so that it does a PUT request instead of handling that here
     }
 

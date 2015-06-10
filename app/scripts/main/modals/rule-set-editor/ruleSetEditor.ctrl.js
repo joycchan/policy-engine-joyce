@@ -88,4 +88,10 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     // allow user to add new rule, upon hover of bottom of table + click
     // allow user to delte individual classifiers and actions
 
+    $scope.deleteRule = function(index) {
+      $scope.selectedRuleSet.rules.splice(index, 1);
+    }
+    // $scope.deleteClassifier
+    // $scope.deleteAction
+
   });
