@@ -24,7 +24,7 @@ angular.module('policyEngine').controller('MainCtrl',
       { name: 'Assignments', state: 'main.allocations', selectionState: 'main.allocations', width: 108},
       { name: 'Groups', state: 'main.groups', selectionState: 'main.groups', width: 74},
       { name: 'Rule Sets', state: 'main.ruleSets', selectionState: 'main.ruleSets', width: 86}
-    ];
+   ];
 
     $scope.menu = [
       {
