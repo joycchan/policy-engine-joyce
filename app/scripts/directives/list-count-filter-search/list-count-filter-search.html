@@ -1,13 +1,13 @@
-<div class="objectCount">{{count}}</div>
+<div class="objectsCount">{{count}}</div>
 <div>
   <div ng-repeat-start="filter in filters"
-    class="objectFilter-name"
+    class="objectsFilter-name"
     ng-click="filterBy(filter.name)"
     ng-class="{'is-selected': isFilterSelected(filter.name)}">
     {{filter.name}}
   </div>
-  <div ng-repeat-end class="objectFilter-divider"></div>
+  <div ng-repeat-end class="objectsFilter-divider"></div>
 </div>
-<div class="objectSearch">
+<div class="objectsSearch">
   <input-search model="searchModel"></input-search>
 </div>
