@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
-  function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset) {
+  function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset, $modal, Modals) {
 
     $scope.selectedRuleset = selectedRuleset; // local from resolve
 
@@ -63,6 +63,15 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       classifiers: {name:''},
       actions: {name:''}
     };
+
+    $scope.customClassifiers = function () {
+      $modal.open(Modals.customClassifier([$scope.rule]));
+    };
+
+    $scope.customActions = function () {
+      $modal.open(Modals.customActions([$scope.rule]));
+    };
+
 
     // to do
     // allow user to delete rule, upon hover of table row + click on X
