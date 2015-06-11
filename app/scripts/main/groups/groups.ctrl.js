@@ -3,8 +3,10 @@
 angular.module('policyEngine').controller('GroupsCtrl',
   function ($scope, $modal, PolicyStore, PolicyActions, Modals) {
 
-    $scope.groups = PolicyStore.Groups.all;
+    $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
     $scope.deleteGroup = PolicyActions.DeleteGroup;
+
+    window.scope = $scope;
 
     $scope.groupFilters = [
       {name: 'All Groups'},

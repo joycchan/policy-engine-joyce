@@ -39,8 +39,8 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
   };
 
   $scope.ok = function () {
-    $scope.service.group = PolicyActions.CreateGroup($scope.group);
-    $state.go('main.service');
+    var newGroup = PolicyActions.CreateGroup($scope.group);
+    $scope.$close(newGroup);
   };
 
   $scope.cancel = function () {

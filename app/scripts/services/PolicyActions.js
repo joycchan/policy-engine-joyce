@@ -25,18 +25,18 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     },
 
     FetchGroups: function() {
-      $http.get('api/services').success(function (data) {
+      $http.get('api/groups').success(function (data) {
         data.map(actions.ReceiveGroup);
       });
     },
 
-    ReceiveGroup: function(service) {
-      PolicyStore.Groups.insert(service);  
+    ReceiveGroup: function(group) {
+      PolicyStore.Groups.insert(group);  
     },
 
-    CreateGroup: function(service) {
-      service.id = Util.uid(); // generate ids locally for now
-      PolicyStore.Groups.insert(service);  
+    CreateGroup: function(group) {
+      group.id = Util.uid(); // generate ids locally for now
+      PolicyStore.Groups.insert(group);  
     },
 
     DeleteGroup: function(id) {
