@@ -112,7 +112,7 @@ angular.module("policyEngine", [
             views: {
               ruleSet: {
                 templateUrl: 'scripts/main/modals/rule-sets/existing.html',
-                controller: 'ExistingRuleSetCtrl',
+                controller: 'ExistingRuleSetCtrl'
               }
             }
           })

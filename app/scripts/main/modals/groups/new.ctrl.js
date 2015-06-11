@@ -1,4 +1,6 @@
-angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Groups, $state) {
+angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Groups, $state, $modalInstance, saveEditGroup) {
+
+  $scope.saveEditGroup = saveEditGroup;
 
   $scope.group = {
     name: "New Group",
@@ -45,5 +47,9 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Grou
 
   $scope.cancel = function () {
     $state.go('main.service');
+  };
+
+  $scope.save = function(saveEditGroup) {
+    $modalInstance.close($scope.saveEditGroup);
   };
 });

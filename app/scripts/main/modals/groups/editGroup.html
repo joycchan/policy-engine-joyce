@@ -1,0 +1,19 @@
+
+<h1>Edit Group</h1>
+<div class="container-fluid">
+
+    <div class="col-sm-6 form-horizontal meta">
+
+        <div class="form-group">
+            <label for="groupName">Name</label>
+            <input type="text" class="form-control new-group" ng-model="saveEditGroup.name" id="groupName" required>
+        </div>
+        <div class="form-group">
+            <label for="groupDesc">Description</label>
+            <textarea class="form-control description" id="groupDesc" ng-model="saveEditGroup.description" required></textarea>
+        </div>
+    </div>
+</div>
+<div class="button-group">
+    <div class="button" ng-click="save(edit)">Save</div>
+</div>

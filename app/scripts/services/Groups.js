@@ -4,6 +4,7 @@ angular.module('policyEngine').factory('Groups',
   function ($http) {
 
     var list = [];
+    var list1= [];
 
     var Groups = {
 
@@ -33,6 +34,14 @@ angular.module('policyEngine').factory('Groups',
             return group.type === type;
           }
         });
+      },
+
+      edit: function (group) {
+        list1 = group;
+      },
+
+      getEdit: function () {
+        return list1;
       }
     };
 

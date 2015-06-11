@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('GroupsCtrl',
-  function ($scope, $modal, Groups, Modals) {
+  function ($scope, $modal, Groups, Modals, $state) {
 
     $scope.groups = Groups.list;
     $scope.deleteGroup = Groups.delete;
@@ -37,11 +37,16 @@ angular.module('policyEngine').controller('GroupsCtrl',
     $scope.open = function () {
 
       var modalInstance = $modal.open(Modals.newGroup);
-
       modalInstance.result.then(function (newGroup) {
       }, function () {
         console.log('Modal dismissed at: ' + new Date());
       });
+    };
+
+    $scope.edit = function(group) {
+      Groups.edit(group);
+     return $state.go('main.groupsEdit.settings');
+
     };
   }
 );

@@ -10,6 +10,20 @@ angular.module('policyEngine').factory('Modals',
         controller: 'NewGroupCtrl',
         size: 'lg'
       },
+      editGroup: function(editGroup) {
+        return {
+          'animation': false,
+          templateUrl: 'scripts/main/modals/groups/editGroup.html',
+          windowTemplateUrl: 'scripts/templates/modal/window.html',
+          controller: 'NewGroupCtrl',
+          size: 'lg',
+          resolve: {
+            saveEditGroup: function () {
+              return editGroup;
+            }
+          }
+        }
+      },
       'existingGroup': {
         animation: false,
         templateUrl: 'scripts/main/modals/groups/existing.html',
