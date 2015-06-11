@@ -24,6 +24,25 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       PolicyStore.Services.delete({id: id});  
     },
 
+    FetchGroups: function() {
+      $http.get('api/services').success(function (data) {
+        data.map(actions.ReceiveGroup);
+      });
+    },
+
+    ReceiveGroup: function(service) {
+      PolicyStore.Groups.insert(service);  
+    },
+
+    CreateGroup: function(service) {
+      service.id = Util.uid(); // generate ids locally for now
+      PolicyStore.Groups.insert(service);  
+    },
+
+    DeleteGroup: function(id) {
+      PolicyStore.Groups.delete({id: id});  
+    },
+
   };
 
   return actions;

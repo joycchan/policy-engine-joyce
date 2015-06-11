@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('policyEngine').controller('GroupsCtrl',
-  function ($scope, $modal, Groups, Modals) {
+  function ($scope, $modal, PolicyStore, PolicyActions, Modals) {
 
-    $scope.groups = Groups.list;
-    $scope.deleteGroup = Groups.delete;
+    $scope.groups = PolicyStore.Groups.all;
+    $scope.deleteGroup = PolicyActions.DeleteGroup;
 
     $scope.groupFilters = [
       {name: 'All Groups'},
@@ -19,14 +19,14 @@ angular.module('policyEngine').controller('GroupsCtrl',
 
       if(name === 'User Group')
       {
-        $scope.groups = function() {return Groups.byType('user')};
+        $scope.groups = function() {return PolicyStore.Groups.where({type: 'user'})};
       }
       else if(name === 'Resource Group')
       {
-        $scope.groups = function() {return Groups.byType('resource')};
+        $scope.groups = function() {return PolicyStore.Groups.where({type: 'resource'})};
       }
       else {
-        $scope.groups = function() {return Groups.byType('')};
+        $scope.groups = function() {return PolicyStore.Groups.all(); }; 
       }
     };
 
