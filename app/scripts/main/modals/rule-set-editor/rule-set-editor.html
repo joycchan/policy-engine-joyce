@@ -35,7 +35,7 @@
     <div class="editor-help">
       Rules define how the network behaves.  Classifiers describe types of network traffic and actions deterimne waht to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you can specify your custom rule.
     </div>
-    <div>
+    <div class="rulesListContainer">
       <table class="listView listView--iconsHover rulesList">
         <thead>
           <tr>
@@ -58,11 +58,13 @@
               </td>
               <td>
                 <div class="subRuleContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
-                  <div class="subRule subRule--classifier listView-innerList" ng-repeat="classifier in rule.classifiers">
-                    {{classifier.name}}
-                    <div class="deleteSubRuleContainer" ng-click="deleteClassifier($parent.$index, classifier)">
-                      <img class="deleteSubRule is-hiddenOnHover" src="images/icon_x_16_white.png">
-                      <img class="deleteSubRule is-displayedOnHover" src="images/icon_x_dark_16.png">
+                  <div ng-repeat="classifier in rule.classifiers">
+                    <div class="subRule subRule--classifier listView-innerList">
+                      {{classifier.name}}
+                      <div class="deleteSubRuleContainer" ng-click="deleteClassifier($parent.$index, classifier)">
+                        <img class="deleteSubRule is-hiddenOnHover" src="images/icon_x_16_white.png">
+                        <img class="deleteSubRule is-displayedOnHover" src="images/icon_x_dark_16.png">
+                      </div>
                     </div>
                   </div>
                   <div class="subRule subRule--empty" ng-show="rule.classifiers.length === 0">DRAG IN CLASSIFIERS FROM LEFT</div>
