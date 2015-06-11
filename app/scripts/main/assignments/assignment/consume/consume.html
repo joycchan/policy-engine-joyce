@@ -1,11 +1,11 @@
-<div class="allocation" ng-drop-success="onDropComplete($data,$event)">
+<div class="assignment" ng-drop-success="onDropComplete($data,$event)">
     <div class="instructions">Now drag in services that you want this group to consume</div>
-    <donut data="allocation().collection" type="consume" name="allocation().item.name" drop="onDropComplete"></donut>
+    <donut data="assignment().collection" type="consume" name="assignment().item.name" drop="onDropComplete"></donut>
     <div class="services-header">
         Services Consumed
     </div>
     <div class="services-number consume">
-        {{allocation().collection.length}}
+        {{assignment().collection.length}}
     </div>
     <div class="show-list">Show List</div>
 </div>

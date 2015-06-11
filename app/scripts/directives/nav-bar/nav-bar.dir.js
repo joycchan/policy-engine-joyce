@@ -5,7 +5,8 @@ angular.module('policyEngine')
     return {
       templateUrl: 'scripts/directives/nav-bar/nav-bar.html',
       scope: {
-        menu: '='
+        menu: '=',
+        menubar: '='
       },
       restrict: 'E',
 
@@ -19,6 +20,10 @@ angular.module('policyEngine')
           };
           classes[group.cssClass] = true;
           return classes;
+        };
+
+        scope.selected = function(item) {
+          return $state.includes(item.selectionState);
         };
 
         scope.search = '';

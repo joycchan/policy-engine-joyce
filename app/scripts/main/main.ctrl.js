@@ -9,45 +9,22 @@ angular.module('policyEngine').controller('MainCtrl',
 
     $scope.configFlashClass = '';
 
-    $scope.hideConfigFlash = function() {
+    $scope.hideConfigFlash = function () {
       $scope.configFlashClass = 'hide-flash';
     };
 
-    $scope.notConfig = function() {
+    $scope.notConfig = function () {
       return !$state.is('main.configuration');
     };
 
+    $scope.menubar = [
+      { name: 'Services', state: 'main.services.filters.cards', selectionState: 'main.services', width: 82},
+      { name: 'Assignments', state: 'main.assignments', selectionState: 'main.assignments', width: 108},
+      { name: 'Groups', state: 'main.groups', selectionState: 'main.groups', width: 74},
+      { name: 'Rule Sets', state: 'main.ruleSets', selectionState: 'main.ruleSets', width: 86}
+   ];
+
     $scope.menu = [
-      {
-        cssClass: 'services',
-        sections: [
-          {
-            label: 'Services',
-            state: 'main.services.filters.cards'
-          },
-          {
-            label: 'Assignments',
-            state: 'main.allocations'
-          }
-        ]
-      },
-      {
-        cssClass: 'groups',
-        sections: [
-          {
-            label: 'Groups',
-            state: 'main.groups'
-          },
-          {
-            label: 'Rule Sets',
-            state: 'main.ruleSets'
-          },
-          {
-            label: 'Dependency Graphs',
-            state: '#'
-          }
-        ]
-      },
       {
         cssClass: 'setup',
         sections: [
@@ -60,7 +37,7 @@ angular.module('policyEngine').controller('MainCtrl',
             state: '#'
           },
           {
-            label: 'Application Settings',
+            label: 'Setup',
             state: 'main.configuration'
           }
         ]

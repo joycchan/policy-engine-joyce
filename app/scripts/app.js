@@ -117,39 +117,39 @@ angular.module("policyEngine", [
             }
           })
 
-       .state("main.allocations", {
+       .state("main.assignments", {
 
-          url: 'allocations/',
-          templateUrl: 'scripts/main/allocations/allocations.html',
-          controller: "AllocationsCtrl"
+          url: 'assignments/',
+          templateUrl: 'scripts/main/assignments/assignments.html',
+          controller: "AssignmentsCtrl"
         })
-        .state("main.allocation", {
+        .state("main.assignment", {
           abstract: true,
-          url: "allocations/",
-          templateUrl: "scripts/main/allocations/allocation/allocation.html",
-          controller: "AllocationCtrl"
+          url: "assignments/",
+          templateUrl: "scripts/main/assignments/assignment/assignment.html",
+          controller: "AssignmentCtrl"
         })
-          .state("main.allocation.new", {
+          .state("main.assignment.new", {
             url: "new/",
-            controller: "AllocationNewCtrl",
-            templateUrl: "scripts/main/allocations/new/new.html"
+            controller: "AssignmentNewCtrl",
+            templateUrl: "scripts/main/assignments/new/new.html"
           })
 
-      .state("main.allocation.existing", {
+      .state("main.assignment.existing", {
         abstract: true,
-        url: ":allocationId/",
-        controller: "AllocationExistingCtrl",
-        templateUrl: "scripts/main/allocations/allocation/existing.html"
+        url: ":assignmentId/",
+        controller: "AssignmentExistingCtrl",
+        templateUrl: "scripts/main/assignments/assignment/existing.html"
       })
-          .state("main.allocation.existing.provide", {
+          .state("main.assignment.existing.provide", {
             url: "provide/",
             controller: "ProvideCtrl",
-            templateUrl: "scripts/main/allocations/allocation/provide/provide.html"
+            templateUrl: "scripts/main/assignments/assignment/provide/provide.html"
           })
-          .state("main.allocation.existing.consume", {
+          .state("main.assignment.existing.consume", {
             url: "consume/",
             controller: "ConsumeCtrl",
-            templateUrl: "scripts/main/allocations/allocation/consume/consume.html"
+            templateUrl: "scripts/main/assignments/assignment/consume/consume.html"
           })
       .state("main.ruleSets", {
         url: "rulesets/",
