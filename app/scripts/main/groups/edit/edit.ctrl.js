@@ -20,18 +20,8 @@ angular.module('policyEngine').controller('GroupsEditCtrl',
     $scope.ruleset =
     {
       name: Groups.getEdit().name,
-      description: Groups.getEdit().description
+      description: Groups.getEdit().description,
+      origin: Groups.getEdit().origin
     }
-
-    $scope.open = function (editGroup) {
-
-      var modalInstance = $modal.open(Modals.editGroup(editGroup));
-
-      modalInstance.result.then(function (newGroup) {
-      }, function () {
-        console.log('Modal dismissed at: ' + new Date());
-      });
-
-    };
   }
 );

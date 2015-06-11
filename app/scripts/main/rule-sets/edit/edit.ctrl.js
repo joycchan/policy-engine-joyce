@@ -39,5 +39,21 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
 
     };
 
+    $scope.editorEnabled = false;
+
+    $scope.enableEditor = function() {
+      $scope.editorEnabled = true;
+      $scope.editableTitle = $scope.rulesets.name;
+    };
+
+    $scope.disableEditor = function() {
+      $scope.editorEnabled = false;
+    };
+
+    $scope.save = function() {
+      $scope.rulesets.name = $scope.editableTitle;
+      $scope.disableEditor();
+    };
+
   }
 );

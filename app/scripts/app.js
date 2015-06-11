@@ -2,7 +2,7 @@
 
 angular.module("policyEngine", [
 
-  "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox'
+  "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox',"xeditable"
 
 ])
   .config(

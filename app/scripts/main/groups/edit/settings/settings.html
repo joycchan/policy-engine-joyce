@@ -1,30 +1,38 @@
 <div class="rulesets-settings">
-  <div class="rulesets-settings-editableItems">
-    <div class="media">
-      <div class="media-left rulesets-settings-editableItems-header">
-          Name
-      </div>
-      <div class="media-body rulesets-settings-editableItems-text" ng-model = "ruleset.name">
-       {{ruleset.name}}
-        <list-view-icon ng-click="open(ruleset)" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
-      </div>
+    <div class="rulesets-settings-editableItems">
+        <div class="media">
+            <div class="media-left rulesets-settings-editableItems-header">
+                Name
+            </div>
+            <div class="media-body rulesets-settings-editableItems-text">
+                <span  editable-text="ruleset.name" e-form="textBtnForm">
+                    {{ruleset.name || 'empty'}}
+                </span>
 
+                <list-view-icon ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left rulesets-settings-editableItems-header">
+                Description
+            </div>
+            <div class="media-body rulesets-settings-editableItems-text" ng-model = "ruleset.description">
+                <span  editable-text="ruleset.description" e-form="textBtnFormDescription">
+                {{ruleset.description || 'empty'}}
+                </span>
+                <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-left rulesets-settings-editableItems-header">
+                Origin
+            </div>
+            <div class="media-body rulesets-settings-editableItems-text">
+                <span  editable-text="ruleset.origin" e-form="textBtnFormOrigin">
+                    {{ruleset.origin || 'empty'}}
+                </span>
+                <list-view-icon ng-click="textBtnFormOrigin.$show()" ng-hide="textBtnFormOrigin.$visible" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
+            </div>
+        </div>
     </div>
-    <div class="media">
-      <div class="media-left rulesets-settings-editableItems-header">
-          Description
-      </div>
-      <div class="media-body rulesets-settings-editableItems-text" ng-model = "ruleset.description">
-       {{ruleset.description}}
-      </div>
-    </div>
-    <div class="media">
-      <div class="media-left rulesets-settings-editableItems-header">
-          Origin
-      </div>
-      <div class="media-body rulesets-settings-editableItems-text">
-        Custom
-      </div>
-    </div>
-  </div>
 </div>
