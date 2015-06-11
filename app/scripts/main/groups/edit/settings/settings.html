@@ -6,10 +6,9 @@
       </div>
       <div class="media-body rulesets-settings-editableItems-text" ng-model = "ruleset.name">
        {{ruleset.name}}
+        <list-view-icon ng-click="open(ruleset)" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
       </div>
-      <div class="media-body rulesets-settings-editableItems-text">
-        <list-view-icon ng-click="open(ruleset)" active-src="images/icon_edit_16_blue.png"></list-view-icon>
-      </div>
+
     </div>
     <div class="media">
       <div class="media-left rulesets-settings-editableItems-header">
