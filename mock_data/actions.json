@@ -1,9 +1,17 @@
 [{
-  "name": "Allow"
+  "name": "Allow",
+  "custom": "Default",
+  "id": 1
 }, {
-  "name": "Deny"
+  "name": "Deny",
+  "custom": "Default",
+  "id": 2
 }, {
-  "name": "Redirect"
+  "name": "Redirect",
+  "custom": "Default",
+  "id": 3
 }, {
-  "name": "Chain"
+  "name": "Chain",
+  "custom": "Custom",
+  "id": 4
 }]

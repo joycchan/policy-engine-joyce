@@ -10,17 +10,17 @@ angular.module('policyEngine').factory('Classifiers',
       return list;
     };
 
+    service.create = function (group) {
+      list.push(group);
+      return group;
+    };
+
     service.delete = function (classifier) {
       _.remove(list, function (s) {
         return s.name === classifier.name;
       });
       //reset list object id to trigger watches on Services.list()
       list = angular.copy(list);
-    };
-
-    service.create = function (group) {
-      list.push(group);
-      return group;
     };
 
     $http.get('api/classifiers').success(function (data) {

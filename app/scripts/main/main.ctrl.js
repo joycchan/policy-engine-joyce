@@ -36,7 +36,7 @@ angular.module('policyEngine').controller('MainCtrl',
           },
           {
             label: 'Actions Library',
-            state: '#'
+            state: 'main.actionsLibrary'
           },
           {
             label: 'Setup',

@@ -1,0 +1,27 @@
+<div class="objectsList">
+    <div class="objectsList-breadcrumb">Actions</div>
+  <div class="objectsList-container">
+    <list-count-filter-search class="objectsList-countFilterSearch"
+      count="actionsList().length"
+      filters="actionsListFilters"
+      filter-by="filterActionsListBy"
+      is-filter-selected="isActionsListFilterSelected"
+      search-model="search.name">
+    </list-count-filter-search>
+      <table class="objectsList-list listView listView--iconsHover">
+        <thead>
+          <th>Name</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="action in actionsList() | filter: search">
+            <td>{{action.name}}</td>
+            <td>
+              <list-view-icon ui-sref="main.actionsLibraryEdit.settings({'actionId': action.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+              <list-view-icon ng-click="deleteaction(action)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

@@ -17,7 +17,7 @@ angular.module('policyEngine').controller('ClassifiersLibrary',
 
     $scope.filter = "All Classifiers";
 
-    $scope.filterRulesListBy = function(name) {
+    $scope.filterClassifiersListBy = function(name) {
       $scope.filter = name;
 
       if(name === 'Default')
@@ -33,7 +33,7 @@ angular.module('policyEngine').controller('ClassifiersLibrary',
       }
     };
 
-    $scope.isRulesListFilterSelected = function(name) {
+    $scope.isClassifiersListFilterSelected = function(name) {
       return name === $scope.filter;
     };
 
