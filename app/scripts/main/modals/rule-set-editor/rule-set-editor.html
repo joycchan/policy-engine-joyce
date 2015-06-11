@@ -54,7 +54,7 @@
             <tr ng-repeat="rule in selectedRuleSet.rules" class="rulesList-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
               <td>
                 <div class="listView-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
-                <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleSet($index)"><img src="images/icon_edit_16_blue.png"></div>
+                <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleSet($index)"><img src="images/icon_edit_rule_24.png"></div>
               </td>
               <td>
                 <div class="subRuleContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
