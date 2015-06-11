@@ -5,7 +5,7 @@ angular.module('policyEngine').factory('ruleSets',
     var service = {};
 
     var list = [];
-    var list1 = [];
+    var selectedList = [];
 
     service.list = function () {
       return list;
@@ -40,11 +40,11 @@ angular.module('policyEngine').factory('ruleSets',
     };
 
     service.edit = function (ruleset) {
-      list1 = ruleset;
+      selectedList = ruleset;
     };
 
     service.getEdit = function () {
-      return list1;
+      return selectedList;
     };
 
     return service;

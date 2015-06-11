@@ -4,7 +4,7 @@ angular.module('policyEngine').factory('Groups',
   function ($http) {
 
     var list = [];
-    var list1= [];
+    var selectedList= [];
 
     var Groups = {
 
@@ -37,11 +37,11 @@ angular.module('policyEngine').factory('Groups',
       },
 
       edit: function (group) {
-        list1 = group;
+        selectedList = group;
       },
 
       getEdit: function () {
-        return list1;
+        return selectedList;
       }
     };
 
