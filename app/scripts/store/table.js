@@ -18,6 +18,28 @@ angular.module("store")
 
     };
 
+    var freezeExcept = function(object, keys) {
+
+      _.forEach(object, function(value, key) {
+        if (_.includes(keys, key)) return;
+        Object.defineProperty(object, key, {
+          value: value,
+          configurable: false,
+          writable: false,
+        });
+      });
+
+      _.forEach(keys, function(allowedKey) {
+        Object.defineProperty(object, allowedKey, {
+          configurable: true,
+          writable: true,
+        });
+      });
+
+      Object.preventExtensions(object);
+
+    };
+
     Table.prototype.all = memoize(function() {
       return _.pluck(_.values(this.records), 'object');
     });
@@ -35,7 +57,7 @@ angular.module("store")
 
       var localStoreId = Util.uid();
 
-      Object.freeze(clone);
+      freezeExcept(clone, ["$$hashKey"]);
 
       var record = {
         localStoreId: localStoreId,

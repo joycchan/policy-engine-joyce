@@ -26,6 +26,17 @@ describe('Table', function () {
       expect(retrieved).toEqual([object])
     });
 
+    it('freezes but allows $$hashKey writes', function () {
+      var object = {id: "1234", a: 1, b: 2};
+      table.insert(object);
+      var retrieved = table.where({id: "1234"})[0]; 
+      var idDescriptor = Object.getOwnPropertyDescriptor(retrieved, 'id');
+      var hashKeyDescriptor = Object.getOwnPropertyDescriptor(retrieved, '$$hashKey');
+      expect(idDescriptor.writable).toEqual(false);
+      expect(hashKeyDescriptor.writable).toEqual(true);
+      expect(Object.isExtensible(retrieved)).toEqual(false);
+    });
+
     it('deletes', function () {
       var object = {id: "1234", a: 1, b: 2};
       var object2 = {id: "12345", a: 1, b: 2};
