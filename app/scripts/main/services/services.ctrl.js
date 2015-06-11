@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, assignments, PolicyStore) {
+  function ($scope, $state, assignments, PolicyStore, PolicyActions) {
 
     $scope.filtered = {
       category: false,
@@ -45,7 +45,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.servicesByCategory = function(category) {
-      _.filter(PolicyStore.Tables.Services.all(), {category: {name: 'category'}});
+      _.filter(PolicyStore.Services.all(), {category: {name: 'category'}});
     };
 
     $scope.deleteCategory = function(category) {
@@ -54,7 +54,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       });
     };
 
-    $scope.deleteService = PolicyStore.Actions.DeleteService;
+    $scope.deleteService = PolicyActions.DeleteService;
 
     $scope.providerGroups = [];
     $scope.ruleSets = [];
@@ -96,7 +96,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
     }
 
     $scope.$watch(function () {
-      return PolicyStore.Tables.Services.all();
+      return PolicyStore.Services.all();
     }, function (newServices) {
       $scope.providerGroups = _.uniq(_.pluck('group'), 'name');
       $scope.ruleSets = _.uniq(_.pluck('ruleSet'), 'name');
