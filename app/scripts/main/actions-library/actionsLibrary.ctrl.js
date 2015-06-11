@@ -3,13 +3,13 @@
 angular.module('policyEngine').controller('ActionsLibrary',
   function($scope, $modal, Modals, Actions) {
 
-    $scope.ActionsList = Actions.list;
+    $scope.actionsList = Actions.list;
 
     $scope.deleteActions = Actions.delete;
 
     $scope.search = {name: ''};
 
-    $scope.ActionsListFilters = [
+    $scope.actionsListFilters = [
       {name: 'All Actions'},
       {name: 'Default'},
       {name: 'Custom'}
@@ -22,14 +22,14 @@ angular.module('policyEngine').controller('ActionsLibrary',
 
       if(name === 'Default')
       {
-        $scope.ActionsList = function() {return Actions.byCustom('Default')};
+        $scope.actionsList = function() {return Actions.byCustom('Default')};
       }
       else if(name === 'Custom')
       {
-        $scope.ActionsList = function() {return Actions.byCustom('Custom')};
+        $scope.actionsList = function() {return Actions.byCustom('Custom')};
       }
       else {
-        $scope.ActionsList = function() {return Actions.byCustom('')};
+        $scope.actionsList = function() {return Actions.byCustom('')};
       }
     };
 

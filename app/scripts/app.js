@@ -192,8 +192,8 @@ angular.module("policyEngine", [
       })
       .state("main.actionsLibraryEdit", {
         abstract: true,
-        url: "actions/edit/{actionsId}/",
-        controller: "actionsEditCtrl",
+        url: "actions/edit/{actionId}/",
+        controller: "ActionsEditCtrl",
         templateUrl: "scripts/main/actions-library/edit/edit.html"
       })
       .state("main.actionsLibraryEdit.settings", {
