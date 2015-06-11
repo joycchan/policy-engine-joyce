@@ -1,4 +1,6 @@
-angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, ruleSets, $modal, Modals) {
+angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, ruleSets, $modal, Modals, saveEditRule, $modalInstance) {
+
+  $scope.saveEditRule =saveEditRule;
 
   $scope.ruleSet = {
     name: "New Rule Set",
@@ -30,4 +32,9 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
   $scope.cancel = function () {
     $state.go('main.service');
   };
+
+  $scope.save = function(saveEditRule) {
+    $modalInstance.close($scope.saveEditRule);
+  };
+
 });

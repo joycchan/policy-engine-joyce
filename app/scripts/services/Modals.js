@@ -10,7 +10,7 @@ angular.module('policyEngine').factory('Modals',
         controller: 'NewGroupCtrl',
         size: 'lg'
       },
-      editGroup: function(editGroup) {
+      'editGroup': function(editGroup) {
         return {
           'animation': false,
           templateUrl: 'scripts/main/modals/groups/editGroup.html',
@@ -37,6 +37,20 @@ angular.module('policyEngine').factory('Modals',
         windowTemplateUrl: 'scripts/templates/modal/window.html',
         controller: 'NewRuleSetCtrl',
         size: 'lg'
+      },
+      'editRule': function(editRule) {
+        return {
+          'animation': false,
+          templateUrl: 'scripts/main/modals/rule-sets/editRule.html',
+          windowTemplateUrl: 'scripts/templates/modal/window.html',
+          controller: 'NewRuleSetCtrl',
+          size: 'lg',
+          resolve: {
+            saveEditRule: function () {
+              return editRule;
+            }
+          }
+        }
       },
       'existingRuleset': {
         animation: false,

@@ -6,19 +6,19 @@
       <div class="media-left rulesets-settings-editableItems-header">
           Name
       </div>
-      <div class="media-body rulesets-settings-editableItems-text">
-        My Rule set
+      <div class="media-body rulesets-settings-editableItems-text" ng-model = "rulesets.name">
+        {{rulesets.name}}
       </div>
       <div class="media-body rulesets-settings-editableItems-text">
-        <list-view-icon inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+        <list-view-icon ng-click="open(rulesets)" active-src="images/icon_edit_16_blue.png"></list-view-icon>
       </div>
     </div>
     <div class="media">
       <div class="media-left rulesets-settings-editableItems-header">
           Description
       </div>
-      <div class="media-body rulesets-settings-editableItems-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet leo tellus, eu varius justo auctor vitae. Duis consequat lectus.
+      <div class="media-body rulesets-settings-editableItems-text" ng-model = "rulesets.description">
+       {{rulesets.description}}
       </div>
     </div>
 

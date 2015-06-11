@@ -5,6 +5,7 @@ angular.module('policyEngine').factory('ruleSets',
     var service = {};
 
     var list = [];
+    var list1 = [];
 
     service.list = function () {
       return list;
@@ -36,6 +37,14 @@ angular.module('policyEngine').factory('ruleSets',
           return ruleSet.custom === custom;
         }
       });
+    };
+
+    service.edit = function (ruleset) {
+      list1 = ruleset;
+    };
+
+    service.getEdit = function () {
+      return list1;
     };
 
     return service;

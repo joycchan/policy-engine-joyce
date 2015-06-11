@@ -22,5 +22,22 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       });
     };
 
+    $scope.rulesets =
+    {
+      name: ruleSets.getEdit().name,
+      description: ruleSets.getEdit().description
+    }
+
+    $scope.open = function (editRule) {
+
+      var modalInstance = $modal.open(Modals.editRule(editRule));
+
+      modalInstance.result.then(function (editRule) {
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
+
+    };
+
   }
 );

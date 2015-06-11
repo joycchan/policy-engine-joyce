@@ -1,0 +1,17 @@
+
+<h1>Edit Rule Set</h1>
+<div class="rulesets-settings">
+    <div>
+        <div class="form-group">
+            <label for="ruleSetName">Name</label>
+            <input type="text" class="form-control new-group" ng-model="saveEditRule.name" id="ruleSetName" required>
+        </div>
+        <div class="form-group">
+            <label for="ruleSetDesc">Description</label>
+            <textarea class="form-control description" id="ruleSetDesc" ng-model="saveEditRule.description" required
+                      placeholder="Optional"></textarea>
+        </div>
+    </div>
+<div class="button-group">
+    <div class="button" ng-click="save(edit)">Save</div>
+</div>

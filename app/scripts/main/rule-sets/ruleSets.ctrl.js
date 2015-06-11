@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('RuleSetsCtrl',
-  function($scope, $modal, Modals, ruleSets) {
+  function($scope, $modal, Modals, ruleSets, $state) {
 
     $scope.rulesList = ruleSets.list;
 
@@ -45,6 +45,9 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
       });
     };
 
-
+    $scope.edit = function(rule) {
+      ruleSets.edit(rule);
+      return $state.go('main.ruleSetsEdit.settings');
+    };
   }
 );
