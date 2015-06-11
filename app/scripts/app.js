@@ -170,7 +170,21 @@ angular.module("policyEngine", [
         url: "services/",
         templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
-
+      .state("main.classifiersLibrary", {
+        url: "classifiers/",
+        controller: "ClassifiersLibrary",
+        templateUrl: "scripts/main/classifiers-library/classifiers-library.html"
+      })
+      .state("main.classifiersLibraryEdit", {
+        abstract: true,
+        url: "classifiers/edit/{classifierId}/",
+        controller: "ClassifiersEditCtrl",
+        templateUrl: "scripts/main/classifiers-library/edit/edit.html"
+      })
+      .state("main.classifiersLibraryEdit.settings", {
+        url: "settings/",
+        templateUrl: "scripts/main/classifiers-library/edit/settings/settings.html"
+      })
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeSuccess',function(){

@@ -1,0 +1,27 @@
+<div class="objectsList">
+    <div class="objectsList-breadcrumb">Classifiers</div>
+  <div class="objectsList-container">
+    <list-count-filter-search class="objectsList-countFilterSearch"
+      count="classifiersList().length"
+      filters="classifiersListFilters"
+      filter-by="filterRulesListBy"
+      is-filter-selected="isRulesListFilterSelected"
+      search-model="search.name">
+    </list-count-filter-search>
+      <table class="objectsList-list listView listView--iconsHover">
+        <thead>
+          <th>Name</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="classifier in classifiersList() | filter: search">
+            <td>{{classifier.name}}</td>
+            <td>
+              <list-view-icon ui-sref="main.classifiersLibraryEdit.settings({'classifierId': classifier.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+              <list-view-icon ng-click="deleteClassifier(classifier)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
