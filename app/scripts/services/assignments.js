@@ -3,6 +3,7 @@
 angular.module('policyEngine').factory('assignments',
   function ($http, configuration) {
     var list = [];
+    var list = [{ item: {name: 'group'}, type: 'serviceCentric', collection: [], id: '1'}];
 
     var assignmentId = list.length;
 
@@ -38,6 +39,17 @@ angular.module('policyEngine').factory('assignments',
         });
 
         return assignment;
+      },
+
+      read: function(id) {
+        return _.find(list, function(assignment) {
+          return assignment.id === id;
+        });
+      },
+
+      update: function(id, assignment) {
+        var i = _.findIndex(list, function(assignment) { return assignment.id === id; });
+        list[i] = assignment;
       },
 
       delete: function (id) {

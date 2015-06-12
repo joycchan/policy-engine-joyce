@@ -3,19 +3,21 @@
         <assignment-panel title="Group" items="groups()" type="serviceCentric"></assignment-panel>
     </div>
     <div class="col-xs-9 middle-panel">
-        <h2>{{assignment().item.name}}
-            <div ng-hide="hideExit()" ui-sref="main.assignments" class="img-close"></div>
-        </h2>
+        <h2>{{assignment.item.name}}</h2>
+        <div class="buttons">
+            <div ui-sref="main.assignments" class="button button--secondary">Cancel</div>
+            <div ng-click="saveAssignment()" ng-class="{'is-disabled': valid()}" class="button">Save</div>
+        </div>
 
         <div class="assignment" ng-drop-success="onDropComplete($data,$event)">
-            <div class="instructions">From the left, drag in groups that should have access to this service.</div>
-            <donut data="assignment().collection" type="serviceCentric" name="assignment().item.name"
+            <p>From the left, drag in groups that should have access to this service.</p>
+            <donut data="assignment.collection" type="serviceCentric" name="assignment.item.name"
                    drop="onDropComplete"></donut>
             <div class="services-header">
                 Groups Served
             </div>
             <div class="services-number service-centric">
-                {{assignment().collection.length}}
+                {{assignment.collection.length}}
             </div>
             <div class="show-list">Show List</div>
         </div>

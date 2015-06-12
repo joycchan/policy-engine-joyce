@@ -1,17 +1,19 @@
 <div class="assignments">
     <div class="col-xs-9 middle-panel">
-        <h2>{{assignment().item.name}}
-            <div ng-hide="hideExit()" ui-sref="main.assignments" class="img-close"></div>
-        </h2>
+        <h2>{{assignment.item.name}}</h2>
+        <div class="buttons">
+            <div ui-sref="main.assignments" class="button button--secondary">Cancel</div>
+            <div ng-click="saveAssignment()" ng-class="{'is-disabled': valid()}" class="button">Save</div>
+        </div>
         <div class="assignment" ng-drop-success="onDropComplete($data,$event)">
-            <div class="instructions">From the right, drag in services you want to assign to this group</div>
-            <donut data="assignment().collection" type="groupCentric" name="assignment().item.name"
+            <p>From the right, drag in services you want to assign to this group</p>
+            <donut data="assignment.collection" type="groupCentric" name="assignment.item.name"
                    drop="onDropComplete"></donut>
             <div class="services-header">
                 Services Consumed
             </div>
             <div class="services-number group-centric">
-                {{assignment().collection.length}}
+                {{assignment.collection.length}}
             </div>
             <div class="show-list">Show List</div>
         </div>
