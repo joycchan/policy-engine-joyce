@@ -9,7 +9,7 @@ angular.module('policyEngine').controller('ExistingRuleSetCtrl',
 
   $scope.editRuleSet = function(ruleset) {
     $scope.selectRuleSet(ruleset);
-    var modalInstance = $modal.open(Modals.rulesetEditor([$scope.selected]));
+    var modalInstance = $modal.open(Modals.ruleSetEditor([$scope.selected]));
 
     modalInstance.result.then(function () {
     }, function () {
