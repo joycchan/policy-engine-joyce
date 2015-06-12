@@ -3,12 +3,12 @@
         <assignment-panel title="Group" items="groups()" type="serviceCentric"></assignment-panel>
     </div>
     <div class="col-xs-9 middle-panel">
-        <h2>New Assignment
+        <h2>{{assignment().item.name}}
             <div ng-hide="hideExit()" ui-sref="main.assignments" class="img-close"></div>
         </h2>
 
         <div class="assignment" ng-drop-success="onDropComplete($data,$event)">
-            <div class="instructions">Now drag in groups that this group will provide services to</div>
+            <div class="instructions">From the left, drag in groups that should have access to this service.</div>
             <donut data="assignment().collection" type="serviceCentric" name="assignment().item.name"
                    drop="onDropComplete"></donut>
             <div class="services-header">

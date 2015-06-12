@@ -1,16 +1,16 @@
 <div class="assignments">
     <div class="col-xs-9 middle-panel">
-        <h2>New Assignment
+        <h2>{{assignment().item.name}}
             <div ng-hide="hideExit()" ui-sref="main.assignments" class="img-close"></div>
         </h2>
         <div class="assignment" ng-drop-success="onDropComplete($data,$event)">
-            <div class="instructions">Now drag in services that you want this group to consume</div>
+            <div class="instructions">From the right, drag in services you want to assign to this group</div>
             <donut data="assignment().collection" type="groupCentric" name="assignment().item.name"
                    drop="onDropComplete"></donut>
             <div class="services-header">
                 Services Consumed
             </div>
-            <div class="services-number group">
+            <div class="services-number group-centric">
                 {{assignment().collection.length}}
             </div>
             <div class="show-list">Show List</div>
