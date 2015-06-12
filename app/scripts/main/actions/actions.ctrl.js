@@ -22,5 +22,16 @@ angular.module('policyEngine').controller('Actions',
       return $scope.selectedAction.id === action.id;
     };
 
+    $scope.displayHash = {
+      isEditModeEnabled: true, // true for dev purposes, should be false
+      action: 'table',
+    };
+
+    $scope.toggleEditMode = function() {
+      $scope.displayHash.isEditModeEnabled = !$scope.displayHash.isEditModeEnabled;
+    };
+
+
+
   }
 );

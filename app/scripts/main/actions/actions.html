@@ -13,12 +13,12 @@
         <!-- left  -->
         <div class="actions-search">
           <span class="actions-searchLabel">Search</span>
-          <input-search></input-search>
+          <input-search model="search.name"></input-search>
         </div>
 
         <div class="actions-boxLeftInner">
           <div class="actions-name"
-            ng-repeat="action in actionsList()"
+            ng-repeat="action in actionsList() | filter: search"
             ng-click="selectAction(action)"
             ng-class="{'is-selected': isActionSelected(action)}">
             {{action.name}}
@@ -28,9 +28,9 @@
 
       <div class="actions-boxRight">
         <!-- right -->
-        <div class="actions-edit">
-          <img class="is-displayedOnHover" src="images/icon_edit_16.png">
-          <img class="is-hiddenOnHover" src="images/icon_edit_16_blue.png">
+        <div class="actions-edit" ng-click="toggleEditMode()" ng-class="{'is-inEditMode': displayHash.isEditModeEnabled}">
+          <img class="is-hiddenOnHover" src="images/icon_edit_16.png">
+          <img class="is-displayedOnHover" src="images/icon_edit_16_blue.png">
         </div>
 
         <div class="actions-info">
@@ -39,14 +39,46 @@
             <div class="media-left actions-label">Name</div>
             <div class="media-body actions-text">{{selectedAction.name}}</div>
           </div>
+          <div class="media" ng-show="displayHash.isEditModeEnabled">
+            <div class="media-left actions-label">Action</div>
+            <div class="media-body actions-text">
+              <form>
+                <label><input type="radio" ng-model="displayHash.action" value="table"><span class="actions-radioLabel">Table</span></label>
+                <label><input type="radio" ng-model="displayHash.action" value="text"><span class="actions-radioLabel">Text Field</span></label>
+              </form>
+            </div>
+          </div>
+
+          <div ng-show="displayHash.isEditModeEnabled && displayHash.action === 'table'" class="actions-tableContainer">
+            <table class="actions-table">
+              <thead>
+                <th>Name</th>
+                <th>Value</th>
+              </thead>
+            </table>
+
+            <div class="actions-tableScrollable">
+              <table class="actions-table">
+                <tbody>
+                  <tr ng-repeat="data in selectedAction.data">
+                    <td>{{data.name}}</td>
+                    <td>{{data.value}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div ng-show="displayHash.action === 'text'" class="actions-textContainer">
+
+          </div>
+
           <div class="media">
             <div class="media-left actions-label">Description</div>
             <div class="media-body actions-text">{{selectedAction.description}}</div>
           </div>
-
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 </div>
