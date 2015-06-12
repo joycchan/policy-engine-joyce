@@ -79,6 +79,13 @@ angular.module("store")
       this.__updateTime = Date.now();
     };
 
+    Table.prototype.update = function(matcher, updates) {
+      var current = this.where(matcher)[0];
+      var toAdd = _.merge({}, current, updates);
+      this.delete(current);
+      this.insert(toAdd);
+    };
+
     return Table;
        
   });

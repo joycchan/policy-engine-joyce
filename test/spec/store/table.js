@@ -37,6 +37,14 @@ describe('Table', function () {
       expect(Object.isExtensible(retrieved)).toEqual(false);
     });
 
+    it('updates', function () {
+      var object = {id: "1234", type: "a"};
+      table.insert(object);
+      table.update({id: "1234"}, {type: "b"});
+      var retrieved = table.where({id: "1234"}); 
+      expect(table.all()).toEqual([{id: "1234", type: "b"}])
+    });
+
     it('deletes', function () {
       var object = {id: "1234", a: 1, b: 2};
       var object2 = {id: "12345", a: 1, b: 2};
