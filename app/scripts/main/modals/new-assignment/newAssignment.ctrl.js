@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope, $state, Groups, Services, $modalInstance) {
+angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope, $state, Groups, Services, $modalInstance, assignments) {
 
   $scope.groups = Groups.list;
   $scope.services = Services.list;
@@ -39,9 +39,10 @@ angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope,
 
   $scope.ok = function () {
     if ($scope.selected) {
-
-    //$scope.service.group = Groups.create($scope.group);
-    //$state.go('main.service');
+      var x = $scope.type === 'group' ? 'consume' : 'provide';
+      var assignment = assignments.create(x, $scope.selected)
+      $state.go('main.assignment.existing.' + x, {assignmentId: assignment.id});
+      $modalInstance.close();
     }
   };
 
