@@ -37,6 +37,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     CreateGroup: function(group) {
       group.id = Util.uid(); // generate ids locally for now
       PolicyStore.Groups.insert(group);  
+      return group;
     },
 
     DeleteGroup: function(id) {

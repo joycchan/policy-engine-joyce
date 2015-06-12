@@ -40,7 +40,13 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
 
   $scope.ok = function () {
     var newGroup = PolicyActions.CreateGroup($scope.group);
-    $scope.$close(newGroup);
+    if ($state.is('main.service.newGroup')) {
+      $scope.service.group = newGroup.id;
+      $state.go('main.service');
+    }
+    else {
+      $scope.$close(newGroup);
+    }
   };
 
   $scope.cancel = function () {
