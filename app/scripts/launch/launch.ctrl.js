@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('LaunchCtrl',
-  function ($scope, $http, Groups, assignments, PolicyStore) {
+  function ($scope, $http, PolicyStore) {
 
     $scope.mockSummaryData = {};
 
@@ -10,22 +10,22 @@ angular.module('policyEngine').controller('LaunchCtrl',
     });
 
     $scope.connections = function () {
-      return _.sum(_.map(assignments.list(), function (assignment) {
+      return _.sum(_.map(PolicyStore.Assignments.all(), function (assignment) {
         console.log('assignment', assignment);
         return assignment.collection.length;
       }));
     };
 
     $scope.serviceCount = function() {
-      return PolicyStore.Tables.Services.all().length;
+      return PolicyStore.Services.all().length;
     };
 
     $scope.assignmentCount = function () {
-      return assignments.list().length;
+      return PolicyStore.Assignments.all().length;
     };
 
     $scope.groupCount = function () {
-      return Groups.list().length;
+      return PolicyStore.Groups.all().length;
     };
 
     $scope.newGroupCount = function () {
