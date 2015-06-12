@@ -36,11 +36,11 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.assignService = function (service) {
-      var assignment = PolicyActions.CreateAssigment({
-        type: 'provide', 
+      var assignment = PolicyActions.CreateAssignment({
+        type: 'serviceCentric',
         item: service
       });
-      $state.go('main.assignment.existing.provide', {assignmentId: assignment.id});
+      $state.go('main.assignment.serviceCentric', {assignmentId: assignment.id});
     };
 
     $scope.serviceConsumers = function (service) {

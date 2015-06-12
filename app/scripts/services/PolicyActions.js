@@ -1,7 +1,15 @@
 
 'use strict';
 
-angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util, $http) {
+angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util, $http, configuration) {
+
+  var assignmentParams = function () {
+    return {
+      type: configuration.account.type,
+      ip: configuration.account[configuration.account.type].ip,
+      port: configuration.account[configuration.account.type].port
+    }
+  };
 
   var actions = {
     
@@ -60,13 +68,26 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
     CreateAssignment: function(assignment) {
       assignment.id = Util.uid(); // generate ids locally for now
-      PolicyStore.Assignments.insert(assignment);  
+      PolicyStore.Assignments.insert(assignment);
+
+      $http.post('/assignments', undefined, {params: params()}).success(function (response) {
+        console.log('success response', response);
+      }).error(function (response) {
+        console.log('error response', response);
+      });
+
       return assignment;
     },
 
     DeleteAssignment: function(id) {
-      PolicyStore.Assignments.delete({id: id});  
-    },
+      PolicyStore.Assignments.delete({id: id});
+
+      $http.delete('/assignments', {params: params()}).success(function (response) {
+        console.log('success response', response);
+      }).error(function (response) {
+        console.log('error response', response);
+      });
+    }
 
 
   };
