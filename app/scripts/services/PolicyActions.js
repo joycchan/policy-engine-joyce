@@ -70,7 +70,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       assignment.id = Util.uid(); // generate ids locally for now
       PolicyStore.Assignments.insert(assignment);
 
-      $http.post('/assignments', undefined, {params: params()}).success(function (response) {
+      $http.post('/assignments', undefined, {params: assignmentParams()}).success(function (response) {
         console.log('success response', response);
       }).error(function (response) {
         console.log('error response', response);
@@ -79,10 +79,14 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       return assignment;
     },
 
+    UpdateAssignment: function(assignment) {
+      PolicyStore.Assignments.update({id: assignment.id}, assignment);
+    },
+
     DeleteAssignment: function(id) {
       PolicyStore.Assignments.delete({id: id});
 
-      $http.delete('/assignments', {params: params()}).success(function (response) {
+      $http.delete('/assignments', {params: assignmentParams()}).success(function (response) {
         console.log('success response', response);
       }).error(function (response) {
         console.log('error response', response);
