@@ -1,10 +1,14 @@
 'use strict';
 
 angular.module('policyEngine').controller('AssignmentNewCtrl',
-  function ($scope, $state, assignments) {
+  function ($scope, $state, PolicyStore) {
 
     $scope.onDropComplete = function(data,evt){
-      var assignment = assignments.create(data.type, data.item);
+      var assignment = PolicyActions.CreateAssignment({
+        type: data.type,
+        item: data.item,
+        collection: []
+      });
 
       if (data.type === 'provide') {
         $state.go("main.assignment.existing.provide", { assignmentId: assignment.id });

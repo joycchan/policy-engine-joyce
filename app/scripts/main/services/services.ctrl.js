@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, assignments, PolicyStore, PolicyActions, StoreHelpers) {
+  function ($scope, $state, PolicyStore, PolicyActions, StoreHelpers) {
 
     $scope.getChild = StoreHelpers.getChild;
 
@@ -36,11 +36,37 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.assignService = function (service) {
-      var assignment = assignments.create('provide', service)
+      var assignment = PolicyActions.CreateAssigment({
+        type: 'provide', 
+        item: service
+      });
       $state.go('main.assignment.existing.provide', {assignmentId: assignment.id});
     };
 
-    $scope.serviceConsumers = assignments.serviceConsumers;
+    $scope.serviceConsumers = function (service) {
+      var groups = [];
+
+      var groupCentrics = _.filter(PolicyStore.Assignments.where({type: 'consume'}), function (assignment) {
+        return _.find(assignment.collection, function (s) {
+          return s.name === service.name;
+        })
+      });
+
+
+      _.each(groupCentrics, function (assignment) {
+        groups.push(assignment.item);
+      });
+
+      var serviceCentrics = _.filter(PolicyStore.Assignments.where({type: 'provide'}), function (assignment) {
+        return assignment.item.name === service.name;
+      });
+
+      _.each(serviceCentrics, function (assignment) {
+        groups = groups.concat(assignment.collection);
+      });
+
+      return groups;
+    };
 
     $scope.serviceConsumersString = function (service) {
       return _.pluck($scope.serviceConsumers(service), 'name').join(', ');

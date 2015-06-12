@@ -24,6 +24,8 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       PolicyStore.Services.delete({id: id});  
     },
 
+
+
     FetchGroups: function() {
       $http.get('api/groups').success(function (data) {
         data.map(actions.ReceiveGroup);
@@ -43,6 +45,29 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     DeleteGroup: function(id) {
       PolicyStore.Groups.delete({id: id});  
     },
+
+
+
+    FetchAssignments: function() {
+      $http.get('api/assignments').success(function (data) {
+        data.map(actions.ReceiveAssignment);
+      });
+    },
+
+    ReceiveAssignment: function(assignment) {
+      PolicyStore.Assignments.insert(assignment);  
+    },
+
+    CreateAssignment: function(assignment) {
+      assignment.id = Util.uid(); // generate ids locally for now
+      PolicyStore.Assignments.insert(assignment);  
+      return assignment;
+    },
+
+    DeleteAssignment: function(id) {
+      PolicyStore.Assignments.delete({id: id});  
+    },
+
 
   };
 

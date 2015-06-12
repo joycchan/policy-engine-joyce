@@ -1,16 +1,16 @@
 'use strict';
 
 angular.module('policyEngine').controller('AssignmentsCtrl',
-  function($scope, $state, assignments) {
+  function($scope, $state, PolicyStore) {
 
-    $scope.assignments = assignments.list();
+    $scope.assignments = PolicyStore.Assignments.all.bind(PolicyStore.Assignments);
 
     $scope.groupCentric = function () {
-      return assignments.byType('consume');
+      return PolicyStore.Assignments.where({type: 'consume'});
     };
 
     $scope.serviceCentric = function () {
-      return assignments.byType('provide');
+      return PolicyStore.Assignments.where({type: 'provide'});
     };
 
     $scope.goToAssignment = function(assignment) {
