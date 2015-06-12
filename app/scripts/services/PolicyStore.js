@@ -7,6 +7,8 @@ angular.module('policyEngine').factory('PolicyStore', function(Table, Util) {
     Groups: new Table(),
   };
 
+  window.tables = tables;
+
   return tables;
 
 });

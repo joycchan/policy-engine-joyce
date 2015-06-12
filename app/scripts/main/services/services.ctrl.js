@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, assignments, PolicyStore, PolicyActions) {
+  function ($scope, $state, assignments, PolicyStore, PolicyActions, StoreHelpers) {
+
+    $scope.getChild = StoreHelpers.getChild;
 
     $scope.filtered = {
       category: false,
