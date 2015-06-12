@@ -35,6 +35,30 @@
     margin-bottom: 30px;
   }
 
+  .icon {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &.group {
+      background-image: url(../../../../images/icon_users_16.png);
+
+      &.resource {
+        background-image: url(../../../../images/icon_resources_16.png);
+      }
+    }
+
+    &.service {
+      background-image: url(../../../../images/icon_services_16.png);
+    }
+  }
+
   .faded {
     opacity: 0.35;
   }

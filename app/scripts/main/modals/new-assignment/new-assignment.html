@@ -2,13 +2,13 @@
 
 <div class="container-fluid">
 
-    <form name="type" role="form">
+    <form name="type-form" role="form">
 
         <div class="col-sm-6">
             <div class="radio">
                 <label for="groupCentric">
-                    <input type="radio" name="type" ng-model="type" id="groupCentric" value="groupCentric" required
-                           checked>
+                    <input type="radio" name="type" ng-model="type" id="groupCentric" value="groupCentric"
+                           ng-change="resetSelected()"required checked>
 
                     <div class="label-text">Group-Centric</div>
                 </label>
@@ -16,14 +16,14 @@
             <p>Select a group below to start assigning services to it.</p>
 
             <div ng-class="{faded: type !== 'groupCentric'}">
-                <input-search></input-search>
+                <input-search model="groupSearch"></input-search>
                 <div class="scrollable">
                     <table class="listView">
                         <tbody>
-                        <tr ng-repeat="group in groups() | filter:search" ng-click="selectGroup(group)"
+                        <tr ng-repeat="group in groups() | filter:groupSearch" ng-click="selectGroup(group)"
                             ng-class="{ 'is-selected': isSelected(group)}">
                             <td class="list-element">
-                                <div class="img-group" ng-class="itemIcon(group)"></div>
+                                <div class="icon group" ng-class="{resource: group.type === 'resource'}"></div>
                                 {{group.name}}
                             </td>
                         </tr>
@@ -37,8 +37,8 @@
         <div class="col-sm-6">
             <div class="radio">
                 <label for="serviceCentric">
-                    <input type="radio" name="type" ng-model="type" id="serviceCentric" value="serviceCentric" required
-                           checked>
+                    <input type="radio" name="type" ng-model="type" id="serviceCentric" value="serviceCentric"
+                           ng-change="resetSelected()"required>
 
                     <div class="label-text">Service-Centric</div>
                 </label>
@@ -46,15 +46,15 @@
             <p>Select a service below to start assigning groups that should have access to it.</p>
 
             <div ng-class="{faded: type !== 'serviceCentric'}">
-                <input-search></input-search>
+                <input-search model="serviceSearch"></input-search>
                 <div class="scrollable">
 
                     <table class="listView">
                         <tbody>
-                        <tr ng-repeat="service in services() | filter:search" ng-click="selectService(service)"
+                        <tr ng-repeat="service in services() | filter:serviceSearch" ng-click="selectService(service)"
                             ng-class="{ 'is-selected': isSelected(service)}">
                             <td class="list-element">
-                                <div class="img-service" ng-class="itemIcon(service)"></div>
+                                <div class="icon service"></div>
                                 {{service.name}}
                             </td>
                         </tr>

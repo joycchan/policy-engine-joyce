@@ -5,35 +5,25 @@ angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope,
 
   $scope.type = 'groupCentric';
 
-  $scope.chooseGroup = function() {
-    if($scope.type === 'serviceCentric') {
-      $scope.selected = undefined;
-      $scope.type = 'groupCentric';
-    }
-  };
-
-  $scope.chooseService = function() {
-    if($scope.type === 'groupCentric') {
-      $scope.selected = undefined;
-      $scope.type = 'serviceCentric';
-    }
-  };
-
   $scope.selected;
 
-  $scope.selectGroup = function(item) {
+  $scope.resetSelected = function() {
+    $scope.selected = undefined;
+  };
+
+  $scope.selectGroup = function (item) {
     if ($scope.type === 'groupCentric') {
       $scope.selected = item;
     }
   };
 
-  $scope.selectService = function(service) {
+  $scope.selectService = function (service) {
     if ($scope.type === 'serviceCentric') {
       $scope.selected = service;
     }
   };
 
-  $scope.isSelected = function(item) {
+  $scope.isSelected = function (item) {
     return item === $scope.selected;
   };
 

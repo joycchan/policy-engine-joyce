@@ -3,7 +3,6 @@
 angular.module('policyEngine').factory('assignments',
   function ($http, configuration) {
     var list = [];
-    var list = [{ item: {name: 'group'}, type: 'serviceCentric', collection: [], id: '1'}];
 
     var assignmentId = list.length;
 
