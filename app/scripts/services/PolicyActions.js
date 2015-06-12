@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util) {
+angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util, $http) {
 
   var actions = {
     

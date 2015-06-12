@@ -171,9 +171,9 @@ angular.module("policyEngine", [
       })
 
   })
-  .run(function($rootScope) {
-    $rootScope.$on('$stateChangeSuccess',function(){
-      //$("html, body").animate({ scrollTop: 0 }, 0);
-    })
+  .run(function(PolicyActions) {
+    PolicyActions.FetchServices();
+    PolicyActions.FetchGroups();
+    PolicyActions.FetchAssignments();
   });
 
