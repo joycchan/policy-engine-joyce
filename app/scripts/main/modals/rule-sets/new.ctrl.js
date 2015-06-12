@@ -2,7 +2,7 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
 
   $scope.newRuleSet = ruleSets.generateEmptyRuleSet();
 
-  $scope.addRules = function () {
+  $scope.editRule = function () {
     var modalInstance = $modal.open(Modals.ruleSetEditor(angular.copy($scope.newRuleSet)));
     
     modalInstance.result.then(function (updatedRuleSet) {
