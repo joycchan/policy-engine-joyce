@@ -1,4 +1,6 @@
 @import "../../../../../styles/variables";
+@import "../../../../../styles/buttons";
+@import "../../../../../styles/forms";
 
 .rulesets-settings {
   padding-left: 15px;
@@ -6,6 +8,7 @@
     cursor: pointer;
     display: inline-block;
     margin-left: 32px;
+    background: url(../../../../../images/icon_x_16.png) 16px,16px;
   };
 }
 
@@ -23,8 +26,24 @@
     &:extend(.extra-light);
     color: @color-50;
     width: 315px;
+    position: absolute;
+    margin-left: 103px;
+    margin-top: -17px;
   }
 }
+
+
+  .editable-buttons button[type=submit] {
+    &:extend(.button);
+    margin-left: 20px;
+    padding-top: 4px;
+  }
+
+  .editable-buttons button {
+    &:extend(.button);
+    &:extend(.button--secondary);
+    padding-top: 4px;
+  }
 
 .rulesets-settings-helpText {
   &:extend(.extra-light);

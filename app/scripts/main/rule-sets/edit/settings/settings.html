@@ -6,17 +6,23 @@
       <div class="media-left rulesets-settings-editableItems-header">
           Name
       </div>
-      <div class="media-body rulesets-settings-editableItems-text" ng-model = "rulesets.name">
-        {{rulesets.name}}
-        <list-view-icon ng-click="open(rulesets)" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
+      <div class="media-body rulesets-settings-editableItems-text">
+                <span  editable-text="rulesets.name" e-form="textBtnForm">
+                    {{rulesets.name || 'empty'}}
+                </span>
+
+        <list-view-icon ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
       </div>
     </div>
     <div class="media">
       <div class="media-left rulesets-settings-editableItems-header">
           Description
       </div>
-      <div class="media-body rulesets-settings-editableItems-text" ng-model = "rulesets.description">
-       {{rulesets.description}}
+      <div class="media-body rulesets-settings-editableItems-text" ng-model = "ruleset.description">
+                <span  editable-text="rulesets.description" e-form="textBtnFormDescription">
+                {{rulesets.description || 'empty'}}
+                </span>
+        <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
       </div>
     </div>
 

@@ -28,32 +28,5 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       description: ruleSets.getEdit().description
     }
 
-    $scope.open = function (editRule) {
-
-      var modalInstance = $modal.open(Modals.editRule(editRule));
-
-      modalInstance.result.then(function (editRule) {
-      }, function () {
-        console.log('Modal dismissed at: ' + new Date());
-      });
-
-    };
-
-    $scope.editorEnabled = false;
-
-    $scope.enableEditor = function() {
-      $scope.editorEnabled = true;
-      $scope.editableTitle = $scope.rulesets.name;
-    };
-
-    $scope.disableEditor = function() {
-      $scope.editorEnabled = false;
-    };
-
-    $scope.save = function() {
-      $scope.rulesets.name = $scope.editableTitle;
-      $scope.disableEditor();
-    };
-
   }
 );
