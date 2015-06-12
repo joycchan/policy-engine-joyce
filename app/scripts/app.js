@@ -128,12 +128,6 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/assignments/assignment/assignment.html",
           controller: "AssignmentCtrl"
         })
-          .state("main.assignment.new", {
-            url: "new/",
-            controller: "AssignmentNewCtrl",
-            templateUrl: "scripts/main/assignments/new/new.html"
-          })
-
           .state("main.assignment.existing", {
             abstract: true,
             url: ":assignmentId/",
