@@ -41,7 +41,7 @@ angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope,
     if ($scope.selected) {
       var x = $scope.type === 'group' ? 'consume' : 'provide';
       var assignment = assignments.create(x, $scope.selected)
-      $state.go('main.assignment.existing.' + x, {assignmentId: assignment.id});
+      $state.go('main.assignment.' + x, {assignmentId: assignment.id});
       $modalInstance.close();
     }
   };

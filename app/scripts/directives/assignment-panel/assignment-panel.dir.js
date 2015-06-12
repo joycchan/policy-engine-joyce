@@ -27,7 +27,6 @@ angular.module('policyEngine')
       scope: {
         title: '@',
         items: '=',
-        mask: '=',
         type: '@',
         newState: '@'
       },
