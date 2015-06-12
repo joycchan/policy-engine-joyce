@@ -169,35 +169,35 @@ angular.module("policyEngine", [
         url: "services/",
         templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
-      .state("main.classifiersLibrary", {
+      .state("main.classifiers", {
         url: "classifiers/",
-        controller: "ClassifiersLibrary",
-        templateUrl: "scripts/main/classifiers-library/classifiers-library.html"
+        controller: "Classifiers",
+        templateUrl: "scripts/main/classifiers/classifiers.html"
       })
-      .state("main.classifiersLibraryEdit", {
+      .state("main.classifiersEdit", {
         abstract: true,
         url: "classifiers/edit/{classifierId}/",
         controller: "ClassifiersEditCtrl",
-        templateUrl: "scripts/main/classifiers-library/edit/edit.html"
+        templateUrl: "scripts/main/classifiers/edit/edit.html"
       })
-      .state("main.classifiersLibraryEdit.settings", {
+      .state("main.classifiersEdit.settings", {
         url: "settings/",
-        templateUrl: "scripts/main/classifiers-library/edit/settings/settings.html"
+        templateUrl: "scripts/main/classifiers/edit/settings/settings.html"
       })
-      .state("main.actionsLibrary", {
+      .state("main.actions", {
         url: "actions/",
-        controller: "ActionsLibrary",
-        templateUrl: "scripts/main/actions-library/actions-library.html"
+        controller: "Actions",
+        templateUrl: "scripts/main/actions/actions.html"
       })
-      .state("main.actionsLibraryEdit", {
+      .state("main.actionsEdit", {
         abstract: true,
         url: "actions/edit/{actionId}/",
         controller: "ActionsEditCtrl",
-        templateUrl: "scripts/main/actions-library/edit/edit.html"
+        templateUrl: "scripts/main/actions/edit/edit.html"
       })
-      .state("main.actionsLibraryEdit.settings", {
+      .state("main.actionsEdit.settings", {
         url: "settings/",
-        templateUrl: "scripts/main/actions-library/edit/settings/settings.html"
+        templateUrl: "scripts/main/actions/edit/settings/settings.html"
       })
   })
   .run(function($rootScope) {

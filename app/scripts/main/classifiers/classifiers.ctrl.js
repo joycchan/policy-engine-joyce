@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('policyEngine').controller('ClassifiersLibrary',
+angular.module('policyEngine').controller('Classifiers',
   function($scope, $modal, Modals, Classifiers) {
 
     $scope.classifiersList = Classifiers.list;

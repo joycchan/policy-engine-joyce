@@ -17,7 +17,7 @@
           <tr ng-repeat="classifier in classifiersList() | filter: search">
             <td>{{classifier.name}}</td>
             <td>
-              <list-view-icon ui-sref="main.classifiersLibraryEdit.settings({'classifierId': classifier.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+              <list-view-icon ui-sref="main.classifiersEdit.settings({'classifierId': classifier.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
               <list-view-icon ng-click="deleteClassifier(classifier)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
             </td>
           </tr>

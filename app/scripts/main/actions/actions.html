@@ -17,7 +17,7 @@
           <tr ng-repeat="action in actionsList() | filter: search">
             <td>{{action.name}}</td>
             <td>
-              <list-view-icon ui-sref="main.actionsLibraryEdit.settings({'actionId': action.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+              <list-view-icon ui-sref="main.actionsEdit.settings({'actionId': action.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
               <list-view-icon ng-click="deleteaction(action)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
             </td>
           </tr>

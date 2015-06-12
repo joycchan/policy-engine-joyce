@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('policyEngine').controller('ActionsLibrary',
+angular.module('policyEngine').controller('Actions',
   function($scope, $modal, Modals, Actions) {
 
     $scope.actionsList = Actions.list;
