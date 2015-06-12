@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('policyEngine').controller('AssignmentsCtrl',
-  function($scope, $state, assignments) {
+  function($scope, $state, assignments, $modal, Modals) {
 
     $scope.assignments = assignments.list();
+
+    $scope.newAssignment = function() {
+      console.log('modals', Modals.newAssignment)
+      $modal.open(Modals.newAssignment);
+    };
 
     $scope.groupCentric = function () {
       return assignments.byType('consume');

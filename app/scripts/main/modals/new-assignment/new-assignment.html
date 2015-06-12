@@ -1,0 +1,34 @@
+<h2>New Assignment</h2>
+
+<div class="first-column">
+    <h2>Group-Centric</h2>
+
+    <p>Select a group below to start assigning services to it.</p>
+    <input-search></input-search>
+    <div ng-repeat="group in groups() | filter:search">
+        <div class="list-element" ng-class="{ child: group.parentId }">
+            <div class="img-group" ng-class="itemIcon(group)"></div>
+            {{group.name}}
+        </div>
+        <hr/>
+    </div>
+
+</div>
+
+<div class="second-column">
+    <h2>Service-Centric</h2>
+
+    <p>Select a service below to start assigning groups that should have access to it.</p>
+    <input-search></input-search>
+    <div ng-repeat="service in services() | filter:search">
+        <div class="list-element" ng-class="{ child: service.parentId }">
+            <div class="img-service" ng-class="itemIcon(service)"></div>
+            {{service.name}}
+        </div>
+        <hr/>
+    </div>
+</div>
+<div class="button-group">
+    <div class="button button--secondary" ng-click="cancel()">Cancel</div>
+    <div class="button" ng-click="ok()">Create</div>
+</div>

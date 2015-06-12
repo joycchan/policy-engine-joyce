@@ -31,7 +31,7 @@ angular.module('policyEngine').factory('Modals',
         controller: 'ExistingRuleSetCtrl',
         size: 'lg'
       },
-      'rulesetEditor': function(rulesetsList) {
+      'rulesetEditor': function (rulesetsList) {
         return {
           animation: false,
           templateUrl: 'scripts/main/modals/rule-set-editor/rule-set-editor.html',
@@ -40,11 +40,19 @@ angular.module('policyEngine').factory('Modals',
           windowClass: 'ruleEditor-modal',
           windowTemplateUrl: 'scripts/templates/modal/window.html',
           resolve: {
-            selectedRuleset: function() {
+            selectedRuleset: function () {
               return rulesetsList;
             }
           }
         }
+      },
+      newAssignment: {
+        animation: false,
+        templateUrl: 'scripts/main/modals/new-assignment/new-assignment.html',
+        controller: 'NewAssignmentCtrl',
+        size: 'lg',
+        windowClass: 'new-assignment-modal',
+        windowTemplateUrl: 'scripts/templates/modal/window.html',
       }
     };
 
