@@ -88,72 +88,71 @@
       }
 
       .meta {
-        border-right: 1px solid @color-80;
 
         .form-group:last-child {
           margin-bottom: 0;
         }
 
         label {
-          width: 62px;
+          width: 98px;
+          line-height: 32px;
         }
       }
 
       .ep-pools {
-        padding-left: 20px;
-        min-height: 200px;
-      }
+        position: relative;
 
-      .pool-list {
-        width: 250px;
-        min-height: 64px;
-        background-color: white;
-        padding: 5px;
-        border: 1px solid @color-70;
-        border-radius: 3px;
-        cursor: pointer;
+        .button:hover {
+          background-color: @green;
+          color: white;
 
-        .helper-text {
-          font-style: italic;
+          &.button--secondary {
+            background-color: @color-60;
+          }
         }
 
-        .selected-pool {
-          display: inline-block;
-          background-color: @light-blue;
-          height: 20px;
-          line-height: 20px;
-          font-weight: 300;
-          color: white;
-          padding: 0 10px;
-          border-radius: 5px;
-          margin-bottom: 5px;
-          margin-right: 5px;
+        .button--primary {
+          cursor: auto;
 
-          .delete-pool {
-            display: inline-block;
-            background: url(../../../images/icon_x_16_white.png) no-repeat;
-            background-size: cover;
-            height: 10px;
-            width: 10px;
-            margin-left: 6px;
-            margin-bottom: -1px;
-            cursor: pointer;
+          &:hover {
+            background-color: @blue;
+            color: white;
           }
         }
       }
 
+      .selected-pool {
+        margin-bottom: 8px;
+        margin-right: 3px;
+        float: left;
+
+        .delete-pool {
+          display: inline-block;
+          background: url(../../../images/icon_x_16_white.png) no-repeat;
+          background-size: cover;
+          height: 8px;
+          width: 8px;
+          margin-left: 6px;
+          margin-top: 4px;
+          cursor: pointer;
+        }
+
+      }
+
       .pool-selection {
-        width: 250px;
+        height: 350px;
+        width: 300px;
         max-height: 0;
         border: none;
         transition: max-height 0.2s ease;
         overflow: hidden;
         background-color: white;
         border-radius: 3px;
-        line-height: 32px;
         font-weight: 300;
         color: @color-50;
         position: absolute;
+        top: 37px;
+        left: 107px;
 
         &.expanded {
           border: 1px solid @color-70;
@@ -162,18 +161,61 @@
 
         input-search input {
           margin: 10px;
-          width: 230px;
+          width: 280px;
+        }
+
+        .pools {
+          overflow: auto;
+          height: 258px;
+          padding-top: 1px;
         }
 
         .pool {
+          height: 36px;
           padding-left: 10px;
-          cursor: pointer;
 
-          &.selected {
-            background-color: @light-blue;
+          form {
+            display: inline-block;
+            float: right;
+            padding-right: 30px;
+
+            .switch {
+              height: 20px;
+              width: 55px;
+              background-color: @color-70;
+              border-color: @color-70;
+
+              small {
+                height: 20px;
+                width: 20px;
+              }
+
+              &.checked {
+                background-color: @dark-green;
+                border-color: @dark-green;
+
+                small {
+                  left: 35px;
+
+                }
+              }
+            }
           }
-          &:last-child {
-            margin-bottom: 10px;
+
+          &.apply {
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 300;
+            height: 40px;
+            line-height: 40px;
+            font-size: 12px;
+            border-top: 1px solid @color-70;
+            color: @color-70;
+            cursor: pointer;
+
+            &:hover {
+              color: @color-60;
+            }
           }
         }
       }

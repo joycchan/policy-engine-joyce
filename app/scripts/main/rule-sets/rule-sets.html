@@ -24,14 +24,14 @@
           <th></th>
         </thead>
         <tbody>
-          <tr ng-repeat="rule in rulesList() | filter: search">
-            <td>{{rule.name}}</td>
-            <td>{{rule.classifiers.join(',')}}</td>
-            <td>{{rule.services}}</td>
-            <td>{{rule.description}}</td>
+          <tr ng-repeat="ruleSet in rulesList() | filter: search">
+            <td>{{ruleSet.name}}</td>
+            <td><div class="rulesList-classifiers">{{ruleSet.rules | subRulesToString : 'classifiers'}}</div></td>
+            <td>{{ruleSet.services}}</td>
+            <td>{{ruleSet.description}}</td>
             <td>
-              <list-view-icon ui-sref="main.ruleSetsEdit.settings({'ruleId': rule.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
-              <list-view-icon ng-click="deleteRuleSet(rule)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
+              <list-view-icon ui-sref="main.ruleSetsEdit.settings({'ruleId': ruleSet.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+              <list-view-icon inactive-src="images/icon_x_16.png" active-src="images/icon_x_dark_16.png" ng-click="deleteRuleSet(ruleSet)"></list-view-icon>
             </td>
           </tr>
         </tbody>

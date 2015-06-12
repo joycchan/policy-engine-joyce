@@ -117,8 +117,7 @@ angular.module("policyEngine", [
             }
           })
 
-       .state("main.assignments", {
-
+        .state("main.assignments", {
           url: 'assignments/',
           templateUrl: 'scripts/main/assignments/assignments.html',
           controller: "AssignmentsCtrl"
@@ -135,22 +134,22 @@ angular.module("policyEngine", [
             templateUrl: "scripts/main/assignments/new/new.html"
           })
 
-      .state("main.assignment.existing", {
-        abstract: true,
-        url: ":assignmentId/",
-        controller: "AssignmentExistingCtrl",
-        templateUrl: "scripts/main/assignments/assignment/existing.html"
-      })
-          .state("main.assignment.existing.provide", {
-            url: "provide/",
-            controller: "ProvideCtrl",
-            templateUrl: "scripts/main/assignments/assignment/provide/provide.html"
+          .state("main.assignment.existing", {
+            abstract: true,
+            url: ":assignmentId/",
+            controller: "AssignmentExistingCtrl",
+            templateUrl: "scripts/main/assignments/assignment/existing.html"
           })
-          .state("main.assignment.existing.consume", {
-            url: "consume/",
-            controller: "ConsumeCtrl",
-            templateUrl: "scripts/main/assignments/assignment/consume/consume.html"
-          })
+              .state("main.assignment.existing.provide", {
+                url: "provide/",
+                controller: "ProvideCtrl",
+                templateUrl: "scripts/main/assignments/assignment/provide/provide.html"
+              })
+              .state("main.assignment.existing.consume", {
+                url: "consume/",
+                controller: "ConsumeCtrl",
+                templateUrl: "scripts/main/assignments/assignment/consume/consume.html"
+              })
       .state("main.ruleSets", {
         url: "rulesets/",
         controller: "RuleSetsCtrl",

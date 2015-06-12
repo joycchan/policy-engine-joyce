@@ -4,46 +4,15 @@
     <div>
         <div class="form-group">
             <label for="ruleSetName">Name</label>
-            <input type="text" class="form-control new-group" ng-model="ruleSet.name" id="ruleSetName" required>
+            <input type="text" class="form-control new-group" ng-model="newRuleSet.name" id="ruleSetName" required>
         </div>
         <div class="form-group">
             <label for="ruleSetDesc">Description</label>
-            <textarea class="form-control description" id="ruleSetDesc" ng-model="ruleSet.description" required
+            <textarea class="form-control description" id="ruleSetDesc" ng-model="newRuleSet.description" required
                       placeholder="Optional"></textarea>
         </div>
     </div>
-
-    <div class="rulesets-settings-helpText">
-        Rules define how the network traffic behaves. Classifiers describe types of network traffic and actions
-        determine what to do with that type of traffic. You can pair up existing classifiers and actions from the
-        libraries, or you specify custom ones.
-    </div>
-    <div class="rulesets-settings-editButton">
-        <div class="button button--secondary" ng-click="addRules()">Add Rules</div>
-    </div>
-      <div class="rulesets-settings-list">
-    <table class="listView">
-      <thead>
-        <tr>
-          <th></th>
-          <th><div>Classifier</div><div class="listview-headerDescription">Classifiers are OR'ed</div></th>
-          <th><div>Action</div><div class="listview-headerDescription">Actions are AND'ed</div></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="listView-number">{{$index + 1}}</div></td>
-          <td>
-              <a ng-click="addRules()" ng-hide="ruleSet.classifiers.length" class="click-here">Click here to add rules</a>
-            <div class="listView-innerList" ng-repeat="classifier in ruleSet.classifiers">{{classifier}}</div>
-          </td>
-          <td>
-            <div class="listView-innerList" ng-repeat="action in ruleSet.actions">{{action}}</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <add-edit-rules rule-set="newRuleSet" edit-rule="editRule"></add-edit-rules>
 </div>
 <div class="button-group">
     <div class="button button--secondary" ng-click="cancel()">Cancel</div>
