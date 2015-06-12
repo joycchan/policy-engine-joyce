@@ -12,14 +12,14 @@ angular.module('policyEngine').controller('Actions',
 
     $scope.search = {name: ''};
 
-    $scope.selectedAction;
+    $scope.selectedAction = {};
 
     $scope.selectAction = function(action) {
-      $scope.selectedAction = action.id;
+      $scope.selectedAction = action;
     };
 
     $scope.isActionSelected = function(action) {
-      return $scope.selectedAction === action.id;
+      return $scope.selectedAction.id === action.id;
     };
 
   }

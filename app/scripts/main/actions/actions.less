@@ -26,6 +26,8 @@
   border-right: 1px solid @color-70;
   height: 100%;
   padding-right: 15px;
+  display: inline-block;
+  float: left;
 }
 
 .actions-search {
@@ -67,3 +69,59 @@
     background-color: @rulesetEditor-rowItem-editMode-BG;
   }
 }
+
+.actions-boxRight {
+  padding: 15px;
+  display: inline-block;
+  width: 50%;
+  float: left;
+  &:hover {
+    .is-displayedOnHover {
+      display: inline-block;
+    }
+    .is-hiddenOnHover {
+      display: none;
+    }
+  }
+}
+
+.actions-edit {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  float: right;
+  img {
+    width: 16px;
+    height: 16px;
+  }
+  .is-displayedOnHover {
+    display: none;
+  }
+  .is-hiddenOnHover {
+    display: inline-block;
+  }
+}
+
+.actions-info {
+  clear: both;
+
+  // overriding bootstrap
+  .media {
+    margin-top: 0;
+  }
+}
+
+.actions-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: @color-60;
+  text-align: right;
+  min-width: 72px;
+}
+
+.actions-text {
+  &:extend(.extra-light);
+  font-size: 12px;
+  line-height: 20px;
+  color: @color-50;
+}
+
