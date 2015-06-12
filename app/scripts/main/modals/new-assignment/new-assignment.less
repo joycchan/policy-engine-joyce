@@ -7,8 +7,12 @@
   }
   &.modal {
     .modal-content {
-      padding: 0 15px;
+      padding: 0;
     }
+  }
+
+  h2 {
+    padding-left: 15px;
   }
 
   .first-column {
@@ -25,15 +29,44 @@
   }
 
   input-search input {
-    width: 268px;
+    width: 100%;
     border-color: @color-80;
     border-radius: 3px;
+    margin-bottom: 15px;
   }
 
   p {
     font-weight: 300;
     color: @color-70;
     line-height: 18px;
+    margin-bottom: 30px;
+  }
+
+  .faded {
+    opacity: 0.35;
+  }
+
+  .scrollable {
+    height: 300px;
+    overflow: auto;
+  }
+
+  tr {
+    border-left: solid 3px white;
+
+    &.is-selected {
+      border-color: @blue;
+    }
+  }
+
+  td {
+    width: 268px;
+  }
+
+  .button-group {
+    padding: 20px 15px 15px;
+    right: 15px;
+    text-align: right;
   }
 }
 

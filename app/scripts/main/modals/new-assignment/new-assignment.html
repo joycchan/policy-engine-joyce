@@ -1,34 +1,57 @@
 <h2>New Assignment</h2>
 
-<div class="first-column">
-    <h2>Group-Centric</h2>
+<div class="container-fluid">
 
-    <p>Select a group below to start assigning services to it.</p>
-    <input-search></input-search>
-    <div ng-repeat="group in groups() | filter:search">
-        <div class="list-element" ng-class="{ child: group.parentId }">
-            <div class="img-group" ng-class="itemIcon(group)"></div>
-            {{group.name}}
+    <div class="col-sm-6">
+        <h2 ng-click="chooseGroup()">Group-Centric</h2>
+
+        <p>Select a group below to start assigning services to it.</p>
+
+        <div ng-class="{faded: type !== 'group'}">
+            <input-search></input-search>
+            <div class="scrollable">
+
+                <table class="listView">
+                    <tbody>
+                    <tr ng-repeat="group in groups() | filter:search" ng-click="selectGroup(group)"
+                        ng-class="{ 'is-selected': isSelected(group)}">
+                        <td class="list-element">
+                            <div class="img-group" ng-class="itemIcon(group)"></div>
+                            {{group.name}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <hr/>
+
     </div>
 
-</div>
+    <div class="col-sm-6">
+        <h2 ng-click="chooseService()">Service-Centric</h2>
 
-<div class="second-column">
-    <h2>Service-Centric</h2>
+        <p>Select a service below to start assigning groups that should have access to it.</p>
 
-    <p>Select a service below to start assigning groups that should have access to it.</p>
-    <input-search></input-search>
-    <div ng-repeat="service in services() | filter:search">
-        <div class="list-element" ng-class="{ child: service.parentId }">
-            <div class="img-service" ng-class="itemIcon(service)"></div>
-            {{service.name}}
+        <div ng-class="{faded: type !== 'service'}">
+            <input-search></input-search>
+            <div class="scrollable">
+
+                <table class="listView">
+                    <tbody>
+                    <tr ng-repeat="service in services() | filter:search" ng-click="selectService(service)"
+                        ng-class="{ 'is-selected': isSelected(service)}">
+                        <td class="list-element">
+                            <div class="img-service" ng-class="itemIcon(service)"></div>
+                            {{service.name}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <hr/>
     </div>
 </div>
 <div class="button-group">
     <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-    <div class="button" ng-click="ok()">Create</div>
+    <div class="button" ng-class="{'is-disabled': !selected }" ng-click="ok()">OK</div>
 </div>

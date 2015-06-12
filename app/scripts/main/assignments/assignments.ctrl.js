@@ -6,7 +6,6 @@ angular.module('policyEngine').controller('AssignmentsCtrl',
     $scope.assignments = assignments.list();
 
     $scope.newAssignment = function() {
-      console.log('modals', Modals.newAssignment)
       $modal.open(Modals.newAssignment);
     };
 
