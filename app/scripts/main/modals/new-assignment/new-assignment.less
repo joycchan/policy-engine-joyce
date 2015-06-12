@@ -1,0 +1,91 @@
+@import "../../../../styles/variables";
+
+.new-assignment-modal {
+  // overwriting angular-ui classes
+  .modal-dialog {
+    width: 610px;
+  }
+  &.modal {
+    .modal-content {
+      padding: 0;
+    }
+  }
+
+  h2 {
+    padding-left: 15px;
+  }
+
+  .radio .label-text {
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  input-search input {
+    width: 100%;
+    border-color: @color-80;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-weight: 300;
+    color: @color-70;
+    line-height: 18px;
+    margin-bottom: 30px;
+  }
+
+  .icon {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &.group {
+      background-image: url(../../../../images/icon_users_16.png);
+
+      &.resource {
+        background-image: url(../../../../images/icon_resources_16.png);
+      }
+    }
+
+    &.service {
+      background-image: url(../../../../images/icon_services_16.png);
+    }
+  }
+
+  .faded {
+    opacity: 0.35;
+  }
+
+  .scrollable {
+    height: 300px;
+    overflow: auto;
+  }
+
+  tr {
+    border-left: solid 3px white;
+
+    &.is-selected {
+      border-color: @blue;
+    }
+  }
+
+  td {
+    width: 268px;
+  }
+
+  .button-group {
+    padding: 20px 15px 15px;
+    right: 15px;
+    text-align: right;
+  }
+}
+
+
+

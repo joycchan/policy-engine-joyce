@@ -2,17 +2,17 @@
     <h2>Assignments</h2>
 
     <div class="catalog col-sm-2">
-        <div class="button new-button" ui-sref="main.assignment.new">
+        <div class="button new-button" ng-click="newAssignment()">
             <div class="plus">+</div>
             <span class="new-text">New Assignment</span>
         </div>
         <h4>Type</h4>
         <div class="type">
-            <div class="circle group"></div>
+            <div class="circle group-centric"></div>
             Group-Centric ({{groupCentric().length}})
         </div>
         <div class="type">
-            <div class="circle service"></div>
+            <div class="circle service-centric"></div>
             Service-Centric ({{serviceCentric().length}})
         </div>
         <div class="category" ng-show="groupCentric().length">
@@ -37,7 +37,7 @@
                 </p>
             </div>
         </div>
-        <div class="card new" ui-sref="main.assignment.new" ng-show="assignments.length === 0">
+        <div class="card new" ng-click="newAssignment()" ng-show="assignments.length === 0">
             <div class="scircle">
                 <span class="img-plus-serdfn" id="plus-serdfn"></span>
             </div>
