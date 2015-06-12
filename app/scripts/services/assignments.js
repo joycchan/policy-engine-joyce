@@ -40,6 +40,17 @@ angular.module('policyEngine').factory('assignments',
         return assignment;
       },
 
+      read: function(id) {
+        return _.find(list, function(assignment) {
+          return assignment.id === id;
+        });
+      },
+
+      update: function(id, assignment) {
+        var i = _.findIndex(list, function(assignment) { return assignment.id === id; });
+        list[i] = assignment;
+      },
+
       delete: function (id) {
         _.remove(list, function (all) {
           return all.id === id;
@@ -61,7 +72,7 @@ angular.module('policyEngine').factory('assignments',
       serviceConsumers: function (service) {
         var groups = [];
 
-        var groupCentrics = _.filter(assignments.byType('consume'), function (assignment) {
+        var groupCentrics = _.filter(assignments.byType('group'), function (assignment) {
           return _.find(assignment.collection, function (s) {
             return s.name === service.name;
           })
@@ -72,7 +83,7 @@ angular.module('policyEngine').factory('assignments',
           groups.push(assignment.item);
         });
 
-        var serviceCentrics = _.filter(assignments.byType('provide'), function (assignment) {
+        var serviceCentrics = _.filter(assignments.byType('service'), function (assignment) {
           return assignment.item.name === service.name;
         });
 

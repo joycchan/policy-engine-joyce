@@ -2,29 +2,24 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
 
   $scope.saveEditRule =saveEditRule;
 
-  $scope.ruleSet = {
-    name: "New Rule Set",
-    classifiers: [],
-    actions: [],
-    custom: "Custom",
-    id: Math.floor(Math.random() * 10000)
-    // while the user is in main.ruleSetsEdit, the id allows the user to select a rule set out of the list to modify
-    // logic in that state depends on $stateParams because it is not a modal w/ one parent controller
-    // whereas in main.service, the data is on one controller which is the state of truth for the modals' data
-    // TODO: remove client-side id generation
-  };
+  $scope.newRuleSet = ruleSets.generateEmptyRuleSet();
 
-  $scope.addRules = function () {
-    $modal.open(Modals.rulesetEditor([$scope.ruleSet]));
+  $scope.editRule = function () {
+    var modalInstance = $modal.open(Modals.ruleSetEditor(angular.copy($scope.newRuleSet)));
+    
+    modalInstance.result.then(function (updatedRuleSet) {
+      $scope.newRuleSet = updatedRuleSet;
+    }, function () {
+    });
   };
 
   $scope.disabled = function () {
-    return ($scope.ruleSet.classifiers.length === 0) || ($scope.ruleSet.actions.length === 0);
+    return ($scope.newRuleSet.rules[0].classifiers.length === 0 || $scope.newRuleSet.rules[0].actions.length === 0);
   };
 
   $scope.ok = function () {
     if (!$scope.disabled()) {
-      $scope.service.ruleSet = ruleSets.create($scope.ruleSet); // create an empty rule that is now modifiable via rule set editor
+      $scope.service.ruleSet = ruleSets.create($scope.newRuleSet); // $scope.service is in the parent controller
       $state.go('main.service');
     }
   };
