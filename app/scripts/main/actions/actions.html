@@ -1,27 +1,35 @@
 <div class="objectsList">
-    <div class="objectsList-breadcrumb">Actions</div>
-  <div class="objectsList-container">
-    <list-count-filter-search class="objectsList-countFilterSearch"
-      count="actionsList().length"
-      filters="actionsListFilters"
-      filter-by="filterActionsListBy"
-      is-filter-selected="isActionsListFilterSelected"
-      search-model="search.name">
-    </list-count-filter-search>
-      <table class="objectsList-list listView listView--iconsHover">
-        <thead>
-          <th>Name</th>
-          <th></th>
-        </thead>
-        <tbody>
-          <tr ng-repeat="action in actionsList() | filter: search">
-            <td>{{action.name}}</td>
-            <td>
-              <list-view-icon ui-sref="main.actionsEdit.settings({'actionId': action.id})" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
-              <list-view-icon ng-click="deleteaction(action)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="objectsList-breadcrumb">Actions</div>
+  <div class="objectsList-helpText">
+    Actions determine what to do with that type of traffic.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl. Aenean placerat turpis id lorem dapibus, vitae egestas nibh volutpat. Duis id suscipit felis. 
+  </div>
+  <div class="actions-container">
+    <div class="actions-divider"></div>
+    <div class="objectsList-new button new-action">
+      New Action
+    </div>
+    <div class="actions-box">
+      <div class="actions-boxLeft">
+        <!-- left  -->
+        <div class="actions-search">
+          <span class="actions-searchLabel">Search</span>
+          <input-search></input-search>
+        </div>
+
+        <div class="actions-boxLeftInner">
+          <div class="actions-name"
+            ng-repeat="action in actionsList()"
+            ng-click="selectAction(action)"
+            ng-class="{'is-selected': isActionSelected(action)}">
+            {{action.name}}
+          </div>
+        </div>
+      </div>
+
+      <div class="actions-boxRight">
+        <!-- right -->
+      </div>
+
+    </div>
   </div>
 </div>

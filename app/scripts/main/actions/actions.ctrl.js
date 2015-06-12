@@ -1,40 +1,25 @@
 'use strict';
 
 angular.module('policyEngine').controller('Actions',
-  function($scope, $modal, Modals, Actions) {
+  function($scope, $modal, Modals, Actions, $timeout) {
+
+    // for dev purposes
+    $timeout(function( ){
+      $scope.selectAction(_.first(Actions.list()));
+    }, 500);
 
     $scope.actionsList = Actions.list;
 
-    $scope.deleteActions = Actions.delete;
-
     $scope.search = {name: ''};
 
-    $scope.actionsListFilters = [
-      {name: 'All Actions'},
-      {name: 'Default'},
-      {name: 'Custom'}
-    ];
+    $scope.selectedAction;
 
-    $scope.filter = "All Actions";
-
-    $scope.filterActionsListBy = function(name) {
-      $scope.filter = name;
-
-      if(name === 'Default')
-      {
-        $scope.actionsList = function() {return Actions.byCustom('Default')};
-      }
-      else if(name === 'Custom')
-      {
-        $scope.actionsList = function() {return Actions.byCustom('Custom')};
-      }
-      else {
-        $scope.actionsList = function() {return Actions.byCustom('')};
-      }
+    $scope.selectAction = function(action) {
+      $scope.selectedAction = action.id;
     };
 
-    $scope.isActionsListFilterSelected = function(name) {
-      return name === $scope.filter;
+    $scope.isActionSelected = function(action) {
+      return $scope.selectedAction === action.id;
     };
 
   }
