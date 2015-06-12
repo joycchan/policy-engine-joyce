@@ -74,6 +74,7 @@
   padding: 15px;
   display: inline-block;
   width: 50%;
+  height: 100%;
   float: left;
   &:hover {
     .actions-edit {
@@ -189,5 +190,45 @@
   }
   th:first-child, td:first-child {
     border-right: 1px solid @color-70;
+  }
+}
+
+.actions-textFieldContainer {
+  margin-left: 70px;
+  margin-bottom: 10px;
+
+  .button {
+    float: right;
+  }
+}
+
+.actions-textField {
+  height: 82px;
+  width: 222px;
+  color: @color-50;
+  padding-left: 10px;
+  font-family: 'CiscoSansTT';
+  line-height: 18px;
+  padding-top: 5px;
+
+  ::-webkit-input-placeholder {
+    color: blue;
+    &:extend(.oblique);
+    &:extend(.extra-light);
+  }
+  :-moz-placeholder {
+    color: blue;
+    &:extend(.oblique);
+    &:extend(.extra-light);
+  }
+  ::-moz-placeholder {
+    color: blue;
+    &:extend(.oblique);
+    &:extend(.extra-light);
+  }
+  :-ms-input-placeholder {
+    color: blue;
+    &:extend(.oblique);
+    &:extend(.extra-light);
   }
 }

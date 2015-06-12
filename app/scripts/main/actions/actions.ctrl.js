@@ -24,13 +24,29 @@ angular.module('policyEngine').controller('Actions',
 
     $scope.displayHash = {
       isEditModeEnabled: true, // true for dev purposes, should be false
-      action: 'table',
+      action: 'text', // can be 'table' or 'text'
     };
 
     $scope.toggleEditMode = function() {
       $scope.displayHash.isEditModeEnabled = !$scope.displayHash.isEditModeEnabled;
     };
 
+    $scope.selectedActionDataAsString = '';
+
+    var generateSelectedActionDataAsString = function() {
+      if($scope.selectedAction && $scope.selectedAction.data) {
+        var selectedActionData = _.map($scope.selectedAction.data, function(data) {
+          return _.omit(data, '$$hashKey');
+        })
+        $scope.selectedActionDataAsString = JSON.stringify(selectedActionData);
+      } else {
+        $scope.selectedActionDataAsString = '';
+      }
+    };
+
+    $scope.$watch('selectedAction', function() {
+      generateSelectedActionDataAsString();
+    });
 
 
   }

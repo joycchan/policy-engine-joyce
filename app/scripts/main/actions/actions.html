@@ -68,8 +68,11 @@
               </table>
             </div>
           </div>
-          <div ng-show="displayHash.action === 'text'" class="actions-textContainer">
-
+          <div ng-show="displayHash.isEditModeEnabled && displayHash.action === 'text'" class="actions-textFieldContainer clearfix">
+            <textarea class="actions-textField"
+            placeholder="Enter the name/value pairs in JSON format, or paste from the clipboard"
+            ng-model="selectedActionDataAsString"></textarea>
+            <div class="button button--secondary">Validate JSON</div>
           </div>
 
           <div class="media">
