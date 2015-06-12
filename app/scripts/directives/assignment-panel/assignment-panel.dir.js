@@ -14,7 +14,7 @@ angular.module('policyEngine')
         };
 
         $scope.itemIcon = function(item) {
-          if ($scope.type === 'provide') {
+          if ($scope.type === 'groupCentric') {
             return 'service';
           } else if(item.type === 'resource') {
             return 'resource';
@@ -27,7 +27,6 @@ angular.module('policyEngine')
       scope: {
         title: '@',
         items: '=',
-        mask: '=',
         type: '@',
         newState: '@'
       },
