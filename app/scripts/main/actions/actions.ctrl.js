@@ -24,7 +24,7 @@ angular.module('policyEngine').controller('Actions',
 
     $scope.displayHash = {
       isEditModeEnabled: true, // true for dev purposes, should be false
-      action: 'text', // can be 'table' or 'text'
+      action: 'table', // can be 'table' or 'text'
     };
 
     $scope.toggleEditMode = function() {
