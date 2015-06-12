@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('RuleSetsEditCtrl',
-  function($scope, $modal, $stateParams, ruleSets, Modals) {
+  function($scope, $modal, $stateParams, ruleSets) {
     $scope.navTabLinks = [{
       'name': 'Settings',
       'uiSref': 'main.ruleSetsEdit.settings'

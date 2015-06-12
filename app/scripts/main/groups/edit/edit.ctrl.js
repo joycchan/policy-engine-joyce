@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('GroupsEditCtrl',
-  function($scope, $modal, $stateParams, Groups, Modals) {
+  function($scope, $modal, $stateParams, Groups) {
     $scope.navTabLinks = [{
       'name': 'Settings',
       'uiSref': 'main.groupsEdit.settings'
