@@ -1,56 +1,69 @@
 [
   {
     "name": "SQL Access",
-    "classifiers": ["SQL-Port-1443"],
     "custom": "Default",
     "services": "None",
     "description": "Lorem ipsum",
     "id": "1",
-    "actions": ["Allow"]
+    "rules": [{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "SQL-Port-1443"}]
+    }, {
+      "actions": [{"name": "Custom Action 1"}, {"name": "Custom Action 2"}],
+      "classifiers": [{"name": "SQL-port-1443"}, {"name": "TrustSEC"}]
+    },{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-TEP-Type-HWTEP"}, {"name": "TrustSEC SGACL"}, {"name": "Overlay-Encap-Type-VXLAN"}]
+    },{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-Encap-Type-VXLAN"}, {"name": "Overlay-TEP-Type-HWTEP"}, {"name": "Overlay-TEP-Type-HWTEP"}]
+    }, {
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "TCP-80 Default"}, {"name": " ICMP"}, {"name": "Overlay-Encap-Type-VXLAN"}, {"name": "Overlay-TEP-Type-HWTEP"}]
+    }]
   },
   {
     "name": "TrustSEC Access",
-    "classifiers": ["TrustSEC SGACL"],
     "custom": "Default",
     "services": "None",
     "description": "Lorem ipsum",
     "id": "2",
-    "actions": ["Allow"]
+    "rules": [{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "TrustSEC SGACL"}]
+    }]
   },
   {
     "name": "Overlay TEP",
-    "classifiers": ["Overlay-TEP-Type-HWTEP"],
     "custom": "Custom",
     "services": "None",
     "description": "Lorem ipsum",
     "id": "3",
-    "actions": ["Allow"]
+    "rules": [{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-TEP-Type-HWTEP"}]
+    }]
   },
   {
     "name": "Overlay Encap",
-    "classifiers": ["Overlay-Encap-Type-VXLAN"],
     "custom": "Default",
     "services": "None",
     "description": "Lorem ipsum",
     "id": "4",
-    "actions": ["Allow"]
+    "rules": [{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-Encap-Type-VXLAN"}]
+    }]
   },
   {
     "name": "HTTP & ICMP Access",
-    "classifiers": ["TCP-80 Default", " ICMP"],
     "custom": "Custom",
     "services": "None",
     "description": "Lorem ipsum",
     "id": "5",
-    "actions": ["Allow"]
-  },
-  {
-    "name": "My New Rule Set",
-    "classifiers": ["SQL-port-1443", "TrustSEC"],
-    "custom": "Default",
-    "services": "None",
-    "description": "Lorem ipsum",
-    "id": "1",
-    "actions": ["Custom Action 1", "Custom Action 2"]
+    "rules": [{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "TCP-80 Default"}, {"name": " ICMP"}]
+    }]
   }
 ]
