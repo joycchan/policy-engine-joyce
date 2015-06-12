@@ -113,9 +113,12 @@
 
 .listView-innerList {
   &:extend(.thin);
-  &:first-child {
-    padding: 6px 0 6px 0;
-  }
   color: @color-50;
-  padding: 12px 0;
+  padding-bottom: 8px;
+  &:first-child {
+    padding-top: 6px;
+  }
+  &:last-child {
+    padding-bottom: 14px;
+  }
 }

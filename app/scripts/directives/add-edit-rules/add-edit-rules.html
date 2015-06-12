@@ -1,0 +1,36 @@
+<div class="addEditRules-helpText">
+  Rules define how the network traffic behaves.  Classifiers describe types of network traffic and actions determine what to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you specify custom ones.
+</div>
+<div class="addEditRules-editButton">
+  <div class="button button--secondary" ng-click="editRule()" ng-switch="ruleSet.rules[0].classifiers.length === 0 && ruleSet.rules[0].actions.length === 0">
+    <span ng-switch-when="true">
+      Add
+    </span>
+    <span ng-switch-default>
+      Edit
+    </span>
+    Rules</div>
+</div>
+<div class="addEditRules-list">
+  <table class="listView">
+    <thead>
+      <tr>
+        <th></th>
+        <th><div>Classifier</div><div class="listView-headerDescription">Classifiers are OR'ed</div></th>
+        <th><div>Action</div><div class="listView-headerDescription">Actions are AND'ed</div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="rule in ruleSet.rules">
+        <td><div class="listView-number">{{$index + 1}}</div></td>
+        <td>
+          <a ng-click="editRule()" ng-hide="rule.classifiers.length">Click here to add rules</a>
+          <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">{{classifier.name}}</div>
+        </td>
+        <td>
+          <div class="listView-innerList" ng-repeat="action in rule.actions">{{action.name}}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

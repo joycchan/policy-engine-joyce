@@ -62,12 +62,12 @@ angular.module('policyEngine')
           g.append("path")
             .attr("d", arc)
             .style("fill", function (d, i) {
-              var provide = "#62A6D1";
-              var consume = "#5DCAA2";
-              if (scope.type === 'provide') {
-                return provide;
-              } else if (scope.type === 'consume') {
-                return consume;
+              var serviceCentric = "#62A6D1";
+              var groupCentric = "#5DCAA2";
+              if (scope.type === 'serviceCentric') {
+                return serviceCentric;
+              } else if (scope.type === 'groupCentric') {
+                return groupCentric;
               }
             });
 
@@ -88,7 +88,7 @@ angular.module('policyEngine')
             .each(function (d, i) {
               var t = d3.select(this)
               t.append('tspan').text(d.data.name)
-              if (scope.type === 'consume') {
+              if (scope.type === 'groupCentric') {
                 t.append('tspan').text('(' + d.data.group.name + ')')
                   .attr('x', 0).attr('dy', '15');
               }

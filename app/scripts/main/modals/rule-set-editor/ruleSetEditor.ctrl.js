@@ -1,41 +1,44 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
+
   function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset, $modal, Modals) {
 
-    $scope.selectedRuleset = selectedRuleset; // local from resolve
+    $scope.selectedRuleSet = selectedRuleSet; // local from resolve
 
     $scope.existingClassifiers = Classifiers.list;
 
     $scope.existingActions = Actions.list;
 
     $scope.ok = function () {
-      $modalInstance.close($scope.selected);
+      if ($scope.areAllRulesValid()) {
+        $modalInstance.close($scope.selectedRuleSet);
+      }
     };
 
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
 
-    var isExistingRuleset = function (list, newItem) {
+    var isExistingRuleSet = function (list, newItem) {
       return _.any(list, function (item) {
-        return item === newItem;
+        return item.name === newItem;
       });
     }
 
     $scope.addClassifier = function (data, index) {
       if (data.dataType === 'classifier'
-        && !isExistingRuleset($scope.selectedRuleset[index].classifiers, data.name)
+        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifiers, data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleset[index].classifiers.push(data.name);
+        $scope.selectedRuleSet.rules[index].classifiers.push({"name": data.name});
       }
     };
 
     $scope.addAction = function (data, index) {
       if (data.dataType === 'action'
-        && !isExistingRuleset($scope.selectedRuleset[index].actions, data.name)
+        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actions, data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleset[index].actions.push(data.name);
+        $scope.selectedRuleSet.rules[index].actions.push({"name": data.name});
       }
     };
 
@@ -49,7 +52,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       // ,
     };
 
-    $scope.toggleEditRuleset = function (index) {
+    $scope.toggleEditRuleSet = function (index) {
       $scope.editModeHash[index] = !$scope.editModeHash[index];
     };
 
@@ -64,6 +67,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       actions: {name:''}
     };
 
+
     $scope.customClassifiers = function () {
       $modal.open(Modals.customClassifier([$scope.rule]));
     };
@@ -73,9 +77,42 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     };
 
 
+    $scope.addRule = function() {
+      if ($scope.areAllRulesValid()) {
+        $scope.selectedRuleSet.rules.push(ruleSets.generateEmptyRule());
+        $scope.editModeHash[$scope.selectedRuleSet.rules.length - 1] = true;
+      }
+    };
+
+    $scope.areAllRulesValid = function() {
+      return _.all($scope.selectedRuleSet.rules, function(rule) {
+        return doesRuleIncludeActionAndClassifier(rule);
+      })
+    }
+
+    var doesRuleIncludeActionAndClassifier = function(rule) {
+      return (rule.actions && rule.actions.length) && (rule.classifiers && rule.classifiers.length);
+    };
+
+
     // to do
     // allow user to delete rule, upon hover of table row + click on X
     // allow user to add new rule, upon hover of bottom of table + click
     // allow user to delte individual classifiers and actions
+
+    $scope.deleteRule = function(index) {
+      $scope.selectedRuleSet.rules.splice(index, 1);
+    };
+
+    $scope.deleteClassifier = function(rulesIndex, classifier) {
+      _.remove($scope.selectedRuleSet.rules[rulesIndex].classifiers, function(c) {
+        return c.name === classifier.name;
+      });
+    };
+    $scope.deleteAction = function(rulesIndex, action) {
+      _.remove($scope.selectedRuleSet.rules[rulesIndex].actions, function(c) {
+        return c.name === action.name;
+      });
+    }
 
   });
