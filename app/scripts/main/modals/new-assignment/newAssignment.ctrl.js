@@ -3,32 +3,32 @@ angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope,
   $scope.groups = Groups.list;
   $scope.services = Services.list;
 
-  $scope.type = 'group';
+  $scope.type = 'groupCentric';
 
   $scope.chooseGroup = function() {
-    if($scope.type === 'service') {
+    if($scope.type === 'serviceCentric') {
       $scope.selected = undefined;
-      $scope.type = 'group';
+      $scope.type = 'groupCentric';
     }
   };
 
   $scope.chooseService = function() {
-    if($scope.type === 'group') {
+    if($scope.type === 'groupCentric') {
       $scope.selected = undefined;
-      $scope.type = 'service';
+      $scope.type = 'serviceCentric';
     }
   };
 
   $scope.selected;
 
   $scope.selectGroup = function(item) {
-    if ($scope.type === 'group') {
+    if ($scope.type === 'groupCentric') {
       $scope.selected = item;
     }
   };
 
   $scope.selectService = function(service) {
-    if ($scope.type === 'service') {
+    if ($scope.type === 'serviceCentric') {
       $scope.selected = service;
     }
   };
@@ -39,9 +39,8 @@ angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope,
 
   $scope.ok = function () {
     if ($scope.selected) {
-      var x = $scope.type === 'group' ? 'consume' : 'provide';
-      var assignment = assignments.create(x, $scope.selected)
-      $state.go('main.assignment.' + x, {assignmentId: assignment.id});
+      var assignment = assignments.create($scope.type, $scope.selected)
+      $state.go('main.assignment.' + $scope.type, {assignmentId: assignment.id});
       $modalInstance.close();
     }
   };

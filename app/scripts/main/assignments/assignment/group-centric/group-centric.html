@@ -1,23 +1,22 @@
 <div class="assignments">
-    <div class="side-panel col-xs-3">
-        <assignment-panel title="Group" items="groups()" type="consume"></assignment-panel>
-    </div>
     <div class="col-xs-9 middle-panel">
         <h2>New Assignment
             <div ng-hide="hideExit()" ui-sref="main.assignments" class="img-close"></div>
         </h2>
-
         <div class="assignment" ng-drop-success="onDropComplete($data,$event)">
-            <div class="instructions">Now drag in groups that this group will provide services to</div>
-            <donut data="assignment().collection" type="provide" name="assignment().item.name"
+            <div class="instructions">Now drag in services that you want this group to consume</div>
+            <donut data="assignment().collection" type="groupCentric" name="assignment().item.name"
                    drop="onDropComplete"></donut>
             <div class="services-header">
-                Groups Served
+                Services Consumed
             </div>
-            <div class="services-number provide">
+            <div class="services-number group">
                 {{assignment().collection.length}}
             </div>
             <div class="show-list">Show List</div>
         </div>
+    </div>
+    <div class="side-panel col-xs-3">
+        <assignment-panel title="Service" items="services()" type="groupCentric"></assignment-panel>
     </div>
 </div>
