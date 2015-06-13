@@ -28,7 +28,7 @@
 
       <div class="actions-boxRight">
         <!-- right -->
-        <div class="actions-edit" ng-click="toggleEditMode()" ng-class="{'is-inEditMode': displayHash.isEditModeEnabled}">
+        <div class="actions-edit" ng-click="toggleEditMode()">
           <img class="is-hiddenOnHover" src="images/icon_edit_16.png">
           <img class="is-displayedOnHover" src="images/icon_edit_16_blue.png">
         </div>
@@ -39,40 +39,44 @@
             <div class="media-left actions-label">Name</div>
             <div class="media-body actions-text">{{selectedAction.name}}</div>
           </div>
-          <div class="media" ng-show="displayHash.isEditModeEnabled">
-            <div class="media-left actions-label">Action</div>
-            <div class="media-body actions-text">
-              <form>
-                <label><input type="radio" ng-model="displayHash.action" value="table"><span class="actions-radioLabel">Table</span></label>
-                <label><input type="radio" ng-model="displayHash.action" value="text"><span class="actions-radioLabel">Text Field</span></label>
-              </form>
+
+          <div ng-if="displayHash.actionTableTextField()">
+            <div class="media">
+              <div class="media-left actions-label">Action</div>
+              <div class="media-body actions-text">
+                <form>
+                  <label><input type="radio" ng-model="displayHash.action" value="table"><span class="actions-radioLabel">Table</span></label>
+                  <label><input type="radio" ng-model="displayHash.action" value="text"><span class="actions-radioLabel">Text Field</span></label>
+                </form>
+              </div>
             </div>
-          </div>
 
-          <div ng-show="displayHash.isEditModeEnabled && displayHash.action === 'table'" class="actions-tableContainer">
-            <table class="actions-table">
-              <thead>
-                <th>Name</th>
-                <th>Value</th>
-              </thead>
-            </table>
-
-            <div class="actions-tableScrollable">
+            <div ng-show="displayHash.action === 'table'" class="actions-tableContainer">
               <table class="actions-table">
-                <tbody>
-                  <tr ng-repeat="data in selectedAction.data">
-                    <td>{{data.name}}</td>
-                    <td>{{data.value}}</td>
-                  </tr>
-                </tbody>
+                <thead>
+                  <th>Name</th>
+                  <th>Value</th>
+                </thead>
               </table>
+
+              <div class="actions-tableScrollable">
+                <table class="actions-table">
+                  <tbody>
+                    <tr ng-repeat="data in selectedAction.data">
+                      <td>{{data.name}}</td>
+                      <td>{{data.value}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-          <div ng-show="displayHash.isEditModeEnabled && displayHash.action === 'text'" class="actions-textFieldContainer clearfix">
-            <textarea class="actions-textField"
-            placeholder="Enter the name/value pairs in JSON format, or paste from the clipboard"
-            ng-model="selectedActionDataAsString"></textarea>
-            <div class="button button--secondary">Validate JSON</div>
+
+            <div ng-show="displayHash.action === 'text'" class="actions-textFieldContainer clearfix">
+              <textarea class="actions-textField"
+              placeholder="Enter the name/value pairs in JSON format, or paste from the clipboard"
+              ng-model="selectedActionDataAsString"></textarea>
+              <div class="button button--secondary">Validate JSON</div>
+            </div>
           </div>
 
           <div class="media">

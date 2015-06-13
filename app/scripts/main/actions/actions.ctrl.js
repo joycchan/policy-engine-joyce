@@ -5,7 +5,7 @@ angular.module('policyEngine').controller('Actions',
 
     // for dev purposes
     $timeout(function( ){
-      $scope.selectAction(_.first(Actions.list()));
+      $scope.selectAction(_.last(Actions.list()));
     }, 500);
 
     $scope.actionsList = Actions.list;
@@ -25,6 +25,9 @@ angular.module('policyEngine').controller('Actions',
     $scope.displayHash = {
       isEditModeEnabled: true, // true for dev purposes, should be false
       action: 'table', // can be 'table' or 'text'
+      actionTableTextField: function() {
+        return $scope.selectedAction.data;
+      }
     };
 
     $scope.toggleEditMode = function() {

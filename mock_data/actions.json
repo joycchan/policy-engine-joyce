@@ -2,102 +2,22 @@
   "name": "Allow",
   "custom": "Default",
   "id": 1,
-  "description": "Default action provided by Cisco",
-  "data": [{
-    "name": "nameA",
-    "value": "valueA"
-  }, {
-    "name": "nameG",
-    "value": "valueG"
-  }, {
-    "name": "nameC",
-    "value": "valueC"
-  }, {
-    "name": "nameD",
-    "value": "valueD"
-  }, {
-    "name": "nameE",
-    "value": "valueE"
-  }, {
-    "name": "nameF",
-    "value": "valueF"
-  }
-  ]
+  "description": "Default action provided by Cisco"
 }, {
   "name": "Deny",
   "custom": "Default",
   "id": 2,
-  "description": "Deny Description",
-  "data": [{
-    "name": "nameA",
-    "value": "valueA"
-  }, {
-    "name": "nameB",
-    "value": "valueB"
-  }, {
-    "name": "nameU",
-    "value": "valueU"
-  }, {
-    "name": "nameD",
-    "value": "valueD"
-  }, {
-    "name": "nameL",
-    "value": "valueL"
-  }, {
-    "name": "nameF",
-    "value": "valueF"
-  }
-  ]
+  "description": "Deny Description"
 }, {
   "name": "Redirect",
   "custom": "Default",
   "id": 3,
-  "description": "Redirect description",
-  "data": [{
-    "name": "nameP",
-    "value": "valueP"
-  }, {
-    "name": "nameB",
-    "value": "valueB"
-  }, {
-    "name": "nameC",
-    "value": "valueC"
-  }, {
-    "name": "nameD",
-    "value": "valueD"
-  }, {
-    "name": "nameEW",
-    "value": "valueEW"
-  }, {
-    "name": "nameF",
-    "value": "valueF"
-  }
-  ]
+  "description": "Redirect description"
 }, {
   "name": "Chain",
-  "custom": "Custom",
+  "custom": "Default",
   "id": 4,
-  "description": "Chain description",
-  "data": [{
-    "name": "nameA",
-    "value": "valueA"
-  }, {
-    "name": "nameB",
-    "value": "valueB"
-  }, {
-    "name": "nameW",
-    "value": "valueCW"
-  }, {
-    "name": "nameD",
-    "value": "valueD"
-  }, {
-    "name": "nameE",
-    "value": "valueE"
-  }, {
-    "name": "nameF",
-    "value": "valueF"
-  }
-  ]
+  "description": "Chain description"
 },
 {
   "name": "Test",
@@ -129,7 +49,7 @@
   "name": "test1",
   "custom": "Custom",
   "id": 6,
-  "description": "Default action provided by Cisco",
+  "description": "Custom Action",
   "data": [{
     "name": "nameA",
     "value": "valueA"
@@ -155,7 +75,7 @@
   "name": "test2",
   "custom": "Custom",
   "id": 7,
-  "description": "Default action provided by Cisco",
+  "description": "Custom Action",
   "data": [{
     "name": "nameA",
     "value": "valueA"
@@ -180,7 +100,7 @@
   "name": "Test3",
   "custom": "Custom",
   "id": 8,
-  "description": "Default action provided by Cisco",
+  "description": "Custom Action",
   "data": [{
     "name": "nameA",
     "value": "valueA"
@@ -206,13 +126,13 @@
   "name": "test4",
   "custom": "Custom",
   "id": 9,
-  "description": "Default action provided by Cisco",
+  "description": "Custom Action",
   "data": [{
     "name": "nameA",
     "value": "valueA"
   }, {
-    "name": "nameB",
-    "value": "valueB"
+    "name": "nameG",
+    "value": "valueG"
   }, {
     "name": "nameC",
     "value": "valueC"
@@ -232,7 +152,7 @@
   "name": "test5",
   "custom": "Custom",
   "id": 10,
-  "description": "Default action provided by Cisco",
+  "description": "Custom Action",
   "data": [{
     "name": "nameA",
     "value": "valueA"
@@ -240,14 +160,14 @@
     "name": "nameB",
     "value": "valueB"
   }, {
-    "name": "nameC",
-    "value": "valueC"
+    "name": "nameU",
+    "value": "valueU"
   }, {
     "name": "nameD",
     "value": "valueD"
   }, {
-    "name": "nameE",
-    "value": "valueE"
+    "name": "nameL",
+    "value": "valueL"
   }, {
     "name": "nameF",
     "value": "valueF"
@@ -257,7 +177,7 @@
   "name": "Test6",
   "custom": "Custom",
   "id": 11,
-  "description": "Default action provided by Cisco",
+  "description": "Custom Action",
   "data": [{
     "name": "nameA",
     "value": "valueA"
@@ -283,7 +203,7 @@
   "name": "test7",
   "custom": "Custom",
   "id": 12,
-  "description": "Default action provided by Cisco",
+  "description": "Custom Action",
   "data": [{
     "name": "nameA",
     "value": "valueA"
@@ -291,8 +211,8 @@
     "name": "nameB",
     "value": "valueB"
   }, {
-    "name": "nameC",
-    "value": "valueC"
+    "name": "nameW",
+    "value": "valueCW"
   }, {
     "name": "nameD",
     "value": "valueD"
@@ -309,7 +229,7 @@
   "name": "test8",
   "custom": "Custom",
   "id": 13,
-  "description": "Default action provided by Cisco",
+  "description": "Custom Action",
   "data": [{
     "name": "nameA",
     "value": "valueA"
