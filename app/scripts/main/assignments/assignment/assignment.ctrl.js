@@ -12,6 +12,7 @@ angular.module('policyEngine').controller('AssignmentCtrl',
       console.log('stateParams', $stateParams);
       if ($stateParams.assignmentId) {
         console.log('search object', {id: $stateParams.assignmentId})
+        console.log('PolicyStore.Assignments.where({id: $stateParams.assignmentId})', PolicyStore.Assignments.where({id: $stateParams.assignmentId}));
         $scope.assignment = angular.copy(PolicyStore.Assignments.where({id: $stateParams.assignmentId})[0]);
       }
       console.log('assignment', $scope.assignment);

@@ -66,9 +66,16 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       actions: {name:''}
     };
 
+    var generateEmptyRule = function() {
+      return {
+        classifiers: [],
+        actions: []
+      };
+    };
+
     $scope.addRule = function() {
       if ($scope.areAllRulesValid()) {
-        $scope.selectedRuleSet.rules.push(ruleSets.generateEmptyRule());
+        $scope.selectedRuleSet.rules.push(generateEmptyRule());
         $scope.editModeHash[$scope.selectedRuleSet.rules.length - 1] = true;
       }
     };

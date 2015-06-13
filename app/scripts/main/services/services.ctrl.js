@@ -38,7 +38,8 @@ angular.module('policyEngine').controller('ServicesCtrl',
     $scope.assignService = function (service) {
       var assignment = PolicyActions.CreateAssignment({
         type: 'serviceCentric',
-        item: service
+        item: service,
+        collection: []
       });
       $state.go('main.assignment.serviceCentric', {assignmentId: assignment.id});
     };
@@ -46,7 +47,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
     $scope.serviceConsumers = function (service) {
       var groups = [];
 
-      var groupCentrics = _.filter(PolicyStore.Assignments.where({type: 'consume'}), function (assignment) {
+      var groupCentrics = _.filter(PolicyStore.Assignments.where({type: 'groupCentric'}), function (assignment) {
         return _.find(assignment.collection, function (s) {
           return s.name === service.name;
         })
@@ -57,7 +58,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
         groups.push(assignment.item);
       });
 
-      var serviceCentrics = _.filter(PolicyStore.Assignments.where({type: 'provide'}), function (assignment) {
+      var serviceCentrics = _.filter(PolicyStore.Assignments.where({type: 'serviceCentric'}), function (assignment) {
         return assignment.item.name === service.name;
       });
 

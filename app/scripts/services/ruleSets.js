@@ -36,39 +36,5 @@ angular.module('policyEngine').factory('ruleSets',
       list = data;
     });
 
-    service.byCustom = function (custom) {
-      return _.filter(list, function (ruleSet) {
-        if (custom === "") {
-          return ruleSet;
-        }
-        else {
-          return ruleSet.custom === custom;
-        }
-      });
-    };
-
-    service.generateEmptyRuleSet = function() {
-      return {
-        name: "New Rule Set",
-        rules: [{
-          classifiers: [],
-          actions: [],
-        }],
-        custom: "Custom",
-        id: (Math.floor(Math.random() * 10000)).toString()
-        // while the user is in main.ruleSetsEdit, the id allows the user to select a rule set out of the list to modify
-        // logic in that state depends on $stateParams because it is not a modal w/ one parent controller
-        // whereas in main.service, the data is on one controller which is the state of truth for the modals' data
-        // TODO: remove client-side id generation
-      };
-    };
-
-    service.generateEmptyRule = function() {
-      return {
-        classifiers: [],
-        actions: []
-      };
-    };
-
     return service;
   });
