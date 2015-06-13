@@ -1,11 +1,11 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
-  function ($scope, $modalInstance, Actions, Classifiers, $stateParams, selectedRuleSet) {
+  function ($scope, $modalInstance, Classifiers, $stateParams, selectedRuleSet, PolicyStore) {
 
     $scope.selectedRuleSet = selectedRuleSet; // local from resolve
 
     $scope.existingClassifiers = Classifiers.list;
 
-    $scope.existingActions = Actions.list;
+    $scope.existingActions = PolicyStore.Actions.all.bind(PolicyStore.Actions);
 
     $scope.ok = function () {
       if ($scope.areAllRulesValid()) {

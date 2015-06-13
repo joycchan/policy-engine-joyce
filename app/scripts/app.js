@@ -160,7 +160,6 @@ angular.module("policyEngine", [
       })
       .state("main.actionsEdit", {
         url: "actions/edit/{actionId}/",
-        controller: "ActionsEditCtrl",
         templateUrl: "scripts/main/actions/edit/edit.html"
       })
   })
@@ -169,5 +168,6 @@ angular.module("policyEngine", [
     PolicyActions.FetchGroups();
     PolicyActions.FetchAssignments();
     PolicyActions.FetchRuleSets();
+    PolicyActions.FetchActions();
   });
 

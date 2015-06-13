@@ -116,6 +116,29 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       PolicyStore.RuleSets.delete({id: id});
     },
 
+    FetchActions: function() {
+      $http.get('api/actions').success(function (data) {
+        data.map(actions.ReceiveAction);
+      });
+    },
+
+    ReceiveAction: function(action) {
+      PolicyStore.Actions.insert(action);
+    },
+
+    CreateAction: function(action) {
+      action.id = Util.uid(); // generate ids locally for now
+      PolicyStore.Actions.insert(action);
+    },
+
+    UpdateAction: function(action) {
+      PolicyStore.Actions.update({id: action.id}, action);
+    },
+
+    DeleteAction: function(id) {
+      PolicyStore.Actions.delete({id: id});
+    },
+
   };
 
   return actions;
