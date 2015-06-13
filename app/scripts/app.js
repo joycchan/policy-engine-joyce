@@ -153,7 +153,16 @@ angular.module("policyEngine", [
         url: "services/",
         templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
-
+      .state("main.actions", {
+        url: "actions/",
+        controller: "Actions",
+        templateUrl: "scripts/main/actions/actions.html"
+      })
+      .state("main.actionsEdit", {
+        url: "actions/edit/{actionId}/",
+        controller: "ActionsEditCtrl",
+        templateUrl: "scripts/main/actions/edit/edit.html"
+      })
   })
   .run(function(PolicyActions) {
     PolicyActions.FetchServices();
