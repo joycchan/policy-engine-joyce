@@ -23,26 +23,22 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       });
     }
 
-    $scope.addClassifier = function (data, index) {
-      if (data.dataType === 'classifier'
-        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifiers, data.name)
+    $scope.addClassifier = function (metaObject, index) {
+      if (metaObject.type === 'classifier'
+        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifiers, metaObject.data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleSet.rules[index].classifiers.push({"name": data.name});
+        $scope.selectedRuleSet.rules[index].classifiers.push({"name": metaObject.data.name});
       }
     };
 
-    $scope.addAction = function (data, index) {
-      if (data.dataType === 'action'
-        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actions, data.name)
+    $scope.addAction = function (metaObject, index) {
+      if (metaObject.type === 'action'
+        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actions, metaObject.data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleSet.rules[index].actions.push({"name": data.name});
+        $scope.selectedRuleSet.rules[index].actions.push({"name": metaObject.data.name});
       }
-    };
-
-    $scope.decorateData = function (data, dataType) {
-      return _.extend(data, {'dataType': dataType});
     };
 
     $scope.editModeHash = {
