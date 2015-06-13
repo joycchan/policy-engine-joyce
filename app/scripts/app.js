@@ -159,5 +159,6 @@ angular.module("policyEngine", [
     PolicyActions.FetchServices();
     PolicyActions.FetchGroups();
     PolicyActions.FetchAssignments();
+    PolicyActions.FetchRuleSets();
   });
 

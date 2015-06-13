@@ -91,8 +91,30 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       }).error(function (response) {
         console.log('error response', response);
       });
-    }
+    },
 
+    FetchRuleSets: function() {
+      $http.get('api/ruleSets').success(function (data) {
+        data.map(actions.ReceiveRuleSet);
+      });
+    },
+
+    ReceiveRuleSet: function(ruleSet) {
+      PolicyStore.RuleSets.insert(ruleSet);
+    },
+
+    CreateRuleSet: function(ruleSet) {
+      ruleSet.id = Util.uid(); // generate ids locally for now
+      PolicyStore.RuleSets.insert(ruleSet);
+    },
+
+    UpdateRuleSet: function(ruleSet) {
+      PolicyStore.RuleSets.update({id: ruleSet.id}, ruleSet);
+    },
+
+    DeleteRuleSet: function(id) {
+      PolicyStore.RuleSets.delete({id: id});
+    },
 
   };
 

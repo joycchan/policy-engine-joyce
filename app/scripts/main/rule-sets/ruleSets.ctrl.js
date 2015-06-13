@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('policyEngine').controller('RuleSetsCtrl',
-  function ($scope, $modal, Modals, ruleSets) {
+  function ($scope, $modal, Modals, PolicyStore, PolicyActions) {
 
-    $scope.rulesList = ruleSets.list;
+    $scope.rulesList = PolicyStore.RuleSets.all.bind(PolicyStore.RuleSets);
 
-    $scope.deleteRuleSet = ruleSets.delete;
+    $scope.deleteRuleSet = PolicyActions.DeleteRuleSet
 
     $scope.search = {name: ''};
 
@@ -18,7 +18,7 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
     $scope.filter = "All Rule Sets";
 
     var byCustom = function (custom) {
-      return _.filter(ruleSets.list(), function (ruleSet) {
+      return _.filter(PolicyStore.RuleSets.all(), function (ruleSet) {
         if (custom === "") {
           return ruleSet;
         }

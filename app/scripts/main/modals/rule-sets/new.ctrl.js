@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, ruleSets, $modal, Modals) {
+angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, PolicyActions, $modal, Modals) {
 
   var generateEmptyRuleSet = function () {
     return {
@@ -33,7 +33,7 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
 
   $scope.ok = function () {
     if (!$scope.disabled()) {
-      $scope.service.ruleSet = ruleSets.create($scope.newRuleSet); // $scope.service is in the parent controller
+      $scope.service.ruleSet = PolicyActions.CreateRuleSet($scope.newRuleSet); // $scope.service is in the parent controller
       $state.go('main.service');
     }
   };

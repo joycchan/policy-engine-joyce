@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('RuleSetsEditCtrl',
-  function($scope, $modal, $stateParams, ruleSets, Modals) {
+  function($scope, $modal, $stateParams, PolicyStore, PolicyActions, Modals) {
     $scope.navTabLinks = [{
       'name': 'Settings',
       'uiSref': 'main.ruleSetsEdit.settings'
@@ -9,7 +9,7 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
     }];
 
     $scope.ruleSet = function() {
-      return _.find(ruleSets.list(), function(rule) {
+      return _.find(PolicyStore.RuleSets.all(), function(rule) {
         return rule.id === $stateParams.ruleId;
       });
     };
@@ -19,7 +19,7 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       var modalInstance = $modal.open(Modals.ruleSetEditor(angular.copy($scope.ruleSet())));
 
       modalInstance.result.then(function (updatedRuleSet) {
-        ruleSets.update(updatedRuleSet);
+        PolicyActions.UpdateRuleSet(updatedRuleSet);
       }, function () {
       });
     };
