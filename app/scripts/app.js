@@ -169,5 +169,6 @@ angular.module("policyEngine", [
     PolicyActions.FetchAssignments();
     PolicyActions.FetchRuleSets();
     PolicyActions.FetchActions();
+    PolicyActions.FetchClassifiers();
   });
 

@@ -1,9 +1,9 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
-  function ($scope, $modalInstance, Classifiers, $stateParams, selectedRuleSet, PolicyStore) {
+  function ($scope, $modalInstance, $stateParams, selectedRuleSet, PolicyStore) {
 
     $scope.selectedRuleSet = selectedRuleSet; // local from resolve
 
-    $scope.existingClassifiers = Classifiers.list;
+    $scope.existingClassifiers = PolicyStore.Classifiers.all.bind(PolicyStore.Classifiers);
 
     $scope.existingActions = PolicyStore.Actions.all.bind(PolicyStore.Actions);
 

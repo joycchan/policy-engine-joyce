@@ -139,6 +139,29 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       PolicyStore.Actions.delete({id: id});
     },
 
+    FetchClassifiers: function() {
+      $http.get('api/classifiers').success(function (data) {
+        data.map(actions.ReceiveClassifier);
+      });
+    },
+
+    ReceiveClassifier: function(classifier) {
+      PolicyStore.Classifiers.insert(classifier);
+    },
+
+    CreateClassifier: function(classifier) {
+      classifier.id = Util.uid(); // generate ids locally for now
+      PolicyStore.Classifiers.insert(classifier);
+    },
+
+    UpdateClassifier: function(classifier) {
+      PolicyStore.Classifiers.update({id: classifier.id}, classifier);
+    },
+
+    DeleteClassifier: function(id) {
+      PolicyStore.Classifiers.delete({id: id});
+    },
+
   };
 
   return actions;
