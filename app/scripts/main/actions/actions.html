@@ -1,0 +1,101 @@
+<div class="objectsList">
+  <div class="objectsList-breadcrumb">Actions Library</div>
+  <div class="objectsList-helpText">
+    Actions determine what to do with that type of traffic.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl. Aenean placerat turpis id lorem dapibus, vitae egestas nibh volutpat. Duis id suscipit felis. 
+  </div>
+  <div class="actions-container">
+    <div class="actions-divider"></div>
+    <div class="objectsList-new button new-action">
+      New Action
+    </div>
+    <div class="actions-box">
+      <div class="actions-boxLeft">
+        <!-- left  -->
+        <div class="actions-search">
+          <span class="actions-searchLabel">Search</span>
+          <input-search model="search.name"></input-search>
+        </div>
+
+        <div class="actions-boxLeftInner">
+          <div class="actions-name"
+            ng-repeat="action in actionsList() | filter: search"
+            ng-click="selectAction(action)"
+            ng-class="{'is-selected': isActionSelected(action)}">
+            {{action.name}}
+          </div>
+        </div>
+      </div>
+
+      <div class="actions-boxRight">
+        <!-- right -->
+        <div class="actions-edit" ui-sref="main.actionsEdit({actionId: selectedAction.id})">
+          <img class="is-hiddenOnHover" src="images/icon_edit_16.png">
+          <img class="is-displayedOnHover" src="images/icon_edit_16_blue.png">
+        </div>
+
+        <div class="actions-info">
+
+          <div class="media">
+            <div class="media-left actions-label">Name</div>
+            <div class="media-body actions-text">{{selectedAction.name}}</div>
+          </div>
+
+          <div ng-if="displayHash.isDisplayingActionTableTextField()">
+            <div class="media">
+              <div class="media-left actions-label">Action</div>
+              <div class="media-body actions-text">
+                <div class="radio actions-radio">
+                  <label for="table">
+                    <input type="radio" name="type" ng-model="displayHash.action" id="table" value="table"
+                           ng-change="resetSelected()">
+                    <div class="label-text">Table</div>
+                  </label>
+                </div>
+                <div class="radio actions-radio">
+                  <label for="text">
+                    <input type="radio" name="type" ng-model="displayHash.action" id="text" value="text"
+                           ng-change="resetSelected()">
+                    <div class="label-text">Text</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div ng-show="displayHash.action === 'table'" class="actions-tableContainer">
+              <table class="actions-table">
+                <thead>
+                  <th>Name</th>
+                  <th>Value</th>
+                </thead>
+              </table>
+
+              <div class="actions-tableScrollable">
+                <table class="actions-table">
+                  <tbody>
+                    <tr ng-repeat="data in selectedAction.data">
+                      <td>{{data.name}}</td>
+                      <td>{{data.value}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div ng-show="displayHash.action === 'text'" class="actions-textFieldContainer clearfix">
+              <textarea class="actions-textField"
+              placeholder="Enter the name/value pairs in JSON format, or paste from the clipboard"
+              ng-model="selectedActionDataAsString"></textarea>
+              <div class="button button--secondary">Validate JSON</div>
+            </div>
+          </div>
+
+          <div class="media">
+            <div class="media-left actions-label">Description</div>
+            <div class="media-body actions-text">{{selectedAction.description}}</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

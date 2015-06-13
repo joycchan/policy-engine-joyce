@@ -1,17 +1,33 @@
 [{
-  "name": "SQL-Port-1443"
+  "name": "SQL-Port-1443",
+  "custom": "Default",
+  "id": 1
 }, {
-  "name": "TrustSEC SGACL"
+  "name": "TrustSEC SGACL",
+  "custom": "Default",
+  "id": 2
 }, {
-  "name": "Overlay-TEP-Type-HWTEP"
+  "name": "Overlay-TEP-Type-HWTEP",
+  "custom": "Default",
+  "id": 3
 }, {
-  "name": "Overlap-Encap-TypeVX-LAN"
+  "name": "Overlap-Encap-TypeVX-LAN",
+  "custom": "Default",
+  "id": 4
 }, {
-  "name": "TCP-80"
+  "name": "TCP-80",
+  "custom": "Default",
+  "id": 5
 }, {
-  "name": "ICMP"
+  "name": "ICMP",
+  "custom": "Default",
+  "id": 6
 }, {
-  "name": "TCP-0"
+  "name": "TCP-0",
+  "custom": "Custom",
+  "id": 7
 }, {
-  "name": "UDP-80"
+  "name": "UDP-80",
+  "custom": "Custom",
+  "id": 8
 }]
