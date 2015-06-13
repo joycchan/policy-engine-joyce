@@ -28,7 +28,7 @@
 
       <div class="actions-boxRight">
         <!-- right -->
-        <div class="actions-edit" ng-click="toggleEditMode()">
+        <div class="actions-edit">
           <img class="is-hiddenOnHover" src="images/icon_edit_16.png">
           <img class="is-displayedOnHover" src="images/icon_edit_16_blue.png">
         </div>
@@ -40,14 +40,24 @@
             <div class="media-body actions-text">{{selectedAction.name}}</div>
           </div>
 
-          <div ng-if="displayHash.actionTableTextField()">
+          <div ng-if="displayHash.isDisplayingActionTableTextField()">
             <div class="media">
               <div class="media-left actions-label">Action</div>
               <div class="media-body actions-text">
-                <form>
-                  <label><input type="radio" ng-model="displayHash.action" value="table"><span class="actions-radioLabel">Table</span></label>
-                  <label><input type="radio" ng-model="displayHash.action" value="text"><span class="actions-radioLabel">Text Field</span></label>
-                </form>
+                <div class="radio actions-radio">
+                  <label for="table">
+                    <input type="radio" name="type" ng-model="displayHash.action" id="table" value="table"
+                           ng-change="resetSelected()">
+                    <div class="label-text">Table</div>
+                  </label>
+                </div>
+                <div class="radio actions-radio">
+                  <label for="text">
+                    <input type="radio" name="type" ng-model="displayHash.action" id="text" value="text"
+                           ng-change="resetSelected()">
+                    <div class="label-text">Text</div>
+                  </label>
+                </div>
               </div>
             </div>
 

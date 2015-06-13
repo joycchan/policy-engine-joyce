@@ -5,7 +5,7 @@ angular.module('policyEngine').controller('Actions',
 
     // for dev purposes
     $timeout(function( ){
-      $scope.selectAction(_.last(Actions.list()));
+      $scope.selectAction(_.first(Actions.list()));
     }, 500);
 
     $scope.actionsList = Actions.list;
@@ -23,18 +23,16 @@ angular.module('policyEngine').controller('Actions',
     };
 
     $scope.displayHash = {
-      isEditModeEnabled: true, // true for dev purposes, should be false
       action: 'table', // can be 'table' or 'text'
-      actionTableTextField: function() {
-        return $scope.selectedAction.data;
+      isDisplayingActionTableTextField: function() {
+        // assumption: default actions will not have key/value pairs to edit
+        // whereas custom actions will
+        // and the ui will only display this info if exists
+        return !_.isUndefined($scope.selectedAction.data) && !_.isNull($scope.selectedAction.data);
       }
     };
 
-    $scope.toggleEditMode = function() {
-      $scope.displayHash.isEditModeEnabled = !$scope.displayHash.isEditModeEnabled;
-    };
-
-    $scope.selectedActionDataAsString = '';
+    $scope.selectedActionDataAsString = ''; // textarea's ngModel can only be bound to strings
 
     var generateSelectedActionDataAsString = function() {
       if($scope.selectedAction && $scope.selectedAction.data) {

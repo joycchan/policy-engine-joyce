@@ -133,11 +133,34 @@
   color: @color-50;
 }
 
-.actions-radioLabel {
-  color: @color-50;
-  font-weight: normal;
-  padding-left: 5px;
-  padding-right: 12px;
+.actions-radio {
+  margin-right: 10px;
+
+  // overriding radio
+  &.radio {
+    margin-bottom: 5px;
+    margin-top: 0;
+    display: inline-block;
+
+    label {
+      margin: 2px 0;
+    }
+
+    label .label-text {
+      padding-left: 2px;
+    }
+
+    input[type="radio"] + div:before {
+      width: 16px;
+      height: 16px;
+    }
+    input[type="radio"]:checked + div:after {
+      height: 8px;
+      width: 8px;
+      left: 4px;
+      top: 7px;
+    }
+  }
 }
 
 .actions-textFieldContainer, .actions-info .actions-tableContainer {
