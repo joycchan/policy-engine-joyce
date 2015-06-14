@@ -61,6 +61,11 @@ angular.module("policyEngine", [
           templateUrl: 'scripts/main/modals/groups/new.html',
           controller: 'NewGroupCtrl'
         })
+        .state("main.new.ruleSet", {
+          url: "rule-set/",
+          templateUrl: 'scripts/main/modals/rule-sets/new.html',
+          controller: 'NewRuleSetCtrl'
+        })
         .state("main.groups", {
           url: "groups/",
           templateUrl: "scripts/main/groups/groups.html",
@@ -146,13 +151,13 @@ angular.module("policyEngine", [
               templateUrl: "scripts/main/assignments/assignment/group-centric/group-centric.html"
             })
       .state("main.ruleSets", {
-        url: "rulesets/",
+        url: "rule-sets/",
         controller: "RuleSetsCtrl",
         templateUrl: "scripts/main/rule-sets/rule-sets.html"
       })
       .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "rulesets/edit/{ruleId}/",
+        url: "rule-sets/edit/{ruleId}/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })

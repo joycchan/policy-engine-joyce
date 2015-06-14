@@ -23,7 +23,16 @@ angular.module('policyEngine').controller('ServiceCtrl',
       $state.go('main.service');
     };
 
+    $scope.createRuleSet = function(ruleSet) {
+      $scope.service.ruleSet = ruleSet;
+      $state.go('main.service');
+    };
+
     $scope.cancelGroup = function () {
+      $state.go('main.service');
+    };
+
+    $scope.cancelRuleSet = function () {
       $state.go('main.service');
     };
   }
