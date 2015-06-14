@@ -35,7 +35,7 @@
             <div class="selected-icon"></div>
         </span>
 
-        <div class="buttons">
+        <div class="button-group">
             <div class="button button--secondary" ui-sref="main.service.newGroup"
                  ng-class="{'is-selected': option.group === 'new'}" ng-click="option.group = 'new'">
                 <div class="plus">+</div>
@@ -65,7 +65,7 @@
             <div class="selected-icon"></div>
         </span>
 
-        <div class="buttons">
+        <div class="button-group">
             <div class="button button--secondary" ui-sref="main.service.newRuleSet"
                  ng-class="{'is-selected': option.ruleSet === 'new'}" ng-click="option.ruleSet = 'new'">
                 <div class="plus">+</div>
@@ -79,12 +79,12 @@
         <div ui-view="ruleSet" class="component" autoscroll></div>
 
         <hr/>
+    </div>
 
-        <div class="nav-buttons">
-            <div class="button button--secondary" ui-sref="main.services.filters.cards">Cancel</div>
-            <div class="button" ng-click="createService()"
-                 ng-class="{ 'is-disabled': serviceIncomplete() }">OK
-            </div>
+    <div class="button-group">
+        <div class="button button--secondary" ui-sref="main.services.filters.cards">Cancel</div>
+        <div class="button" ng-click="createService()"
+             ng-class="{ 'is-disabled': serviceIncomplete() }">OK
         </div>
     </div>
 </div>
