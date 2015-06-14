@@ -50,6 +50,17 @@ angular.module("policyEngine", [
           controller: "ConfigurationCtrl"
         })
 
+        .state("main.new", {
+          abstract: true,
+          url: "new/",
+          templateUrl: 'scripts/main/new/new.html',
+          controller: 'NewCtrl',
+        })
+        .state("main.new.group", {
+          url: "group/",
+          templateUrl: 'scripts/main/modals/groups/new.html',
+          controller: 'NewGroupCtrl'
+        })
         .state("main.groups", {
           url: "groups/",
           templateUrl: "scripts/main/groups/groups.html",

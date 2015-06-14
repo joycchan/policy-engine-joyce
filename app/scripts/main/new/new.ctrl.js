@@ -6,5 +6,4 @@ angular.module('policyEngine').controller('NewCtrl', function ($scope, $state) {
   $scope.cancelGroup = function() {
     $state.go('main.groups');
   };
-
 });

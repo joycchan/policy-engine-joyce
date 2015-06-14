@@ -17,5 +17,14 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.serviceIncomplete = function() {
       return !($scope.service.name && $scope.service.group && $scope.service.ruleSet);
     };
+
+    $scope.createGroup = function (group) {
+      $scope.service.group = group;
+      $state.go('main.service');
+    };
+
+    $scope.cancelGroup = function () {
+      $state.go('main.service');
+    };
   }
 );
