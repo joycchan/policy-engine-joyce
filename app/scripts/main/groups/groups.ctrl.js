@@ -35,16 +35,6 @@ angular.module('policyEngine').controller('GroupsCtrl',
     $scope.isRulesListFilterSelected = function(name) {
       return name === $scope.filter;
     };
-
-    $scope.open = function () {
-
-      var modalInstance = $modal.open(Modals.newGroup);
-
-      modalInstance.result.then(function (newGroup) {
-      }, function () {
-        console.log('Modal dismissed at: ' + new Date());
-      });
-    };
   }
 );
 

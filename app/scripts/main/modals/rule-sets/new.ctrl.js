@@ -31,14 +31,11 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
     return ($scope.newRuleSet.rules[0].classifiers.length === 0 || $scope.newRuleSet.rules[0].actions.length === 0);
   };
 
-  $scope.ok = function () {
+  $scope.create = function () {
     if (!$scope.disabled()) {
-      $scope.service.ruleSet = PolicyActions.CreateRuleSet($scope.newRuleSet); // $scope.service is in the parent controller
-      $state.go('main.service');
+      var ruleSet = PolicyActions.CreateRuleSet($scope.newRuleSet); // $scope.service is in the parent controller
+      $scope.createRuleSet(ruleSet);
     }
   };
 
-  $scope.cancel = function () {
-    $state.go('main.service');
-  };
 });

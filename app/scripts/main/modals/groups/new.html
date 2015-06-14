@@ -12,32 +12,9 @@
                       placeholder="optional"></textarea>
     </div>
 
-    <div class="ep-pools form-group">
-
-        <label>Endpoint Pools</label>
-
-        <div class="button selected-pool" ng-class="{'button--secondary': !poolsExpanded}" ng-click="toggleDropdown()">
-            {{buttonText()}}
-        </div>
-        <div ng-repeat="pool in group.pools" class="button button--primary selected-pool">
-            {{pool.name}}
-            <div ng-click="removePool(pool)" class="delete-pool"></div>
-        </div>
-        <div ng-class="{ expanded: poolsExpanded }" class="pool-selection">
-            <input-search class="main-search" model="search" placeholder=""></input-search>
-            <div class="pools">
-                <div ng-repeat="pool in pools | filter:search" class="pool">
-                    {{pool.name}}
-                    <form>
-                        <switch id="enabled" name="enabled" ng-model="pool.enabled" class="green"></switch>
-                    </form>
-                </div>
-            </div>
-            <div ng-click="toggleDropdown()" class="pool apply">Apply</div>
-        </div>
-    </div>
+    <select-pools group="group"></select-pools>
 </div>
 <div class="button-group">
-    <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-    <div class="button" ng-click="ok()">Create</div>
+    <div class="button button--secondary" ng-click="cancelGroup()">Cancel</div>
+    <div class="button" ng-click="create()">Create</div>
 </div>

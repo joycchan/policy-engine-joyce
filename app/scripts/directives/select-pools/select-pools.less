@@ -1,0 +1,122 @@
+@import "../../../styles/variables";
+
+.select-pools {
+  position: relative;
+
+  .button:hover {
+    background-color: @green;
+    color: white;
+
+    &.button--secondary {
+      background-color: @color-60;
+    }
+  }
+
+  .button--primary {
+    cursor: auto;
+
+    &:hover {
+      background-color: @blue;
+      color: white;
+    }
+  }
+
+  .selected-pool {
+    margin-bottom: 8px;
+    margin-right: 3px;
+    float: left;
+
+    .delete-pool {
+      display: inline-block;
+      background: url(../../../images/icon_x_16_white.png) no-repeat;
+      background-size: cover;
+      height: 8px;
+      width: 8px;
+      margin-left: 6px;
+      margin-top: 4px;
+      cursor: pointer;
+    }
+
+  }
+
+  .pool-selection {
+    height: 350px;
+    width: 300px;
+    max-height: 0;
+    border: none;
+    transition: max-height 0.2s ease;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 3px;
+    font-weight: 300;
+    color: @color-50;
+    position: absolute;
+    top: 37px;
+    left: 107px;
+
+    &.expanded {
+      border: 1px solid @color-70;
+      max-height: 500px;
+    }
+
+    input-search input {
+      margin: 10px;
+      width: 280px;
+    }
+
+    .pools {
+      overflow: auto;
+      height: 258px;
+      padding-top: 1px;
+    }
+
+    .pool {
+      height: 36px;
+      padding-left: 10px;
+
+      form {
+        display: inline-block;
+        float: right;
+        padding-right: 30px;
+
+        .switch {
+          height: 20px;
+          width: 55px;
+          background-color: @color-70;
+          border-color: @color-70;
+
+          small {
+            height: 20px;
+            width: 20px;
+          }
+
+          &.checked {
+            background-color: @dark-green;
+            border-color: @dark-green;
+
+            small {
+              left: 35px;
+
+            }
+          }
+        }
+      }
+
+      &.apply {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 300;
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+        border-top: 1px solid @color-70;
+        color: @color-70;
+        cursor: pointer;
+
+        &:hover {
+          color: @color-60;
+        }
+      }
+    }
+  }
+}
