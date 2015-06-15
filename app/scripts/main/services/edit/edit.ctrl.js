@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesEdit',
-  function ($scope) {
+  function ($scope, Services) {
     
   });
