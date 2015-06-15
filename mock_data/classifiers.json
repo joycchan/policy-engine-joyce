@@ -1,33 +1,65 @@
 [{
   "name": "SQL-Port-1443",
   "custom": "Default",
-  "id": 1
+  "id": 1,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Business and Productivity"
 }, {
   "name": "TrustSEC SGACL",
   "custom": "Default",
-  "id": 2
+  "id": 2,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
 }, {
   "name": "Overlay-TEP-Type-HWTEP",
   "custom": "Default",
-  "id": 3
+  "id": 3,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Tools"
 }, {
   "name": "Overlap-Encap-TypeVX-LAN",
   "custom": "Default",
-  "id": 4
+  "id": 4,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Database"
 }, {
   "name": "TCP-80",
   "custom": "Default",
-  "id": 5
+  "id": 5,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Email"
 }, {
   "name": "ICMP",
   "custom": "Default",
-  "id": 6
+  "id": 6,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Internet Security"
 }, {
   "name": "TCP-0",
   "custom": "Custom",
-  "id": 7
+  "id": 7,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
 }, {
   "name": "UDP-80",
   "custom": "Custom",
-  "id": 8
+  "id": 8,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
 }]
