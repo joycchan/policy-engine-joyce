@@ -180,6 +180,16 @@ angular.module("policyEngine", [
         controller: "ActionsEditCtrl",
         templateUrl: "scripts/main/actions/edit/edit.html"
       })
+      .state("main.classifiers", {
+        url: "classifiers/",
+        controller: "ClassifiersCtrl",
+        templateUrl: "scripts/main/classifiers/classifiers.html"
+      })
+      .state("main.classifiersEdit", {
+        url: "classifiers/edit/{classifierId}/",
+        controller: "ClassifiersEditCtrl",
+        templateUrl: "scripts/main/classifiers/edit/edit.html"
+      })
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeSuccess',function(){
