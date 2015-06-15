@@ -10,7 +10,6 @@
     </div>
     <div class="subRules-box">
       <div class="subRules-boxLeft subRules-boxLeft--classifiers">
-        <!-- left  -->
         <div class="subRules-search">
           <span class="subRules-searchLabel">Search</span>
           <input-search model="search.name"></input-search>
@@ -19,8 +18,8 @@
         <div class="subRules-boxLeftInner">
          <div class="classifiers-categories">
            <div class="subRules-name subRules-name--categories"
-             ng-repeat="(category, classifiers) in classifierCategories()"
-             ng-click="selectCategory(category, classifiers)"
+             ng-repeat="category in categoryNames"
+             ng-click="selectCategory(category)"
              ng-class="{'is-selected': isCategorySelected(category)}">
              {{category}}
            </div>
@@ -36,8 +35,7 @@
         </div>
       </div>
 
-      <div class="subRules-boxRight subRules-boxRight--classifiers">
-        <!-- right -->
+      <div class="subRules-boxRight subRules-boxRight--classifiers" ng-show="selected.classifier">
         <div class="subRules-edit" ui-sref="main.classifiersEdit({classifierId: selected.classifier.id})">
           <img class="is-hiddenOnHover" src="images/icon_edit_16.png">
           <img class="is-displayedOnHover" src="images/icon_edit_16_blue.png">
@@ -53,7 +51,7 @@
           </div>
           <div class="media">
             <div class="media-left subRules-label">Protocols</div>
-            <div class="media-body subRules-text">{{selected.classifier.protocols.join(',')}}</div>
+            <div class="media-body subRules-text">{{selected.classifier.protocols.join(', ')}}</div>
           </div>
           <div class="media">
             <div class="media-left subRules-label">Port</div>
@@ -64,8 +62,6 @@
             <div class="media-body subRules-text">{{selected.classifier.description}}</div>
           </div>
         </div>
-
     </div>
-
   </div>
 </div>

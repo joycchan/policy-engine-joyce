@@ -9,50 +9,43 @@ angular.module('policyEngine').controller('ClassifiersCtrl',
       categoryName: '',
       classifiersList: [],
       classifier: null
-    }
+    };
 
     $scope.classifiersList = Classifiers.list;
 
+    $scope.categoryNames = [
+      'Business and Productivity',
+      'Backup and Storage',
+      'Tools',
+      'Database',
+      'Email',
+      'Internet Security'
+    ];
+
     $scope.classifierCategories = function() {
-      return _classifierCategories;
-    }
-
-    var _classifierCategories;
-
-    var generateClassifierCategories = function() {
-      _classifierCategories = _.groupBy($scope.classifiersList(), function(classifier) {
+      return _.groupBy($scope.classifiersList(), function(classifier) {
         return classifier.category;
       });
-    }
+    };
 
-    $scope.$watch(function() {
-      return $scope.classifiersList();
-    }, function() {
-      generateClassifierCategories();
-
-      // for dev purposes
-        var category = $scope.classifierCategories()['Backup and Storage'];
-        $scope.selectCategory('Backup and Storage', category);
-        $scope.selectClassifier(_.first(category));
-      //
-    });
+    $scope.selectCategory = function(categoryName) {
+      $scope.selected.categoryName = categoryName;
+      $scope.selected.classifiersList = $scope.classifierCategories()[categoryName];
+      // reset selected classifier
+      $scope.selected.classifier = '';
+    };
 
     $scope.isCategorySelected = function(category) {
       return $scope.selected.categoryName === category;
-    }
+    };
+
+    $scope.selectClassifier = function(classifier) {
+      $scope.selected.classifier = classifier;
+    };
 
     $scope.isClassifierSelected = function(classifier) {
       return $scope.selected.classifier === classifier;
     };
-
-    $scope.selectCategory = function(categoryName, classifiers) {
-      $scope.selected.categoryName = categoryName;
-      $scope.selected.classifiersList = classifiers;
-    }
-
-    $scope.selectClassifier = function(classifier) {
-      $scope.selected.classifier = classifier;
-    }
 
   }
 );
