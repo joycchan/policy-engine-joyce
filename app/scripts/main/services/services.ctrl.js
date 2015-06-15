@@ -15,12 +15,20 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
     };
 
-    $scope.cardsState = function() {
+    $scope.cardState = function() {
       return $state.is('main.services.filters.cards');
     };
 
-    $scope.goToCategoryState = function() {
+    $scope.listState = function() {
+      return $state.is('main.services.filters.list');
+    };
+
+    $scope.selectCategoryState = function() {
       $state.go('main.services.filters.cards', { category: undefined, group: undefined, ruleSet: undefined });
+    };
+
+    $scope.selectListState = function() {
+      $state.go('main.services.filters.list');
     };
 
     $scope.addFilter = function (type, object) {

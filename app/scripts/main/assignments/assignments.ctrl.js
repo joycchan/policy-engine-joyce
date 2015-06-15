@@ -9,8 +9,19 @@ angular.module('policyEngine').controller('AssignmentsCtrl',
       $modal.open(Modals.newAssignment);
     };
 
-    $scope.newAssignment = function () {
-      $modal.open(Modals.newAssignment);
+    $scope.cardState = function() {
+      return $state.is('main.assignments');
+    };
+
+    $scope.listState = function() {
+      return false;
+    };
+
+    $scope.selectCardtState = function() {
+      $state.go('main.assignments');
+    };
+
+    $scope.selectListState = function() {
     };
 
     $scope.groupCentric = function () {
