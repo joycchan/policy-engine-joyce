@@ -74,7 +74,7 @@ angular.module("policyEngine", [
         })
         .state("main.groupsEdit", {
           abstract: true,
-          url: "groups/edit/",
+          url: "groups/edit/{groupId}",
           controller: "GroupsEditCtrl",
           templateUrl: "scripts/main/groups/edit/edit.html"
         })
@@ -158,7 +158,7 @@ angular.module("policyEngine", [
       })
       .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "rule-sets/edit/{ruleId}/",
+        url: "rule-sets/edit/{ruleSetId}/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })

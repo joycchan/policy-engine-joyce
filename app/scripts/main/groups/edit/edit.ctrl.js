@@ -17,11 +17,12 @@ angular.module('policyEngine').controller('GroupsEditCtrl',
       });
     };
 
-    $scope.ruleset =
-    {
-      name: Groups.getEdit().name,
-      description: Groups.getEdit().description,
-      origin: Groups.getEdit().origin
-    }
+    $scope.group = {};
+
+    $scope.$watchGroup(['$routeChangeSuccess', function() { return Groups.list(); }], function() {
+      $scope.group = _.find(Groups.list(), function(rule) {
+        return rule.id === $stateParams.groupId;
+      });
+    });
   }
 );

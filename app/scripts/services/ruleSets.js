@@ -5,7 +5,6 @@ angular.module('policyEngine').factory('ruleSets',
     var service = {};
 
     var list = [];
-    var selectedList = [];
 
     service.list = function () {
       return list;
@@ -48,20 +47,12 @@ angular.module('policyEngine').factory('ruleSets',
       });
     };
 
-    service.edit = function (ruleset) {
-      selectedList = ruleset;
-    };
-
-    service.getEdit = function () {
-      return selectedList;
-    }
-
-    service.generateEmptyRuleSet = function() {
+   service.generateEmptyRuleSet = function() {
       return {
         name: "New Rule Set",
         rules: [{
           classifiers: [],
-          actions: []
+          actions: [],
         }],
         custom: "Custom",
         id: (Math.floor(Math.random() * 10000)).toString()
@@ -77,7 +68,6 @@ angular.module('policyEngine').factory('ruleSets',
         classifiers: [],
         actions: []
       };
-
     };
 
     return service;

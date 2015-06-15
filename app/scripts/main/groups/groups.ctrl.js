@@ -44,8 +44,7 @@ angular.module('policyEngine').controller('GroupsCtrl',
     };
 
     $scope.edit = function(group) {
-      Groups.edit(group);
-     return $state.go('main.groupsEdit.settings');
+     return $state.go('main.groupsEdit.settings', { groupId: group.id });
 
     };
   }

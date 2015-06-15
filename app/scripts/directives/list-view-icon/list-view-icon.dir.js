@@ -9,6 +9,6 @@ angular.module('policyEngine')
         activeSrc: '@',
         inactiveSrc: '@'
       },
-      restrict: 'E'
+      restrict: 'E',
     };
   });
