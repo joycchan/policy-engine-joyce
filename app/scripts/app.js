@@ -44,9 +44,9 @@ angular.module("policyEngine", [
               url: "list/",
               templateUrl: "scripts/main/services/list/list.html"
             })
-          .state('main.services.edit', {
-            url: "services/edit/{{serviceName}}",
-            templateUrl: "/scripts/main/services/edit/edit.html",
+          .state('main.servicesEdit', {
+            url: "services/edit/",
+            templateUrl: "scripts/main/services/edit/edit.html",
             controller: "ServicesEdit"
           })
         .state("main.configuration", {
