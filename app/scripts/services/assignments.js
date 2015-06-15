@@ -2,7 +2,7 @@
 
 angular.module('policyEngine').factory('assignments',
   function ($http, configuration) {
-    var list = [];
+    var list = [{"id":"1","type":"groupCentric","item":{"id":"3","name":"Marketing","origin":"ISE (Active Directory)","description":"Lorem ipsum dolor sit amet","servicesProvided":0,"servicesConsumed":4,"type":"user","parentId":"1"},"collection":[{"name":"Loan Management","category":{"name":"Business and Productivity Tools"},"group":{"name":"DB Servers - All Zones"},"ruleSet":{"name":"SQL Access"},"$$hashKey":"object:60"},{"name":"Internet Access","category":{"name":"Internet Security"},"group":{"name":"Internet"},"ruleSet":{"name":"HTTP Access"},"$$hashKey":"object:63"},{"name":"Apps - No Ping","category":{"name":"Database"},"group":{"name":"DB Servers - All Zones"},"ruleSet":{"name":"HTTP Access - No Ping"},"$$hashKey":"object:61"}],"$$hashKey":"object:81"},{"id":"2","type":"serviceCentric","item":{"name":"Apps - Gold","category":{"name":"Database"},"group":{"name":"DB Servers - All Zones"},"ruleSet":{"name":"HTTP Access - Gold Service"}},"collection":[{"id":"4","name":"External Suppliers","origin":"ISE (Active Directory)","description":"Lorem ipsum dolor sit amet","servicesProvided":0,"servicesConsumed":2,"type":"user","parentId":"12","$$hashKey":"object:38"},{"id":"8","name":"App Servers","origin":"VMware vCenter","description":"Lorem ipsum dolor sit amet","servicesProvided":0,"servicesConsumed":2,"type":"resource","$$hashKey":"object:41"},{"id":"1","name":"Employees","origin":"ISE (Active Directory)","description":"Lorem ipsum dolor sit amet","servicesProvided":0,"servicesConsumed":2,"type":"user","$$hashKey":"object:34"}],"$$hashKey":"object:133"},{"id":"3","type":"groupCentric","item":{"id":"5","name":"External Contractors","origin":"ISE (Active Directory)","description":"Lorem ipsum dolor sit amet","servicesProvided":0,"servicesConsumed":3,"type":"user","parentId":"12"},"collection":[{"name":"Internet Access","category":{"name":"Internet Security"},"group":{"name":"Internet"},"ruleSet":{"name":"HTTP Access"},"$$hashKey":"object:63"},{"name":"Apps - No Ping","category":{"name":"Database"},"group":{"name":"DB Servers - All Zones"},"ruleSet":{"name":"HTTP Access - No Ping"},"$$hashKey":"object:61"}],"$$hashKey":"object:176"}];
 
     var assignmentId = list.length;
 
@@ -37,6 +37,8 @@ angular.module('policyEngine').factory('assignments',
           console.log('error response', response);
         });
 
+
+        window.c = list;
         return assignment;
       },
 

@@ -33,11 +33,13 @@
             <simple-donut data="assignment.collection" type="{{assignment.type}}"></simple-donut>
             <div class="sliding-box">
                 <h4>{{listHeader(assignment)}}</h4>
-                <a ng-click="delete(assignment)">Delete</a>
-
                 <p ng-repeat="item in assignment.collection">
                     {{item.name}}
                 </p>
+                <div class="button-group">
+                    <div class="button is-selected">Rename</div>
+                    <div ng-click="delete(assignment)" class="button button--danger">Delete</div>
+                </div>
             </div>
         </div>
         <div class="card new" ng-click="newAssignment()" ng-show="assignments.length === 0">
