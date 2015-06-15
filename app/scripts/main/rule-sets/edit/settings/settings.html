@@ -1,13 +1,12 @@
-<<<<<<< HEAD
-<div class="rulesets-settings">
-  <table class="rulesets-settings-editableItems listView--iconsHover">
+<div class="objectsSettings">
+  <table class="objectsSettings-editableItems listView--iconsHover">
     <!-- <div class="rulesets-settings-name"></div> -->
     <!-- <div class="rulesets-settings-description"></div> -->
     <tr>
-      <td class="rulesets-settings-editableItems-header">
+      <td class="objectsSettings-editHeader">
           Name
       </td>
-      <td class="rulesets-settings-editableItems-text">
+      <td class="media-body objectsSettings-editText">
                 <span  editable-text="rulesets.name" e-form="textBtnForm">
                     {{rulesets.name || 'empty'}}
                 </span>
@@ -16,24 +15,10 @@
       </td>
     </tr>
     <tr>
-      <td class="rulesets-settings-editableItems-header">
-=======
-<div class="objectsSettings">
-  <div class="objectsSettings-editableItems">
-    <div class="media">
-      <div class="media-left objectsSettings-editHeader">
-          Name
-      </div>
-      <div class="media-body objectsSettings-editText">
-        My Rule set
-      </div>
-    </div>
-    <div class="media">
-      <div class="media-left objectsSettings-editHeader">
->>>>>>> develop
+      <td class="objectsSettings-editHeader">
           Description
       </td>
-      <td class="rulesets-settings-editableItems-text" ng-model = "ruleset.description">
+      <td class="media-body objectsSettings-editText" ng-model = "ruleset.description">
                 <span  editable-text="rulesets.description" e-form="textBtnFormDescription">
                 {{rulesets.description || 'empty'}}
                 </span>
