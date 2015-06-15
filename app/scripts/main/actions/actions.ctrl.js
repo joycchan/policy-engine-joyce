@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('policyEngine').controller('Actions',
-  function($scope, $modal, Modals, Actions, $timeout) {
+  function($scope, $modal, Modals, PolicyStore, $timeout) {
 
     // for dev purposes
     $timeout(function( ){
-      $scope.selectAction(_.first(Actions.list()));
+      $scope.selectAction(_.first(PolicyStore.Actions.all()));
     }, 500);
 
-    $scope.actionsList = Actions.list;
+    $scope.actionsList = PolicyStore.Actions.all.bind(PolicyStore.Actions);
 
     $scope.search = {name: ''};
 

@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope, $state, Groups) {
+angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope, $state, PolicyStore) {
 
   $scope.selected;
 
@@ -6,7 +6,7 @@ angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope,
     $scope.selected = selectedGroup;
  };
 
-  $scope.groups = Groups.list;
+  $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
 
   $scope.ok = function () {
     $scope.service.group = $scope.selected;

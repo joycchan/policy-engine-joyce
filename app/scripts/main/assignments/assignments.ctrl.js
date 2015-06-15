@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('policyEngine').controller('AssignmentsCtrl',
-  function($scope, $state, assignments, $modal, Modals) {
+  function ($scope, $state, PolicyStore, PolicyActions, $modal, Modals) {
 
-    $scope.assignments = assignments.list();
+    $scope.assignments = PolicyStore.Assignments.all.bind(PolicyStore.Assignments);
+
+    $scope.newAssignment = function () {
+      $modal.open(Modals.newAssignment);
+    };
 
     $scope.cardState = function() {
       return $state.is('main.assignments');
@@ -20,23 +24,19 @@ angular.module('policyEngine').controller('AssignmentsCtrl',
     $scope.selectListState = function() {
     };
 
-    $scope.newAssignment = function() {
-      $modal.open(Modals.newAssignment);
-    };
-
     $scope.groupCentric = function () {
-      return assignments.byType('groupCentric');
+      return PolicyStore.Assignments.where({type: 'groupCentric'});
     };
 
     $scope.serviceCentric = function () {
-      return assignments.byType('serviceCentric');
+      return PolicyStore.Assignments.where({type: 'serviceCentric'});
     };
 
-    $scope.goToAssignment = function(assignment) {
-      $state.go('main.assignment.' + assignment.type, { assignmentId: assignment.id });
+    $scope.goToAssignment = function (assignment) {
+      $state.go('main.assignment.' + assignment.type, {assignmentId: assignment.id});
     };
 
-    $scope.listHeader = function(assignment) {
+    $scope.listHeader = function (assignment) {
       if (assignment.type === 'groupCentric') {
         return 'Assigned Services';
       } else {
@@ -44,8 +44,8 @@ angular.module('policyEngine').controller('AssignmentsCtrl',
       }
     };
 
-    $scope.delete = function(assignment) {
-      assignments.delete(assignment.id);
+    $scope.delete = function (assignment) {
+      PolicyActions.DeleteAssignment(assignment.id);
     };
   }
 );

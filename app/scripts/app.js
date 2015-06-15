@@ -1,9 +1,8 @@
 "use strict";
 
 angular.module("policyEngine", [
-
-  "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox',"xeditable"
-])
+  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable'
+  ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/launch/");
@@ -181,7 +180,6 @@ angular.module("policyEngine", [
       })
       .state("main.actionsEdit", {
         url: "actions/edit/{actionId}/",
-        controller: "ActionsEditCtrl",
         templateUrl: "scripts/main/actions/edit/edit.html"
       })
       .state("main.classifiers", {
@@ -195,9 +193,12 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/classifiers/edit/edit.html"
       })
   })
-  .run(function($rootScope) {
-    $rootScope.$on('$stateChangeSuccess',function(){
-      //$("html, body").animate({ scrollTop: 0 }, 0);
-    })
+  .run(function(PolicyActions) {
+    PolicyActions.FetchServices();
+    PolicyActions.FetchGroups();
+    PolicyActions.FetchAssignments();
+    PolicyActions.FetchRuleSets();
+    PolicyActions.FetchActions();
+    PolicyActions.FetchClassifiers();
   });
 
