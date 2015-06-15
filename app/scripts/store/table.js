@@ -12,8 +12,8 @@ angular.module("store")
 
     var memoize = function(fn) {
 
-      return _.memoize(fn, function() {
-        return this.__updateTime;
+      return _.memoize(fn, function(key) {
+        return this.__updateTime + ":" + JSON.stringify(key);
       });
 
     };
