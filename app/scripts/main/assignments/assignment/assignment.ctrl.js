@@ -1,17 +1,15 @@
 'use strict';
 
 angular.module('policyEngine').controller('AssignmentCtrl',
-  function($scope, $state, Groups, Services, $stateParams, assignments) {
+  function($scope, $state, $stateParams, PolicyStore, PolicyActions) {
 
-    $scope.services = Services.list;
+    $scope.services = PolicyStore.Services.all.bind(PolicyStore.Services);
 
-    $scope.groups = Groups.list;
-
-    $scope.assignment;
+    $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
 
     $scope.$watch('$routeChangeSuccess', function() {
       if ($stateParams.assignmentId) {
-        $scope.assignment = angular.copy(assignments.read($stateParams.assignmentId));
+        $scope.assignment = angular.copy(PolicyStore.Assignments.where({id: $stateParams.assignmentId})[0]);
       }
     });
 
@@ -20,7 +18,7 @@ angular.module('policyEngine').controller('AssignmentCtrl',
     };
 
     $scope.saveAssignment = function() {
-      assignments.update($stateParams.assignmentId, $scope.assignment);
+      PolicyActions.UpdateAssignment($scope.assignment);
       $state.go('main.assignments');
     };
   }

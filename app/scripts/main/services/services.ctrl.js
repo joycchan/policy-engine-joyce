@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, assignments, Services) {
+  function ($scope, $state, PolicyStore, PolicyActions, StoreHelpers) {
+
+    $scope.getChild = StoreHelpers.getChild;
 
     $scope.filtered = {
       category: false,
@@ -42,17 +44,46 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.assignService = function (service) {
-      var assignment = assignments.create('serviceCentric', service)
+      var assignment = PolicyActions.CreateAssignment({
+        type: 'serviceCentric',
+        item: service,
+        collection: []
+      });
       $state.go('main.assignment.serviceCentric', {assignmentId: assignment.id});
     };
 
-    $scope.serviceConsumers = assignments.serviceConsumers;
+    $scope.serviceConsumers = function (service) {
+      var groups = [];
+
+      var groupCentrics = _.filter(PolicyStore.Assignments.where({type: 'groupCentric'}), function (assignment) {
+        return _.find(assignment.collection, function (s) {
+          return s.name === service.name;
+        })
+      });
+
+
+      _.each(groupCentrics, function (assignment) {
+        groups.push(assignment.item);
+      });
+
+      var serviceCentrics = _.filter(PolicyStore.Assignments.where({type: 'serviceCentric'}), function (assignment) {
+        return assignment.item.name === service.name;
+      });
+
+      _.each(serviceCentrics, function (assignment) {
+        groups = groups.concat(assignment.collection);
+      });
+
+      return groups;
+    };
 
     $scope.serviceConsumersString = function (service) {
       return _.pluck($scope.serviceConsumers(service), 'name').join(', ');
     };
 
-    $scope.servicesByCategory = Services.byCategory;
+    $scope.servicesByCategory = function(category) {
+      _.filter(PolicyStore.Services.all(), {category: {name: 'category'}});
+    };
 
     $scope.deleteCategory = function(category) {
       _.remove($scope.categories, function(c) {
@@ -60,7 +91,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       });
     };
 
-    $scope.deleteService = Services.delete;
+    $scope.deleteService = PolicyActions.DeleteService;
 
     $scope.providerGroups = [];
     $scope.ruleSets = [];
@@ -102,10 +133,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
     }
 
     $scope.$watch(function () {
-      return Services.list();
-    }, function () {
-      $scope.providerGroups = Services.uniqueProviderGroups();
-      $scope.ruleSets = Services.uniqueRuleSets();
+      return PolicyStore.Services.all();
+    }, function (newServices) {
+      $scope.providerGroups = _.uniq(_.pluck('group'), 'name');
+      $scope.ruleSets = _.uniq(_.pluck('ruleSet'), 'name');
     });
   }
 );

@@ -24,7 +24,7 @@
       class="listItem"
       ng-repeat="classifier in existingClassifiers() | filter: search.classifiers"
       ng-drag="isInEditModeForAnyRule()"
-      ng-drag-data="decorateData(classifier, 'classifier')">
+      ng-drag-data="{type: 'classifier', data: classifier}">
       {{classifier.name}}
     </div>
   </div>
@@ -123,7 +123,7 @@
     <div class="listItem"
       ng-repeat="action in existingActions() | filter: search.actions"
       ng-drag="isInEditModeForAnyRule()"
-      ng-drag-data="decorateData(action, 'action')">
+      ng-drag-data="{type: 'action', data: action}">
       {{action.name}}
     </div>
   </div>
