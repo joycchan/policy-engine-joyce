@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state, Services) {
+  function ($scope, $state, Services, Groups) {
+
+
+    $scope.selected;
 
     $scope.service = {
       name: 'New Service'
@@ -35,5 +38,11 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.cancelRuleSet = function () {
       $state.go('main.service');
     };
+
+    $scope.selectGroup = function (selectedGroup) {
+      $scope.selected = selectedGroup;
+    };
+
+     $scope.groups = Groups.list;
   }
 );

@@ -17,5 +17,12 @@ angular.module('policyEngine').controller('GroupsEditCtrl',
       });
     };
 
+    $scope.group = {};
+
+    $scope.$watchGroup(['$routeChangeSuccess', function() { return Groups.list(); }], function() {
+      $scope.group = _.find(Groups.list(), function(rule) {
+        return rule.id === $stateParams.groupId;
+      });
+    });
   }
 );

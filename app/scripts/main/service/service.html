@@ -17,39 +17,58 @@
         </div>
     </form>
 
+    <p class="paragraph">A Service is made up of two pieces: the provider group that will be doing the work, and the rule
+        set <br/>that specifies how that work will be done.</p>
 
-    <p>A Service is made up of two pieces: the provider group that will be doing the work, and the
-        rule
-        set that specifies how that work will be done.</p>
-    <hr/>
     <div class="components">
 
         <h1>Group</h1>
+        <span class="info"></span>
 
         <p>The group used for your new service can be a new group, an imported group, or an existing group</p>
 
-        <span ng-hide="service.group" class="bold-text">Select one of the options below:</span>
+            <div>
+                <div class="button-group">
+                    <div class="search-bar">
+                        <label for="search">Search</label>
+                        <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="button button--secondary"
+                         ng-class="{'is-selected': option.group === 'import'}" ng-click="option.group = 'import'">
+                        Import Group from ISE
+                    </div>
+                    <div class="button button--secondary" ui-sref="main.service.newGroup"
+                         ng-class="{'is-selected': option.group === 'new'}" ng-click="option.group = 'new'">
+                        <div class="plus">+</div>
+                        <span class="new-text">New Group</span>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Endpoint Pools</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="group in groups() | filter:search" ng-click="selectGroup(group)"
+                        ng-class="{selected : group === selected}">
+                        <td>{{::group.name}}</td>
+                        <td>
+                            {{::group.endpointPool}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        <span ng-hide="service.group" class="bold-text">Selected:</span>
         <span ng-show="service.group">
             <span class="bold-text">Selected:</span>
             {{service.group.name}}
             <div class="selected-icon"></div>
         </span>
 
-        <div class="button-group">
-            <div class="button button--secondary" ui-sref="main.service.newGroup"
-                 ng-class="{'is-selected': option.group === 'new'}" ng-click="option.group = 'new'">
-                <div class="plus">+</div>
-                <span class="new-text">New Group</span>
-            </div>
-            <div class="button button--secondary"
-                 ng-class="{'is-selected': option.group === 'import'}" ng-click="option.group = 'import'">
-                Import Group from ISE
-            </div>
-            <div class="button button--secondary" ui-sref="main.service.existingGroup"
-                 ng-class="{'is-selected': option.group === 'existing'}" ng-click="option.group = 'existing'">
-                Use Existing Group
-            </div>
-        </div>
         <div ui-view="group" class="component" autoscroll></div>
 
         <hr/>

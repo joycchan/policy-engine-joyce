@@ -1,7 +1,8 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox'
+
+  "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox',"xeditable"
 ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
@@ -38,11 +39,11 @@ angular.module("policyEngine", [
           })
             .state("main.services.filters.cards", {
               url: "cards/",
-              templateUrl: "scripts/main/services/cards/cards.html",
+              templateUrl: "scripts/main/services/cards/cards.html"
             })
             .state("main.services.filters.list", {
               url: "list/",
-              templateUrl: "scripts/main/services/list/list.html",
+              templateUrl: "scripts/main/services/list/list.html"
             })
         .state("main.configuration", {
           url: "configuration/",
@@ -73,7 +74,7 @@ angular.module("policyEngine", [
         })
         .state("main.groupsEdit", {
           abstract: true,
-          url: "groups/edit/",
+          url: "groups/edit/{groupId}",
           controller: "GroupsEditCtrl",
           templateUrl: "scripts/main/groups/edit/edit.html"
         })
@@ -99,7 +100,7 @@ angular.module("policyEngine", [
             views: {
               group: {
                 templateUrl: 'scripts/main/modals/groups/new.html',
-                controller: 'NewGroupCtrl',
+                controller: 'NewGroupCtrl'
               }
             }
           })
@@ -126,7 +127,7 @@ angular.module("policyEngine", [
             views: {
               ruleSet: {
                 templateUrl: 'scripts/main/modals/rule-sets/existing.html',
-                controller: 'ExistingRuleSetCtrl',
+                controller: 'ExistingRuleSetCtrl'
               }
             }
           })
@@ -157,7 +158,7 @@ angular.module("policyEngine", [
       })
       .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "rule-sets/edit/{ruleId}/",
+        url: "rule-sets/edit/{ruleSetId}/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })
@@ -178,6 +179,16 @@ angular.module("policyEngine", [
         url: "actions/edit/{actionId}/",
         controller: "ActionsEditCtrl",
         templateUrl: "scripts/main/actions/edit/edit.html"
+      })
+      .state("main.classifiers", {
+        url: "classifiers/",
+        controller: "ClassifiersCtrl",
+        templateUrl: "scripts/main/classifiers/classifiers.html"
+      })
+      .state("main.classifiersEdit", {
+        url: "classifiers/edit/{classifierId}/",
+        controller: "ClassifiersEditCtrl",
+        templateUrl: "scripts/main/classifiers/edit/edit.html"
       })
   })
   .run(function($rootScope) {
