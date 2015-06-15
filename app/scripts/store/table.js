@@ -6,7 +6,7 @@ angular.module("store")
     var Table = function(validationSpec) {
 
       this.__updateTime = Date.now();
-      this.records = {};            
+      this.records = [];            
 
     };
 
@@ -64,7 +64,7 @@ angular.module("store")
         object: clone,
       };
 
-      this.records[localStoreId] = record;
+      this.records.push(record);
 
       this.__updateTime = Date.now();
 
