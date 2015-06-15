@@ -1,0 +1,88 @@
+@import "../../../../../styles/variables";
+@import "../../../../../styles/buttons";
+@import "../../../../../styles/forms";
+
+.rulesets-settings {
+  padding-left: 15px;
+  .edit{
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 32px;
+  };
+  .editable-input.editable-has-buttons {
+    width: 164px !important;
+    height: 26px;
+  }
+}
+
+.rulesets-settings-editableItems {
+  margin-bottom: 40px;
+
+  .rulesets-settings-editableItems-header {
+    &:extend(.extra-light);
+    color: @color-60;
+    width: 85px;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 15px;
+  }
+
+  .rulesets-settings-editableItems-text {
+    &:extend(.extra-light);
+    color: @color-50;
+    width: 340px;
+    text-align: left !important;
+    vertical-align: bottom;
+  }
+}
+
+
+  .editable-buttons button[type=submit] {
+    &:extend(.button);
+    margin-left: 20px;
+    padding-top: 4px;
+    border: none;
+    &:hover {
+      &:extend(.button--hover);
+    }
+  }
+
+  .editable-buttons {
+    button {
+    &:extend(.button);
+    &:extend(.button--secondary);
+    padding-top: 4px;
+    border: none;
+    &:hover {
+      &:extend(.button--hover);
+    }
+  }
+}
+
+
+.rulesets-settings-helpText {
+  &:extend(.extra-light);
+  width: 520px;
+  color: @color-60;
+  margin-bottom: 24px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.rulesets-settings-editButton {
+  margin-bottom: 12px;
+  .button {
+    width: 128px;
+  }
+}
+
+.rulesets-settings-list {
+  width: 650px;
+  .listView {
+    width: 650px;
+    td {
+      color: @color-60;
+      vertical-align: top;
+    }
+  }
+}
