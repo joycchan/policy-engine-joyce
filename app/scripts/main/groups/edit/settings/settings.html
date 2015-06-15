@@ -1,8 +1,8 @@
-<div class="rulesets-settings">
-    <table class="rulesets-settings-editableItems listView--iconsHover">
+<div class="objectsSettings">
+    <table class="objectsSettings-editableItems listView--iconsHover">
         <tr>
-            <td class="rulesets-settings-editableItems-header">Name</td>
-            <td class="rulesets-settings-editableItems-text" ng-model = "ruleset.name">
+            <td class="objectsSettings-editHeader">Name</td>
+            <td class="objectsSettings-editText" ng-model = "ruleset.name">
                 <span  editable-text="ruleset.name" e-form="textBtnForm">
                     {{ruleset.name || 'empty'}}
                 </span>
@@ -11,8 +11,8 @@
             </td>
         </tr>
         <tr>
-            <td class="rulesets-settings-editableItems-header"> Description </td>
-            <td class="rulesets-settings-editableItems-text" ng-model = "ruleset.description">
+            <td class="objectsSettings-editHeader"> Description </td>
+            <td class="objectsSettings-editText" ng-model = "ruleset.description">
                 <span  editable-text="ruleset.description" e-form="textBtnFormDescription">
                 {{ruleset.description || 'empty'}}
                 </span>
@@ -20,8 +20,8 @@
             </td>
         </tr>
         <tr>
-            <td class="rulesets-settings-editableItems-header">Origin</td>
-            <td class="rulesets-settings-editableItems-text">
+            <td class="objectsSettings-editHeader">Origin</td>
+            <td class="objectsSettings-editText">
                 <span  editable-text="ruleset.origin" e-form="textBtnFormOrigin">
                     {{ruleset.origin || 'empty'}}
                 </span>

@@ -1,7 +1,7 @@
-<div class="assignments">
+<div class="assignments row">
     <div class="col-xs-9 middle-panel">
         <h2>{{assignment.item.name}}</h2>
-        <div class="buttons">
+        <div class="button-group">
             <div ui-sref="main.assignments" class="button button--secondary">Cancel</div>
             <div ng-click="saveAssignment()" ng-class="{'is-disabled': valid()}" class="button">Save</div>
         </div>

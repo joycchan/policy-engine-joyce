@@ -36,7 +36,7 @@ angular.module('policyEngine').controller('MainCtrl',
           },
           {
             label: 'Actions Library',
-            state: '#'
+            state: 'main.actions'
           },
           {
             label: 'Setup',
@@ -58,5 +58,12 @@ angular.module('policyEngine').controller('MainCtrl',
         ]
       }
     ];
+
+    $scope.background = function() {
+      if ($state.includes('main.services') ||
+          $state.includes('main.assignments')) {
+        return 'gray';
+      }
+    };
   }
 );

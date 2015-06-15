@@ -1,8 +1,5 @@
+<h2>New Service</h2>
 <div class="service-wrapper">
-    <div class="top-row">
-        <h2>New Service</h2>
-        <span class="img-close" ui-sref="main.services.filters.cards"></span>
-    </div>
     <form class="form-horizontal meta">
         <div class="form-group">
             <label class="col-sm-2 control-label" for="name">Name</label>
@@ -38,7 +35,7 @@
             <div class="selected-icon"></div>
         </span>
 
-        <div class="buttons">
+        <div class="button-group">
             <div class="button button--secondary" ui-sref="main.service.newGroup"
                  ng-class="{'is-selected': option.group === 'new'}" ng-click="option.group = 'new'">
                 <div class="plus">+</div>
@@ -68,7 +65,7 @@
             <div class="selected-icon"></div>
         </span>
 
-        <div class="buttons">
+        <div class="button-group">
             <div class="button button--secondary" ui-sref="main.service.newRuleSet"
                  ng-class="{'is-selected': option.ruleSet === 'new'}" ng-click="option.ruleSet = 'new'">
                 <div class="plus">+</div>
@@ -82,12 +79,12 @@
         <div ui-view="ruleSet" class="component" autoscroll></div>
 
         <hr/>
+    </div>
 
-        <div class="nav-buttons">
-            <div class="button button--secondary" ui-sref="main.services.filters.cards">Cancel</div>
-            <div class="button" ng-click="createService()"
-                 ng-class="{ 'is-disabled': serviceIncomplete() }">OK
-            </div>
+    <div class="button-group">
+        <div class="button button--secondary" ui-sref="main.services.filters.cards">Cancel</div>
+        <div class="button" ng-click="createService()"
+             ng-class="{ 'is-disabled': serviceIncomplete() }">OK
         </div>
     </div>
 </div>

@@ -51,6 +51,22 @@ angular.module("policyEngine", [
           controller: "ConfigurationCtrl"
         })
 
+        .state("main.new", {
+          abstract: true,
+          url: "new/",
+          templateUrl: 'scripts/main/new/new.html',
+          controller: 'NewCtrl',
+        })
+        .state("main.new.group", {
+          url: "group/",
+          templateUrl: 'scripts/main/modals/groups/new.html',
+          controller: 'NewGroupCtrl'
+        })
+        .state("main.new.ruleSet", {
+          url: "rule-set/",
+          templateUrl: 'scripts/main/modals/rule-sets/new.html',
+          controller: 'NewRuleSetCtrl'
+        })
         .state("main.groups", {
           url: "groups/",
           templateUrl: "scripts/main/groups/groups.html",
@@ -136,13 +152,13 @@ angular.module("policyEngine", [
               templateUrl: "scripts/main/assignments/assignment/group-centric/group-centric.html"
             })
       .state("main.ruleSets", {
-        url: "rulesets/",
+        url: "rule-sets/",
         controller: "RuleSetsCtrl",
         templateUrl: "scripts/main/rule-sets/rule-sets.html"
       })
       .state("main.ruleSetsEdit", {
         abstract: true,
-        url: "rulesets/edit/{ruleId}/",
+        url: "rule-sets/edit/{ruleId}/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
       })
@@ -154,7 +170,16 @@ angular.module("policyEngine", [
         url: "services/",
         templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
-
+      .state("main.actions", {
+        url: "actions/",
+        controller: "Actions",
+        templateUrl: "scripts/main/actions/actions.html"
+      })
+      .state("main.actionsEdit", {
+        url: "actions/edit/{actionId}/",
+        controller: "ActionsEditCtrl",
+        templateUrl: "scripts/main/actions/edit/edit.html"
+      })
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeSuccess',function(){

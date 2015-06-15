@@ -36,6 +36,7 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
     $scope.isRulesListFilterSelected = function(name) {
       return name === $scope.filter;
     };
+<<<<<<< HEAD
 
     $scope.newRuleSet = function() {
       var modalInstance = $modal.open(Modals.newRuleSet);
@@ -50,5 +51,7 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
       ruleSets.edit(rule);
       return $state.go('main.ruleSetsEdit.settings');
     };
+=======
+>>>>>>> develop
   }
 );

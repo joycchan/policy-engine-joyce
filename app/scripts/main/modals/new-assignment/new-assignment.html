@@ -62,10 +62,11 @@
                     </table>
                 </div>
             </div>
+            <div class="button-group">
+                <div class="button button--secondary" ng-click="cancel()">Cancel</div>
+                <div class="button" ng-class="{'is-disabled': !selected }" ng-click="ok()">OK</div>
+            </div>
         </div>
     </form>
 </div>
-<div class="button-group">
-    <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-    <div class="button" ng-class="{'is-disabled': !selected }" ng-click="ok()">OK</div>
-</div>
+
