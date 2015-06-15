@@ -49,7 +49,11 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/configuration/setup.html",
           controller: "ConfigurationCtrl"
         })
-
+        .state('main.test', {
+          url: "services/edit/",
+          templateUrl: "/scripts/main/test/edit.html",
+          controller: "ServicesEdit"
+        })
         .state("main.new", {
           abstract: true,
           url: "new/",
