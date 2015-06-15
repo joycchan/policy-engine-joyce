@@ -1,0 +1,141 @@
+@import 'variables';
+
+.subRules-new {
+  &.button {
+    // overriding button class in buttons.less
+    width: 126px;  
+  }
+}
+
+.subRules-container {
+  width: 648px;
+}
+
+.subRules-divider {
+  border: 1px solid @color-75;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.subRules-box {
+  height: 400px;
+  width: 100%;
+  background-color: @color-90;
+  padding: 15px;
+}
+
+.subRules-boxLeft, .subRules-boxRight {
+  width: 50%;
+  height: 100%;
+  float: left;
+  display: inline-block;
+}
+
+.subRules-boxLeft {
+  padding-right: 15px;
+  border-right: 1px solid @color-70;
+}
+
+.subRules-search {
+  margin-bottom: 10px;
+
+  input {
+    background-color: white;
+    width: 242px;
+  }
+}
+
+.subRules-searchLabel {
+  font-size: 12px;
+  color: @color-60;
+  line-height: 18px;
+  &:extend(.bold);
+  margin-right: 5px;
+}
+
+.subRules-boxLeftInner {
+  width: 100%;
+  height: 225px;
+  background-color: white;
+  border: 1px solid @color-70;
+  border-radius: 3px;
+}
+
+.subRules-scrollableContent {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.subRules-name {
+  &:extend(.extra-light);
+  font-size: 12px;
+  color: @color-50;
+  line-height: 20px;
+  padding-left: 10px;
+  cursor: pointer;
+
+  &.is-selected {
+    background-color: @rulesetEditor-rowItem-editMode-BG;
+  }
+}
+
+.subRules-boxRight {
+  padding: 15px;
+  &:hover {
+    .subRules-edit {
+      visibility: visible;
+    }
+  }
+}
+
+.subRules-edit {
+  visibility: hidden;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  float: right;
+  img {
+    width: 16px;
+    height: 16px;
+    visibility: none;
+  }
+  .is-displayedOnHover {
+    display: none;
+  }
+  .is-hiddenOnHover {
+    display: inline-block;
+  }
+  &:hover {
+    .is-displayedOnHover {
+      display: inline-block;
+    }
+    .is-hiddenOnHover {
+      display: none;
+    }
+  }
+}
+
+.subRules-info {
+  clear: both;
+
+  // overriding bootstrap
+  .media {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.subRules-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: @color-60;
+  text-align: right;
+  min-width: 72px;
+}
+
+.subRules-text {
+  &:extend(.extra-light);
+  font-size: 12px;
+  line-height: 20px;
+  color: @color-50;
+}

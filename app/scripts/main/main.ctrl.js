@@ -30,7 +30,7 @@ angular.module('policyEngine').controller('MainCtrl',
         sections: [
           {
             label: 'Classifiers Library',
-            state: '#'
+            state: 'main.classifiers'
           },
           {
             label: 'Actions Library',

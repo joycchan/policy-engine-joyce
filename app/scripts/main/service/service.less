@@ -24,12 +24,26 @@
     line-height: 18px;
   }
 
+  .paragraph {
+     border-bottom: 1px solid @color-90;
+     border-top: 1px solid @color-90;
+     padding: 20px 0px;
+     width: 770px;
+     margin: 25px 0px 10px;
+  }
   hr {
     margin: 0;
     width: 100%;
     border-color: @color-90;
   }
 
+  .info {
+    background: url(../../../images/icon_info_16.png);
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-left: 8px;
+  }
   .components {
     padding: 0 15px;
     width: 755px;
@@ -88,6 +102,10 @@
 
     .button-group {
       text-align: left;
+
+      .button {
+      margin: 0px 10px;
+      }
     }
   }
 
@@ -99,6 +117,7 @@
 
   .search-bar {
     margin-top: 5px;
+    display: inline-block;
 
     label {
       font-weight: normal;
@@ -107,7 +126,7 @@
     input {
       border: 1px @color-70 solid;
       height: 32px;
-      width: 190px;
+      width: 241px;
       background: url(../../../images/magnifying-glass.png) no-repeat 10px 7px;
       padding-left: 40px;
       margin-left: 10px;
@@ -117,6 +136,7 @@
 
   .table {
     margin-top: 20px;
+    border: solid 1px @color-80;
 
     thead tr {
       font-weight: bold;
@@ -124,10 +144,6 @@
 
     tbody tr {
       cursor: pointer;
-
-      td:first-child {
-        border-left: solid 3px @color-90;
-      }
 
       &:hover {
         background-color: @color-80;

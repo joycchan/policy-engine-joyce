@@ -3,6 +3,9 @@
 angular.module('policyEngine').controller('ServiceCtrl',
   function ($scope, $state, PolicyActions) {
 
+
+    $scope.selected;
+
     $scope.service = {
       name: 'New Service'
     };
@@ -35,5 +38,11 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.cancelRuleSet = function () {
       $state.go('main.service');
     };
+
+    $scope.selectGroup = function (selectedGroup) {
+      $scope.selected = selectedGroup;
+    };
+
+     $scope.groups = Groups.list;
   }
 );
