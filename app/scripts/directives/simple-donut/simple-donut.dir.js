@@ -20,8 +20,8 @@ angular.module('policyEngine')
           margin = {
             top: 0,
             bottom: 0,
-            left: 88,
-            right: 88
+            left: 0,
+            right: 0
           };
 
         var width = radius * 2 + margin.left + margin.right;

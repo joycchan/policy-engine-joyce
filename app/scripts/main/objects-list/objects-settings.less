@@ -2,6 +2,15 @@
 
 .objectsSettings {
   padding-left: 15px;
+  .edit{
+      cursor: pointer;
+      display: inline-block;
+      margin-left: 32px;
+    };
+    .editable-input.editable-has-buttons {
+      width: 164px !important;
+      height: 26px;
+    }
 }
 
 .objectsSettings-editableItems {
@@ -13,12 +22,16 @@
   color: @color-60;
   width: 85px;
   font-size: 12px;
+  display: inline-block;
+  margin-top: 15px;
 }
 
 .objectsSettings-editText {
   &:extend(.extra-light);
   color: @color-50;
   width: 315px;
+  text-align: left !important;
+  vertical-align: bottom !important;
 }
 
 .objectsSettings-help {
@@ -46,5 +59,27 @@
   td {
     color: @color-60;
     vertical-align: top;
+  }
+}
+
+.editable-buttons button[type=submit] {
+    &:extend(.button);
+    margin-left: 20px;
+    padding-top: 4px;
+    border: none;
+    &:hover {
+      &:extend(.button--hover);
+    }
+  }
+
+  .editable-buttons {
+    button {
+    &:extend(.button);
+    &:extend(.button--secondary);
+    padding-top: 4px;
+    border: none;
+    &:hover {
+      &:extend(.button--hover);
+    }
   }
 }

@@ -2,11 +2,47 @@
 
 .services {
 
+  .card {
+    cursor: auto;
+
+    &.category {
+      width: 326px;
+      padding: 0;
+      cursor: pointer;
+
+      h3 {
+        padding-left: 15px;
+      }
+
+      &.categories-new {
+        cursor: auto;
+        background-color: @color-80;
+        border-color: @color-80;
+        padding: 15px;
+
+        .button {
+          margin-bottom: 25px;
+        }
+
+        &:hover {
+          border-color: @color-80;
+        }
+      }
+
+      .metric {
+        font-weight: 200;
+        font-size: 36px;
+        color: @blue;
+        line-height: 48px;
+      }
+    }
+
+  }
+
   .catalog {
     .button {
       margin-bottom: 15px;
     }
-
     .section {
       background-color: @color-80;
       padding: 15px;
@@ -32,151 +68,5 @@
       }
     }
   }
-
-  .card {
-    width: 235px;
-    position: relative;
-    cursor: auto;
-
-    a {
-      cursor: pointer;
-    }
-
-    &.category {
-      width: 326px;
-      padding: 0;
-      cursor: pointer;
-
-      h3 {
-        padding-left: 15px;
-      }
-
-      &.categories-new {
-        background-color: @color-80;
-        padding: 15px;
-
-        .button {
-          margin-bottom: 25px;
-        }
-      }
-
-      .metric {
-        font-weight: 200;
-        font-size: 36px;
-        color: @blue;
-        line-height: 48px;
-      }
-    }
-
-    &.defined {
-      border-top: solid 3px @blue;
-    }
-
-    .values {
-      position: absolute;
-      bottom: 15px;
-
-    }
-
-    h4 {
-      font-weight: 400;
-      font-size: 10px;
-      text-transform: uppercase;
-      color: @blue;
-      letter-spacing: 0.55px;
-      line-height: 15px;
-      margin: 12px 0 0;
-    }
-
-    .value {
-      color: @color-50;
-    }
-
-    .sliding-box {
-      h4 {
-        color: @color-60;
-        font-weight: bold;
-        letter-spacing: 1px;
-        line-height: 17px;
-      }
-
-      p {
-        font-size: 10px;
-        color: @color-60;
-        line-height: 20px;
-
-        a {
-          color: @blue;
-        }
-      }
-    }
-
-    .buttons {
-      width: 164px;
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-  }
 }
 
-.services-navCardsList {
-  height: 50px;
-  background: white;
-  padding-left: 15px;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  position: relative;
-}
-
-.services-navCardsList-search, .services-navCardsList-dropdown, .services-navCardsList-toggleIcons {
-  display: inline-block;
-}
-
-.services-navCardsList-search {
-  input {
-    width: 240px;
-  }
-}
-
-.services-navCardsList-dropdown {
-  position: absolute;
-  right: 64px;
-  top: 10px;
-  .dropdown {
-    display: inline-block;
-  }
-}
-
-.services-navCardsList-toggleIcons {
-  position: absolute;
-  right: 10px;
-  top: 18px;
-  cursor: pointer;
-}
-
-.toggleIconSet {
-  &:first-child {
-    margin-right: 3px;
-  }
-  display: inline-block;
-
-  &:hover, &.active {
-    .toggleIcon-active {
-      display: inline-block;
-    }
-    .toggleIcon-inactive {
-      display: none;
-    }
-  }
-}
-
-.toggleIcon-active {
-  display: none;
-}
-
-.toggleIcon-inactive {
-  display: inline-block;
-}
