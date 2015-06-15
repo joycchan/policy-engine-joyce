@@ -28,6 +28,8 @@
         </div>
     </div>
     <div class="col-sm-10">
+        <search-sort-bar card-state="cardState" list-state="listState" select-card-state="selectCategoryState"
+                         select-list-state="selectListState"></search-sort-bar>
         <div class="card" ng-repeat="assignment in assignments" ng-click="goToAssignment(assignment)">
             <h3>{{assignment.item.name}}</h3>
             <simple-donut data="assignment.collection" type="{{assignment.type}}"></simple-donut>
