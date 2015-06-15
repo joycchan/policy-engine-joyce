@@ -4,7 +4,7 @@
   "id": 1,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Business and Productivity"
 }, {
   "name": "TrustSEC SGACL",
@@ -12,7 +12,7 @@
   "id": 2,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Backup and Storage"
 }, {
   "name": "Overlay-TEP-Type-HWTEP",
@@ -20,7 +20,7 @@
   "id": 3,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Tools"
 }, {
   "name": "Overlap-Encap-TypeVX-LAN",
@@ -28,7 +28,7 @@
   "id": 4,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Database"
 }, {
   "name": "TCP-80",
@@ -36,7 +36,7 @@
   "id": 5,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Email"
 }, {
   "name": "ICMP",
@@ -44,7 +44,7 @@
   "id": 6,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Internet Security"
 }, {
   "name": "TCP-0",
@@ -52,7 +52,7 @@
   "id": 7,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Backup and Storage"
 }, {
   "name": "UDP-80",
@@ -60,14 +60,78 @@
   "id": 8,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Backup and Storage"
 }, {
-  "name": "AFP over TCP",
+  "name": "A",
   "custom": "Default",
   "id": 9,
   "port": 80,
   "protocols": ["tcp", "udp"],
-  "description": "This classifier does X",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
+  }, {
+  "name": "B",
+  "custom": "Default",
+  "id": 9,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
+  }, {
+  "name": "C",
+  "custom": "Default",
+  "id": 9,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
+  }, {
+  "name": "D",
+  "custom": "Default",
+  "id": 9,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
+  }, {
+  "name": "E",
+  "custom": "Default",
+  "id": 9,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
+  }, {
+  "name": "F",
+  "custom": "Default",
+  "id": 9,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
+  }, {
+  "name": "D",
+  "custom": "Default",
+  "id": 9,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
+  }, {
+  "name": "G",
+  "custom": "Default",
+  "id": 9,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
+  "category": "Backup and Storage"
+  }, {
+  "name": "H",
+  "custom": "Default",
+  "id": 9,
+  "port": 80,
+  "protocols": ["tcp", "udp"],
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Backup and Storage"
   }]

@@ -18,17 +18,18 @@
 
         <div class="actions-boxLeftInner">
          <div class="classifiers-categories">
-           <div class="actions-name"
-             ng-repeat="(category, classifiers) in classifierCategories()| filter: search"
+           <div class="actions-name actions-name--categories"
+             ng-repeat="(category, classifiers) in classifierCategories()"
              ng-click="selectCategory(category, classifiers)"
              ng-class="{'is-selected': isCategorySelected(category)}">
              {{category}}
            </div>
          </div>
-         <div class="classifiers-classifiers">
+         <div class="classifiers-classifiers actions-scrollableContent">
            <div class="actions-name"
-            ng-repeat="classifier in selected.classifiersList"
-            ng-click="selectClassifier(classifier)">
+            ng-repeat="classifier in selected.classifiersList | filter: search"
+            ng-click="selectClassifier(classifier)"
+            ng-class="{'is-selected': isClassifierSelected(classifier)}">
             {{classifier.name}}
             </div>
          </div>

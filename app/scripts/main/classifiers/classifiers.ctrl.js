@@ -2,6 +2,9 @@
 
 angular.module('policyEngine').controller('ClassifiersCtrl',
   function($scope, Classifiers) {
+
+    $scope.search = {'name': ''};
+
     $scope.classifiersList = Classifiers.list;
 
     var _classifierCategories;
@@ -31,6 +34,11 @@ angular.module('policyEngine').controller('ClassifiersCtrl',
     $scope.isCategorySelected = function(category) {
       return $scope.selected.categoryName === category;
     }
+
+    $scope.isClassifierSelected = function(classifier) {
+      return $scope.selected.classifier === classifier;
+    };
+
     $scope.selected = {
       categoryName: '',
       classifiersList: [],
