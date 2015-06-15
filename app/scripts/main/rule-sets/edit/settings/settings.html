@@ -1,66 +1,35 @@
 <div class="objectsSettings">
-  <table class="objectsSettings-editableItems listView--iconsHover">
-    <!-- <div class="rulesets-settings-name"></div> -->
-    <!-- <div class="rulesets-settings-description"></div> -->
-    <tr>
-      <td class="objectsSettings-editHeader">
-          Name
-      </td>
-      <td class="media-body objectsSettings-editText">
-                <span  editable-text="rulesets.name" e-form="textBtnForm">
-                    {{rulesets.name || 'empty'}}
-                </span>
-
-        <list-view-icon ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
-      </td>
-    </tr>
-    <tr>
-      <td class="objectsSettings-editHeader">
-          Description
-      </td>
-      <td class="media-body objectsSettings-editText" ng-model = "ruleset.description">
-                <span  editable-text="rulesets.description" e-form="textBtnFormDescription">
-                {{rulesets.description || 'empty'}}
-                </span>
-        <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
-      </td>
-    </tr>
-
-  </table>
-  <div class="rulesets-settings-helpText">
-    Rules define how the network traffic behaves.  Classifiers describe types of network traffic and actions determine what to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you specify custom ones.
-  </div>
-  <div class="rulesets-settings-editButton">
-    <div class="button button--secondary" ng-click="editRule()">Edit Rules</div>
-  </div>
-  <div class="rulesets-settings-list">
-    <table class="listView">
-      <thead>
+    <table class="objectsSettings-editableItems listView--iconsHover">
+        <!-- <div class="ruleSet-settings-name"></div> -->
+        <!-- <div class="ruleSet-settings-description"></div> -->
         <tr>
-          <th></th>
-          <th><div>Classifier</div><div class="listView-headerDescription">Classifiers are OR'ed</div></th>
-          <th><div>Action</div><div class="listView-headerDescription">Actions are AND'ed</div></th>
+            <td class="objectsSettings-editHeader">
+                Name
+            </td>
+            <td class="media-body objectsSettings-editText">
+                <span editable-text="ruleSet.name" e-form="textBtnForm">
+                    {{ruleSet.name || 'empty'}}
+                </span>
+
+                <list-view-icon ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible"
+                                inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"
+                                class="edit"></list-view-icon>
+            </td>
         </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="rule in rulesList()">
-          <td><div class="listView-number">{{$index + 1}}</div></td>
-          <td>
-            <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">{{classifier}}</div>
-          </td>
-          <td>
-            <div class="listView-innerList" ng-repeat="action in rule.actions">{{action}}</div>
-          </td>
+        <tr>
+            <td class="objectsSettings-editHeader">
+                Description
+            </td>
+            <td class="media-body objectsSettings-editText" ng-model="ruleset.description">
+                <span editable-text="ruleSet.description" e-form="textBtnFormDescription">
+                {{ruleSet.description || 'empty'}}
+                </span>
+                <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible"
+                                inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"
+                                class="edit"></list-view-icon>
+            </td>
         </tr>
-      </tbody>
+
     </table>
-
-      </div>
-      <div class="media-body objectsSettings-editText">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet leo tellus, eu varius justo auctor vitae. Duis consequat lectus.
-      </div>
-    </div>
-  <add-edit-rules rule-set="ruleSet()" edit-rule="editRule"></add-edit-rules>
-
-  </div>
+    <add-edit-rules rule-set="ruleSet" edit-rule="editRule"></add-edit-rules>
 </div>

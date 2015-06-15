@@ -48,8 +48,7 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
 
 
     $scope.edit = function(rule) {
-      ruleSets.edit(rule);
-      return $state.go('main.ruleSetsEdit.settings');
+      return $state.go('main.ruleSetsEdit.settings', { ruleSetId: rule.id });
     };
 
   }

@@ -2,9 +2,9 @@
     <table class="objectsSettings-editableItems listView--iconsHover">
         <tr>
             <td class="objectsSettings-editHeader">Name</td>
-            <td class="objectsSettings-editText" ng-model = "ruleset.name">
-                <span  editable-text="ruleset.name" e-form="textBtnForm">
-                    {{ruleset.name || 'empty'}}
+            <td class="objectsSettings-editText" ng-model = "group.name">
+                <span  editable-text="group.name" e-form="textBtnForm">
+                    {{group.name || 'empty'}}
                 </span>
 
                 <list-view-icon ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
@@ -12,9 +12,9 @@
         </tr>
         <tr>
             <td class="objectsSettings-editHeader"> Description </td>
-            <td class="objectsSettings-editText" ng-model = "ruleset.description">
-                <span  editable-text="ruleset.description" e-form="textBtnFormDescription">
-                {{ruleset.description || 'empty'}}
+            <td class="objectsSettings-editText" ng-model = "group.description">
+                <span  editable-text="group.description" e-form="textBtnFormDescription">
+                {{group.description || 'empty'}}
                 </span>
                 <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
             </td>
@@ -22,8 +22,8 @@
         <tr>
             <td class="objectsSettings-editHeader">Origin</td>
             <td class="objectsSettings-editText">
-                <span  editable-text="ruleset.origin" e-form="textBtnFormOrigin">
-                    {{ruleset.origin || 'empty'}}
+                <span  editable-text="group.origin" e-form="textBtnFormOrigin">
+                    {{group.origin || 'empty'}}
                 </span>
                 <list-view-icon ng-click="textBtnFormOrigin.$show()" ng-hide="textBtnFormOrigin.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
             </td>

@@ -5,6 +5,21 @@ angular.module('policyEngine').controller('AssignmentsCtrl',
 
     $scope.assignments = assignments.list();
 
+    $scope.cardState = function() {
+      return $state.is('main.assignments');
+    };
+
+    $scope.listState = function() {
+      return false;
+    };
+
+    $scope.selectCardtState = function() {
+      $state.go('main.assignments');
+    };
+
+    $scope.selectListState = function() {
+    };
+
     $scope.newAssignment = function() {
       $modal.open(Modals.newAssignment);
     };

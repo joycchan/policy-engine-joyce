@@ -4,7 +4,6 @@ angular.module('policyEngine').factory('Groups',
   function ($http) {
 
     var list = [];
-    var selectedList= [];
 
     var Groups = {
 
@@ -34,14 +33,6 @@ angular.module('policyEngine').factory('Groups',
             return group.type === type;
           }
         });
-      },
-
-      edit: function (group) {
-        selectedList = group;
-      },
-
-      getEdit: function () {
-        return selectedList;
       }
     };
 
