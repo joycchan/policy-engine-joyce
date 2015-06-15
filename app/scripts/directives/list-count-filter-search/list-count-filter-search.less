@@ -1,6 +1,35 @@
 @import "../../../styles/variables";
 
-.listCountFilterSearch-search {
+.objectsCount {
+  font-size: 36px;
+  color: @blue;
+  &:extend(.thin);
+}
+
+.objectsFilter-name, .objectsFilter-divider {
+  display: inline-block;
+  padding-right: 6px;
+}
+
+.objectsFilter-name {
+  cursor: pointer;
+
+  &.is-selected {
+    &:extend(.bold);
+    color: @blue;
+  }
+}
+
+.objectsFilter-divider {
+  height: 36px;
+  border-left: 1px solid @color-75;
+  vertical-align: middle;
+  &:last-child {
+    display: none;
+  }
+}
+
+.objectsSearch {
   display: inline-block;
   float: right;
   margin-top: 4px;

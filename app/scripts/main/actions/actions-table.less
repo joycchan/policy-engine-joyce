@@ -1,0 +1,49 @@
+@import "../../../styles/variables";
+
+.actions-tableContainer {
+  width: 300px;
+  height: 124px;
+  border-radius: 3px;
+  border: 1px solid @color-70;
+}
+
+.actions-tableScrollable {
+  width: 300px;
+  height: 104px;
+  overflow: auto;
+  border-bottom: 1px solid @color-70;
+  border-radius: 3px;
+}
+
+.actions-table {
+  table-layout: fixed;
+  width: 100%;
+  th, td {
+    padding-left: 10px;
+    line-height: 20px;
+    &:first-child {
+      border-right: 1px solid @color-70;
+    }
+    &:nth-child(2) {
+      width: 63%;
+    }
+  }
+  th {
+    background-color: white;
+    font-size: 12px;
+    color: @color-50;
+    font-weight: normal;
+    border-bottom: 1px solid @color-70;
+    &:first-child {
+      width: 104px;
+    }
+  }
+  tbody {
+    > tr:nth-of-type(odd) {
+      background-color: @color-80;
+    }
+    > tr:nth-of-type(even) {
+      background-color: white;
+    }
+  }
+}
