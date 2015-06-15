@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, ruleSets, $modal, Modals, $modalInstance) {
+angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $state, ruleSets, $modal, Modals) {
 
   $scope.newRuleSet = ruleSets.generateEmptyRuleSet();
 
@@ -21,4 +21,5 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
       $scope.createRuleSet(ruleSet);
     }
   };
+
 });

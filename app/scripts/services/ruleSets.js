@@ -47,7 +47,7 @@ angular.module('policyEngine').factory('ruleSets',
       });
     };
 
-   service.generateEmptyRuleSet = function() {
+    service.generateEmptyRuleSet = function() {
       return {
         name: "New Rule Set",
         rules: [{
