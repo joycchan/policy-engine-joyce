@@ -32,7 +32,7 @@ angular.module('policyEngine').controller('ClassifiersCtrl',
       $scope.selected.categoryName = categoryName;
       $scope.selected.classifiersList = $scope.classifierCategories()[categoryName];
       // reset selected classifier
-      $scope.selected.classifier = '';
+      $scope.selected.classifier = null;
     };
 
     $scope.isCategorySelected = function(category) {
