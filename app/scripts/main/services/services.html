@@ -34,31 +34,8 @@
     </div>
 
     <div ng-class="{ 'col-sm-12': categoryState(), 'col-sm-10': !categoryState() }">
-        <div class="services-navCardsList">
-            <div class="services-navCardsList-search">Search <input-search></input-search></div>
-            <div class="services-navCardsList-dropdown">
-                <span>Sort by </span>
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                    Newest to Oldest
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Newest to Oldest</a></li>
-                  </ul>
-                </div>
-            </div>
-            <div class="services-navCardsList-toggleIcons">
-                <div class="toggleIconSet" ng-click="goToCategoryState()" ng-class="{ active: cardsState() }">
-                    <img class="toggleIcon-active" src="images/icon_view_cards_active.png">
-                    <img class="toggleIcon-inactive" src="images/icon_view_cards_inactive.png">
-                </div>
-                <div class="toggleIconSet" ui-sref="main.services.filters.list" ui-sref-active="active">
-                    <img class="toggleIcon-active" src="images/icon_view_list_active.png">
-                    <img class="toggleIcon-inactive" src="images/icon_view_list_inactive.png">
-                </div>
-            </div>
-        </div>
+        <search-sort-bar card-state="cardState" list-state="listState" select-card-state="selectCategoryState"
+                select-list-state="selectListState"></search-sort-bar>
         <ui-view></ui-view>
     </div>
     </div>
