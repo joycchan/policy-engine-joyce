@@ -184,6 +184,11 @@ angular.module("policyEngine", [
         controller: "ClassifiersCtrl",
         templateUrl: "scripts/main/classifiers/classifiers.html"
       })
+      .state("main.classifiersEdit", {
+        url: "classifiers/edit/{classifierId}/",
+        controller: "ClassifiersEditCtrl",
+        templateUrl: "scripts/main/classifiers/edit/edit.html"
+      })
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeSuccess',function(){

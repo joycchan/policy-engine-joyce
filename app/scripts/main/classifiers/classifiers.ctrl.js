@@ -5,13 +5,19 @@ angular.module('policyEngine').controller('ClassifiersCtrl',
 
     $scope.search = {'name': ''};
 
-    $scope.classifiersList = Classifiers.list;
+    $scope.selected = {
+      categoryName: '',
+      classifiersList: [],
+      classifier: null
+    }
 
-    var _classifierCategories;
+    $scope.classifiersList = Classifiers.list;
 
     $scope.classifierCategories = function() {
       return _classifierCategories;
     }
+
+    var _classifierCategories;
 
     var generateClassifierCategories = function() {
       _classifierCategories = _.groupBy($scope.classifiersList(), function(classifier) {
@@ -39,11 +45,6 @@ angular.module('policyEngine').controller('ClassifiersCtrl',
       return $scope.selected.classifier === classifier;
     };
 
-    $scope.selected = {
-      categoryName: '',
-      classifiersList: [],
-      classifier: null
-    }
     $scope.selectCategory = function(categoryName, classifiers) {
       $scope.selected.categoryName = categoryName;
       $scope.selected.classifiersList = classifiers;
