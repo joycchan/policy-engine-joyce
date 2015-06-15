@@ -1,28 +1,29 @@
 @import "../../../styles/variables";
 
-.classifiers-categories {
-  height: 100%;
+.classifiers-categories, .classifiers-classifiers {
   width: 50%;
   float: left;
+  height: 100%;
+}
+
+.classifiers-categories {
   border-right: 1px solid @color-70;
 }
 
-.classifiers-classifiers {
-  width: 50%;
-  float: left;
-  height: 100%;
-}
-
-.actions-boxLeft {
+.subRules-boxLeft {
   &--classifiers {
-    width: 64%;
-    height: 100%;
+    width: 65%;
   }
 }
 
-.actions-boxRight {
+.subRules-boxRight {
   &--classifiers {
     width: 35%;
-    float: left;
+  }
+}
+
+.subRules-name {
+  &--categories.is-selected {
+    background-color: @color-80;
   }
 }
