@@ -51,7 +51,7 @@
         <div style="{ height: 250px; overflow: auto}">
             <tbody>
             <tr ng-repeat="group in groups() | filter:search" ng-click="service.group = group"
-                ng-class="{selected : group === service.group}">
+                ng-class="{selected: group.id === service.group.id}">
                 <td>{{::group.name}}</td>
                 <td>
                     {{::group.endpointPool}}
@@ -94,7 +94,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="service.ruleSet = ruleSet"
-            ng-class="{'selected' : ruleSet === service.ruleSet}">
+            ng-class="{selected: ruleSet.id === service.ruleSet.id}">
             <td>{{ruleSet.name}}</td>
             <td>{{ruleSet.rules | subRulesToString : 'classifiers'}}</td>
             <td>{{ruleSet.custom}}</td>
