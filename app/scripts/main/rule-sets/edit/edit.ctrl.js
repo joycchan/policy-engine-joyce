@@ -20,6 +20,10 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       });
     };
 
+    $scope.saveRuleSet = function() {
+        	PolicyActions.UpdateRuleSet($scope.ruleSet);
+        }
+
     $scope.$watchGroup(['$routeChangeSuccess', function() { return PolicyStore.RuleSets.all(); }], function() {
       $scope.ruleSet = _.find(PolicyStore.RuleSets.all(), function(rule) {
         return rule.id === $stateParams.ruleSetId;

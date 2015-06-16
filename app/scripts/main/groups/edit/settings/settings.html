@@ -3,7 +3,7 @@
         <tr>
             <td class="objectsSettings-editHeader">Name</td>
             <td class="objectsSettings-editText" ng-model = "group.name">
-                <span  editable-text="group.name" e-form="textBtnForm">
+                <span  editable-text="group.name" e-form="textBtnForm" onaftersave="saveGroup()">
                     {{group.name || 'empty'}}
                 </span>
 

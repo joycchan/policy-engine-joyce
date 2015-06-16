@@ -6,8 +6,8 @@
             <td class="objectsSettings-editHeader">
                 Name
             </td>
-            <td class="media-body objectsSettings-editText">
-                <span editable-text="ruleSet.name" e-form="textBtnForm">
+            <td class="media-body objectsSettings-editText" ng-model="ruleset.name">
+                <span editable-text="ruleSet.name" e-form="textBtnForm" onaftersave="saveRuleSet()">
                     {{ruleSet.name || 'empty'}}
                 </span>
 

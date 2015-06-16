@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('GroupsEditCtrl',
-  function($scope, $modal, $stateParams, PolicyStore) {
+  function($scope, $modal, $stateParams, PolicyStore, PolicyActions) {
     $scope.navTabLinks = [{
       'name': 'Settings',
       'uiSref': 'main.groupsEdit.settings'
@@ -17,12 +17,16 @@ angular.module('policyEngine').controller('GroupsEditCtrl',
       });
     };
 
-    $scope.group = {};
+     $scope.group = {};
+
+    $scope.saveGroup = function() {
+    	PolicyActions.UpdateGroup($scope.group);
+    }
 
     $scope.$watchGroup(['$routeChangeSuccess', function() { return PolicyStore.Groups.all(); }], function() {
-      $scope.group = _.find(PolicyStore.Groups.all(), function(rule) {
-        return rule.id === $stateParams.groupId;
-      });
-    });
+             $scope.group = _.find(PolicyStore.Groups.all(), function(rule) {
+               return rule.id === $stateParams.groupId;
+             });
+           });
   }
 );
