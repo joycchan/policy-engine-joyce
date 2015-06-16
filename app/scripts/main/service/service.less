@@ -24,13 +24,6 @@
     line-height: 18px;
   }
 
-  .paragraph {
-     border-bottom: 1px solid @color-90;
-     border-top: 1px solid @color-90;
-     padding: 20px 0px;
-     width: 770px;
-     margin: 25px 0px 10px;
-  }
   hr {
     margin: 0;
     width: 100%;
@@ -44,68 +37,70 @@
     display: inline-block;
     margin-left: 8px;
   }
-  .components {
-    padding: 0 15px;
-    width: 755px;
 
-    p {
-      width: 320px;
-      margin-bottom: 20px;
+  p {
+    width: 320px;
+    margin-bottom: 20px;
+  }
+
+  .bold-text {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    color: @color-60;
+    line-height: 18px;
+  }
+
+  .hint {
+    font-style: oblique;
+    font-size: 12px;
+    color: @color-60;
+  }
+
+  .selected-icon {
+    display: inline-block;
+    background: url(../../../images/icon_status_ok_32.png) no-repeat;
+    background-size: cover;
+    height: 16px;
+    width: 16px;
+    margin-left: 7px;
+    margin-bottom: -4px;
+  }
+
+  .component {
+    width: 900px;
+    background-color: @color-90;
+    padding-left: 45px;
+    padding-top: 1px;
+    clear: both;
+
+    h1 {
+      font-size: 20px;
     }
 
-    .bold-text {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: bold;
-      color: @color-60;
-      line-height: 18px;
-    }
+    .meta {
 
-    .selected-icon {
-      display: inline-block;
-      background: url(../../../images/icon_status_ok_32.png) no-repeat;
-      background-size: cover;
-      height: 16px;
-      width: 16px;
-      margin-left: 7px;
-      margin-bottom: -4px;
-    }
-
-    .component {
-      width: 900px;
-      background-color: @color-90;
-      padding-left: 45px;
-      padding-top: 1px;
-      clear: both;
-
-      h1 {
-        font-size: 20px;
+      .form-group:last-child {
+        margin-bottom: 0;
       }
 
-      .meta {
-
-        .form-group:last-child {
-          margin-bottom: 0;
-        }
-
-        label {
-          width: 98px;
-          line-height: 32px;
-        }
+      label {
+        width: 98px;
+        line-height: 32px;
       }
-
     }
 
-    hr {
-      width: 100%;
-    }
+  }
 
-    .button-group {
-      text-align: left;
+  hr {
+    width: 100%;
+  }
 
-      .button {
+  .button-group {
+    text-align: left;
+
+    .button {
       margin: 0px 10px;
-      }
     }
   }
 
@@ -113,7 +108,6 @@
     font-weight: bold;
 
   }
-
 
   .search-bar {
     margin-top: 5px;
@@ -144,6 +138,10 @@
 
     tbody tr {
       cursor: pointer;
+
+      tr {
+        display: table;
+      }
 
       &:hover {
         background-color: @color-80;
