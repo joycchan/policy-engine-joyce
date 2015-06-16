@@ -1,5 +1,9 @@
 @import "../../../../styles/variables";
 
+.serviceEdit-editNameDescription {
+  margin-bottom: 40px;
+}
+
 .serviceEdit-buttons {
   text-align: left;
 }
@@ -18,5 +22,20 @@
   }
   th:nth-child(4) {
     width: 5%
+  }
+}
+
+.serviceEdit-dropdown {
+  display: inline-block;
+  
+  // bootstrap js hook
+  &.open {
+    .button--dropdown {
+      background-color: @color-60;
+      color: white;
+    }
+  }
+  .dropdown-menu a {
+    cursor: pointer;
   }
 }

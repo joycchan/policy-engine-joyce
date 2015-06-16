@@ -14,7 +14,6 @@
 }
 
 .objectsSettings-editableItems {
-  margin-bottom: 40px;
 }
 
 .objectsSettings-editHeader {
@@ -23,7 +22,7 @@
   width: 85px;
   font-size: 12px;
   display: inline-block;
-  margin-top: 15px;
+  padding-top: 15px;
 }
 
 .objectsSettings-editText {
@@ -32,6 +31,13 @@
   width: 315px;
   text-align: left !important;
   vertical-align: bottom !important;
+  padding-top: 15px;
+}
+
+tbody tr:first-child {
+  .objectsSettings-editHeader, .objectsSettings-editText {
+    padding-top: 0px;
+  }
 }
 
 .objectsSettings-help {
