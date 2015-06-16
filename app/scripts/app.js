@@ -45,7 +45,7 @@ angular.module("policyEngine", [
               templateUrl: "scripts/main/services/list/list.html"
             })
           .state('main.servicesEdit', {
-            url: "services/edit/?serviceId",
+            url: "services/edit/{serviceId}/",
             templateUrl: "scripts/main/services/edit/edit.html",
             controller: "ServicesEdit",
             abstract: true
@@ -55,7 +55,7 @@ angular.module("policyEngine", [
               templateUrl: "scripts/main/services/edit/provider-group/provider-group.html",
             })
             .state('main.servicesEdit.ruleSet', {
-              url: "/rule-set/",
+              url: "rule-set/",
               templateUrl: "scripts/main/services/edit/rule-set/rule-set.html",
             })
             .state('main.servicesEdit.assignedGroups', {
