@@ -51,6 +51,10 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       return group;
     },
 
+    UpdateGroup: function(group) {
+          PolicyStore.Groups.update({id: group.id}, group);
+    },
+
     DeleteGroup: function(id) {
       PolicyStore.Groups.delete({id: id});  
     },

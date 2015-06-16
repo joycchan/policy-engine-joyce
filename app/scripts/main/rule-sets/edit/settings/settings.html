@@ -4,8 +4,8 @@
             <td class="objectsSettings-editHeader">
                 Name
             </td>
-            <td class="media-body objectsSettings-editText">
-                <span editable-text="ruleSet.name" e-form="textBtnForm">
+            <td class="media-body objectsSettings-editText" ng-model="ruleset.name">
+                <span editable-text="ruleSet.name" e-form="textBtnForm" onaftersave="saveRuleSet()">
                     {{ruleSet.name || 'empty'}}
                 </span>
 
@@ -19,7 +19,7 @@
                 Description
             </td>
             <td class="media-body objectsSettings-editText" ng-model="ruleset.description">
-                <span editable-text="ruleSet.description" e-form="textBtnFormDescription">
+                <span editable-text="ruleSet.description" e-form="textBtnFormDescription" onaftersave="saveRuleSet()">
                 {{ruleSet.description || 'empty'}}
                 </span>
                 <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible"
