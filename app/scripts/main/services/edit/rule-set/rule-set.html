@@ -1,4 +1,4 @@
-<table class="objectsSettings-editableItems">
+<table class="objectsSettings-editableItems serviceEdit-ruleSet-editableItems">
   <tr>
     <td class="objectsSettings-editHeader">Name</td>
     <td class="objectsSettings-editText">Rule Set #3</td>
@@ -10,6 +10,12 @@
 </table>
 <detailed-rules-list rule-set="ruleSet()"></detailed-rules-list>
 <div class="button-group serviceEdit-buttons">
-  <div class="button button--secondary">Edit Rules</div>
-  <div class="button button--secondary">Select Different Rule Set</div>
+  <div class="button button--secondary serviceEdit-ruleSet-button">Edit Rules</div>
+  <div class="dropdown button-dropdown">
+      <div class="button button--secondary dropdown-toggle button--dropdown serviceEdit-ruleSet-button" data-toggle="dropdown" aria-expanded="true">Select Different Rule Set</div>
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation"><a role="menuitem">New Rule Set</a></li>
+      <li role="presentation"><a role="menuitem">Existing Rule Set</a></li>
+    </ul>
+  </div>
 </div>
