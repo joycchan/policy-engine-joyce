@@ -17,16 +17,16 @@ angular.module('policyEngine').controller('GroupsEditCtrl',
       });
     };
 
-     $scope.group = {};
+
 
     $scope.saveGroup = function() {
     	PolicyActions.UpdateGroup($scope.group);
     }
 
     $scope.$watchGroup(['$routeChangeSuccess', function() { return PolicyStore.Groups.all(); }], function() {
-             $scope.group = _.find(PolicyStore.Groups.all(), function(rule) {
-               return rule.id === $stateParams.groupId;
-             });
-           });
+              $scope.group = angular.copy(PolicyStore.Groups.where({id: $stateParams.groupId})[0]);
+    });
+
+
   }
 );
