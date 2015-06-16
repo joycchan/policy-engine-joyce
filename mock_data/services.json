@@ -1,6 +1,7 @@
 [
   {
     "name": "Loan Management",
+    "id": "1",
     "category": {
       "name": "Business and Productivity Tools"
     },
@@ -14,6 +15,7 @@
   },
   {
     "name": "Apps - No Ping",
+    "id": "2",
     "category": {
       "name": "Database"
     },
@@ -27,6 +29,7 @@
   },
   {
     "name": "Apps - Gold",
+    "id": "3",
     "category": {
       "name": "Database"
     },
@@ -40,6 +43,7 @@
   },
   {
     "name": "Internet Access",
+    "id": "4",
     "category": {
       "name": "Internet Security"
     },

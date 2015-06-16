@@ -4,7 +4,7 @@ angular.module('policyEngine').controller('ServicesEdit',
   function ($scope, PolicyStore, $stateParams, $modal, Modals) {
     $scope.service = function() {
       return _.find(PolicyStore.Services.all(), function(service) {
-        return service.name === $stateParams.serviceId;
+        return service.id === $stateParams.serviceId;
       });
     };
 
