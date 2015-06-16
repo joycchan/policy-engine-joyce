@@ -6,7 +6,7 @@ angular.module('policyEngine')
       templateUrl: 'scripts/directives/add-edit-rules/add-edit-rules.html',
       scope: {
         ruleSet: '=',
-        editRule: '='
+        editRule: '=',
       },
       restrict: 'E',
     };
