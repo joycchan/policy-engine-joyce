@@ -1,12 +1,16 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
+
   function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset, $modal, Modals) {
+
+  function ($scope, $modalInstance, $stateParams, selectedRuleSet, PolicyStore) {
+
 
     $scope.selectedRuleSet = selectedRuleSet; // local from resolve
 
-    $scope.existingClassifiers = Classifiers.list;
+    $scope.existingClassifiers = PolicyStore.Classifiers.all.bind(PolicyStore.Classifiers);
 
-    $scope.existingActions = Actions.list;
+    $scope.existingActions = PolicyStore.Actions.all.bind(PolicyStore.Actions);
 
     $scope.ok = function () {
       if ($scope.areAllRulesValid()) {
@@ -24,26 +28,22 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       });
     }
 
-    $scope.addClassifier = function (data, index) {
-      if (data.dataType === 'classifier'
-        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifiers, data.name)
+    $scope.addClassifier = function (metaObject, index) {
+      if (metaObject.type === 'classifier'
+        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifiers, metaObject.data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleSet.rules[index].classifiers.push({"name": data.name});
+        $scope.selectedRuleSet.rules[index].classifiers.push({"name": metaObject.data.name});
       }
     };
 
-    $scope.addAction = function (data, index) {
-      if (data.dataType === 'action'
-        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actions, data.name)
+    $scope.addAction = function (metaObject, index) {
+      if (metaObject.type === 'action'
+        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actions, metaObject.data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleSet.rules[index].actions.push({"name": data.name});
+        $scope.selectedRuleSet.rules[index].actions.push({"name": metaObject.data.name});
       }
-    };
-
-    $scope.decorateData = function (data, dataType) {
-      return _.extend(data, {'dataType': dataType});
     };
 
     $scope.editModeHash = {
@@ -68,6 +68,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     };
 
 
+
     $scope.customClassifiers = function () {
       $modal.open(Modals.customClassifier([$scope.rule]));
     };
@@ -77,9 +78,17 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     };
 
 
+    var generateEmptyRule = function() {
+      return {
+        classifiers: [],
+        actions: []
+      };
+    };
+
+
     $scope.addRule = function() {
       if ($scope.areAllRulesValid()) {
-        $scope.selectedRuleSet.rules.push(ruleSets.generateEmptyRule());
+        $scope.selectedRuleSet.rules.push(generateEmptyRule());
         $scope.editModeHash[$scope.selectedRuleSet.rules.length - 1] = true;
       }
     };

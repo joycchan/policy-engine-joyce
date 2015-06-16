@@ -5,7 +5,7 @@
       Groups encapsulate users who have things in common like role and location. Groups also
         encapsulate resources like application servers and firewalls that have things in common.
     </div>
-    <div class="objectsList-new button" ui-sref="main.new.group">
+    <div class="objectsList-new button" ui-sref="main.listNew.group">
       <div class="plus">+</div>
       New Group
     </div>
@@ -34,7 +34,7 @@
             <td>{{group.servicesConsumed}}</td>
             <td>
               <list-view-icon ng-click="edit(group)" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
-              <list-view-icon ng-click="deleteGroup(group)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
+              <list-view-icon ng-click="deleteGroup(group.id)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
             </td>
           </tr>
         </tbody>

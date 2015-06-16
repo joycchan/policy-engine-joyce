@@ -1,7 +1,7 @@
 <div ng-hide="filtered['category']">
 
     <div class="categories-new card category">
-        <div class="button new-button" ui-sref="main.service">
+        <div class="button new-button" ui-sref="main.service.form">
             <div class="plus">+</div>
             <span class="new-text">New Service</span>
         </div>
@@ -64,7 +64,7 @@
             </div>
             <div class="button-group">
                 <div class="button is-selected">Rename</div>
-                <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
+                <div ng-click="deleteService(service.id)" class="button button--danger">Delete</div>
             </div>
         </div>
     </div>

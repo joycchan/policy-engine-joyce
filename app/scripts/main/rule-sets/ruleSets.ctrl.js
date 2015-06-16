@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('policyEngine').controller('RuleSetsCtrl',
-  function($scope, $modal, Modals, ruleSets, $state) {
+  function ($scope, $modal, Modals, PolicyStore, PolicyActions, $state) {
 
-    $scope.rulesList = ruleSets.list;
+    $scope.rulesList = PolicyStore.RuleSets.all.bind(PolicyStore.RuleSets);
 
-    $scope.deleteRuleSet = ruleSets.delete;
+    $scope.deleteRuleSet = PolicyActions.DeleteRuleSet
 
     $scope.search = {name: ''};
 
@@ -17,23 +17,39 @@ angular.module('policyEngine').controller('RuleSetsCtrl',
 
     $scope.filter = "All Rule Sets";
 
-    $scope.filterRulesListBy = function(name) {
+    var byCustom = function (custom) {
+      return _.filter(PolicyStore.RuleSets.all(), function (ruleSet) {
+        if (custom === "") {
+          return ruleSet;
+        }
+        else {
+          return ruleSet.custom === custom;
+        }
+      });
+    };
+
+
+    $scope.filterRulesListBy = function (name) {
       $scope.filter = name;
 
-      if(name === 'Default')
-      {
-        $scope.rulesList = function() {return ruleSets.byCustom('Default')};
+      if (name === 'Default') {
+        $scope.rulesList = function () {
+          return byCustom('Default')
+        };
       }
-      else if(name === 'Custom')
-      {
-        $scope.rulesList = function() {return ruleSets.byCustom('Custom')};
+      else if (name === 'Custom') {
+        $scope.rulesList = function () {
+          return byCustom('Custom')
+        };
       }
       else {
-        $scope.rulesList = function() {return ruleSets.byCustom('')};
+        $scope.rulesList = function () {
+          return byCustom('')
+        };
       }
     };
 
-    $scope.isRulesListFilterSelected = function(name) {
+    $scope.isRulesListFilterSelected = function (name) {
       return name === $scope.filter;
     };
 

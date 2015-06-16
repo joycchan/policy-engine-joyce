@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Groups) {
+angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, PolicyActions) {
 
   $scope.group = {
     name: "New Group",
@@ -6,7 +6,7 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Grou
   };
 
   $scope.create = function () {
-    var group = Groups.create($scope.group);
+    var group = PolicyActions.CreateGroup($scope.group);
     $scope.createGroup(group);
   };
 });

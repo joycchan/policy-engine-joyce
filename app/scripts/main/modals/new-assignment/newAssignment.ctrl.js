@@ -1,7 +1,7 @@
-angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope, $state, Groups, Services, $modalInstance, assignments) {
+angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope, $state, $modalInstance, PolicyStore, PolicyActions) {
 
-  $scope.groups = Groups.list;
-  $scope.services = Services.list;
+  $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
+  $scope.services = PolicyStore.Services.all.bind(PolicyStore.Services);
 
   $scope.type = 'groupCentric';
 
@@ -29,7 +29,11 @@ angular.module('policyEngine').controller('NewAssignmentCtrl', function ($scope,
 
   $scope.ok = function () {
     if ($scope.selected) {
-      var assignment = assignments.create($scope.type, $scope.selected)
+      var assignment = PolicyActions.CreateAssignment({
+        item: $scope.selected,
+        type: $scope.type,
+        collection: []
+      });
       $state.go('main.assignment.' + $scope.type, {assignmentId: assignment.id});
       $modalInstance.close();
     }
