@@ -41,9 +41,6 @@ angular.module('policyEngine').controller('customClassifierCtrl',
 
         $scope.category = [
             {name: 'Uncategorized', value: 'Un'},
-            {name: 'Categorized', value: 'C'},
-            {name: 'Semi-Categorized', value: 'SC'},
-            {name: 'Semi-UnCategorized', value: 'su'}
         ]
 
 

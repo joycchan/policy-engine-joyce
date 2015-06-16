@@ -1,0 +1,39 @@
+<div class="addCustomerClassifier">
+    <h4>New Customer Classifier</h4>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div>
+                <div class="form-group">
+                    <label for="ruleSetName">Name</label>
+                    <input type="text" class="form-control new-group" ng-model="customClassifier.name" id="customClassifiername" required>
+                </div>
+                <div class="form-group">
+                    <label for="ruleSetDesc">Description</label>
+                    <textarea class="form-control description" id="ruleSetDesc" ng-model="customClassifier.description" required placeholder="Optional"></textarea>
+                </div>
+            </div>
+            <div class="protocols">
+                <label for="ruleSetProtocol">Protocol</label>
+                    <select class="form-control protocol" name="protocol" id="protocol" >
+                    <option value={{items.value}} ng-repeat="items in options ">{{items.name}}</option>
+                </select>
+            </div>
+            <div class="port-value">
+                <label for="ruleSetPort">Port/Value</label>
+                <select class="form-control ports" id="port" name="port">
+                    <option value={{items.value}} ng-repeat="items in port ">{{items.name}}</option>
+                </select>
+            </div>
+            <div class="category">
+                <label for="ruleSetCategory">category</label>
+                <select class="form-control category" name="category" id="category">
+                    <option value={{items.value}} ng-repeat="items in category ">{{items.name}}</option>
+                </select>
+            </div>
+            <div class="openClose button-group">
+                <div class="button button--secondary" ng-click="cancel()">Cancel</div>
+                <div class="button" ng-click="ok()">OK</div>
+            </div>
+         </div>
+    </form>
+</div>
