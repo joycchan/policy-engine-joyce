@@ -19,4 +19,8 @@ angular.module('policyEngine').controller('ServicesEdit',
       'uiSref': 'main.servicesEdit.assignedGroups'
     }];
 
+    $scope.ruleSet = function() {
+      // TODO: replace this punt.  This function only returns a rule.
+    }
+
   });
