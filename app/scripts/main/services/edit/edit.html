@@ -1,33 +1,27 @@
 <div class="objectsList">
   <div class="objectsList-breadcrumb">Services / Service Name</div>
-  <table class="objectsSettings-editableItems listView--iconsHover">
+  <div class="serviceEdit-editHeaderText">
+    <table class="objectsSettings-editableItems listView--iconsHover">
       <tr>
-          <td class="objectsSettings-editHeader">Name</td>
-          <td class="objectsSettings-editText" ng-model = "group.name">
-              <span  editable-text="group.name" e-form="textBtnForm">
-                  {{group.name || 'empty'}}
-              </span>
-
-              <list-view-icon ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
-          </td>
+        <td class="objectsSettings-editHeader">Name</td>
+        <td class="objectsSettings-editText" ng-model="service().name">
+        <span  editable-text="service().name" e-form="textBtnForm">
+          {{service().name || 'empty'}}
+        </span>
+        <list-view-icon ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
+        </td>
       </tr>
       <tr>
-          <td class="objectsSettings-editHeader"> Description </td>
-          <td class="objectsSettings-editText" ng-model = "group.description">
-              <span  editable-text="group.description" e-form="textBtnFormDescription">
-              {{group.description || 'empty'}}
-              </span>
-              <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
-          </td>
+        <td class="objectsSettings-editHeader"> Description </td>
+        <td class="objectsSettings-editText" ng-model="service().description">
+          <span  editable-text="service().description" e-form="textBtnFormDescription">
+          {{service().description || 'empty'}}
+          </span>
+        <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
+        </td>
       </tr>
-      <tr>
-          <td class="objectsSettings-editHeader">Origin</td>
-          <td class="objectsSettings-editText">
-              <span  editable-text="group.origin" e-form="textBtnFormOrigin">
-                  {{group.origin || 'empty'}}
-              </span>
-              <list-view-icon ng-click="textBtnFormOrigin.$show()" ng-hide="textBtnFormOrigin.$visible" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" class="edit"></list-view-icon>
-          </td>
-      </tr>
-  </table>
+    </table>
+  </div>
+  <tab-nav tabs="navTabLinks"></tab-nav>
+  <ui-view></ui-view>
 </div>

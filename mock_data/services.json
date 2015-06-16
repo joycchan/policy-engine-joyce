@@ -9,7 +9,8 @@
     },
     "ruleSet": {
       "name": "SQL Access"
-    }
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
   },
   {
     "name": "Apps - No Ping",
@@ -21,7 +22,8 @@
     },
     "ruleSet": {
       "name": "HTTP Access - No Ping"
-    }
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
   },
   {
     "name": "Apps - Gold",
@@ -33,7 +35,8 @@
     },
     "ruleSet": {
       "name": "HTTP Access - Gold Service"
-    }
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
   },
   {
     "name": "Internet Access",
@@ -45,6 +48,7 @@
     },
     "ruleSet": {
       "name": "HTTP Access"
-    }
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
   }
 ]
