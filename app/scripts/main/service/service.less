@@ -4,10 +4,18 @@
   width: 800px;
   padding: 0 15px;
 
+  h1 {
+    margin: 0 0 10px;
+  }
+
   form {
-    padding-left: 30px;
+    padding: 5px 0 0;
 
     &.meta {
+      label {
+        text-align: left;
+      }
+
       input {
         width: 294px;
       }
@@ -19,15 +27,35 @@
 
   p {
     letter-spacing: 0.1px;
-    width: 539px;
     font-weight: 300;
     line-height: 18px;
+    width: 335px;
+    margin: 0;
+
+    &.service-description {
+      width: 550px;
+    }
   }
 
   hr {
-    margin: 0;
+    margin: 20px 0;
     width: 100%;
     border-color: @color-90;
+  }
+
+  .button-group {
+    padding: 15px 0 10px;
+    text-align: left;
+
+    &.create-service {
+      text-align: right;
+      padding: 0;
+      margin: -10px 0 40px;
+    }
+
+    .button {
+      margin: 0 5px;
+    }
   }
 
   .info {
@@ -36,11 +64,6 @@
     width: 16px;
     display: inline-block;
     margin-left: 8px;
-  }
-
-  p {
-    width: 320px;
-    margin-bottom: 20px;
   }
 
   .bold-text {
@@ -67,124 +90,87 @@
     margin-bottom: -4px;
   }
 
-  .component {
-    width: 900px;
-    background-color: @color-90;
-    padding-left: 45px;
-    padding-top: 1px;
-    clear: both;
-
-    h1 {
-      font-size: 20px;
-    }
-
-    .meta {
-
-      .form-group:last-child {
-        margin-bottom: 0;
-      }
-
-      label {
-        width: 98px;
-        line-height: 32px;
-      }
-    }
-
-  }
-
-  hr {
-    width: 100%;
-  }
-
-  .button-group {
-    text-align: left;
-
-    .button {
-      margin: 0px 10px;
-    }
-  }
-
-  h3 .current {
-    font-weight: bold;
-
-  }
-
-  .search-bar {
-    margin-top: 5px;
-    display: inline-block;
-
-    label {
-      font-weight: normal;
-    }
-
+  input-search {
     input {
-      border: 1px @color-70 solid;
-      height: 32px;
       width: 241px;
-      background: url(../../../images/magnifying-glass.png) no-repeat 10px 7px;
-      padding-left: 40px;
       margin-left: 10px;
-      background-color: white;
     }
   }
 
   .table {
-    margin-top: 20px;
     border: solid 1px @color-80;
+    display: table;
+    width: 100%;
 
-    thead tr {
-      font-weight: bold;
+    thead, tbody {
+      float: left;
+      width: 100%;
     }
 
-    tbody tr {
+    tr {
+      width: 100%;
+      display: table;
+      text-align: left;
+    }
+
+    th, td {
+      &:first-child {
+        width: 30%;
+      }
+
+      &:nth-child(2) {
+        width: 70%;
+      }
+    }
+
+    thead {
+      th {
+        font-weight: bold;
+        border-bottom-width: 1px;
+      }
+    }
+
+    tbody {
+      overflow: auto;
+      height: 218px;
       cursor: pointer;
 
-      tr {
-        display: table;
-      }
-
-      &:hover {
-        background-color: @color-80;
-
-        td:first-child {
-          border-left: solid 3px @color-80;
+      tr:first-child {
+        td {
+          border-top: none;
         }
       }
 
-      &.selected {
-        background: @color-80;
+      tr {
 
         td:first-child {
-          border-left: solid 3px @blue;
+          padding-left: 8px;
+        }
+
+        &:hover {
+          background-color: @color-80;
+
+          td:first-child {
+            padding-left: 5px;
+            border-left: solid 3px @color-80;
+          }
+        }
+
+        &.selected {
+          background: @color-80;
+
+          td:first-child {
+            padding-left: 5px;
+            border-left: solid 3px @blue;
+          }
+        }
+
+        &:last-child {
+          td {
+            border-bottom: solid 1px #ddd;
+          }
         }
       }
     }
-  }
-
-  .import {
-    float: left;
-    display: inline-block;
-    background-color: #c4c7cc;
-    color: white;
-    border-radius: 16px;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 32px;
-    cursor: pointer;
-    margin-bottom: 40px;
-    margin-right: 300px;
-  }
-
-  .rules {
-    float: left;
-    display: inline-block;
-    background-color: #c4c7cc;
-    color: white;
-    border-radius: 16px;
-    height: 32px;
-    line-height: 32px;
-    padding: 0 32px;
-    cursor: pointer;
-    margin: 20px 325px 20px 0;
   }
 }

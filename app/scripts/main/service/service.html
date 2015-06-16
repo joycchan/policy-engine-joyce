@@ -12,12 +12,15 @@
             <label class="col-sm-2 control-label" for="description">Description</label>
 
             <div class="col-sm-6">
-                <textarea rows="3" class="form-control" ng-model="service.description" id="description"></textarea>
+                <textarea rows="3" class="form-control" ng-model="service.description" id="description"
+                          placeholder="Optional"></textarea>
             </div>
         </div>
     </form>
+    <hr/>
 
-    <p>A Service is made up of two pieces: the provider group that will be doing the work, and the
+    <p class="service-description">A Service is made up of two pieces: the provider group that will be doing the work,
+        and the
         rule
         set that specifies how that work will be done.</p>
 
@@ -29,10 +32,8 @@
     <p>The group used for your new service can be a new group, an imported group, or an existing group</p>
 
     <div class="button-group">
-        <div class="search-bar">
-            <label for="search">Search</label>
-            <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
-        </div>
+        Search
+        <input-search model="groupSearch"></input-search>
         <div class="button button--secondary">
             Import Group from ISE
         </div>
@@ -48,17 +49,15 @@
             <th>Endpoint Pools</th>
         </tr>
         </thead>
-        <div style="{ height: 250px; overflow: auto}">
-            <tbody>
-            <tr ng-repeat="group in groups() | filter:search" ng-click="service.group = group"
-                ng-class="{selected: group.id === service.group.id}">
-                <td>{{::group.name}}</td>
-                <td>
-                    {{::group.endpointPool}}
-                </td>
-            </tr>
-            </tbody>
-        </div>
+        <tbody>
+        <tr ng-repeat="group in groups() | filter:groupSearch" ng-click="service.group = group"
+            ng-class="{selected: group.id === service.group.id}">
+            <td>{{::group.name}}</td>
+            <td>
+                {{::group.endpointPool}}
+            </td>
+        </tr>
+        </tbody>
     </table>
 
     <span class="bold-text">Selected:</span>
@@ -75,10 +74,8 @@
     <p>The rule set used for your new service can be a new rule set or an existing rule set.</p>
 
     <div class="button-group">
-        <div class="search-bar">
-            <label for="search">Search</label>
-            <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
-        </div>
+        Search
+        <input-search model="ruleSetSearch"></input-search>
         <div class="button button--secondary" ui-sref="main.service.newRuleSet">
             <div class="plus">+</div>
             <span class="new-text">New Rule Set</span>
@@ -89,7 +86,6 @@
         <tr>
             <th>Name</th>
             <th>Classifiers</th>
-            <th>Default/Custom</th>
         </tr>
         </thead>
         <tbody>
@@ -97,7 +93,6 @@
             ng-class="{selected: ruleSet.id === service.ruleSet.id}">
             <td>{{ruleSet.name}}</td>
             <td>{{ruleSet.rules | subRulesToString : 'classifiers'}}</td>
-            <td>{{ruleSet.custom}}</td>
         </tr>
         </tbody>
     </table>
@@ -109,7 +104,7 @@
         </span>
     <hr/>
 
-    <div class="button-group">
+    <div class="button-group create-service">
         <div class="button button--secondary" ui-sref="main.services.filters.cards">Cancel</div>
         <div class="button" ng-click="createService()"
              ng-class="{ 'is-disabled': serviceIncomplete() }">OK
