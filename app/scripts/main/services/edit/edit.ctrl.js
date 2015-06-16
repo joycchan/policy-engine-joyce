@@ -37,8 +37,8 @@ angular.module('policyEngine').controller('ServicesEdit',
 
     $scope.groupFilters = [
       {name: 'All Groups'},
-      {name: 'User Group'},
-      {name: 'Resource Group'}
+      {name: 'User Group', inactiveIconSrc: 'images/icon_users_16.png', activeIconSrc: 'images/icon_users_16_blue.png'},
+      {name: 'Resource Group', inactiveIconSrc: 'images/icon_resources_16.png', activeIconSrc: 'images/icon_resources_16_blue.png'}
     ];
 
     $scope.filter = "All Groups";

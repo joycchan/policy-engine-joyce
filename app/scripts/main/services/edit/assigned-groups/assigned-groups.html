@@ -1,11 +1,13 @@
-<list-count-filter-search
-  count="groups().length"
-  filters="groupFilters"
-  filter-by="filterGroupsList"
-  is-filter-selected="isGroupsListFilterSelected"
-  search-model="search.name">
-</list-count-filter-search>
-<table class="objectsList-list listView listView--iconsHover assignedGroups-table">
+<div class="serviceEdit-assignedGroups-container">
+  <list-count-filter-search
+    count="groups().length"
+    filters="groupFilters"
+    filter-by="filterGroupsList"
+    is-filter-selected="isGroupsListFilterSelected"
+    search-model="search.name">
+  </list-count-filter-search>
+</div>
+<table class="objectsList-list listView listView--iconsHover serviceEdit-assignedGroups-table">
   <thead>
     <th></th>
     <th>Group</th>
@@ -14,7 +16,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="group in groups() | filter: search">
-      <td><!-- icon --></td>
+      <td><img src="images/icon_users_16.png"></img></td>
       <td>{{group.name}}</td>
       <td>{{}}</td>
       <td>
@@ -23,3 +25,10 @@
     </tr>
   </tbody>
 </table>
+<div class="button-group serviceEdit-ruleSet-button">
+  <div class="button button--secondary">
+    <div class="plus">+</div>
+      <span class="new-text">New Assignment</span>
+    </div>
+  </div>
+</div>
