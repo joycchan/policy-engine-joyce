@@ -50,22 +50,23 @@ angular.module("policyEngine", [
           controller: "ConfigurationCtrl"
         })
 
-        .state("main.new", {
+        .state("main.listNew", {
           abstract: true,
-          url: "new/",
-          templateUrl: 'scripts/main/new/new.html',
-          controller: 'NewCtrl',
+          url: "list-new/",
+          templateUrl: 'scripts/templates/blank.html',
+          controller: 'ListNewCtrl',
         })
-        .state("main.new.group", {
+        .state("main.listNew.group", {
           url: "group/",
           templateUrl: 'scripts/main/modals/groups/new.html',
           controller: 'NewGroupCtrl'
         })
-        .state("main.new.ruleSet", {
+        .state("main.listNew.ruleSet", {
           url: "rule-set/",
           templateUrl: 'scripts/main/modals/rule-sets/new.html',
           controller: 'NewRuleSetCtrl'
         })
+
         .state("main.groups", {
           url: "groups/",
           templateUrl: "scripts/main/groups/groups.html",
@@ -90,45 +91,24 @@ angular.module("policyEngine", [
           templateUrl: "scripts/main/groups/edit/servicesConsumed/servicesConsumed.html"
         })
         .state("main.service", {
-          url: "service/",
-          templateUrl: "scripts/main/service/service.html",
+          abstract: true,
+          url: "",
+          templateUrl: "scripts/templates/blank.html",
           controller: "ServiceCtrl"
         })
-          .state("main.service.newGroup", {
-            url: 'newGroup/',
-            views: {
-              group: {
-                templateUrl: 'scripts/main/modals/groups/new.html',
-                controller: 'NewGroupCtrl'
-              }
-            }
+          .state("main.service.form", {
+            url: "service/",
+            templateUrl: "scripts/main/service/service.html",
           })
-          .state("main.service.existingGroup", {
-            url: 'existingGroup/',
-            views: {
-              group: {
-                templateUrl: 'scripts/main/modals/groups/existing.html',
-                controller: 'ExistingGroupCtrl'
-              }
-            }
+          .state("main.service.newGroup", {
+            url: "group/",
+            templateUrl: 'scripts/main/modals/groups/new.html',
+            controller: 'NewGroupCtrl'
           })
           .state("main.service.newRuleSet", {
-            url: 'newRuleSet/',
-            views: {
-              ruleSet: {
-                templateUrl: 'scripts/main/modals/rule-sets/new.html',
-                controller: 'NewRuleSetCtrl'
-              }
-            }
-          })
-          .state("main.service.existingRuleSet", {
-            url: 'existingRuleSet/',
-            views: {
-              ruleSet: {
-                templateUrl: 'scripts/main/modals/rule-sets/existing.html',
-                controller: 'ExistingRuleSetCtrl'
-              }
-            }
+            url: "rule-set/",
+            templateUrl: 'scripts/main/modals/rule-sets/new.html',
+            controller: 'NewRuleSetCtrl'
           })
 
         .state("main.assignments", {
