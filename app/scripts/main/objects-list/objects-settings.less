@@ -1,6 +1,8 @@
 @import "../../../styles/variables";
 
 .objectsSettings {
+  width: @settings-width;
+
   padding-left: 15px;
   .edit{
       cursor: pointer;
@@ -14,12 +16,13 @@
 }
 
 .objectsSettings-editableItems {
+  margin-bottom: 40px;
 }
 
 .objectsSettings-editHeader {
   &:extend(.extra-light);
   color: @color-60;
-  width: 85px;
+  width: 100px;
   font-size: 12px;
   display: inline-block;
   padding-top: 15px;
