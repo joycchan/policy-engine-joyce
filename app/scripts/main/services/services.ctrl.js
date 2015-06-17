@@ -1,5 +1,7 @@
 'use strict';
-
+angular.module('policyEngine').run(function(editableOptions) {
+                                 editableOptions.theme = 'bs3';
+                               });
 angular.module('policyEngine').controller('ServicesCtrl',
   function ($scope, $state, PolicyStore, PolicyActions, StoreHelpers) {
 

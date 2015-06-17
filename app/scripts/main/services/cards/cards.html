@@ -18,8 +18,7 @@
                          'other': '{} Services'}"></ng-pluralize>
         </div>
     </div>
-    <div ng-repeat="category in categories" class="card category"
-         ng-click="addFilter('category', category)">
+    <div ng-repeat="category in categories" class="card category" ng-click="addFilter('category', category)">
         <h3>{{category.name}}</h3>
         <img ng-src="{{category.image}}"/>
 
@@ -43,7 +42,7 @@
 <div ng-show="filtered['category']">
 
     <div ng-repeat="service in filteredServices" class="card">
-        <h3>{{service.name}}</h3>
+        <h3 editable-text="service.name" e-form="textBtnForm" onaftersave="saveService()">{{service.name}}</h3>
 
         <div class="values">
             <h4>Provider Group</h4>
@@ -63,7 +62,7 @@
                 <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
             </div>
             <div class="button-group">
-                <div class="button is-selected">Rename</div>
+                <div  ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" class="button is-selected">Rename</div>
                 <div ng-click="deleteService(service.id)" class="button button--danger">Delete</div>
             </div>
         </div>
