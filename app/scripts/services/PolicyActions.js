@@ -25,7 +25,8 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
     CreateService: function(service) {
       service.id = Util.uid(); // generate ids locally for now
-      PolicyStore.Services.insert(service);  
+      PolicyStore.Services.insert(service);
+      return service;
     },
 
     DeleteService: function(id) {
@@ -48,6 +49,10 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       group.id = Util.uid(); // generate ids locally for now
       PolicyStore.Groups.insert(group);  
       return group;
+    },
+
+    UpdateGroup: function(group) {
+          PolicyStore.Groups.update({id: group.id}, group);
     },
 
     DeleteGroup: function(id) {
@@ -106,6 +111,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     CreateRuleSet: function(ruleSet) {
       ruleSet.id = Util.uid(); // generate ids locally for now
       PolicyStore.RuleSets.insert(ruleSet);
+      return ruleSet;
     },
 
     UpdateRuleSet: function(ruleSet) {
@@ -129,6 +135,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     CreateAction: function(action) {
       action.id = Util.uid(); // generate ids locally for now
       PolicyStore.Actions.insert(action);
+      return action;
     },
 
     UpdateAction: function(action) {
@@ -152,6 +159,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     CreateClassifier: function(classifier) {
       classifier.id = Util.uid(); // generate ids locally for now
       PolicyStore.Classifiers.insert(classifier);
+      return classifier;
     },
 
     UpdateClassifier: function(classifier) {
