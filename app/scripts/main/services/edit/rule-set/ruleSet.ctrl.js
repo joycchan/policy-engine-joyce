@@ -14,4 +14,13 @@ angular.module('policyEngine').controller('ServicesEditRuleSet',
       });
     };
 
+    $scope.selectExistingRuleSet = function () {
+      var modalInstance = $modal.open(Modals.existingRuleset);
+
+      modalInstance.result.then(function (updatedRuleSet) {
+        // update service to use this updatedRuleSet
+      }, function () {
+      });
+    };
+
   });
