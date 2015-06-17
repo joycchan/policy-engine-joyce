@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesEdit',
-  function ($scope, PolicyStore, $stateParams, $modal, Modals) {
+  function ($scope, PolicyStore, $stateParams, $modal, Modals, $state) {
     $scope.service = function() {
       return _.find(PolicyStore.Services.all(), function(service) {
         return service.id === $stateParams.serviceId;
@@ -34,7 +34,7 @@ angular.module('policyEngine').controller('ServicesEdit',
     };
 
     // TODO: currently searching via 'name' property, edit this so it searches via id
-    var _groups = PolicyStore.Assignments.where({'item': {name: $scope.service().name}})[0].collection;
+    var _groups = PolicyStore.Assignments.where({'item': {name: $scope.service().name}})[0];
 
     $scope.groups = function() {
       return byCustom('');
@@ -49,7 +49,7 @@ angular.module('policyEngine').controller('ServicesEdit',
     $scope.filter = "All Groups";
 
     var byCustom = function (type) {
-      return _.filter(PolicyStore.Assignments.where({'item': {name: $scope.service().name}})[0].collection, function (groups) {
+      return _.filter(_groups.collection, function (groups) {
         if (type === "") {
           return groups;
         }
@@ -81,6 +81,10 @@ angular.module('policyEngine').controller('ServicesEdit',
 
     $scope.isGroupsListFilterSelected = function (name) {
       return name === $scope.filter;
+    };
+
+    $scope.goToAssignment = function () {
+      $state.go('main.assignment.serviceCentric', {assignmentId: _groups.id});
     };
 
     
