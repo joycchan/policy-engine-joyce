@@ -3,7 +3,7 @@
 angular.module('policyEngine').controller('ServicesEdit',
   function ($scope, PolicyStore, $stateParams) {
 
-    $scope.service = PolicyStore.Services.where({id: $stateParams.serviceId})[0];
+    $scope.service = angular.copy(PolicyStore.Services.where({id: $stateParams.serviceId})[0]);
 
     $scope.navTabLinks = [{
       'name': 'Provider Group',
