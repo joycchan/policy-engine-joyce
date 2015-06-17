@@ -21,7 +21,7 @@ angular.module('policyEngine').controller('GroupsEditCtrl',
     $scope.$watchGroup(['$routeChangeSuccess', function () {
       return PolicyStore.Groups.all();
     }], function () {
-      $scope.group = angular.copy(PolicyStore.Groups.where({id: $stateParams.groupId})[0]);
+      $scope.group = angular.copy(PolicyStore.Groups.find({id: $stateParams.groupId}));
     });
 
 

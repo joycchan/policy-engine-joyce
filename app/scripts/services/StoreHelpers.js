@@ -15,7 +15,7 @@ angular.module('policyEngine').factory('StoreHelpers', function(PolicyStore) {
         throw "Couldn't find table with name " + tableName;
       }
 
-      return table.where({id: object[field]})[0];
+      return table.find({id: object[field]});
 
     }
   }
