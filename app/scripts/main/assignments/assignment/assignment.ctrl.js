@@ -21,6 +21,5 @@ angular.module('policyEngine').controller('AssignmentCtrl',
       PolicyActions.UpdateAssignment($scope.assignment);
       $state.go('main.assignments');
     };
-
   }
 );
