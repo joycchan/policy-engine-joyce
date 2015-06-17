@@ -4,7 +4,7 @@ angular.module('policyEngine').controller('ServicesEditAssignedGroups',
   function ($scope, PolicyStore, $state) {
   
     // TODO: currently searching via 'name' property, update this to search via id
-    var _groups = PolicyStore.Assignments.where({'item': {name: $scope.service().name}})[0];
+    var _groups = PolicyStore.Assignments.where({'item': {name: $scope.service.name}})[0];
 
     $scope.groups = function() {
       return byCustom('');
