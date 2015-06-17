@@ -53,7 +53,6 @@ angular.module("policyEngine", [
             .state('main.servicesEdit.providerGroup', {
               url: "provider-group/",
               templateUrl: "scripts/main/services/edit/provider-group/provider-group.html",
-              controller: "ServicesEditProviderGroup"
             })
             .state('main.servicesEdit.ruleSet', {
               url: "rule-set/",

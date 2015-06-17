@@ -1,99 +1,104 @@
-<div class="objectsList">
-  <div class="objectsList-breadcrumb">Actions Library</div>
-  <div class="objectsList-helpText">
-    Actions determine what to do with that type of traffic.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl. Aenean placerat turpis id lorem dapibus, vitae egestas nibh volutpat. Duis id suscipit felis. 
-  </div>
-  <div class="subRules-container">
+<h2>Actions Library</h2>
+<div class="objectsList-helpText">
+    Actions determine what to do with that type of traffic. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl. Aenean
+    placerat turpis id lorem dapibus, vitae egestas nibh volutpat. Duis id suscipit felis.
+</div>
+<div class="subRules-container">
     <div class="subRules-divider"></div>
     <div class="objectsList-new button subRules-new">
-      New Action
+        New Action
     </div>
     <div class="subRules-box">
-      <div class="subRules-boxLeft">
-        <div class="subRules-search">
-          <span class="subRules-searchLabel">Search</span>
-          <input-search model="search.name"></input-search>
-        </div>
-
-        <div class="subRules-boxLeftInner subRules-scrollableContent">
-          <div class="subRules-name"
-            ng-repeat="action in actionsList() | filter: search"
-            ng-click="selectAction(action)"
-            ng-class="{'is-selected': isActionSelected(action)}">
-            {{action.name}}
-          </div>
-        </div>
-      </div>
-
-      <div class="subRules-boxRight">
-        <div class="subRules-edit" ui-sref="main.actionsEdit({actionId: selectedAction.id})">
-          <img class="is-hiddenOnHover" src="images/icon_edit_16.png">
-          <img class="is-displayedOnHover" src="images/icon_edit_16_blue.png">
-        </div>
-
-        <div class="subRules-info">
-
-          <div class="media">
-            <div class="media-left subRules-label">Name</div>
-            <div class="media-body subRules-text">{{selectedAction.name}}</div>
-          </div>
-
-          <div ng-if="displayHash.isDisplayingActionTableTextField()">
-            <div class="media">
-              <div class="media-left subRules-label">Action</div>
-              <div class="media-body subRules-text">
-                <div class="radio actions-radio">
-                  <label for="table">
-                    <input type="radio" name="type" ng-model="displayHash.action" id="table" value="table"
-                           ng-change="resetSelected()">
-                    <div class="label-text">Table</div>
-                  </label>
-                </div>
-                <div class="radio actions-radio">
-                  <label for="text">
-                    <input type="radio" name="type" ng-model="displayHash.action" id="text" value="text"
-                           ng-change="resetSelected()">
-                    <div class="label-text">Text</div>
-                  </label>
-                </div>
-              </div>
+        <div class="subRules-boxLeft">
+            <div class="subRules-search">
+                <span class="subRules-searchLabel">Search</span>
+                <input-search model="search.name"></input-search>
             </div>
 
-            <div ng-show="displayHash.action === 'table'" class="actions-tableContainer">
-              <table class="subRules-table">
-                <thead>
-                  <th>Name</th>
-                  <th>Value</th>
-                </thead>
-              </table>
+            <div class="subRules-boxLeftInner subRules-scrollableContent">
+                <div class="subRules-name"
+                     ng-repeat="action in actionsList() | filter: search"
+                     ng-click="selectAction(action)"
+                     ng-class="{'is-selected': isActionSelected(action)}">
+                    {{action.name}}
+                </div>
+            </div>
+        </div>
 
-              <div class="actions-tableScrollable">
-                <table class="subRules-table">
-                  <tbody>
-                    <tr ng-repeat="data in selectedAction.data">
-                      <td>{{data.name}}</td>
-                      <td>{{data.value}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+        <div class="subRules-boxRight">
+            <div class="subRules-edit" ui-sref="main.actionsEdit({actionId: selectedAction.id})">
+                <img class="is-hiddenOnHover" src="images/icon_edit_16.png">
+                <img class="is-displayedOnHover" src="images/icon_edit_16_blue.png">
             </div>
 
-            <div ng-show="displayHash.action === 'text'" class="actions-textFieldContainer clearfix">
+            <div class="subRules-info">
+
+                <div class="media">
+                    <div class="media-left subRules-label">Name</div>
+                    <div class="media-body subRules-text">{{selectedAction.name}}</div>
+                </div>
+
+                <div ng-if="displayHash.isDisplayingActionTableTextField()">
+                    <div class="media">
+                        <div class="media-left subRules-label">Action</div>
+                        <div class="media-body subRules-text">
+                            <div class="radio actions-radio">
+                                <label for="table">
+                                    <input type="radio" name="type" ng-model="displayHash.action" id="table"
+                                           value="table"
+                                           ng-change="resetSelected()">
+
+                                    <div class="label-text">Table</div>
+                                </label>
+                            </div>
+                            <div class="radio actions-radio">
+                                <label for="text">
+                                    <input type="radio" name="type" ng-model="displayHash.action" id="text" value="text"
+                                           ng-change="resetSelected()">
+
+                                    <div class="label-text">Text</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="displayHash.action === 'table'" class="actions-tableContainer">
+                        <table class="subRules-table">
+                            <thead>
+                            <th>Name</th>
+                            <th>Value</th>
+                            </thead>
+                        </table>
+
+                        <div class="actions-tableScrollable">
+                            <table class="subRules-table">
+                                <tbody>
+                                <tr ng-repeat="data in selectedAction.data">
+                                    <td>{{data.name}}</td>
+                                    <td>{{data.value}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div ng-show="displayHash.action === 'text'" class="actions-textFieldContainer clearfix">
               <textarea class="actions-textField"
-              placeholder="Enter the name/value pairs in JSON format, or paste from the clipboard"
-              ng-model="selectedActionDataAsString"></textarea>
-              <div class="button button--secondary">Validate JSON</div>
+                        placeholder="Enter the name/value pairs in JSON format, or paste from the clipboard"
+                        ng-model="selectedActionDataAsString"></textarea>
+
+                        <div class="button button--secondary">Validate JSON</div>
+                    </div>
+                </div>
+
+                <div class="media">
+                    <div class="media-left subRules-label">Description</div>
+                    <div class="media-body subRules-text">{{selectedAction.description}}</div>
+                </div>
             </div>
-          </div>
 
-          <div class="media">
-            <div class="media-left subRules-label">Description</div>
-            <div class="media-body subRules-text">{{selectedAction.description}}</div>
-          </div>
         </div>
-
-      </div>
     </div>
-  </div>
+</div>
 </div>
