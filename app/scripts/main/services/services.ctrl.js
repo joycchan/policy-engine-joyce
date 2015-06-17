@@ -5,6 +5,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.getChild = StoreHelpers.getChild;
 
+    $scope.loadingServices = function() {
+      return PolicyStore.Requests.where({action: "FetchServices", complete: false}).length > 0;
+    };
+
     $scope.filtered = {
       category: false,
       group: false,

@@ -1,4 +1,3 @@
-
 'use strict';
 
 angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util, $http, configuration) {
@@ -11,12 +10,31 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     }
   };
 
+  var CreateRequest = function(action) {
+    var request = {
+      id: Util.uid(),
+      action: action,
+      complete: false,
+      error: null,
+    };
+    PolicyStore.Requests.insert(request);
+    return request;
+  };
+
+  var CompleteRequest = function(request) {
+    PolicyStore.Requests.update({id: request.id}, {complete: true});
+  };
+
   var actions = {
     
     FetchServices: function() {
+
+      var request = CreateRequest("FetchServices");
       $http.get('api/services').success(function (data) {
         data.map(actions.ReceiveService);
+        CompleteRequest(request);
       });
+
     },
 
     ReceiveService: function(service) {
