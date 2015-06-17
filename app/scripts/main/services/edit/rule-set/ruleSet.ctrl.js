@@ -25,7 +25,7 @@ angular.module('policyEngine').controller('ServicesEditRuleSet',
       return PolicyStore.RuleSets.all();
     }], function () {
       // TODO: update this to search via id rather than name property
-      $scope.ruleSet = angular.copy(_.first(PolicyStore.RuleSets.where({'name': $scope.service.ruleSet.name})));
+      $scope.ruleSet = angular.copy(PolicyStore.RuleSets.find({'name': $scope.service.ruleSet.name}));
     });
 
   });
