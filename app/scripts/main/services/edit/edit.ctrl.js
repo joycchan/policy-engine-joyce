@@ -33,7 +33,12 @@ angular.module('policyEngine').controller('ServicesEdit',
       });
     };
 
-    $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
+    // TODO: currently searching via 'name' property, edit this so it searches via id
+    var _groups = PolicyStore.Assignments.where({'item': {name: $scope.service().name}})[0].collection;
+
+    $scope.groups = function() {
+      return byCustom('');
+    };
 
     $scope.groupFilters = [
       {name: 'All Groups'},
@@ -44,7 +49,7 @@ angular.module('policyEngine').controller('ServicesEdit',
     $scope.filter = "All Groups";
 
     var byCustom = function (type) {
-      return _.filter(PolicyStore.Groups.all.bind(PolicyStore.Groups)(), function (groups) {
+      return _.filter(PolicyStore.Assignments.where({'item': {name: $scope.service().name}})[0].collection, function (groups) {
         if (type === "") {
           return groups;
         }
