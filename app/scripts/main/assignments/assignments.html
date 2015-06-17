@@ -2,7 +2,7 @@
     <h2>Assignments</h2>
 
     <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <div class="catalog">
         <div class="button new-button" ng-click="newAssignment()">
             <div class="plus">+</div>
@@ -27,7 +27,7 @@
         </div>
         </div>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-9">
         <search-sort-bar card-state="cardState" list-state="listState" select-card-state="selectCategoryState"
                          select-list-state="selectListState"></search-sort-bar>
         <div class="card" ng-repeat="assignment in assignments()" ng-click="goToAssignment(assignment)">

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ClassifiersCtrl',
-  function($scope, Classifiers) {
+  function($scope, PolicyStore) {
 
     $scope.search = {'name': ''};
 
@@ -11,7 +11,7 @@ angular.module('policyEngine').controller('ClassifiersCtrl',
       classifier: null
     };
 
-    $scope.classifiersList = Classifiers.list;
+    $scope.classifiersList = PolicyStore.Classifiers.all.bind(PolicyStore.Classifiers);
 
     $scope.categoryNames = [
       'Business and Productivity',
