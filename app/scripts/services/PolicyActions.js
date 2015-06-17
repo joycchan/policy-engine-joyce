@@ -29,6 +29,10 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       return service;
     },
 
+    UpdateService: function(service) {
+      PolicyStore.Services.update({id: service.id}, service);
+    },
+
     DeleteService: function(id) {
       PolicyStore.Services.delete({id: id});  
     },
