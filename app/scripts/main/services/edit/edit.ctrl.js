@@ -20,8 +20,8 @@ angular.module('policyEngine').controller('ServicesEdit',
     }];
 
     $scope.ruleSet = function() {
-      // TODO: replace this punt.  This function only returns a rule.
-      return _.first(PolicyStore.RuleSets.all());
+      // TODO: currently searching rule sets via 'name', update this to search via id
+      return _.first(PolicyStore.RuleSets.where({'name': $scope.service().ruleSet.name}));
     }
 
     $scope.editRule = function () {
@@ -33,7 +33,7 @@ angular.module('policyEngine').controller('ServicesEdit',
       });
     };
 
-    // TODO: currently searching via 'name' property, edit this so it searches via id
+    // TODO: currently searching via 'name' property, update this to search via id
     var _groups = PolicyStore.Assignments.where({'item': {name: $scope.service().name}})[0];
 
     $scope.groups = function() {
