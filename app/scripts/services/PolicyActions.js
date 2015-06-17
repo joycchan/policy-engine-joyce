@@ -66,7 +66,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
 
     FetchAssignments: function() {
-      $http.get('api/assignments').success(function (data) {
+      $http.get('api/nonempty_assignments').success(function (data) {
         data.map(actions.ReceiveAssignment);
       });
     },

@@ -44,12 +44,31 @@ angular.module("policyEngine", [
               url: "list/",
               templateUrl: "scripts/main/services/list/list.html"
             })
+          .state('main.servicesEdit', {
+            url: "services/edit/{serviceId}/",
+            templateUrl: "scripts/main/services/edit/edit.html",
+            controller: "ServicesEdit",
+            abstract: true
+          })
+            .state('main.servicesEdit.providerGroup', {
+              url: "provider-group/",
+              templateUrl: "scripts/main/services/edit/provider-group/provider-group.html",
+            })
+            .state('main.servicesEdit.ruleSet', {
+              url: "rule-set/",
+              templateUrl: "scripts/main/services/edit/rule-set/rule-set.html",
+              controller: "ServicesEditRuleSet"
+            })
+            .state('main.servicesEdit.assignedGroups', {
+              url: "assigned-groups/",
+              templateUrl: "scripts/main/services/edit/assigned-groups/assigned-groups.html",
+              controller: "ServicesEditAssignedGroups"
+            })
         .state("main.configuration", {
           url: "configuration/",
           templateUrl: "scripts/main/configuration/setup.html",
           controller: "ConfigurationCtrl"
         })
-
         .state("main.listNew", {
           abstract: true,
           url: "list-new/",

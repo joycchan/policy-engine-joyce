@@ -41,8 +41,9 @@
 </div>
 <div ng-show="filtered['category']">
 
-    <div ng-repeat="service in filteredServices" class="card">
+    <div ng-repeat="service in filteredServices" class="card" ui-sref="{{'main.servicesEdit.providerGroup({serviceId: ' + service.id + '})'}}">
         <h3 editable-text="service.name" e-form="textBtnForm" onaftersave="saveService()">{{service.name}}</h3>
+        <h3>{{service.name}}</h3>
 
         <div class="values">
             <h4>Provider Group</h4>
