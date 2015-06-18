@@ -1,20 +1,28 @@
-<h1>New Rule Set</h1>
-<div class="rulesets-settings">
+<h2>New Rule Set</h2>
+<div class="newRuleSet-container">
     <div>
-        <div class="form-group">
-            <label for="ruleSetName">Name</label>
-            <input type="text" class="form-control new-group" ng-model="newRuleSet.name" id="ruleSetName" required>
+        <div>
+            <div class="form-group newRuleSet-form">
+                <label class="newRuleSet-label" for="ruleSetName">Name</label>
+                <input type="text" class="form-control new-group" ng-model="newRuleSet.name" id="ruleSetName" required>
+            </div>
+            <div class="form-group newRuleSet-form">
+                <label class="newRuleSet-label" for="ruleSetDesc">Description</label>
+                <textarea class="form-control description" id="ruleSetDesc" ng-model="newRuleSet.description" required
+                          placeholder="Optional"></textarea>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="ruleSetDesc">Description</label>
-            <textarea class="form-control description" id="ruleSetDesc" ng-model="newRuleSet.description" required
-                      placeholder="Optional"></textarea>
+        <div class="newRuleSet-help">
+          Rules define how the network traffic behaves.  Classifiers describe types of network traffic and actions determine what to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you specify custom ones.
         </div>
+        <div class="newRuleSet-edit">
+            <add-edit-rules rule-set="newRuleSet" edit-rule="editRule"></add-edit-rules>
+        </div>
+        <detailed-rules-list rule-set="newRuleSet" edit-rule="editRule"></detailed-rules-list>
     </div>
-    <add-edit-rules rule-set="newRuleSet" edit-rule="editRule"></add-edit-rules>
-    <detailed-rules-list rule-set="newRuleSet"></detailed-rules-list>
-</div>
-<div class="button-group">
-    <div class="button button--secondary" ng-click="cancelRuleSet()">Cancel</div>
-    <div class="button" ng-click="create()" ng-class="{ 'is-disabled': disabled() }">Create</div>
+    <div class="button-group newRuleSet-buttons">
+        <div class="button button--secondary newRuleSet-button" ng-click="cancelRuleSet()">Cancel</div>
+        <div class="button newRuleSet-button" ng-click="create()" ng-class="{ 'is-disabled': disabled() }">Create</div>
+    </div>
+
 </div>

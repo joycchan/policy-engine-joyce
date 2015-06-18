@@ -5,7 +5,8 @@ angular.module('policyEngine')
     return {
       templateUrl: 'scripts/directives/detailed-rules-list/detailed-rules-list.html',
       scope: {
-        ruleSet: '='
+        ruleSet: '=',
+        editRule: '='
       },
       restrict: 'E',
     };

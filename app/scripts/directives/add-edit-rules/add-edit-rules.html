@@ -1,10 +1,9 @@
-<div class="addEditRules">
-  <div class="button button--secondary" ng-click="editRule()" ng-switch="ruleSet.rules[0].classifiers.length === 0 && ruleSet.rules[0].actions.length === 0">
-    <span ng-switch-when="true">
-      Add
-    </span>
-    <span ng-switch-default>
-      Edit
-    </span>
-    Rules</div>
+<div class="addEditRules button button--secondary" ng-click="editRule()" ng-switch="ruleSet.rules[0].classifiers.length === 0 && ruleSet.rules[0].actions.length === 0">
+  <span ng-switch-when="true">
+    Add
+  </span>
+  <span ng-switch-default>
+    Edit
+  </span>
+  Rules
 </div>
