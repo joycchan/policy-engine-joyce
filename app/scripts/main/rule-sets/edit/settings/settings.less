@@ -13,6 +13,28 @@
     width: 164px !important;
     height: 26px;
   }
+
+  .editable-buttons button[type=submit] {
+    &:extend(.button);
+    margin-left: 20px;
+    padding-top: 4px;
+    border: none;
+    &:hover {
+      &:extend(.button--hover);
+    }
+  }
+
+  .editable-buttons {
+    button {
+    &:extend(.button);
+    &:extend(.button--secondary);
+    padding-top: 4px;
+    border: none;
+    &:hover {
+      &:extend(.button--hover);
+    }
+  }
+}
 }
 
 .rulesets-settings-editableItems {
@@ -37,27 +59,6 @@
 }
 
 
-  .editable-buttons button[type=submit] {
-    &:extend(.button);
-    margin-left: 20px;
-    padding-top: 4px;
-    border: none;
-    &:hover {
-      &:extend(.button--hover);
-    }
-  }
-
-  .editable-buttons {
-    button {
-    &:extend(.button);
-    &:extend(.button--secondary);
-    padding-top: 4px;
-    border: none;
-    &:hover {
-      &:extend(.button--hover);
-    }
-  }
-}
 
 
 .rulesets-settings-helpText {

@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/buttons";
 
 .assignment-cards {
 
@@ -75,6 +76,36 @@
         line-height: 8px;
       }
     }
+    .editable-has-buttons {
+              width: 139px !important;
+              height: 43px;
+        }
+
+        .editable-buttons button[type=submit] {
+         &:extend(.button);
+           margin-left: 12px;
+           padding-top: 6px;
+           margin-top: 8px;
+           padding-left: 8px;
+           padding-right: 8px;
+           height: 28px;
+            &:hover {
+                 &:extend(.button--hover);
+               }
+         }
+
+         .editable-buttons button {
+         &:extend(.button);
+             &:extend(.button--secondary);
+           padding-top: 6px;
+           margin-top: 8px;
+           padding-left: 8px;
+           padding-right: 8px;
+           height: 28px;
+           &:hover {
+                 &:extend(.button--hover);
+               }
+           }
   }
 }
 

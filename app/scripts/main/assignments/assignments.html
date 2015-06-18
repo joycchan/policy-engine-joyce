@@ -30,16 +30,16 @@
     <div class="col-sm-9">
         <search-sort-bar card-state="cardState" list-state="listState" select-card-state="selectCategoryState"
                          select-list-state="selectListState"></search-sort-bar>
-        <div class="card" ng-repeat="assignment in assignments()" ng-click="goToAssignment(assignment)">
-            <h3>{{assignment.item.name}}</h3>
+        <div class="card" ng-repeat="assignment in assignments()" >
+            <h3 editable-text="assignment.item.name" e-form="textBtnForm">{{assignment.item.name}}</h3>
             <simple-donut data="assignment.collection" type="{{assignment.type}}"></simple-donut>
-            <div class="sliding-box">
+            <div class="sliding-box" ng-click="goToAssignment(assignment)">
                 <h4>{{listHeader(assignment)}}</h4>
                 <p ng-repeat="item in assignment.collection">
                     {{item.name}}
                 </p>
                 <div class="button-group">
-                    <div class="button is-selected">Rename</div>
+                    <div ng-click="textBtnForm.$show(); $event.stopPropagation()" ng-hide="textBtnForm.$visible" class="button is-selected">Rename</div>
                     <div ng-click="delete(assignment)" class="button button--danger">Delete</div>
                 </div>
             </div>

@@ -18,11 +18,11 @@
                          'other': '{} Services'}"></ng-pluralize>
         </div>
     </div>
-    <div ng-repeat="category in categories" class="card category" ng-click="addFilter('category', category)">
-        <h3>{{category.name}}</h3>
+    <div ng-repeat="category in categories" class="card category">
+        <h3 editable-text="category.name" e-form="textBtnFormService">{{category.name}}</h3>
         <img ng-src="{{category.image}}"/>
 
-        <div class="sliding-box">
+        <div class="sliding-box"  ng-click="addFilter('category', category)">
             <h4>Newly Added Services</h4>
 
             <div ng-hide="servicesByCategory(category).length">
@@ -32,7 +32,7 @@
                 <p ng-repeat="service in servicesByCategory(category)">{{service.name}}</p>
             </div>
             <div class="button-g">
-                <div class="button is-selected">Rename</div>
+                <div ng-click="textBtnFormService.$show(); $event.stopPropagation()" ng-hide="textBtnFormService.$visible" class="button is-selected">Rename</div>
                 <div ng-click="deleteCategory(category)" class="button button--danger">Delete</div>
             </div>
         </div>
@@ -42,7 +42,7 @@
 <div ng-show="filtered['category']">
 
     <div ng-repeat="service in filteredServices" class="card">
-        <h3 editable-text="service.name" e-form="textBtnForm" onaftersave="saveService()">{{service.name}}</h3>
+        <h3 editable-text="service.name" e-form="textBtnForm">{{service.name}}</h3>
 
         <div class="values">
             <h4>Provider Group</h4>
@@ -62,7 +62,7 @@
                 <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
             </div>
             <div class="button-group">
-                <div  ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible" class="button is-selected">Rename</div>
+                <div  ng-click="textBtnForm.$show(); $event.stopPropagation()" ng-hide="textBtnForm.$visible" class="button is-selected">Rename</div>
                 <div ng-click="deleteService(service.id)" class="button button--danger">Delete</div>
             </div>
         </div>
