@@ -1,7 +1,8 @@
 @import "../../../styles/variables";
 
-.objectsCount {
+.objectsFilter-count {
   font-size: 36px;
+  line-height: 36px;
   color: @blue;
   &:extend(.thin);
 }
@@ -17,7 +18,30 @@
   &.is-selected {
     &:extend(.bold);
     color: @blue;
+
+    .objectsFilter-icon--active {
+      display: inline-block;
+    }
+    .objectsFilter-icon--inactive {
+      display: none;
+    }
   }
+}
+
+.objectsFilter-icon--active {
+  display: none;
+}
+.objectsFilter-icon--inactive {
+  display: inline-block;
+}
+
+.objectsFilter-iconContainer, .objectsFilter-text {
+  display: inline-block;
+}
+
+.objectsFilter-iconContainer {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .objectsFilter-divider {
@@ -29,7 +53,7 @@
   }
 }
 
-.objectsSearch {
+.objectsFilter-search {
   display: inline-block;
   float: right;
   margin-top: 4px;

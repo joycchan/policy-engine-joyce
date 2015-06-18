@@ -17,10 +17,6 @@ angular.module('policyEngine').controller('ServicesFilterCtrl',
       return result;
     };
 
-    $scope.getGroup = function(service) {
-      return PolicyStore.Groups.where({id: service.group})[0];
-    };
-
     $scope.$watchGroup(['$routeChangeSuccess', function () {
       return PolicyStore.Services.all();
     }], function () {

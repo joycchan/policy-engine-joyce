@@ -29,6 +29,10 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       return service;
     },
 
+    UpdateService: function(service) {
+      PolicyStore.Services.update({id: service.id}, service);
+    },
+
     DeleteService: function(id) {
       PolicyStore.Services.delete({id: id});  
     },
@@ -62,7 +66,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
 
     FetchAssignments: function() {
-      $http.get('api/assignments').success(function (data) {
+      $http.get('api/nonempty_assignments').success(function (data) {
         data.map(actions.ReceiveAssignment);
       });
     },

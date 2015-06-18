@@ -27,7 +27,7 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
     $scope.$watchGroup(['$routeChangeSuccess', function () {
       return PolicyStore.RuleSets.all();
     }], function () {
-      $scope.ruleSet = angular.copy(PolicyStore.RuleSets.where({id: $stateParams.ruleSetId})[0]);
+      $scope.ruleSet = angular.copy(PolicyStore.RuleSets.find({id: $stateParams.ruleSetId}));
     });
   }
 );

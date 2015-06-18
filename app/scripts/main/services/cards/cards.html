@@ -42,7 +42,7 @@
 </div>
 <div ng-show="filtered['category']">
 
-    <div ng-repeat="service in filteredServices" class="card">
+    <div ng-repeat="service in filteredServices" class="card" ui-sref="{{'main.servicesEdit.providerGroup({serviceId: ' + service.id + '})'}}">
         <h3>{{service.name}}</h3>
 
         <div class="values">

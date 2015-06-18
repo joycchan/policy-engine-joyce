@@ -29,6 +29,18 @@ describe('Table', function () {
       expect(retrieved).toEqual([object2])
     });
 
+    it('finds', function () {
+      var object = {id: "1234", a: 1, b: 2};
+      table.insert(object);
+      var retrieved = table.find({id: "1234"}); 
+      expect(retrieved).toEqual(object)
+
+      var object2 = {id: "12345", a: 1, b: 2};
+      table.insert(object2);
+      var retrieved = table.find({id: "12345"}); 
+      expect(retrieved).toEqual(object2)
+    });
+
     it('freezes but allows $$hashKey writes', function () {
       var object = {id: "1234", a: 1, b: 2};
       table.insert(object);

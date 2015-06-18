@@ -1,13 +1,17 @@
-<div class="objectsCount">{{count}}</div>
-<div>
+<div class="objectsFilter-count">{{count}}</div>
+<div class="objectsFilter-filter">
   <div ng-repeat-start="filter in filters"
     class="objectsFilter-name"
     ng-click="filterBy(filter.name)"
     ng-class="{'is-selected': isFilterSelected(filter.name)}">
-    {{filter.name}}
+    <div class="objectsFilter-iconContainer" ng-if="filter.activeIconSrc && filter.inactiveIconSrc">
+      <img class="objectsFilter-icon objectsFilter-icon--active" ng-src="{{filter.activeIconSrc}}"></img>
+      <img class="objectsFilter-icon objectsFilter-icon--inactive" ng-src="{{filter.inactiveIconSrc}}"></img>
+    </div>
+    <div class="objectsFilter-text">{{filter.name}}</div>
   </div>
   <div ng-repeat-end class="objectsFilter-divider"></div>
 </div>
-<div class="objectsSearch">
+<div class="objectsFilter-search">
   <input-search model="searchModel"></input-search>
 </div>
