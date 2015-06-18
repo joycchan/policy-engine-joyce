@@ -4,9 +4,15 @@
         Groups encapsulate users who have things in common like role and location. Groups also
         encapsulate resources like application servers and firewalls that have things in common.
     </div>
-    <div class="objectsList-new button" ui-sref="main.listNew.group">
-        <div class="plus">+</div>
-        New Group
+    <div class="button-group">
+      <div class="objectsList-new button" ui-sref="main.listNew.group">
+          <div class="plus">+</div>
+          New Group
+      </div>
+      <div class="objectsList-new button button--secondary" ui-sref="main.listNew.group">
+          <div class="icon"><img src="images/icon_download_16.png"></img></div>
+          Import from ISE
+      </div>
     </div>
     <list-count-filter-search class="objectsList-countFilterSearch"
                               count="groups().length"
@@ -15,8 +21,9 @@
                               is-filter-selected="isGroupsListFilterSelected"
                               search-model="search.name">
     </list-count-filter-search>
-    <table class="objectsList-list listView listView--iconsHover">
+    <table class="objectsList-list listView listView--iconsHover groups-list">
         <thead>
+        <th></th>
         <th>Name</th>
         <th>Origin</th>
         <th>Description</th>
@@ -26,6 +33,12 @@
         </thead>
         <tbody>
         <tr ng-repeat="group in groups() | filter: search">
+            <td>
+              <span ng-switch="group.type">
+                <img ng-switch-when="user" src="images/icon_users_16.png"></img>
+                <img ng-switch-when="resource" src="images/icon_resources_16.png"></img>
+              </span>
+            </td>
             <td>{{group.name}}</td>
             <td>{{group.origin}}</td>
             <td>{{group.description}}</td>

@@ -6,12 +6,10 @@ angular.module('policyEngine').controller('GroupsCtrl',
     $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
     $scope.deleteGroup = PolicyActions.DeleteGroup;
 
-    window.scope = $scope;
-
     $scope.groupFilters = [
       {name: 'All Groups'},
-      {name: 'User Group'},
-      {name: 'Resource Group'}
+      {name: 'User Group', 'inactiveIconSrc': 'images/icon_users_16.png', 'activeIconSrc': 'images/icon_users_16_blue.png'},
+      {name: 'Resource Group', 'inactiveIconSrc': 'images/icon_resources_16.png', 'activeIconSrc': 'images/icon_resources_16_blue.png'}
     ];
 
     $scope.filter = "All Groups";
@@ -32,7 +30,7 @@ angular.module('policyEngine').controller('GroupsCtrl',
       }
     };
 
-    $scope.isRulesListFilterSelected = function(name) {
+    $scope.isGroupsListFilterSelected = function(name) {
       return name === $scope.filter;
     };
 
