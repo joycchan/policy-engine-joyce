@@ -1,13 +1,11 @@
 <div class="objectsSettings">
     <table class="objectsSettings-editableItems listView--iconsHover">
-        <!-- <div class="ruleSet-settings-name"></div> -->
-        <!-- <div class="ruleSet-settings-description"></div> -->
         <tr>
             <td class="objectsSettings-editHeader">
                 Name
             </td>
-            <td class="media-body objectsSettings-editText">
-                <span editable-text="ruleSet.name" e-form="textBtnForm">
+            <td class="media-body objectsSettings-editText" ng-model="ruleset.name">
+                <span editable-text="ruleSet.name" e-form="textBtnForm" onaftersave="saveRuleSet()">
                     {{ruleSet.name || 'empty'}}
                 </span>
 
@@ -21,7 +19,7 @@
                 Description
             </td>
             <td class="media-body objectsSettings-editText" ng-model="ruleset.description">
-                <span editable-text="ruleSet.description" e-form="textBtnFormDescription">
+                <span editable-text="ruleSet.description" e-form="textBtnFormDescription" onaftersave="saveRuleSet()">
                 {{ruleSet.description || 'empty'}}
                 </span>
                 <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible"
@@ -32,4 +30,5 @@
 
     </table>
     <add-edit-rules rule-set="ruleSet" edit-rule="editRule"></add-edit-rules>
+    <detailed-rules-list rule-set="ruleSet"></detailed-rules-list>
 </div>

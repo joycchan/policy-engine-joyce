@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state, PolicyActions) {
+  function ($scope, $state, PolicyStore, PolicyActions) {
 
 
-    $scope.selected;
+    $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
+    $scope.ruleSets = PolicyStore.RuleSets.all.bind(PolicyStore.RuleSets);
 
     $scope.service = {
       name: 'New Service'
@@ -23,26 +24,21 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.createGroup = function (group) {
       $scope.service.group = group;
-      $state.go('main.service');
+      $state.go('main.service.form');
     };
 
     $scope.createRuleSet = function(ruleSet) {
       $scope.service.ruleSet = ruleSet;
-      $state.go('main.service');
+      console.log('created', $scope.service);
+      $state.go('main.service.form');
     };
 
     $scope.cancelGroup = function () {
-      $state.go('main.service');
+      $state.go('main.service.form');
     };
 
     $scope.cancelRuleSet = function () {
-      $state.go('main.service');
+      $state.go('main.service.form');
     };
-
-    $scope.selectGroup = function (selectedGroup) {
-      $scope.selected = selectedGroup;
-    };
-
-     $scope.groups = Groups.list;
   }
 );

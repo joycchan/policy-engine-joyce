@@ -9,7 +9,7 @@ angular.module('policyEngine').controller('AssignmentCtrl',
 
     $scope.$watch('$routeChangeSuccess', function() {
       if ($stateParams.assignmentId) {
-        $scope.assignment = angular.copy(PolicyStore.Assignments.where({id: $stateParams.assignmentId})[0]);
+        $scope.assignment = angular.copy(PolicyStore.Assignments.find({id: $stateParams.assignmentId}));
       }
     });
 

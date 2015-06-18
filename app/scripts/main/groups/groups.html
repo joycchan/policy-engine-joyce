@@ -1,44 +1,44 @@
-<div class="objectsList">
-  <div class="objectsList-breadcrumb">Groups</div>
-  <div class="objectsList-container">
+<h2>Groups</h2>
+<div class="objectsList-container">
     <div class="objectsList-helpText">
-      Groups encapsulate users who have things in common like role and location. Groups also
+        Groups encapsulate users who have things in common like role and location. Groups also
         encapsulate resources like application servers and firewalls that have things in common.
     </div>
-    <div class="objectsList-new button" ui-sref="main.new.group">
-      <div class="plus">+</div>
-      New Group
+    <div class="objectsList-new button" ui-sref="main.listNew.group">
+        <div class="plus">+</div>
+        New Group
     </div>
     <list-count-filter-search class="objectsList-countFilterSearch"
-      count="groups().length"
-      filters="groupFilters"
-      filter-by="filterGroupsListBy"
-      is-filter-selected="isGroupsListFilterSelected"
-      search-model="search.name">
+                              count="groups().length"
+                              filters="groupFilters"
+                              filter-by="filterGroupsListBy"
+                              is-filter-selected="isGroupsListFilterSelected"
+                              search-model="search.name">
     </list-count-filter-search>
-      <table class="objectsList-list listView listView--iconsHover">
+    <table class="objectsList-list listView listView--iconsHover">
         <thead>
-          <th>Name</th>
-          <th>Origin</th>
-          <th>Description</th>
-          <th>Services Provided</th>
-          <th>Services Consumed</th>
-          <th></th>
+        <th>Name</th>
+        <th>Origin</th>
+        <th>Description</th>
+        <th>Services Provided</th>
+        <th>Services Consumed</th>
+        <th></th>
         </thead>
         <tbody>
-          <tr ng-repeat="group in groups() | filter: search">
+        <tr ng-repeat="group in groups() | filter: search">
             <td>{{group.name}}</td>
             <td>{{group.origin}}</td>
             <td>{{group.description}}</td>
             <td>{{group.servicesProvided}}</td>
             <td>{{group.servicesConsumed}}</td>
             <td>
-              <list-view-icon ng-click="edit(group)" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
-              <list-view-icon ng-click="deleteGroup(group.id)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
+                <list-view-icon ng-click="edit(group)" inactive-src="images/icon_edit_16.png"
+                                active-src="images/icon_edit_16_blue.png"></list-view-icon>
+                <list-view-icon ng-click="deleteGroup(group.id)" inactive-src="images/icon_x_16.png"
+                                active-src="images/icon_x_16_blue.png"></list-view-icon>
             </td>
-          </tr>
+        </tr>
         </tbody>
-      </table>
-  </div>
-
+    </table>
 </div>
+

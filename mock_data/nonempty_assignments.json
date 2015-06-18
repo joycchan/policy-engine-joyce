@@ -1,0 +1,207 @@
+[{
+  "type": "serviceCentric",
+  "item": {
+    "name": "Internet Access",
+    "id": "4",
+    "category": {
+      "name": "Internet Security"
+    },
+    "group": {
+      "name": "Internet"
+    },
+    "ruleSet": {
+      "name": "HTTP Access"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
+  },
+  "collection": [{
+    "id": "2",
+    "name": "Sales",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 4,
+    "type": "user",
+    "endpointPool": "10.4.35.1/24, 10.4.36.1/24",
+    "parentId": "1",
+    "$$hashKey": "object:101"
+  }, {
+    "id": "3",
+    "name": "Marketing",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 4,
+    "endpointPool": "10.1.35.1/24, 10.1.36.1/24",
+    "type": "user",
+    "parentId": "1",
+    "$$hashKey": "object:102"
+  }, {
+    "id": "5",
+    "name": "External Contractors",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 3,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "user",
+    "parentId": "12",
+    "$$hashKey": "object:103"
+  }, {
+    "id": "4",
+    "name": "External Suppliers",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "user",
+    "parentId": "12",
+    "$$hashKey": "object:104"
+  }, {
+    "id": "8",
+    "name": "App Servers",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "$$hashKey": "object:105"
+  }],
+  "id": "76fd2c6f-9730-4e57-bf9a-4e294eaad3fc"
+}, {
+  "type": "serviceCentric",
+  "item": {
+    "name": "Loan Management",
+    "id": "1",
+    "category": {
+      "name": "Business and Productivity Tools"
+    },
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "SQL Access"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
+  },
+  "collection": [{
+    "id": "6",
+    "name": "Loan Management Server",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "origin": "VMware vCenter",
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "$$hashKey": "object:194"
+  }, {
+    "id": "9",
+    "name": "DB Servers",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 4,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "$$hashKey": "object:195"
+  }, {
+    "id": "5",
+    "name": "External Contractors",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 3,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "user",
+    "parentId": "12",
+    "$$hashKey": "object:196"
+  }],
+  "id": "1d7f2216-a343-4de0-9f10-7b701252a950"
+}, {
+  "type": "serviceCentric",
+  "item": {
+    "name": "Apps - Gold",
+    "id": "3",
+    "category": {
+      "name": "Database"
+    },
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "HTTP Access - Gold Service"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
+  },
+  "collection": [{
+    "id": "8",
+    "name": "App Servers",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "$$hashKey": "object:291"
+  }, {
+    "id": "9",
+    "name": "DB Servers",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 4,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "$$hashKey": "object:292"
+  }, {
+    "id": "5",
+    "name": "External Contractors",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 3,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "user",
+    "parentId": "12",
+    "$$hashKey": "object:293"
+  }],
+  "id": "f8dbe920-1a9a-42d3-b4dc-099d5714be0f"
+}, {
+  "type": "serviceCentric",
+  "item": {
+    "name": "Apps - No Ping",
+    "id": "2",
+    "category": {
+      "name": "Database"
+    },
+    "group": {
+      "name": "DB Servers - All Zones"
+    },
+    "ruleSet": {
+      "name": "HTTP Access - No Ping"
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
+  },
+  "collection": [{
+    "id": "8",
+    "name": "App Servers",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource"
+  }, {
+    "id": "9",
+    "name": "DB Servers",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 4,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource"
+  }],
+  "id": "b5b81563-91e0-4316-8a13-dc80e590d04f"
+}]

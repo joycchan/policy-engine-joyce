@@ -48,6 +48,10 @@ angular.module("store")
       return _.where(_.pluck(this.records, 'object'), matcher);
     });
 
+    Table.prototype.find = memoize(function(matcher) {
+      return this.where(matcher)[0];
+    });
+
     Table.prototype.insert = function(record) {
 
       // Shallow clone and freeze, so we're not affected

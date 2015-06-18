@@ -1,6 +1,7 @@
 [
   {
     "name": "Loan Management",
+    "id": "1",
     "category": {
       "name": "Business and Productivity Tools"
     },
@@ -9,10 +10,12 @@
     },
     "ruleSet": {
       "name": "SQL Access"
-    }
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
   },
   {
     "name": "Apps - No Ping",
+    "id": "2",
     "category": {
       "name": "Database"
     },
@@ -21,10 +24,12 @@
     },
     "ruleSet": {
       "name": "HTTP Access - No Ping"
-    }
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
   },
   {
     "name": "Apps - Gold",
+    "id": "3",
     "category": {
       "name": "Database"
     },
@@ -33,10 +38,12 @@
     },
     "ruleSet": {
       "name": "HTTP Access - Gold Service"
-    }
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
   },
   {
     "name": "Internet Access",
+    "id": "4",
     "category": {
       "name": "Internet Security"
     },
@@ -45,6 +52,7 @@
     },
     "ruleSet": {
       "name": "HTTP Access"
-    }
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
   }
 ]
