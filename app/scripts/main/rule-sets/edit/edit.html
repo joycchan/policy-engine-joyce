@@ -1,6 +1,34 @@
-<h2>Rule Sets / My New Rule Set</h2>
-<tab-nav tabs="navTabLinks"></tab-nav>
-<ui-view>
-    <!-- main.ruleSets.edit.settings -->
-    <!-- main.ruleSets.edit.services -->
-</ui-view>
+<h2>Rule Sets / <span class="normal">{{ruleSet.name}}</span></h2>
+<div class="objectsSettings">
+<table class="objectsSettings-editableItems listView--iconsHover">
+  <tr>
+    <td class="objectsSettings-editHeader">
+        Name
+    </td>
+    <td class="media-body objectsSettings-editText" ng-model="ruleset.name">
+      <span editable-text="ruleSet.name" e-form="textBtnForm" onaftersave="saveRuleSet()">
+          {{ruleSet.name || 'empty'}}
+      </span>
+
+      <list-view-icon ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible"
+        inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"
+        class="edit"></list-view-icon>
+    </td>
+  </tr>
+  <tr>
+    <td class="objectsSettings-editHeader">
+      Description
+    </td>
+    <td class="media-body objectsSettings-editText" ng-model="ruleset.description">
+      <span editable-text="ruleSet.description" e-form="textBtnFormDescription" onaftersave="saveRuleSet()">
+      {{ruleSet.description || 'empty'}}
+      </span>
+      <list-view-icon ng-click="textBtnFormDescription.$show()" ng-hide="textBtnFormDescription.$visible"
+        inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"
+        class="edit"></list-view-icon>
+    </td>
+  </tr>
+</table>
+    <add-edit-rules rule-set="ruleSet" edit-rule="editRule"></add-edit-rules>
+    <detailed-rules-list rule-set="ruleSet"></detailed-rules-list>
+</div>
