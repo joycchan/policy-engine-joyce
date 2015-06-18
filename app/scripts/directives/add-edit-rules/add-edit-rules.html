@@ -1,7 +1,4 @@
-<div class="addEditRules-helpText">
-  Rules define how the network traffic behaves.  Classifiers describe types of network traffic and actions determine what to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you specify custom ones.
-</div>
-<div class="addEditRules-editButton">
+<div class="addEditRules">
   <div class="button button--secondary" ng-click="editRule()" ng-switch="ruleSet.rules[0].classifiers.length === 0 && ruleSet.rules[0].actions.length === 0">
     <span ng-switch-when="true">
       Add
