@@ -3,7 +3,7 @@
     "name": "SQL Access",
     "custom": "Default",
     "services": "None",
-    "description": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum.",
     "id": "1",
     "rules": [{
       "actions": [{"name": "Allow"}],
@@ -17,7 +17,7 @@
     "name": "TrustSEC Access",
     "custom": "Default",
     "services": "None",
-    "description": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum.",
     "id": "2",
     "rules": [{
       "actions": [{"name": "Allow"}],
@@ -28,7 +28,7 @@
     "name": "Overlay TEP",
     "custom": "Custom",
     "services": "None",
-    "description": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum.",
     "id": "3",
     "rules": [{
       "actions": [{"name": "Allow"}],
@@ -39,7 +39,7 @@
     "name": "Overlay Encap",
     "custom": "Default",
     "services": "None",
-    "description": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum.",
     "id": "4",
     "rules": [{
       "actions": [{"name": "Allow"}],
@@ -50,11 +50,44 @@
     "name": "HTTP & ICMP Access",
     "custom": "Custom",
     "services": "None",
-    "description": "Lorem ipsum",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum.",
     "id": "5",
     "rules": [{
       "actions": [{"name": "Allow"}],
       "classifiers": [{"name": "TCP-80 Default"}, {"name": " ICMP"}]
+    }]
+  },
+  {
+    "name": "HTTP Access - No Ping",
+    "custom": "Custom",
+    "services": "None",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum.",
+    "id": "6",
+    "rules": [{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-TEP-Type-HWTEP"}]
+    }]
+  },
+  {
+    "name": "HTTP Access - Gold Service",
+    "custom": "Custom",
+    "services": "None",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum.",
+    "id": "7",
+    "rules": [{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-TEP-Type-HWTEP"}]
+    }]
+  },
+  {
+    "name": "HTTP Access",
+    "custom": "Custom",
+    "services": "None",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum.",
+    "id": "7",
+    "rules": [{
+      "actions": [{"name": "Allow"}],
+      "classifiers": [{"name": "Overlay-TEP-Type-HWTEP"}]
     }]
   }
 ]

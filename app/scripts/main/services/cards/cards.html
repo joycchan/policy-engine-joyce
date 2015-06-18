@@ -52,7 +52,7 @@
 
             <div class="value">{{service.ruleSet.name}}</div>
         </div>
-        <div class="sliding-box">
+        <div class="sliding-box" ui-sref="{{'main.servicesEdit.providerGroup({serviceId: ' + service.id + '})'}}">
             <h4>Assigned Groups</h4>
 
             <div ng-hide="serviceConsumers(service).length">

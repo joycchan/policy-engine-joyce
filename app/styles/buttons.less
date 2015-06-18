@@ -67,7 +67,6 @@
 }
 
 .button.is-selected {
-  &:extend(.extra-light);
   background-color: @color-60;
 }
 
@@ -75,7 +74,7 @@
 // e.g. Cancel        OK
 .button-group {
   padding: 20px 0 15px;
-  text-align: right;
+  text-align: right; // TODO: remove this
 
   .button {
     margin-right: 10px;
@@ -83,4 +82,34 @@
   .button:last-child {
     margin-right: 0px;
   }
+}
+
+// button as a dropdown
+.button-dropdown {
+  display: inline-block;
+  
+  // overriding bootstrap
+
+  // bootstrap js hook
+  &.open {
+    .button--dropdown {
+      &:extend(.button.is-selected);
+      color: white;
+    }
+  }
+  .dropdown-menu {
+    box-shadow: none;
+    padding: 12px 0;
+    left: 50%;
+
+    > li > a {
+      cursor: pointer;
+      line-height: 25px;
+      font-size: 12px;
+
+      &:hover {
+        background-color: #e7ecf2;
+      }
+    }
+  } 
 }
