@@ -32,7 +32,7 @@
             <div ng-show="servicesByCategory(category).length">
                 <p ng-repeat="service in servicesByCategory(category)">{{service.name}}</p>
             </div>
-            <div class="button-g">
+            <div class="button-group">
                 <div class="button is-selected">Rename</div>
                 <div ng-click="deleteCategory(category)" class="button button--danger">Delete</div>
             </div>
