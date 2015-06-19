@@ -3,12 +3,6 @@
 .listView {
   table-layout: fixed;
 
-  tr {
-    width: 100%;
-    display: table;
-    text-align: left;
-  }
-
   th, td {
     padding: 6px 8px 6px 8px;
     line-height: 16.5px;
@@ -136,5 +130,20 @@
   padding-bottom: 8px;
   &:first-child {
     padding-top: 6px;
+  }
+}
+
+.listView--scrollable {
+  thead, tbody {
+    float: left;
+    width: 100%;
+  }
+  tbody {
+    overflow: auto;
+  }
+  tr {
+    width: 100%;
+    display: table;
+    text-align: left;
   }
 }
