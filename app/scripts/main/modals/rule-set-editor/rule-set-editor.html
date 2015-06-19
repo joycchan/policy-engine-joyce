@@ -57,8 +57,8 @@
                 <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleSet($index)"><img src="images/icon_edit_rule_24.png"></div>
               </td>
               <td>
-                <div class="subRuleContainer" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
-                  <div ng-repeat="classifier in rule.classifiers">
+                <div class="subRuleDrop" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
+                  <div class="subRuleContainer" ng-repeat="classifier in rule.classifiers">
                     <div class="subRule subRule--classifier listView-innerList">
                       {{classifier.name}}
                       <div class="deleteSubRuleContainer" ng-click="deleteClassifier($parent.$index, classifier)">
@@ -71,12 +71,14 @@
                 </div>
               </td>
               <td>
-                <div class="subRuleContainer" ng-drop="true" ng-drop-success="addAction($data, $index)">
-                  <div class="subRule subRule--action listView-innerList" ng-repeat="action in rule.actions">
-                    {{action.name}}
-                    <div class="deleteSubRuleContainer" ng-click="deleteAction($parent.$index, action)">
-                      <img class="deleteSubRule is-hiddenOnHover" src="images/icon_x_16_white.png">
-                      <img class="deleteSubRule is-displayedOnHover" src="images/icon_x_dark_16.png">
+                <div class="subRuleDrop" ng-drop="true" ng-drop-success="addAction($data, $index)">
+                  <div class="subRuleContainer" ng-repeat="action in rule.actions">
+                    <div class="subRule subRule--action listView-innerList">
+                      {{action.name}}
+                      <div class="deleteSubRuleContainer" ng-click="deleteAction($parent.$index, action)">
+                        <img class="deleteSubRule is-hiddenOnHover" src="images/icon_x_16_white.png">
+                        <img class="deleteSubRule is-displayedOnHover" src="images/icon_x_dark_16.png">
+                      </div>
                     </div>
                   </div>
                     <div class="subRule subRule--empty" ng-show="rule.actions.length === 0">DRAG IN ACTIONS FROM RIGHT</div>
