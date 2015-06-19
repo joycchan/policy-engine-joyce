@@ -1,6 +1,28 @@
-<h2>New Service / <span class="normal">Import Group from ISE</span></h2>
-
-<div class="button-group">
+<div class="importGroup-wrapper">
+  <h2>New Service / <span class="normal">Import Group from ISE</span></h2>
+  <div class="importGroup-buttonsSearch">
+    <div class="button-group">
+      <div class="button button--secondary" ng-click="selectAll()">Select All</div>
+      <div class="button button--disabled" ng-click="deselectAll()">Deselect All</div>
+    </div>
+    <div class="importGroup-search">
+      <input-search model="search.name"></input-search>
+    </div>
+  </div>
+  <table class="listView listView--borderHover importGroup-list">
+    <thead>
+      <th>Name</th>
+      <th>Endpoint Pools</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="group in groups() | filter: search" ng-click="toggleSelect(group)" ng-class="{'is-selected is-selected--border': isGroupSelected(group)}">
+        <td>{{group.name}}</td>
+        <td>{{group.endpointPool}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="button-group importGroup-cancelOk">
     <div class="button button--secondary" ng-click="cancelGroup()">Cancel</div>
-    <div class="button" ng-click="create()">Create</div>
+    <div class="button">Create</div>
+  </div>
 </div>

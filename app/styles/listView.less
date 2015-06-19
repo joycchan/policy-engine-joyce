@@ -3,6 +3,12 @@
 .listView {
   table-layout: fixed;
 
+  tr {
+    width: 100%;
+    display: table;
+    text-align: left;
+  }
+
   th, td {
     padding: 6px 8px 6px 8px;
     line-height: 16.5px;
@@ -28,6 +34,14 @@
       &.is-selected {
         background-color: @color-80;
       }
+
+      &.is-selected--border {
+        border-left: 3px solid @blue;
+        td {
+          border-bottom: 1px solid white;
+        }
+      }
+
     }
     td {
       white-space: nowrap;
