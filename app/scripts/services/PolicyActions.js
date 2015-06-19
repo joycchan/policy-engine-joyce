@@ -30,9 +30,17 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     FetchServices: function() {
 
       var request = CreateRequest("FetchServices");
-      $http.get('api/services').success(function (data) {
+      $http.get('api/sevices').success(function (data) {
         data.map(actions.ReceiveService);
         CompleteRequest(request);
+      }).error(function(data, status) {
+        CompleteRequest(request);
+        PolicyStore.Errors.insert({
+          id: Util.uid(),
+          message: "Failed to load services.",
+          status: status,
+          dismissed: false,
+        });
       });
 
     },
@@ -190,6 +198,10 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
     DeleteClassifier: function(id) {
       PolicyStore.Classifiers.delete({id: id});
+    },
+
+    DismissError: function(errorId) {
+      PolicyStore.Errors.update({id: errorId}, {dismissed: true});
     },
 
   };
