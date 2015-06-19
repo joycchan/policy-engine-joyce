@@ -14,6 +14,8 @@ angular.module('policyEngine')
                         $modalInstance.dismiss('cancel');
                     };
 
+                    $scope.actionSelect = 'table';
+
 
             },
 

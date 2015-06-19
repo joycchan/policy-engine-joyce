@@ -3,8 +3,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
   function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, selectedRuleset, $modal, Modals) {
 
-  function ($scope, $modalInstance, $stateParams, selectedRuleSet, PolicyStore) {
-
 
     $scope.selectedRuleSet = selectedRuleSet; // local from resolve
 

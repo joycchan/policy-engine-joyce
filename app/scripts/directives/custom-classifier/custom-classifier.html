@@ -30,10 +30,13 @@
                     <option value={{items.value}} ng-repeat="items in category ">{{items.name}}</option>
                 </select>
             </div>
+
+            <div ng-click="delete()" class="button button--danger">Delete</div>
+
             <div class="openClose button-group">
                 <div class="button button--secondary" ng-click="cancel()">Cancel</div>
                 <div class="button" ng-click="ok()">OK</div>
-            </div>
+            </d>
          </div>
     </form>
 </div>
