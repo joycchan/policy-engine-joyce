@@ -15,7 +15,7 @@
       <th>Endpoint Pools</th>
     </thead>
     <tbody>
-      <tr ng-repeat="group in groups() | filter: search" ng-click="toggleSelect(group)" ng-class="{'is-selected is-selected--border': isGroupSelected(group)}">
+      <tr ng-repeat="group in groups() | filter: search" ng-click="toggle(group)" ng-class="{'is-selected is-selected--border': isGroupSelected(group)}">
         <td>{{group.name}}</td>
         <td>{{group.endpointPool}}</td>
       </tr>
@@ -23,6 +23,6 @@
   </table>
   <div class="button-group importGroup-cancelOk">
     <div class="button button--secondary" ng-click="cancelGroup()">Cancel</div>
-    <div class="button">Create</div>
+    <div class="button" ng-click="importGroups(selectedGroups)">Import</div>
   </div>
 </div>

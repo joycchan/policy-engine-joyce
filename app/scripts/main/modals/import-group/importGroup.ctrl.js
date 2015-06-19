@@ -3,29 +3,28 @@ angular.module('policyEngine').controller('ImportGroupCtrl',
 
     $scope.groups = PolicyStore.ImportableGroups.all.bind(PolicyStore.ImportableGroups);
     $scope.search = {name: ''};
-    $scope.selected = [];
+    $scope.selectedGroups = [];
+
     $scope.isGroupSelected = function(group) {
-      return _.where($scope.selected, {'id': group.id}).length > 0;
+      return _.where($scope.selectedGroups, {'id': group.id}).length > 0;
     }
 
-    $scope.toggleSelect = function(group) {
+    $scope.toggle = function(group) {
       if ($scope.isGroupSelected(group)) {
-        $scope.selected = _.reject($scope.selected, function(selectedGroup) {
+        $scope.selectedGroups = _.reject($scope.selectedGroups, function(selectedGroup) {
           return selectedGroup.id === group.id;
         });
       } else {
-        $scope.selected.push(group);
+        $scope.selectedGroups.push(group);
       }
     }
 
     $scope.selectAll = function() {
-      _.each($scope.groups(), function(group) {
-        $scope.selected.push(group);
-      })
+      $scope.selectedGroups = $scope.groups();
     };
 
     $scope.deselectAll = function() {
-      $scope.selected = [];
-    }
+      $scope.selectedGroups = [];
+    };
 
 });

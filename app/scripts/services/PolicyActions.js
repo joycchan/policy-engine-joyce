@@ -180,8 +180,8 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       });
     },
 
-    ReceiveImportableGroup: function(service) {
-      PolicyStore.ImportableGroups.insert(service);
+    ReceiveImportableGroup: function(group) {
+      PolicyStore.ImportableGroups.insert(group);
     },
 
   };
