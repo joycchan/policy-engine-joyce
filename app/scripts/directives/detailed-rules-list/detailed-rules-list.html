@@ -11,7 +11,7 @@
       <tr ng-repeat="rule in ruleSet.rules">
         <td><div class="listView-number">{{$index + 1}}</div></td>
         <td>
-          <a ng-click="editRule()" ng-hide="rule.classifiers.length">Click here to add rules</a>
+          <a ng-click="editRule()" ng-if="!rule.classifiers.length">Click here to add rules</a>
           <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">{{classifier.name}}</div>
         </td>
         <td>

@@ -138,6 +138,9 @@
   .rulesList {
     table-layout: fixed;
     width: 100%;
+    tbody td {
+      white-space: normal;
+    }
     td:last-child {
       text-align: left;
     }
@@ -152,28 +155,24 @@
     }
   }
 
-  .rulesList-row {
-    td:not(:first-child) {
-      vertical-align: top;
-    }
-  }
-
-  .subRuleContainer {
+  .subRuleDrop {
     width: 100%;
-    padding: 4px 4px 4px 0px;
-    margin: 2px 0 4px 0;
     border: 1px solid rgba(0,0,0,0);
     // placeholder so that the element doesnt jump when it suddenly gets a border when the row is in edit mode
   }
 
   .rulesList-row.is-inEditMode {
-    .subRuleContainer {
+    .subRuleDrop {
       .dashedListContainer(@color-70);
       padding: 4px;
       &.drag-enter {
         border-color: @blue;
       }
     }
+  }
+
+  .subRuleContainer {
+    height: 24px;
   }
 
   .subRule {
@@ -259,7 +258,7 @@
 
   .editDeleteIconsContainer {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     float: right;
   }
 

@@ -1,9 +1,13 @@
 @import 'variables';
 
 .listView {
+  table-layout: fixed;
+
   th, td {
-    padding: 8px 8px 4px 8px;
+    padding: 6px 8px 6px 8px;
     line-height: 16.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   thead {
     font-weight: bold;
@@ -26,6 +30,7 @@
       }
     }
     td {
+      white-space: nowrap;
       height: 32px;
       border-bottom: 1px solid @color-80;
       color: @color-50;
@@ -117,8 +122,5 @@
   padding-bottom: 8px;
   &:first-child {
     padding-top: 6px;
-  }
-  &:last-child {
-    padding-bottom: 14px;
   }
 }
