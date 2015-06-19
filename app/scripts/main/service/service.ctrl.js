@@ -3,6 +3,7 @@
 angular.module('policyEngine').controller('ServiceCtrl',
   function ($scope, $state, PolicyStore, PolicyActions) {
 
+
     $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
     $scope.ruleSets = PolicyStore.RuleSets.all.bind(PolicyStore.RuleSets);
 

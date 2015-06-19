@@ -1,10 +1,9 @@
 angular.module('policyEngine').controller('ImportGroupCtrl',
   function ($scope, PolicyStore) {
 
-    $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
+    $scope.groups = PolicyStore.ImportableGroups.all.bind(PolicyStore.ImportableGroups);
     $scope.search = {name: ''};
     $scope.selected = [];
-
     $scope.isGroupSelected = function(group) {
       return _.where($scope.selected, {'id': group.id}).length > 0;
     }
