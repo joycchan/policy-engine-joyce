@@ -17,12 +17,60 @@ angular.module('policyEngine').controller('MainCtrl',
       return !$state.is('main.configuration');
     };
 
-    $scope.menubar = [
-      { name: 'Services', state: 'main.services.filters.cards', selectionState: 'main.services', width: 82},
-      { name: 'Assignments', state: 'main.assignments', selectionState: 'main.assignments', width: 108},
-      { name: 'Groups', state: 'main.groups', selectionState: 'main.groups', width: 74},
-      { name: 'Rule Sets', state: 'main.ruleSets', selectionState: 'main.ruleSets', width: 86}
-   ];
+    $scope.menubar = [{
+      name: 'Services',
+      state: 'main.services.filters.cards',
+      selectionState: 'main.services',
+      associatedStates: ['main.servicesEdit', 'main.service.form'],
+      width: 82
+    }, {
+      name: 'Assignments',
+      state: 'main.assignments',
+      selectionState: 'main.assignments',
+      associatedStates: ['main.assignment'],
+      width: 108
+    }, {
+      name: 'Groups',
+      state: 'main.groups',
+      selectionState: 'main.groups',
+      associatedStates: ['main.groupsEdit', 'main.listNew.group', 'main.service.newGroup', 'main.service.importGroup'],
+      width: 74
+    }, {
+      name: 'Rule Sets',
+      state: 'main.ruleSets',
+      selectionState: 'main.ruleSets',
+      associatedStates: ['main.ruleSetsEdit', 'main.service.newRuleSet', 'main.listNew.ruleSet', 'main.service.newRuleSet'],
+      width: 86
+    }];
+
+
+    // // if the user is in service creation flow, and they navigate to "Create new rule set", the Services tab will be active in the nav bar.
+    // $scope.menubar = [{
+    //   name: 'Services',
+    //   state: 'main.services.filters.cards',
+    //   selectionState: 'main.services',
+    //   associatedStates: ['main.servicesEdit', 'main.service'],
+    //   width: 82
+    // }, {
+    //   name: 'Assignments',
+    //   state: 'main.assignments',
+    //   selectionState: 'main.assignments',
+    //   associatedStates: ['main.assignment'],
+    //   width: 108
+    // }, {
+    //   name: 'Groups',
+    //   state: 'main.groups',
+    //   selectionState: 'main.groups',
+    //   associatedStates: ['main.groupsEdit'],
+    //   width: 74
+    // }, {
+    //   name: 'Rule Sets',
+    //   state: 'main.ruleSets',
+    //   selectionState: 'main.ruleSets',
+    //   associatedStates: ['main.ruleSetsEdit'],
+    //   width: 86
+    // }];
+
 
     $scope.menu = [
       {
