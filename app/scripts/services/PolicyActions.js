@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util, $http, configuration) {
+angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util, $http, configuration, $timeout) {
 
   var assignmentParams = function () {
     return {
@@ -76,9 +76,24 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     },
 
     CreateGroup: function(group) {
-      group.id = Util.uid(); // generate ids locally for now
-      PolicyStore.Groups.insert(group);  
-      return group;
+
+      var id = Util.uid(); // generate ids locally for now
+      group.id =id;
+
+      var request = CreateRequest("CreateGroup");
+
+      $timeout(function() {
+        CompleteRequest(request);
+        PolicyStore.Errors.insert({
+          id: Util.uid(),
+          message: "Failed to save " + group.name,
+          status: 500,
+          request: request.id,
+          dismissed: false,
+        });
+      }, 1000);
+
+      return request;
     },
 
     UpdateGroup: function(group) {
