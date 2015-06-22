@@ -30,7 +30,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     FetchServices: function() {
 
       var request = CreateRequest("FetchServices");
-      $http.get('api/sevices').success(function (data) {
+      $http.get('api/services').success(function (data) {
         data.map(actions.ReceiveService);
         CompleteRequest(request);
       }).error(function(data, status) {
