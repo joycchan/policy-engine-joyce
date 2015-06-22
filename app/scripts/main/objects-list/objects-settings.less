@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/buttons";
 
 .objectsSettings {
   width: @settings-width;
@@ -74,8 +75,11 @@ tbody tr:first-child {
 .editable-buttons button[type=submit] {
     &:extend(.button);
     margin-left: 20px;
-    padding-top: 4px;
+    padding-top: 6px;
     border: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 28px;
     &:hover {
       &:extend(.button--hover);
     }
@@ -85,8 +89,11 @@ tbody tr:first-child {
     button {
     &:extend(.button);
     &:extend(.button--secondary);
-    padding-top: 4px;
+    padding-top: 6px;
     border: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 28px;
     &:hover {
       &:extend(.button--hover);
     }

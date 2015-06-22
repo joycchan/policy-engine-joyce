@@ -18,11 +18,11 @@
                          'other': '{} Services'}"></ng-pluralize>
         </div>
     </div>
-    <div ng-repeat="category in categories" class="card category">
-        <h3 editable-text="category.name" e-form="textBtnFormService">{{category.name}}</h3>
+    <div ng-repeat="category in categories" class="card category" ng-click="addFilter('category', category)"
+        <h3 editable-text="category.name" e-form="textBtnFormService" >{{category.name}}</h3>
         <img ng-src="{{category.image}}"/>
 
-        <div class="sliding-box"  ng-click="addFilter('category', category)">
+        <div class="sliding-box">
             <h4>Newly Added Services</h4>
 
             <div ng-hide="servicesByCategory(category).length">
@@ -41,7 +41,7 @@
 </div>
 <div ng-show="filtered['category']">
 
-    <div ng-repeat="service in filteredServices" class="card">
+    <div ng-repeat="service in filteredServices" class="card" ui-sref="{{'main.servicesEdit.providerGroup({serviceId: ' + service.id + '})'}}">
         <h3 editable-text="service.name" e-form="textBtnForm">{{service.name}}</h3>
 
         <div class="values">
@@ -52,7 +52,7 @@
 
             <div class="value">{{service.ruleSet.name}}</div>
         </div>
-        <div class="sliding-box" ui-sref="{{'main.servicesEdit.providerGroup({serviceId: ' + service.id + '})'}}">
+        <div class="sliding-box" >
             <h4>Assigned Groups</h4>
 
             <div ng-hide="serviceConsumers(service).length">
