@@ -134,11 +134,22 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return $scope.selectedCheckBoxes[id] === true;
     }
 
+    var createListFromService = function(service, key) {
+      // returns an array of objects w/ a 'name' key on each
+      // e.g. [{name: 'SQL Access'}, {name: 'HTTP Access'}]
+      var list = _.map(service, function(s) {
+        return s[key];
+      });
+      return _.uniq(list, function(item) {
+        return item.name;
+      });
+    }
+
     $scope.$watch(function () {
       return PolicyStore.Services.all();
     }, function (newServices) {
-      $scope.providerGroups = _.uniq(_.pluck('group'), 'name');
-      $scope.ruleSets = _.uniq(_.pluck('ruleSet'), 'name');
+      $scope.providerGroups = createListFromService(newServices, 'group');
+      $scope.ruleSets = createListFromService(newServices, 'ruleSet');
     });
   }
 );

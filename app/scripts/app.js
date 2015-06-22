@@ -129,6 +129,11 @@ angular.module("policyEngine", [
             templateUrl: 'scripts/main/modals/rule-sets/new.html',
             controller: 'NewRuleSetCtrl'
           })
+          .state("main.service.importGroup", {
+            url: "import-group/",
+            templateUrl: 'scripts/main/modals/import-group/import-group.html',
+            controller: 'ImportGroupCtrl'
+          })
 
         .state("main.assignments", {
           url: 'assignments/',
@@ -155,18 +160,9 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/rule-sets/rule-sets.html"
       })
       .state("main.ruleSetsEdit", {
-        abstract: true,
         url: "rule-sets/edit/{ruleSetId}/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
-      })
-      .state("main.ruleSetsEdit.settings", {
-        url: "settings/",
-        templateUrl: "scripts/main/rule-sets/edit/settings/settings.html"
-      })
-      .state("main.ruleSetsEdit.services", {
-        url: "services/",
-        templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
       .state("main.actions", {
         url: "actions/",
@@ -195,5 +191,6 @@ angular.module("policyEngine", [
     PolicyActions.FetchRuleSets();
     PolicyActions.FetchActions();
     PolicyActions.FetchClassifiers();
+    PolicyActions.FetchImportableGroups();
   });
 

@@ -1,9 +1,13 @@
 @import 'variables';
 
 .listView {
+  table-layout: fixed;
+
   th, td {
-    padding: 8px 8px 4px 8px;
+    padding: 6px 8px 6px 8px;
     line-height: 16.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   thead {
     font-weight: bold;
@@ -24,8 +28,17 @@
       &.is-selected {
         background-color: @color-80;
       }
+
+      &.is-selected--border {
+        border-left: 3px solid @blue;
+        td {
+          border-bottom: 1px solid white;
+        }
+      }
+
     }
     td {
+      white-space: nowrap;
       height: 32px;
       border-bottom: 1px solid @color-80;
       color: @color-50;
@@ -118,7 +131,19 @@
   &:first-child {
     padding-top: 6px;
   }
-  &:last-child {
-    padding-bottom: 14px;
+}
+
+.listView--scrollable {
+  thead, tbody {
+    float: left;
+    width: 100%;
+  }
+  tbody {
+    overflow: auto;
+  }
+  tr {
+    width: 100%;
+    display: table;
+    text-align: left;
   }
 }

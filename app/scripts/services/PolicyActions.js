@@ -174,6 +174,16 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       PolicyStore.Classifiers.delete({id: id});
     },
 
+    FetchImportableGroups: function() {
+      $http.get('api/importable_use_groups').success(function (data) {
+        data.map(actions.ReceiveImportableGroup);
+      });
+    },
+
+    ReceiveImportableGroup: function(group) {
+      PolicyStore.ImportableGroups.insert(group);
+    },
+
   };
 
   return actions;
