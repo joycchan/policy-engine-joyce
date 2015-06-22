@@ -20,13 +20,13 @@ angular.module('policyEngine')
         ];
 
         $scope.buttonText = function () {
-          return $scope.group.pools.length ? 'Add more pools' : 'Add pools';
+          return $scope.group.endpointPools.length ? 'Add more pools' : 'Add pools';
         };
 
         $scope.poolsExpanded = false;
 
         var setPools = function () {
-          $scope.group.pools = _.filter($scope.pools, 'enabled');
+          $scope.group.endpointPools = _.filter($scope.pools, 'enabled');
         };
 
         $scope.toggleDropdown = function () {
