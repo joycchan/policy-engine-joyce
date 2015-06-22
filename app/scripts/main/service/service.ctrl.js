@@ -40,5 +40,6 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.cancelRuleSet = function () {
       $state.go('main.service.form');
     };
+
   }
 );
