@@ -129,6 +129,11 @@ angular.module("policyEngine", [
             templateUrl: 'scripts/main/modals/rule-sets/new.html',
             controller: 'NewRuleSetCtrl'
           })
+          .state("main.service.importGroup", {
+            url: "import-group/",
+            templateUrl: 'scripts/main/modals/import-group/import-group.html',
+            controller: 'ImportGroupCtrl'
+          })
 
         .state("main.assignments", {
           url: 'assignments/',
@@ -186,5 +191,6 @@ angular.module("policyEngine", [
     PolicyActions.FetchRuleSets();
     PolicyActions.FetchActions();
     PolicyActions.FetchClassifiers();
+    PolicyActions.FetchImportableGroups();
   });
 

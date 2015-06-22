@@ -10,7 +10,8 @@ angular.module('policyEngine').factory('PolicyStore', function(Table, Util) {
     Actions: new Table(),
     Classifiers: new Table(),
     Requests: new Table(),
-    Errors: new Table()
+    Errors: new Table(),
+    ImportableGroups: new Table()
   };
 
   window.tables = tables;

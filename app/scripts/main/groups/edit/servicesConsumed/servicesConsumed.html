@@ -5,7 +5,7 @@
   <div class="objectsServices-countSearch">
     <div class="objectsServices-count">
       <img src="images/icon_services_32_blue.png">
-      0
+      {{servicesConsumed.length}}
     </div>
     <div class="objectsServices-search"><input-search></input-search></div>
   </div>
@@ -17,9 +17,15 @@
       <th></th>
     </thead>
     <tbody>
-      <tr>
-        <td>Web Service</td>
-        <td>Basic Assignment</td>
+      <tr ng-repeat="service in servicesConsumed">
+        <td>
+          <a ui-sref="main.servicesEdit.assignedGroups({serviceId: service.id})">{{service.name}}</a>
+        </td>
+        <td>
+          <a ui-sref="main.assignment.groupCentric({assignmentId: ASSIGNMENT_ID})">
+            Basic Assignment
+          </a>
+        </td>
         <td>2015 Jan 25</td>
         <td>
           <list-view-icon inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
