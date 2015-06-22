@@ -16,10 +16,8 @@
       <th>Last Updated</th>
     </thead>
     <tbody>
-      <tr ng-repeat="service in servicesProvided">
-        <td>
-          <a ui-sref="main.servicesEdit.providerGroup({serviceId: service.id})">{{service.name}}</a>
-        </td>
+      <tr ng-repeat="service in servicesProvided" ui-sref="main.servicesEdit.providerGroup({serviceId: service.id})">
+        <td>{{service.name}}</td>
         <td>{{service.ruleSet.name}}</td>
         <td>Today</td>
       </tr>
