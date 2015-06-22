@@ -85,6 +85,11 @@ angular.module("policyEngine", [
           templateUrl: 'scripts/main/modals/rule-sets/new.html',
           controller: 'NewRuleSetCtrl'
         })
+        .state("main.listNew.action", {
+          url: "action/",
+          templateUrl: 'scripts/main/modals/actions/new.html',
+          controller: 'NewActionCtrl'
+        })
 
         .state("main.groups", {
           url: "groups/",
@@ -171,7 +176,8 @@ angular.module("policyEngine", [
       })
       .state("main.actionsEdit", {
         url: "actions/edit/{actionId}/",
-        templateUrl: "scripts/main/actions/edit/edit.html"
+        templateUrl: "scripts/main/actions/edit/edit.html",
+        controller: 'ActionEditCtrl'
       })
       .state("main.classifiers", {
         url: "classifiers/",
@@ -180,7 +186,7 @@ angular.module("policyEngine", [
       })
       .state("main.classifiersEdit", {
         url: "classifiers/edit/{classifierId}/",
-        controller: "ClassifiersEditCtrl",
+        controller: "ClassifierEditCtrl",
         templateUrl: "scripts/main/classifiers/edit/edit.html"
       })
   })

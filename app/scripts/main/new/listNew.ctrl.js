@@ -1,18 +1,26 @@
 angular.module('policyEngine').controller('ListNewCtrl', function ($scope, $state) {
 
-  $scope.createGroup = function(group) {
+  $scope.createGroup = function (group) {
     $state.go('main.groups');
   };
 
-  $scope.cancelGroup = function() {
+  $scope.cancelGroup = function () {
     $state.go('main.groups');
   };
 
-  $scope.createRuleSet = function(ruleSet) {
+  $scope.createRuleSet = function (ruleSet) {
     $state.go('main.ruleSets');
   };
 
-  $scope.cancelRuleSet = function() {
+  $scope.cancelRuleSet = function () {
     $state.go('main.ruleSets');
+  };
+
+  $scope.createAction = function (action) {
+    $state.go('main.actions');
+  };
+
+  $scope.cancelAction = function () {
+    $state.go('main.actions');
   };
 });
