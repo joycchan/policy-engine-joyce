@@ -41,12 +41,5 @@ angular.module('policyEngine').controller('ServiceCtrl',
       $state.go('main.service.form');
     };
 
-    $scope.importGroups = function(groups) {
-      _.each(groups, function(group) {
-        PolicyActions.ReceiveGroup(group);
-      });
-      $state.go('main.service.form');
-    };
-
   }
 );

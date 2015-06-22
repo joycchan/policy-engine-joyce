@@ -2,8 +2,8 @@
   <h2>New Service / <span class="normal">Import Group from ISE</span></h2>
   <div class="importGroup-buttonsSearch">
     <div class="button-group">
-      <div class="button button--secondary" ng-click="selectAll()">Select All</div>
-      <div class="button button--disabled" ng-click="deselectAll()">Deselect All</div>
+      <div class="button" ng-class="selectAllClass()" ng-click="selectAll()">Select All</div>
+      <div class="button" ng-class="deselectAllClass()" ng-click="deselectAll()">Deselect All</div>
     </div>
     <div class="importGroup-search">
       <input-search model="search.name"></input-search>
