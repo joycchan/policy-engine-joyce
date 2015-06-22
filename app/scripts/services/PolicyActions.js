@@ -10,11 +10,12 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     }
   };
 
-  var CreateRequest = function(action) {
+  var CreateRequest = function(action, objectId) {
     var request = {
       id: Util.uid(),
       action: action,
       complete: false,
+      object: objectId,
       error: null,
     };
     PolicyStore.Requests.insert(request);
@@ -67,7 +68,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
     FetchGroups: function() {
       $http.get('api/groups').success(function (data) {
-        data.map(actions.ReceiveGroup);
+        //data.map(actions.ReceiveGroup);
       });
     },
 
@@ -80,17 +81,12 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       var id = Util.uid(); // generate ids locally for now
       group.id =id;
 
-      var request = CreateRequest("CreateGroup");
+      var request = CreateRequest("CreateGroup", id);
+
+      PolicyStore.Groups.insert(group);
 
       $timeout(function() {
         CompleteRequest(request);
-        PolicyStore.Errors.insert({
-          id: Util.uid(),
-          message: "Failed to save " + group.name,
-          status: 500,
-          request: request.id,
-          dismissed: false,
-        });
       }, 1000);
 
       return request;
