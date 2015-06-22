@@ -11,7 +11,6 @@ angular.module('policyEngine').controller('LaunchCtrl',
 
     $scope.connections = function () {
       return _.sum(_.map(PolicyStore.Assignments.all(), function (assignment) {
-        console.log('assignment', assignment);
         return assignment.collection.length;
       }));
     };
