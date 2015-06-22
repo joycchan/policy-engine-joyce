@@ -68,11 +68,11 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
 
       $scope.customClassifiers = function () {
-        $modal.open(Modals.customClassifier([$scope.rule]));
+        //$modal.open(Modals.customClassifier([$scope.rule]));
       };
 
       $scope.customActions = function () {
-        $modal.open(Modals.customActions([$scope.rule]));
+        //$modal.open(Modals.customActions([$scope.rule]));
       };
 
 

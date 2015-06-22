@@ -1,20 +1,21 @@
 <div class="addCustomerClassifier">
-    <h4>New Customer Classifier</h4>
     <form class="form-horizontal">
         <div class="form-group">
             <div>
                 <div class="form-group">
                     <label for="ruleSetName">Name</label>
-                    <input type="text" class="form-control new-group" ng-model="customClassifier.name" id="customClassifiername" required>
+                    <input type="text" class="form-control new-group" ng-model="classifier.name"
+                           id="classifiername" required>
                 </div>
                 <div class="form-group">
                     <label for="ruleSetDesc">Description</label>
-                    <textarea class="form-control description" id="ruleSetDesc" ng-model="customClassifier.description" required placeholder="Optional"></textarea>
+                    <textarea class="form-control description" id="ruleSetDesc" ng-model="classifier.description"
+                              required placeholder="Optional"></textarea>
                 </div>
             </div>
             <div class="protocols">
                 <label for="ruleSetProtocol">Protocol</label>
-                    <select class="form-control protocol" name="protocol" id="protocol" >
+                <select class="form-control protocol" name="protocol" id="protocol">
                     <option value={{items.value}} ng-repeat="items in options ">{{items.name}}</option>
                 </select>
             </div>
@@ -30,13 +31,6 @@
                     <option value={{items.value}} ng-repeat="items in category ">{{items.name}}</option>
                 </select>
             </div>
-
-            <div ng-click="delete()" class="button button--danger">Delete</div>
-
-            <div class="openClose button-group">
-                <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-                <div class="button" ng-click="ok()">OK</div>
-            </d>
-         </div>
+        </div>
     </form>
 </div>

@@ -1,30 +1,18 @@
 'use strict';
 
 angular.module('policyEngine')
-    .directive('customAction', function () {
-        return {
-            templateUrl: 'scripts/directives/custom-action/custom-action.html',
-            controller: function ($scope){
+  .directive('customAction', function () {
+    return {
+      templateUrl: 'scripts/directives/custom-action/custom-action.html',
+      controller: function ($scope) {
+        $scope.actionSelect = 'table';
+      },
 
-                  $scope.ok = function () {
-                        $modalInstance.close($scope.selected);
-                    };
-
-                    $scope.cancel = function () {
-                        $modalInstance.dismiss('cancel');
-                    };
-
-                    $scope.actionSelect = 'table';
-
-
-            },
-
-            scope: {
-                ruleSet: '=',
-                editRule: '='
-            },
-            restrict: 'E',
-            link: function postLink(scope, element, attrs) {
-                    }
-        };
-    });
+      scope: {
+        action: '=',
+      },
+      restrict: 'E',
+      link: function postLink(scope, element, attrs) {
+      }
+    };
+  });
