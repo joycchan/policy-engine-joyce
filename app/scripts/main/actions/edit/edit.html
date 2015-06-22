@@ -1,1 +1,8 @@
-<div class="objectsList-breadcrumb">Actions Library/ Edit Action</div>
+<h2>Actions / <span class="normal">{{action.name}}</span></h2>
+
+<custom-action action="action"></custom-action>
+<div class="openClose button-group">
+    <div class="button button--danger" ng-click="delete()">Delete</div>
+    <div class="button button--secondary" ng-click="cancel()">Cancel</div>
+    <div class="button" ng-click="ok()">OK</div>
+</div>
