@@ -68,7 +68,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
     FetchGroups: function() {
       $http.get('api/groups').success(function (data) {
-        //data.map(actions.ReceiveGroup);
+        data.map(actions.ReceiveGroup);
       });
     },
 
