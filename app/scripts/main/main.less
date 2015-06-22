@@ -1,7 +1,11 @@
 @import "../../styles/variables";
 
-.main {
+.main-wrapper {
+  height: 100%;
+}
 
+.main {
+  height: ~"calc(100% - 120px)";
   &.gray {
     background-color: @color-90;
   }
