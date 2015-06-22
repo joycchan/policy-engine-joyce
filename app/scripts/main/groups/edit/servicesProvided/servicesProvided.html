@@ -5,7 +5,7 @@
   <div class="objectsServices-countSearch">
     <div class="objectsServices-count">
       <img src="images/icon_services_32_blue.png">
-      1
+      {{servicesProvided.length}}
     </div>
     <div class="objectsServices-search"><input-search></input-search></div>
   </div>
@@ -16,9 +16,11 @@
       <th>Last Updated</th>
     </thead>
     <tbody>
-      <tr>
-        <td>My New Service</td>
-        <td>My New Rule Set</td>
+      <tr ng-repeat="service in servicesProvided">
+        <td>
+          <a ui-sref="main.servicesEdit.providerGroup({serviceId: service.id})">{{service.name}}</a>
+        </td>
+        <td>{{service.ruleSet.name}}</td>
         <td>Today</td>
       </tr>
     </tbody>
