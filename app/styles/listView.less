@@ -28,6 +28,14 @@
       &.is-selected {
         background-color: @color-80;
       }
+
+      &.is-selected--border {
+        border-left: 3px solid @blue;
+        td {
+          border-bottom: 1px solid white;
+        }
+      }
+
     }
     td {
       white-space: nowrap;
@@ -122,5 +130,20 @@
   padding-bottom: 8px;
   &:first-child {
     padding-top: 6px;
+  }
+}
+
+.listView--scrollable {
+  thead, tbody {
+    float: left;
+    width: 100%;
+  }
+  tbody {
+    overflow: auto;
+  }
+  tr {
+    width: 100%;
+    display: table;
+    text-align: left;
   }
 }

@@ -22,8 +22,14 @@ angular.module('policyEngine')
           return classes;
         };
 
+        var stateIncludesAnyAssociatedStates = function(associatedStates) {
+          return _.any(associatedStates, function(state) {
+            return $state.includes(state);
+          });
+        }
+
         scope.selected = function(item) {
-          return $state.includes(item.selectionState);
+          return $state.includes(item.selectionState) || stateIncludesAnyAssociatedStates(item.associatedStates);
         };
 
         scope.search = '';

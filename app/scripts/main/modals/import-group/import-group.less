@@ -1,0 +1,51 @@
+@import "../../../../styles/variables";
+
+.importGroup-wrapper {
+  width: 632px;
+}
+
+.importGroup-buttonsSearch {
+  margin-top: 20px;
+  margin-bottom: 15px;
+
+  // overriding .button-group
+  .button-group {
+    padding: 0;
+    display: inline-block;
+  }
+
+  // overriding .button
+  .button {
+    width: 105px;
+  }
+}
+
+.importGroup-search {
+  display: inline-block;
+  float: right;
+
+  // overriding input-search
+  .input-search {
+    width: 240px;
+  }
+}
+
+.importGroup-list {
+  width: 100%;
+  tbody {
+    height: 262px;
+    border-bottom: 1px solid @color-80;
+  }
+  th, td {
+    &:nth-child(1) {
+      width: 27%;
+    }
+    &:nth-child(2) {
+      width: 73%;
+    }
+  }
+}
+
+.importGroup-cancelOk {
+  float: right;
+}
