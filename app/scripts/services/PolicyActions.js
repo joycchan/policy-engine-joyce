@@ -1,19 +1,47 @@
-
 'use strict';
 
-angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util, $http, configuration) {
+angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Util, $http, configuration, $timeout) {
 
   var path = function(resource, id) {
     var suffix = id ? '/' + id : '';
     return configuration.backEndUrl + resource + suffix;
   };
 
+  var CreateRequest = function(action, objectId) {
+    var request = {
+      id: Util.uid(),
+      action: action,
+      complete: false,
+      object: objectId,
+      error: null,
+    };
+    PolicyStore.Requests.insert(request);
+    return request;
+  };
+
+  var CompleteRequest = function(request) {
+    PolicyStore.Requests.update({id: request.id}, {complete: true});
+  };
+
   var actions = {
     
     FetchServices: function() {
+
+      var request = CreateRequest("FetchServices");
       $http.get(path('services')).success(function (data) {
         data.map(actions.ReceiveService);
+        CompleteRequest(request);
+      }).error(function(data, status) {
+        CompleteRequest(request);
+        PolicyStore.Errors.insert({
+          id: Util.uid(),
+          message: "Failed to load services.",
+          status: status,
+          dismissed: false,
+        });
       });
+
+
     },
 
     ReceiveService: function(service) {
@@ -50,10 +78,25 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     },
 
     CreateGroup: function(group) {
-      group.id = Util.uid(); // generate ids locally for now
+      var id = Util.uid(); // generate ids locally for now
+      group.id =id;
+
+      var request = CreateRequest("CreateGroup", id);
+
       PolicyStore.Groups.insert(group);
-      $http.post(path('groups'), group);
-      return group;
+      $http.post(path('groups'), group).success(function(data) {
+        CompleteRequest(request);
+      }).error(function(data, status) {
+        CompleteRequest(request);
+        PolicyStore.Errors.insert({
+          id: Util.uid(),
+          message: "Failed to create " + group.name,
+          status: status,
+          dismissed: false,
+        });
+      });
+
+      return request;
     },
 
     UpdateGroup: function(group) {
@@ -185,6 +228,10 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
     ReceiveImportableGroup: function(group) {
       PolicyStore.ImportableGroups.insert(group);
+    },
+
+    DismissError: function(errorId) {
+      PolicyStore.Errors.update({id: errorId}, {dismissed: true});
     },
 
   };

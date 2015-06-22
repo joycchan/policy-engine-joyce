@@ -34,9 +34,10 @@
         <th></th>
         </thead>
         <tbody>
-        <tr ng-repeat="group in groups() | filter: search">
+          <tr ng-class="{loading: isLoading(group)}" ng-repeat="group in groups() | filter: search">
             <td>
-              <span ng-switch="group.type">
+              <span ng-switch="groupStatusCell(group)">
+                <div ng-switch-when="loading" class="loader"></div>
                 <img ng-switch-when="user" src="images/icon_users_16.png"></img>
                 <img ng-switch-when="resource" src="images/icon_resources_16.png"></img>
               </span>
@@ -47,10 +48,12 @@
             <td>{{group.servicesProvided}}</td>
             <td>{{group.servicesConsumed}}</td>
             <td>
+              <div ng-if="!isLoading(group)">
                 <list-view-icon ng-click="edit(group)" inactive-src="images/icon_edit_16.png"
                                 active-src="images/icon_edit_16_blue.png"></list-view-icon>
                 <list-view-icon ng-click="deleteGroup(group.id)" inactive-src="images/icon_x_16.png"
                                 active-src="images/icon_x_16_blue.png"></list-view-icon>
+              </div>
             </td>
         </tr>
         </tbody>
