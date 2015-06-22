@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('customClassifierCtrl',
-    function ($scope, $modalInstance, ruleSets, Actions, Classifiers, $stateParams, $compile){
+    function ($scope, $modalInstance, $stateParams, $compile){
 
 
         $scope.ok = function () {
