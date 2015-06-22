@@ -30,6 +30,18 @@ var serveDirectories = function (app, directories) {
     });
   });
 
+  app.post("/api/:endpoint", function (req, res) {
+    res.end("{}");
+  });
+
+  app.put("/api/:endpoint", function (req, res) {
+    res.end("{}");
+  });
+
+  app.patch("/api/:endpoint", function (req, res) {
+    res.end("{}");
+  });
+
   var parseParams = function(req) {
     return url.parse(req.url, true).query;
   };
