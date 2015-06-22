@@ -97,7 +97,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     },
 
     FetchRuleSets: function() {
-      $http.get(path('ruleSets')).success(function (data) {
+      $http.get(path('rule_sets')).success(function (data) {
         data.map(actions.ReceiveRuleSet);
       });
     },
@@ -109,18 +109,18 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     CreateRuleSet: function(ruleSet) {
       ruleSet.id = Util.uid(); // generate ids locally for now
       PolicyStore.RuleSets.insert(ruleSet);
-      $http.post(path('ruleSets'), ruleSet);
+      $http.post(path('rule_sets'), ruleSet);
       return ruleSet;
     },
 
     UpdateRuleSet: function(ruleSet) {
       PolicyStore.RuleSets.update({id: ruleSet.id}, ruleSet);
-      $http.patch(path('ruleSets', ruleSet.id), ruleSet);
+      $http.patch(path('rule_sets', ruleSet.id), ruleSet);
     },
 
     DeleteRuleSet: function(id) {
       PolicyStore.RuleSets.delete({id: id});
-      $http.delete(path('ruleSets', id));
+      $http.delete(path('rule_sets', id));
     },
 
     FetchActions: function() {

@@ -5,7 +5,7 @@
     <div class="button selected-pool" ng-class="{'button--secondary': !poolsExpanded}" ng-click="toggleDropdown()">
         {{buttonText()}}
     </div>
-    <div ng-repeat="pool in group.pools" class="button button--primary selected-pool">
+    <div ng-repeat="pool in group.endpointPools" class="button button--primary selected-pool">
         {{pool.name}}
         <div ng-click="removePool(pool)" class="delete-pool"></div>
     </div>
