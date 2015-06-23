@@ -54,7 +54,7 @@
             ng-class="{selected: group.id === selectedGroup().id}">
             <td>{{::group.name}}</td>
             <td>
-                {{::group.endpointPool}}
+                {{group.endpointPools | comma}}
             </td>
         </tr>
         </tbody>

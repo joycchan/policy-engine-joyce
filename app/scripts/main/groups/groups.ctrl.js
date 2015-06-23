@@ -61,6 +61,14 @@ angular.module('policyEngine').controller('GroupsCtrl',
       }));
     };
 
+    $scope.servicesProvided = function(group) {
+      return group.name.length;
+    };
+
+    $scope.servicesConsumed = function(group) {
+      return Math.round(100 / group.name.length);
+    };
+
   }
 );
 
