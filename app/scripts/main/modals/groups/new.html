@@ -17,18 +17,27 @@
         <label>Conditions</label>
         <table class="listView">
             <thead>
-              <td>Posture</td>
+            <td>Posture</td>
             <td>Value</td>
             </thead>
             <tbody>
-             <tr ng-repeat="desc in description">
 
-              <td  data-role="listview" data-inset="true" >
-                  <select  data-role="listview" ng-options="catagory as catagory.name for catagory in posture  " ng-model="group.itemsuper" ng-change="changeData()">
+            <tr class="optionsEdit" ng-show="descriptions">
+                <td ng-model = group.postureName>
+                    {{group.postureName.name}}
+                </td>
+                <td class="optionsValue" ng-model = group.valueName>
+                    {{group.valueName.name}}
+                </td>
+            </tr>
+             <tr ng-show="options" ng-click="change()">
+
+              <td  data-role="listview" data-inset="true">
+                  <select  data-role="listview" ng-options="catagory as catagory.name for catagory in posture  " ng-model="group.itemsuper" ng-change="changeData()" ng-click="$event.stopPropagation()">
                   </select>
               </td>
                  <td data-role="listview" data-inset="true">
-                     <select data-role="listview" class="condition" ng-options="type as type.name for type in types " ng-model="group.item1" ng-change="update()">
+                     <select data-role="listview" class="condition" ng-options="type as type.name for type in types " ng-model="group.item1" ng-change="update()" ng-click="$event.stopPropagation()">
 
                      </select>
                  </td>
