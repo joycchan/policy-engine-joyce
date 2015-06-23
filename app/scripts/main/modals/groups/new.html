@@ -21,13 +21,14 @@
             <td>Value</td>
             </thead>
             <tbody>
-             <tr class="values">
-              <td  data-role="listview" data-inset="true">
-                  <select  data-role="listview" ng-options="catagory as catagory.name for catagory in posture  " ng-model="itemsuper" ng-change="changeData()">
+             <tr ng-repeat="desc in description">
+
+              <td  data-role="listview" data-inset="true" >
+                  <select  data-role="listview" ng-options="catagory as catagory.name for catagory in posture  " ng-model="group.itemsuper" ng-change="changeData()">
                   </select>
               </td>
                  <td data-role="listview" data-inset="true">
-                     <select data-role="listview" class="condition" ng-options="type as type.name for type in types " ng-model="item1" ng-change="update()">
+                     <select data-role="listview" class="condition" ng-options="type as type.name for type in types " ng-model="group.item1" ng-change="update()">
 
                      </select>
                  </td>
