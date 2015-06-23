@@ -8,7 +8,16 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.ruleSets = PolicyStore.RuleSets.all.bind(PolicyStore.RuleSets);
 
     $scope.service = {
-      name: 'New Service'
+      name: 'New Service',
+      description: ''
+    };
+
+    $scope.selectedGroup = function() {
+      return PolicyStore.Groups.find({id: $scope.service.providerGroupId});
+    };
+
+    $scope.selectedRuleSet = function() {
+      return PolicyStore.RuleSets.find({id: $scope.service.ruleSetId});
     };
 
     $scope.createService = function() {
@@ -19,17 +28,16 @@ angular.module('policyEngine').controller('ServiceCtrl',
     };
 
     $scope.serviceIncomplete = function() {
-      return !($scope.service.name && $scope.service.group && $scope.service.ruleSet);
+      return !($scope.service.name && $scope.selectedGroup() && $scope.selectedRuleSet());
     };
 
     $scope.createGroup = function (group) {
-      $scope.service.group = group;
+      $scope.service.providerGroupId = group.id;
       $state.go('main.service.form');
     };
 
     $scope.createRuleSet = function(ruleSet) {
-      $scope.service.ruleSet = ruleSet;
-      console.log('created', $scope.service);
+      $scope.service.ruleSetId = ruleSet.id;
       $state.go('main.service.form');
     };
 
