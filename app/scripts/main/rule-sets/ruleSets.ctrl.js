@@ -3,56 +3,30 @@
 angular.module('policyEngine').controller('RuleSetsCtrl',
   function ($scope, $modal, Modals, PolicyStore, PolicyActions, $state) {
 
-    $scope.rulesList = PolicyStore.RuleSets.all.bind(PolicyStore.RuleSets);
-
     $scope.deleteRuleSet = PolicyActions.DeleteRuleSet
 
     $scope.search = {name: ''};
 
     $scope.rulesListFilters = [
-      {name: 'All Rule Sets'},
-      {name: 'Default'},
-      {name: 'Custom'}
+      {name: 'All Rule Sets', filterFunction: function(ruleSet) { return true; } },
+      {name: 'Default', filterFunction: function(ruleSet) { return !ruleSet.custom; }},
+      {name: 'Custom', filterFunction: function(ruleSet) { return ruleSet.custom; } }
     ];
 
-    $scope.filter = "All Rule Sets";
-
-    var byCustom = function (custom) {
-      return _.filter(PolicyStore.RuleSets.all(), function (ruleSet) {
-        if (custom === "") {
-          return ruleSet;
-        }
-        else {
-          return ruleSet.custom === custom;
-        }
-      });
+    $scope.filterRulesList = function (filterName) {
+      $scope.filterName = filterName;
     };
 
+    $scope.filterRulesList($scope.rulesListFilters[0].name);
 
-    $scope.filterRulesListBy = function (name) {
-      $scope.filter = name;
-
-      if (name === 'Default') {
-        $scope.rulesList = function () {
-          return byCustom('Default')
-        };
-      }
-      else if (name === 'Custom') {
-        $scope.rulesList = function () {
-          return byCustom('Custom')
-        };
-      }
-      else {
-        $scope.rulesList = function () {
-          return byCustom('')
-        };
-      }
+    $scope.rulesList = function() {
+      var filter = _.find($scope.rulesListFilters, function(filter) { return filter.name === $scope.filterName; });
+      return _.filter(PolicyStore.RuleSets.all(), filter.filterFunction);
     };
 
-    $scope.isRulesListFilterSelected = function (name) {
-      return name === $scope.filter;
+    $scope.isRulesListFilterSelected = function (filterName) {
+      return filterName === $scope.filterName;
     };
-
 
     $scope.newRuleSet = function() {
       var modalInstance = $modal.open(Modals.newRuleSet);
