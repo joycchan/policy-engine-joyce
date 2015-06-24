@@ -32,19 +32,20 @@ Access demo at http://localhost:9000
 Username: policy-engine
 Password: openstack
 
-##Update GUI code
+##Update GUI code (for integration testing)
 
 Access GUI folder (e.g. cd policy-engine)
 ```
-git pull origin master
-gulp compile
+git pull origin develop
+gulp compile-integration
 gulp serve:build
 ```
 
-##Heroku deployments
+##Update GUI code (using mock server)
 
-##Pull request workflow
-
-##Merging in latest code
-
-##Setting up private keys with Github
+Access GUI folder (e.g. cd policy-engine)
+```
+git pull origin develop
+gulp compile
+gulp serve:build
+```
