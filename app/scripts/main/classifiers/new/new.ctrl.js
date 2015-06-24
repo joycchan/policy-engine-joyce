@@ -3,14 +3,15 @@ angular.module('policyEngine').controller('ClassifierNewCtrl',
 
     $scope.classifier = {
       name: 'New Custom Classifier',
-      description: "",
-      port: "",
+      description: null,
+      port: null,
       protocols: "",
-      category: "",
+      category: ""
     };
+    // keep 'protocols' and 'category' as empty strings because in the custom-classifier directive,
+    // option element placeholders depend on these values being empty strings
 
     $scope.create = function () {
-      // PolicyActions.UpdateClassifier($scope.classifier);
       var newClassifier = {
         name: $scope.classifier.name,
         description: $scope.classifier.description,
@@ -18,16 +19,17 @@ angular.module('policyEngine').controller('ClassifierNewCtrl',
         protocols: $scope.classifier.protocols.split(','),
         category: $scope.classifier.category
       }
+      console.log("$scope.classifier", $scope.classifier);
       PolicyActions.CreateClassifier(newClassifier);
-
-      var classifiersList = PolicyStore.Classifiers.all.bind(PolicyStore.Classifiers);
-      console.log("classifiersList", classifiersList());
-
       $state.go('main.classifiers');
     };
 
     $scope.cancel = function() {
       $state.go('main.classifiers');
+    };
+
+    $scope.isCreateEnabled = function() {
+      return $scope.classifier.name && $scope.classifier.port && $scope.classifier.protocols !== "" && $scope.classifier.category !== "";
     };
 
   }

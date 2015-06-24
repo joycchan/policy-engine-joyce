@@ -13,7 +13,7 @@
             <label for="classifierProtocol">Protocol</label>
             <select class="form-control protocol" name="protocol" id="classifierProtocol" ng-model="classifier.protocols">
                 <option value="" selected disabled>Select Protocol</option>
-                <option value={{protocol.value}} ng-repeat="protocol in protocols">{{protocol.name}}</option>
+                <option value="{{protocol.value}}" ng-repeat="protocol in protocols">{{protocol.name}}</option>
             </select>
         </div>
         <div class="form-group">
@@ -23,6 +23,7 @@
         <div class="form-group">
             <label for="classifierCategory">Category</label>
             <select class="form-control category-value" name="category" id="classifierCategory" ng-model="classifier.category">
+                <option value="" selected disabled>Uncategorized</option>
                 <option value={{category.value}} ng-repeat="category in categories ">{{category.name}}</option>
             </select>
         </div>

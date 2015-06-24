@@ -14,7 +14,6 @@ angular.module('policyEngine').controller('ClassifiersCtrl',
     $scope.classifiersList = PolicyStore.Classifiers.all.bind(PolicyStore.Classifiers);
 
     $scope.categoryNames = [
-      'Uncategorized',
       'Business and Productivity',
       'Backup and Storage',
       'Tools',

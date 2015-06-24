@@ -1,6 +1,8 @@
-<div class="title title--editor">Rules Editor</div>
-<custom-classifier classifier="classifier"></custom-classifier>
-<div class="button-group">
-    <div class="button">Cancel</div>
-    <div class="button" ng-click="create()">Create</div>
+<h2>Classifiers Library / <span class="normal">{{classifier.name}}</span></h2>
+<div class="customClassifierWrapper">
+  <custom-classifier classifier="classifier"></custom-classifier>
+  <div class="button-group">
+      <div class="button button--secondary">Cancel</div>
+      <div class="button" ng-click="create()" ng-class="{'is-disabled': !isCreateEnabled()}">Create</div>
+  </div>
 </div>
