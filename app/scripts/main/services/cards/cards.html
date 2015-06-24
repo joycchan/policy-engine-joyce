@@ -6,7 +6,7 @@
             <span class="new-text">New Service</span>
         </div>
         <div class="metric">
-            <ng-pluralize count="categories.length"
+            <ng-pluralize count="categories().length"
                           when="{'0': 'Zero Categories',
                          'one': '1 Category',
                          'other': '{} Categories'}"></ng-pluralize>
@@ -18,10 +18,10 @@
                          'other': '{} Services'}"></ng-pluralize>
         </div>
     </div>
-    <div ng-repeat="category in categories" class="card category"
+    <div ng-repeat="category in categories()" class="card category"
          ng-click="addFilter('category', category)">
         <h3>{{category.name}}</h3>
-        <img ng-src="{{category.image}}"/>
+        <img ng-src="{{categoryImage(category)}}"/>
 
         <div class="sliding-box">
             <h4>Newly Added Services</h4>

@@ -220,6 +220,26 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       $http.delete(path('classifiers', id));
     },
 
+    FetchCategories: function() {
+      $http.get(path('categories')).success(function (data) {
+        data.map(actions.ReceiveCategory);
+      });
+    },
+
+    ReceiveCategory: function(category) {
+      PolicyStore.Categories.insert(category);
+    },
+
+    UpdateCategory: function(category) {
+      PolicyStore.Categories.update({id: category.id}, category);
+      $http.patch(path('categories', category.id), category);
+    },
+
+    DeleteCategory: function(category) {
+      PolicyStore.Categories.delete({id: category.id});
+      $http.delete(path('categories', category.id));
+    },
+
     FetchImportableGroups: function() {
       $http.get(path('importable_use_groups')).success(function (data) {
         data.map(actions.ReceiveImportableGroup);
@@ -232,7 +252,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
 
     DismissError: function(errorId) {
       PolicyStore.Errors.update({id: errorId}, {dismissed: true});
-    },
+    }
 
   };
 
