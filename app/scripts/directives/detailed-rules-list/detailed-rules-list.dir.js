@@ -9,5 +9,16 @@ angular.module('policyEngine')
         editRule: '='
       },
       restrict: 'E',
+      controller: function($scope, PolicyStore, StoreHelpers) {
+
+        $scope.getClassifiers = function(rule) {
+          return StoreHelpers.getChildArray(rule, 'classifier');
+        };
+
+        $scope.getActions = function(rule) {
+          return StoreHelpers.getChildArray(rule, 'action');
+        };
+
+      },
     };
   });

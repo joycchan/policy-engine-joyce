@@ -17,7 +17,7 @@
     <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="selectRuleSet(ruleSet)"
         ng-class="{'selected' : ruleSet === selected}">
         <td>{{ruleSet.name}}</td>
-        <td>{{ruleSet.rules | subRulesToString : 'classifiers'}}</td>
+        <td>{{ruleSet.rules | subRulesToString : 'classifier'}}</td>
         <td>{{ruleSet.custom}}</td>
     </tr>
     </tbody>

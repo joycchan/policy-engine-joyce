@@ -29,7 +29,7 @@
         <tr ng-repeat="ruleSet in rulesList() | filter: search">
             <td>{{ruleSet.name}}</td>
             <td>
-                <div>{{ruleSet.rules | subRulesToString : 'classifiers'}}</div>
+                <div>{{ruleSet.rules | subRulesToString : 'classifier'}}</div>
             </td>
             <td>{{ruleSet.services}}</td>
             <td>{{ruleSet.description}}</td>
