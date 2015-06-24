@@ -189,6 +189,11 @@ angular.module("policyEngine", [
         controller: "ClassifierEditCtrl",
         templateUrl: "scripts/main/classifiers/edit/edit.html"
       })
+      .state("main.classifiersNew", {
+        url: "classifiers/new/",
+        controller: "ClassifierNewCtrl",
+        templateUrl: "scripts/main/classifiers/new/new.html"
+      })
   })
   .run(function(PolicyActions) {
     PolicyActions.FetchServices();
