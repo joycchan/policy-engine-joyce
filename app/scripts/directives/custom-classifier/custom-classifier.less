@@ -2,23 +2,54 @@
 
 
 .addCustomerClassifier {
-
- .protocol{
-     width: 150px;
-     height: 32px;
-     margin-top: 12px;
+  width: 378px;
+  margin-left: 25px;
+  
+  // overriding bootstrap + forms ---
+  .form-horizontal {
+    .form-group {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+  }
+  
+  .form-group {
+    label {
+      text-align: left;
+      width: 75px;
+      margin-right: 0;
+    }
   }
 
-  .ports{
-    width: 150px;
-    height: 32px;
-    margin-top: 12px;
+  .form-control {
+    font-size: 12px;
+  }
+  // ---
+
+  .description {
+    height: 64px;
+  }
+
+  .protocol, .ports {
+     width: 150px;
+     height: 32px;
+  }
+
+  .protocol {
+    // option.is-disabled {
+    //   color: orange;
+    // }
   }
 
   .category-value{
-    width: 250px;
+    width: 300px;
     height: 32px;
-    margin-top: 12px;
+  }
+
+  .button-group {
+    text-align: right;
   }
 
 }

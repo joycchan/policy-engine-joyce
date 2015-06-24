@@ -35,7 +35,7 @@
   "custom": "Default",
   "id": "5",
   "port": 80,
-  "protocols": ["tcp", "udp"],
+  "protocols": ["tcp"],
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Email"
 }, {
