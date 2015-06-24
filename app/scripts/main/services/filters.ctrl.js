@@ -6,7 +6,8 @@ angular.module('policyEngine').controller('ServicesFilterCtrl',
     $scope.filteredServices = [];
 
     var filterServices = function (allServices) {
-      var result = allServices.reverse(); //Show newest to oldest
+
+      var result = allServices.slice();
 
       //refactor when categories are an object
       if ($stateParams['category']) {
