@@ -15,36 +15,48 @@
     <select-pools group="group"></select-pools>
     <div class="form-group groups">
         <label>Conditions</label>
-        <table class="listView">
+        <table class="listView listView--iconsHover">
             <thead>
             <td>Posture</td>
-            <td>Value</td>
+            <td colspan="2">Value</td>
             </thead>
             <tbody>
-
-            <tr class="optionsEdit" ng-show="descriptions">
-                <td ng-model = group.postureName>
-                    {{group.postureName.name}}
-                </td>
-                <td class="optionsValue" ng-model = group.valueName>
-                    {{group.valueName.name}}
+            <tr ng-show="none">
+                <td colspan="3">
+                    None
                 </td>
             </tr>
-             <tr ng-show="options" ng-click="change()">
+            <tr class="optionsEdit listView--iconsHover" ng-show="descriptions" ng-repeat = "condition in conditions">
+                <td>
+                    {{condition.name}}
+                </td>
+                <td class="optionsValue">
+                    {{condition.value}}
+                </td>
+                <td>
+                    <list-view-icon ng-click="edit(group)" inactive-src="images/icon_edit_16.png"
+                                    active-src="images/icon_edit_16_blue.png"></list-view-icon>
+                    <list-view-icon ng-click="deleteCondition(condition.name)" inactive-src="images/icon_x_16.png"
+                                    active-src="images/icon_x_16_blue.png"></list-view-icon>
+
+                </td>
+            </tr>
+             <tr ng-show="options">
 
               <td  data-role="listview" data-inset="true">
-                  <select  data-role="listview" ng-options="catagory as catagory.name for catagory in posture  " ng-model="group.itemsuper" ng-change="changeData()" ng-click="$event.stopPropagation()">
+                  <select  data-role="listview" ng-options="catagory as catagory.name for catagory in posture  " ng-model="group.itemsuper" ng-change="changeData()" >
                   </select>
               </td>
-                 <td data-role="listview" data-inset="true">
-                     <select data-role="listview" class="condition" ng-options="type as type.name for type in types " ng-model="group.item1" ng-change="update()" ng-click="$event.stopPropagation()">
+                 <td data-role="listview" data-inset="true" colspan="2">
+                     <select data-role="listview" class="condition" ng-options="type for type in types " ng-model="group.item1" ng-change="update()">
 
                      </select>
                  </td>
              </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <div class="plus" ng-click="addPosture()"></div>
+                    <div class="minus"></div>
                 </td>
             </tr>
             </tbody>

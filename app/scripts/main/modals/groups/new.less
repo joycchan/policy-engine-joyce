@@ -8,6 +8,9 @@
   }
   thead {
    border: 1px solid @color-70;
+   td:last-child {
+     text-align: left;
+     }
   }
   tbody {
     tr {
@@ -21,28 +24,31 @@
       border-bottom: 1px solid @color-80;
       color: @color-50;
     }
+    td:last-child {
+      text-align: left;
+      }
   }
 
   .optionsEdit {
     td {
-    width: 127px;
+    width: 88px;
     }
   }
 
   .optionsValue {
-  width: 170px !important;
+  width: 120px !important;
   }
 
 }
 
 input, button, select, textarea {
-  width: 112px;
+  width: 79px;
   height: 31px;
   border-color: #ccc;
 }
 
 .condition {
- width:144px;
+ width:132px;
 }
 
 .values {
@@ -50,11 +56,25 @@ input, button, select, textarea {
 }
 
 
+      .plus {
+             background: url(../../../../../images/icon_plus_16.png);
+             height: 16px;
+             width: 16px;
 
+             &:hover {
+             background: url(../../../../../images/icon_plus_16_blue.png);
+             }
+      }
 
-.plus {
-background: url(../../../../../images/icon_x_16.png);
-height: 16px;
-width: 16px;
-}
+      .minus {
+          background: url(../../../../../images/icon_minus_16.png);
+          height: 4px;
+          width: 16px;
+          margin-top: -8px;
+          margin-left: 32px;
+          &:hover {
+          background: url(../../../../../images/icon_minus_16_blue.png);
+          }
+      }
+
 }

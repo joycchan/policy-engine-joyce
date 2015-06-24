@@ -1,9 +1,16 @@
 angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, PolicyActions) {
  $scope.types = {};
  $scope.itemList =[];
- $scope.descriptions = false;
+ $scope.click = 1;
+ $scope.conditions = [];
+ $scope.descriptions =true;
+ $scope.options = false;
+ $scope.none=true;
   $scope.group = {
     name: "New Group",
+    postureName: {
+                name: "None"
+                 },
     pools: []
   };
 
@@ -13,47 +20,46 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
   };
 
   $scope.posture = [
-  { name:'Device'},
-  { name:'Location'}
-  ];
-
-  $scope.device = [
-    { name:'Company Desktop'},
-    { name:'Company Phone'},
-    { name:'All Other Devices'}
-  ];
-
-  $scope.location = [
-      { name:'On-site'},
-      { name:'Off-site(VPN)'},
-      { name:'Everywhere else'}
+  { name:'Device',
+    values: ['Company Desktop','Company Phone','All Other Devices']
+  },
+  { name:'Location',
+    values: ['On-site', 'Off-site(VPN)', 'Everywhere else' ]
+  }
   ];
 
   $scope.changeData = function() {
-          if($scope.group.itemsuper.name == "Device") {
-              $scope.types = $scope.device;
-          } else if($scope.group.itemsuper.name == "Location") {
-              $scope.types = $scope.location;
-          }
-
-      };
-
-   $scope.description =[''];
+    var value = _.filter($scope.posture, function (condition) {
+       return condition.name === $scope.group.itemsuper.name
+     });
+        angular.forEach(value, function(value, key) {
+           $scope.types = value.values;
+           console.log($scope.types);
+    });
+  };
 
    $scope.addPosture =function() {
-     $scope.description.push({});
-     $scope.descriptions =true;
-     $scope.options = true;
-     $scope.group.postureName = $scope.group.itemsuper;
-      $scope.group.valueName = $scope.group.item1;
+    $scope.none = false;
+     if($scope.click == '1') {
+      $scope.descriptions = false;
+      $scope.options = true;
+      $scope.click++;
+     }
+     else if ($scope.click == '2' || $scope.click == '3'){
+       $scope.options= true;
+       $scope.descriptions = true;
+       $scope.conditions.push({
+       	name: $scope.group.itemsuper.name,
+       	value: $scope.group.item1
+       });
+       if($scope.click == '3') {
+       $scope.options= false;
+       }
+       $scope.click++;
+     }
    };
-   $scope.options= true;
-   $scope.change = function () {
-   if($scope.group.itemsuper != null && $scope.group.item1 != null)
-     $scope.options = false;
-     $scope.descriptions= true;
-     $scope.group.postureName = $scope.group.itemsuper;
-     $scope.group.valueName = $scope.group.item1;
+
+   $scope.deleteCondition = function(posture) {
    }
 
 });
