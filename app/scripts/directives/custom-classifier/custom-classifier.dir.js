@@ -6,42 +6,31 @@ angular.module('policyEngine')
       templateUrl: 'scripts/directives/custom-classifier/custom-classifier.html',
       controller: function ($scope) {
 
-        $scope.protocol = {
-          name: "customClassifier",
-          options: []
-        };
-
-        $scope.options = [
+        $scope.protocols = [
           {name: 'TCP', value: 'TCP'},
           {name: 'UDP', value: 'UDP'},
-          {name: 'TCP & UDP', value: 'T & U'},
-          {name: 'Http', value: 'http'},
-          {name: 'ip', value: 'ip'},
-          {name: 'Trust SEC SGACL', value: 'trust'},
-          {name: 'Overlay-TEP-Type', value: 'Tep'},
-          {name: 'Overlay-Encap-Type', value: 'Encap'},
-          {name: 'ip', value: 'ip'}
+          {name: 'TCP & UDP', value: 'TCP & UDP'},
         ];
 
-        $scope.port = [
-          {name: 'VXLAN', value: 'VX'},
-          {name: 'VLAN', value: 'V'},
-          {name: 'Segment Routing', value: 'SG'},
-          {name: 'MPLS', value: 'MP'},
-          {name: 'MPLS Over GRE', value: 'MG'},
-          {name: 'LISP', value: 'LIS'},
-          {name: 'TEP', value: 'T'},
-          {name: 'Encap', value: 'Enc'},
-          {name: 'ipv6', value: 'ip6'}
+        $scope.categories = [
+          {name: 'Uncategorized', value: 'Uncategorized'},
         ];
 
-        $scope.category = [
-          {name: 'Uncategorized', value: 'Un'},
-        ];
+        $scope.classifier = {
+          name: 'New Custom Classifier',
+          description: null,
+          port: null,
+          protocol: null,
+          category: _.first($scope.categories).name
+        };
+
+        $scope.createClassifier = function() {
+          console.log("$scope.classifier", $scope.classifier);
+        }
 
       },
       scope: {
-        classifier: '='
+        // classifier: '='
       },
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
