@@ -21,7 +21,7 @@
             <td colspan="2">Value</td>
             </thead>
             <tbody>
-            <tr ng-show="none">
+            <tr ng-show="none" class="none">
                 <td colspan="3">
                     None
                 </td>
@@ -36,7 +36,7 @@
                 <td>
                     <list-view-icon ng-click="edit(group)" inactive-src="images/icon_edit_16.png"
                                     active-src="images/icon_edit_16_blue.png"></list-view-icon>
-                    <list-view-icon ng-click="deleteCondition(condition.name)" inactive-src="images/icon_x_16.png"
+                    <list-view-icon ng-click="deleteCondition($index)" inactive-src="images/icon_x_16.png"
                                     active-src="images/icon_x_16_blue.png"></list-view-icon>
 
                 </td>

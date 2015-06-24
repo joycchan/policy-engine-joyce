@@ -59,7 +59,8 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
      }
    };
 
-   $scope.deleteCondition = function(posture) {
+   $scope.deleteCondition = function(index) {
+      $scope.conditions.splice(index, 1);
    }
 
 });
