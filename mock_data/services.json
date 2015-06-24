@@ -2,9 +2,7 @@
   {
     "name": "Loan Management",
     "id": "1",
-    "category": {
-      "name": "Business and Productivity Tools"
-    },
+    "categoryId": "2",
     "providerGroupId": "9",
     "ruleSetId": "1",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
@@ -12,9 +10,7 @@
   {
     "name": "Apps - No Ping",
     "id": "2",
-    "category": {
-      "name": "Database"
-    },
+    "categoryId": "3",
     "providerGroupId": "9",
     "ruleSetId": "6",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
@@ -22,9 +18,7 @@
   {
     "name": "Apps - Gold",
     "id": "3",
-    "category": {
-      "name": "Database"
-    },
+    "categoryId": "3",
     "providerGroupId": "9",
     "ruleSetId": "7",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."
@@ -32,9 +26,7 @@
   {
     "name": "Internet Access",
     "id": "4",
-    "category": {
-      "name": "Internet Security"
-    },
+    "categoryId": "5",
     "providerGroupId": "8",
     "ruleSetId": "8",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."

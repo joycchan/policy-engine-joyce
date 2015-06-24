@@ -12,7 +12,7 @@ angular.module('policyEngine').controller('ServicesFilterCtrl',
       //refactor when categories are an object
       if ($stateParams['category']) {
         result = _.filter(result, function (service) {
-          return service['category'].name === $stateParams['category'];
+          return $scope.category(service).name === $stateParams['category'];
         });
       }
 

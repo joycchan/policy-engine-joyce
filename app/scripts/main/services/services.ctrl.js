@@ -23,6 +23,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return PolicyStore.RuleSets.find({id: service.ruleSetId});
     };
 
+    $scope.category = function(service) {
+      return PolicyStore.Categories.find({id: service.categoryId});
+    };
+
     $scope.categoryState = function() {
       return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
     };
@@ -107,36 +111,11 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.providerGroups = [];
     $scope.ruleSets = [];
-    $scope.categories = [
-      {
-        name: 'Backup and Storage',
-        image: '../../../images/photo_backup.png'
-      },
-      {
-        name: 'Business and Productivity Tools',
-        image: '../../../images/photo_business.png'
-      },
-      {
-        name: 'Database',
-        image: '../../../images/photo_database.png'
-      },
-      {
-        name: 'Email',
-        image: '../../../images/photo_email.png'
-      },
-      {
-        name: 'Internet Security',
-        image: '../../../images/photo_internet.png'
-      },
-      {
-        name: 'Software Updates',
-        image: '../../../images/photo_software.png'
-      },
-      {
-        name: 'Voice & Video',
-        image: '../../../images/photo_voice.png'
-      }
-    ];
+    $scope.categories = PolicyStore.Categories.all.bind(PolicyStore.Categories);
+
+    $scope.categoryImage = function(category) {
+      return '../../../images/' + category.image;
+    };
 
     $scope.selectedCheckBoxes = {};
 
