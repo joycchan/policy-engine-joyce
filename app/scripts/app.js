@@ -202,6 +202,7 @@ angular.module("policyEngine", [
     PolicyActions.FetchRuleSets();
     PolicyActions.FetchActions();
     PolicyActions.FetchClassifiers();
+    PolicyActions.FetchCategories();
     PolicyActions.FetchImportableGroups();
   });
 

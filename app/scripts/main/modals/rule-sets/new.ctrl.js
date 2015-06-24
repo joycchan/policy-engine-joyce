@@ -6,8 +6,8 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
       description: '',
       custom: true,
       rules: [{
-        classifiers: [],
-        actions: [],
+        classifierIds: [],
+        actionIds: [],
       }],
       id: (Math.floor(Math.random() * 10000)).toString()
       // while the user is in main.ruleSetsEdit, the id allows the user to select a rule set out of the list to modify
@@ -29,7 +29,7 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
   };
 
   $scope.disabled = function () {
-    return ($scope.newRuleSet.rules[0].classifiers.length === 0 || $scope.newRuleSet.rules[0].actions.length === 0);
+    return ($scope.newRuleSet.rules[0].classifierIds.length === 0 || $scope.newRuleSet.rules[0].actionIds.length === 0);
   };
 
   $scope.create = function () {
