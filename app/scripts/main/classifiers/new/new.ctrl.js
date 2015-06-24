@@ -19,7 +19,6 @@ angular.module('policyEngine').controller('ClassifierNewCtrl',
         protocols: $scope.classifier.protocols.split(','),
         category: $scope.classifier.category
       }
-      console.log("$scope.classifier", $scope.classifier);
       PolicyActions.CreateClassifier(newClassifier);
       $state.go('main.classifiers');
     };
