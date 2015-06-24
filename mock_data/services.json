@@ -22,6 +22,9 @@
   {
     "name": "Apps - Gold",
     "id": "3",
+    "category": {
+      "name": "Database"
+    },
     "providerGroupId": "9",
     "ruleSetId": "7",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pellentesque massa ac urna dictum, non pretium nulla fermentum."

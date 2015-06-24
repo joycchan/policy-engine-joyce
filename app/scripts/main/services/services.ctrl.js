@@ -142,20 +142,9 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.isRowInListSelected = function (id) {
       return $scope.selectedCheckBoxes[id] === true;
-    }
-
-    var createListFromService = function(service, key) {
-      // returns an array of objects w/ a 'name' key on each
-      // e.g. [{name: 'SQL Access'}, {name: 'HTTP Access'}]
-      var list = _.map(service, function(s) {
-        return s[key];
-      });
-      return _.uniq(list, function(item) {
-        return item.name;
-      });
     };
 
-    var uniqueList = function(services, mapFunc) {
+    var uniqueNames = function(services, mapFunc) {
       return _.chain(services)
         .map(mapFunc)
         .uniq(function(object) { return object.name; })
@@ -165,8 +154,8 @@ angular.module('policyEngine').controller('ServicesCtrl',
     $scope.$watch(function () {
       return PolicyStore.Services.all();
     }, function (newServices) {
-      $scope.providerGroups = uniqueList(newServices, $scope.providerGroup);
-      $scope.ruleSets = uniqueList(newServices, $scope.ruleSet);
+      $scope.providerGroups = uniqueNames(newServices, $scope.providerGroup);
+      $scope.ruleSets = uniqueNames(newServices, $scope.ruleSet);
     });
   }
 );
