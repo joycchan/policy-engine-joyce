@@ -235,9 +235,9 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       $http.patch(path('categories', category.id), category);
     },
 
-    DeleteCategory: function(id) {
-      PolicyStore.Categories.delete({id: id});
-      $http.delete(path('categories', id));
+    DeleteCategory: function(category) {
+      PolicyStore.Categories.delete({id: category.id});
+      $http.delete(path('categories', category.id));
     },
 
     FetchImportableGroups: function() {

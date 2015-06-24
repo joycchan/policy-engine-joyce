@@ -101,12 +101,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       _.filter(PolicyStore.Services.all(), {category: {name: 'category'}});
     };
 
-    $scope.deleteCategory = function(category) {
-      _.remove($scope.categories, function(c) {
-        return c.name === category.name;
-      });
-    };
-
+    $scope.deleteCategory = PolicyActions.DeleteCategory;
     $scope.deleteService = PolicyActions.DeleteService;
 
     $scope.providerGroups = [];
