@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('policyEngine').factory('configuration',
-  function () {
+  function (backEndUrl) {
     return {
-      backEndUrl: 'api/'
-    }
+      backEndUrl: backEndUrl
+    };
   });

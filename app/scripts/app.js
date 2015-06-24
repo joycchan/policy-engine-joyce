@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable'
+  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable', 'policyEngine.config'
   ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
@@ -197,6 +197,7 @@ angular.module("policyEngine", [
     PolicyActions.FetchRuleSets();
     PolicyActions.FetchActions();
     PolicyActions.FetchClassifiers();
+    PolicyActions.FetchCategories();
     PolicyActions.FetchImportableGroups();
   });
 

@@ -92,7 +92,7 @@
         <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="service.ruleSetId = ruleSet.id"
             ng-class="{selected: ruleSet.id === selectedRuleSet().id}">
             <td>{{ruleSet.name}}</td>
-            <td>{{ruleSet.rules | subRulesToString : 'classifiers'}}</td>
+            <td>{{ruleSet.rules | subRulesToString : 'classifier'}}</td>
         </tr>
         </tbody>
     </table>

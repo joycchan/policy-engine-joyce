@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
-  function ($scope, $modalInstance, $stateParams, selectedRuleSet, PolicyStore) {
+  function ($scope, $modalInstance, $stateParams, selectedRuleSet, PolicyStore, StoreHelpers) {
 
     $scope.selectedRuleSet = selectedRuleSet; // local from resolve
 
@@ -23,21 +23,29 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       });
     }
 
+    $scope.getClassifiers = function(rule) {
+      return StoreHelpers.getChildArray(rule, 'classifier');
+    };
+
+    $scope.getActions = function(rule) {
+      return StoreHelpers.getChildArray(rule, 'action');
+    };
+
     $scope.addClassifier = function (metaObject, index) {
       if (metaObject.type === 'classifier'
-        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifiers, metaObject.data.name)
+        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifierIds, metaObject.data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleSet.rules[index].classifiers.push({"name": metaObject.data.name});
+        $scope.selectedRuleSet.rules[index].classifierIds.push(metaObject.data.id);
       }
     };
 
     $scope.addAction = function (metaObject, index) {
       if (metaObject.type === 'action'
-        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actions, metaObject.data.name)
+        && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actionIds, metaObject.data.name)
         && $scope.editModeHash[index]) {
 
-        $scope.selectedRuleSet.rules[index].actions.push({"name": metaObject.data.name});
+        $scope.selectedRuleSet.rules[index].actionIds.push(metaObject.data.id);
       }
     };
 
@@ -64,10 +72,12 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
     var generateEmptyRule = function() {
       return {
-        classifiers: [],
-        actions: []
+        classifierIds: [],
+        actionIds: []
       };
     };
+
+    window.scope = $scope;
 
     $scope.addRule = function() {
       if ($scope.areAllRulesValid()) {
@@ -83,7 +93,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     }
 
     var doesRuleIncludeActionAndClassifier = function(rule) {
-      return (rule.actions && rule.actions.length) && (rule.classifiers && rule.classifiers.length);
+      return (rule.actionIds && rule.actionIds.length) && (rule.classifierIds && rule.classifierIds.length);
     };
 
     // to do
