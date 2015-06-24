@@ -18,7 +18,7 @@
             </td>
             <td>{{service.name}}</td>
             <td>{{providerGroup(service).name}}</td>
-            <td>{{service.ruleSet.name}}</td>
+            <td>{{ruleSet(service).name}}</td>
             <td ng-hide="serviceConsumers(service).length">
                 <p>None (<a ng-click="assignService(service)">Assign to groups</a>)</p>
             </td>

@@ -19,6 +19,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return PolicyStore.Groups.find({id: service.providerGroupId});
     };
 
+    $scope.ruleSet = function(service) {
+      return PolicyStore.RuleSets.find({id: service.ruleSetId});
+    };
+
     $scope.categoryState = function() {
       return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
     };
@@ -162,8 +166,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return PolicyStore.Services.all();
     }, function (newServices) {
       $scope.providerGroups = uniqueList(newServices, $scope.providerGroup);
-      console.log('providerGroups', $scope.providerGroups);
-      $scope.ruleSets = createListFromService(newServices, 'ruleSet');
+      $scope.ruleSets = uniqueList(newServices, $scope.ruleSet);
     });
   }
 );
