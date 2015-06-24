@@ -26,15 +26,15 @@
                     None
                 </td>
             </tr>
-            <tr class="optionsEdit listView--iconsHover" ng-show="descriptions" ng-repeat = "condition in conditions">
-                <td>
+            <tr class="optionsEdit listView--iconsHover"  ng-repeat = "condition in conditions">
+                <td  editable-select="condition.name" e-ng-options="catagory as catagory.name for catagory in posture ">
                     {{condition.name}}
                 </td>
-                <td class="optionsValue">
+                <td class="optionsValue"  editable-select="condition.value"  e-ng-options="type for type in types">
                     {{condition.value}}
                 </td>
                 <td>
-                    <list-view-icon ng-click="edit(group)" inactive-src="images/icon_edit_16.png"
+                    <list-view-icon ng-click="editableForm.$show()" ng-show="!editableForm.$visible" inactive-src="images/icon_edit_16.png"
                                     active-src="images/icon_edit_16_blue.png"></list-view-icon>
                     <list-view-icon ng-click="deleteCondition($index)" inactive-src="images/icon_x_16.png"
                                     active-src="images/icon_x_16_blue.png"></list-view-icon>

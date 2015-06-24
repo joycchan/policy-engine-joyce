@@ -1,9 +1,7 @@
 angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, PolicyActions) {
  $scope.types = {};
  $scope.itemList =[];
- $scope.click = 1;
  $scope.conditions = [];
- $scope.descriptions =true;
  $scope.options = false;
  $scope.none=true;
   $scope.group = {
@@ -40,23 +38,11 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
 
    $scope.addPosture =function() {
     $scope.none = false;
-     if($scope.click == '1') {
-      $scope.descriptions = false;
-      $scope.options = true;
-      $scope.click++;
-     }
-     else if ($scope.click == '2' || $scope.click == '3'){
-       $scope.options= true;
-       $scope.descriptions = true;
-       $scope.conditions.push({
-       	name: $scope.group.itemsuper.name,
-       	value: $scope.group.item1
-       });
-       if($scope.click == '3') {
-       $scope.options= false;
-       }
-       $scope.click++;
-     }
+    $scope.options = true;
+    $scope.conditions.push({
+        name: $scope.group.itemsuper.name,
+        value: $scope.group.item1
+    });
    };
 
    $scope.deleteCondition = function(index) {
