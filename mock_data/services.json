@@ -5,9 +5,7 @@
     "category": {
       "name": "Business and Productivity Tools"
     },
-    "group": {
-      "name": "DB Servers - All Zones"
-    },
+    "providerGroupId": "9",
     "ruleSet": {
       "name": "SQL Access"
     },
@@ -19,9 +17,7 @@
     "category": {
       "name": "Database"
     },
-    "group": {
-      "name": "DB Servers - All Zones"
-    },
+    "providerGroupId": "9",
     "ruleSet": {
       "name": "HTTP Access - No Ping"
     },
@@ -30,9 +26,7 @@
   {
     "name": "Apps - Gold",
     "id": "3",
-    "category": {
-      "name": "Database"
-    },
+    "providerGroupId": "9",
     "group": {
       "name": "DB Servers - All Zones"
     },
@@ -47,9 +41,7 @@
     "category": {
       "name": "Internet Security"
     },
-    "group": {
-      "name": "Internet"
-    },
+    "providerGroupId": "8",
     "ruleSet": {
       "name": "HTTP Access"
     },

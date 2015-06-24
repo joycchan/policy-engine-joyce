@@ -15,6 +15,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
       ruleSet: false
     };
 
+    $scope.providerGroup = function(service) {
+      return PolicyStore.Groups.find({id: service.providerGroupId});
+    };
+
     $scope.categoryState = function() {
       return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
     };
@@ -145,12 +149,20 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return _.uniq(list, function(item) {
         return item.name;
       });
-    }
+    };
+
+    var uniqueList = function(services, mapFunc) {
+      return _.chain(services)
+        .map(mapFunc)
+        .uniq(function(object) { return object.name; })
+        .value()
+    };
 
     $scope.$watch(function () {
       return PolicyStore.Services.all();
     }, function (newServices) {
-      $scope.providerGroups = createListFromService(newServices, 'group');
+      $scope.providerGroups = uniqueList(newServices, $scope.providerGroup);
+      console.log('providerGroups', $scope.providerGroups);
       $scope.ruleSets = createListFromService(newServices, 'ruleSet');
     });
   }

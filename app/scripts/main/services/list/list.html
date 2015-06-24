@@ -17,7 +17,7 @@
                        ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
             </td>
             <td>{{service.name}}</td>
-            <td>{{getChild(service, "group").name}}</td>
+            <td>{{providerGroup(service).name}}</td>
             <td>{{service.ruleSet.name}}</td>
             <td ng-hide="serviceConsumers(service).length">
                 <p>None (<a ng-click="assignService(service)">Assign to groups</a>)</p>
