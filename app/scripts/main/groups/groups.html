@@ -45,8 +45,8 @@
             <td>{{group.name}}</td>
             <td>{{group.origin}}</td>
             <td>{{group.description}}</td>
-            <td>{{group.servicesProvided}}</td>
-            <td>{{group.servicesConsumed}}</td>
+            <td>{{servicesProvided(group)}}</td>
+            <td>{{servicesConsumed(group)}}</td>
             <td>
               <div ng-if="!isLoading(group)">
                 <list-view-icon ng-click="edit(group)" inactive-src="images/icon_edit_16.png"

@@ -3,11 +3,12 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
   var generateEmptyRuleSet = function () {
     return {
       name: "New Rule Set",
+      description: '',
+      custom: true,
       rules: [{
         classifiers: [],
         actions: [],
       }],
-      custom: "Custom",
       id: (Math.floor(Math.random() * 10000)).toString()
       // while the user is in main.ruleSetsEdit, the id allows the user to select a rule set out of the list to modify
       // logic in that state depends on $stateParams because it is not a modal w/ one parent controller

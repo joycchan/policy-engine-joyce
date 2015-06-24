@@ -9,7 +9,7 @@
         <th>Assigned To</th>
         <th></th>
         </thead>
-        <tbody ng-repeat="service in filteredServices">
+        <tbody ng-repeat="service in filteredServices | reverse">
         <tr class="service-listItem-row"
             ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
             <td>
@@ -17,8 +17,8 @@
                        ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
             </td>
             <td>{{service.name}}</td>
-            <td>{{getChild(service, "group").name}}</td>
-            <td>{{service.ruleSet.name}}</td>
+            <td>{{providerGroup(service).name}}</td>
+            <td>{{ruleSet(service).name}}</td>
             <td ng-hide="serviceConsumers(service).length">
                 <p>None (<a ng-click="assignService(service)">Assign to groups</a>)</p>
             </td>
@@ -28,7 +28,7 @@
 
             <td>
               <list-view-icon inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png" ui-sref="main.servicesEdit.providerGroup({serviceId: service.id})"></list-view-icon>
-              <list-view-icon ng-click="deleteService(service)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
+              <list-view-icon ng-click="deleteService(service.id)" inactive-src="images/icon_x_16.png" active-src="images/icon_x_16_blue.png"></list-view-icon>
             </td>
         </tr>
         <!-- this level is for ng-repeating over serviceConsumers(service).  I think you want the ability to have these underneath their respective rows. -->

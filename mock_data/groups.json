@@ -4,9 +4,7 @@
     "name": "Employees",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 0,
-    "servicesConsumed": 2,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "user"
   },
   {
@@ -14,10 +12,8 @@
     "name": "Sales",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 0,
-    "servicesConsumed": 4,
     "type": "user",
-    "endpointPool": "10.4.35.1/24, 10.4.36.1/24",
+    "endpointPools": ["10.4.35.1/24", "10.4.36.1/24"],
     "parentId": "1"
   },
   {
@@ -25,9 +21,7 @@
     "name": "Marketing",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 0,
-    "servicesConsumed": 4,
-    "endpointPool": "10.1.35.1/24, 10.1.36.1/24",
+    "endpointPools": ["10.1.35.1/24", "10.1.36.1/24"],
     "type": "user",
     "parentId": "1"
   },
@@ -36,9 +30,7 @@
     "name": "External Entities",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 0,
-    "servicesConsumed": 1,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "user"
   },
   {
@@ -46,9 +38,7 @@
     "name": "External Suppliers",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 0,
-    "servicesConsumed": 2,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "user",
     "parentId": "12"
   },
@@ -57,9 +47,7 @@
     "name": "External Contractors",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 0,
-    "servicesConsumed": 3,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "user",
     "parentId": "12"
   },
@@ -67,10 +55,8 @@
     "id": "6",
     "name": "Loan Management Server",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 0,
-    "servicesConsumed": 2,
     "origin": "VMware vCenter",
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "resource"
   },
   {
@@ -78,9 +64,7 @@
     "name": "App Servers",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 0,
-    "servicesConsumed": 2,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "resource"
   },
   {
@@ -88,9 +72,7 @@
     "name": "App Servers - Zone A",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 3,
-    "servicesConsumed": 4,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "resource",
     "parentId": "8"
   },
@@ -99,9 +81,7 @@
     "name": "App Servers - Zone B",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 3,
-    "servicesConsumed": 2,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "resource",
     "parentId": "8"
   },
@@ -110,9 +90,7 @@
     "name": "DB Servers",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 4,
-    "servicesConsumed": 2,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "resource"
   },
   {
@@ -120,9 +98,7 @@
     "name": "DB Servers - Zone A",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 2,
-    "servicesConsumed": 1,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "resource",
     "parentId": "9"
   },
@@ -131,9 +107,7 @@
     "name": "DB Servers - Zone B",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
-    "servicesProvided": 1,
-    "servicesConsumed": 3,
-    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "endpointPools": ["10.0.35.1/24", "10.0.36.1/24"],
     "type": "resource",
     "parentId": "9"
   }

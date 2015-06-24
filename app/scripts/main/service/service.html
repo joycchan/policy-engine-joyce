@@ -50,20 +50,20 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="group in groups() | filter:groupSearch" ng-click="service.group = group"
-            ng-class="{selected: group.id === service.group.id}">
+        <tr ng-repeat="group in groups() | filter:groupSearch" ng-click="service.providerGroupId = group.id"
+            ng-class="{selected: group.id === selectedGroup().id}">
             <td>{{::group.name}}</td>
             <td>
-                {{::group.endpointPool}}
+                {{group.endpointPools | comma}}
             </td>
         </tr>
         </tbody>
     </table>
 
     <span class="bold-text">Selected:</span>
-    <span ng-hide="service.group" class="hint">Select a group from above</span>
-            <span ng-show="service.group">
-            {{service.group.name}}
+    <span ng-hide="selectedGroup()" class="hint">Select a group from above</span>
+            <span ng-show="selectedGroup()">
+            {{selectedGroup().name}}
             <div class="selected-icon"></div>
         </span>
 
@@ -89,17 +89,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="service.ruleSet = ruleSet"
-            ng-class="{selected: ruleSet.id === service.ruleSet.id}">
+        <tr ng-repeat="ruleSet in ruleSets() | filter:search" ng-click="service.ruleSetId = ruleSet.id"
+            ng-class="{selected: ruleSet.id === selectedRuleSet().id}">
             <td>{{ruleSet.name}}</td>
             <td>{{ruleSet.rules | subRulesToString : 'classifiers'}}</td>
         </tr>
         </tbody>
     </table>
     <span class="bold-text">Selected:</span>
-    <span ng-hide="service.ruleSet" class="hint">Select a rule set from above</span>
-        <span ng-show="service.ruleSet">
-            {{service.ruleSet.name}}
+    <span ng-hide="selectedRuleSet()" class="hint">Select a rule set from above</span>
+        <span ng-show="selectedRuleSet()">
+            {{selectedRuleSet().name}}
             <div class="selected-icon"></div>
         </span>
     <hr/>

@@ -6,14 +6,28 @@ angular.module('policyEngine').controller('ServicesFilterCtrl',
     $scope.filteredServices = [];
 
     var filterServices = function (allServices) {
-      var result = allServices.reverse(); //Show newest to oldest
-      _.each(['category', 'group', 'ruleSet'], function (type) {
-        if ($stateParams[type]) {
-          result = _.filter(result, function (service) {
-            return service[type].name === $stateParams[type];
-          });
-        }
-      });
+
+      var result = allServices.slice();
+
+      //refactor when categories are an object
+      if ($stateParams['category']) {
+        result = _.filter(result, function (service) {
+          return service['category'].name === $stateParams['category'];
+        });
+      }
+
+      if ($stateParams['group']) {
+        result = _.filter(result, function (service) {
+          return $scope.providerGroup(service).name === $stateParams['group'];
+        });
+      }
+
+      if ($stateParams['ruleSet']) {
+        result = _.filter(result, function (service) {
+          return $scope.ruleSet(service).name === $stateParams['ruleSet'];
+        });
+      }
+
       return result;
     };
 

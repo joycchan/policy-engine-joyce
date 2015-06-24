@@ -15,6 +15,14 @@ angular.module('policyEngine').controller('ServicesCtrl',
       ruleSet: false
     };
 
+    $scope.providerGroup = function(service) {
+      return PolicyStore.Groups.find({id: service.providerGroupId});
+    };
+
+    $scope.ruleSet = function(service) {
+      return PolicyStore.RuleSets.find({id: service.ruleSetId});
+    };
+
     $scope.categoryState = function() {
       return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
     };
@@ -134,24 +142,20 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.isRowInListSelected = function (id) {
       return $scope.selectedCheckBoxes[id] === true;
-    }
+    };
 
-    var createListFromService = function(service, key) {
-      // returns an array of objects w/ a 'name' key on each
-      // e.g. [{name: 'SQL Access'}, {name: 'HTTP Access'}]
-      var list = _.map(service, function(s) {
-        return s[key];
-      });
-      return _.uniq(list, function(item) {
-        return item.name;
-      });
-    }
+    var uniqueNames = function(services, mapFunc) {
+      return _.chain(services)
+        .map(mapFunc)
+        .uniq(function(object) { return object.name; })
+        .value()
+    };
 
     $scope.$watch(function () {
       return PolicyStore.Services.all();
     }, function (newServices) {
-      $scope.providerGroups = createListFromService(newServices, 'group');
-      $scope.ruleSets = createListFromService(newServices, 'ruleSet');
+      $scope.providerGroups = uniqueNames(newServices, $scope.providerGroup);
+      $scope.ruleSets = uniqueNames(newServices, $scope.ruleSet);
     });
   }
 );
