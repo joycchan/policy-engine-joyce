@@ -58,7 +58,7 @@
               </td>
               <td>
                 <div class="subRuleDrop" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
-                  <div class="subRuleContainer" ng-repeat="classifier in rule.classifiers">
+                  <div class="subRuleContainer" ng-repeat="classifier in getClassifiers(rule)">
                     <div class="subRule subRule--classifier listView-innerList">
                       {{classifier.name}}
                       <div class="deleteSubRuleContainer" ng-click="deleteClassifier($parent.$index, classifier)">
@@ -72,7 +72,7 @@
               </td>
               <td>
                 <div class="subRuleDrop" ng-drop="true" ng-drop-success="addAction($data, $index)">
-                  <div class="subRuleContainer" ng-repeat="action in rule.actions">
+                  <div class="subRuleContainer" ng-repeat="action in getActions(rule)">
                     <div class="subRule subRule--action listView-innerList">
                       {{action.name}}
                       <div class="deleteSubRuleContainer" ng-click="deleteAction($parent.$index, action)">
