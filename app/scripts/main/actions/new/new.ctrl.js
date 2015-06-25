@@ -2,7 +2,11 @@ angular.module('policyEngine').controller('ActionsNewCtrl',
   function ($scope, $stateParams, PolicyStore, PolicyActions, $state) {
 
     $scope.action = {
-      'name': 'New Custom Action'
+      'name': 'New Custom Action',
+      data: [{
+        "name": "nameA",
+        "value": "valueA"
+      }]
     };
 
     $scope.create = function () {

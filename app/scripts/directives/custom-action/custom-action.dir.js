@@ -5,7 +5,7 @@ angular.module('policyEngine')
     return {
       templateUrl: 'scripts/directives/custom-action/custom-action.html',
       controller: function ($scope) {
-        $scope.isTableDisplayed = true;
+        $scope.isTableDisplayed = false;
       },
       scope: {
         action: '=',
