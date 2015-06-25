@@ -1,0 +1,6 @@
+<div>
+  <div class="alert alert-warning" ng-repeat="error in errors()">
+    <button ng-click="dismiss(error)" type="button" class="close"><span>&times;</span></button>
+    {{error.message}} ({{error.status}})
+  </div>
+</div>

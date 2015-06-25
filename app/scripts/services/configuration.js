@@ -1,18 +1,8 @@
 'use strict';
 
 angular.module('policyEngine').factory('configuration',
-  function () {
+  function (backEndUrl) {
     return {
-      account: {
-        type: 'ovs',
-        ovs: {
-          ip: "localhost",
-          port: '8181'
-        },
-        apic: {
-          ip: "10.194.126.196",
-          port: '8080'
-        }
-      }
-    }
+      backEndUrl: backEndUrl
+    };
   });

@@ -14,12 +14,15 @@
     <link rel="stylesheet" href="scripts/colors.css">
     <link rel="stylesheet" href="scripts/directives/add-edit-rules/add-edit-rules.css">
     <link rel="stylesheet" href="scripts/directives/assignment-panel/assignment-panel.css">
+    <link rel="stylesheet" href="scripts/directives/custom-action/custom-action.css">
+    <link rel="stylesheet" href="scripts/directives/custom-classifier/custom-classifier.css">
     <link rel="stylesheet" href="scripts/directives/detailed-rules-list/detailed-rules-list.css">
     <link rel="stylesheet" href="scripts/directives/donut/donut.css">
     <link rel="stylesheet" href="scripts/directives/input-search/input-search.css">
     <link rel="stylesheet" href="scripts/directives/launch-bubble/launch-bubble.css">
     <link rel="stylesheet" href="scripts/directives/list-count-filter-search/list-count-filter-search.css">
     <link rel="stylesheet" href="scripts/directives/nav-bar/nav-bar.css">
+    <link rel="stylesheet" href="scripts/directives/notifications/notifications.css">
     <link rel="stylesheet" href="scripts/directives/search-sort-bar/search-sort-bar.css">
     <link rel="stylesheet" href="scripts/directives/select-pools/select-pools.css">
     <link rel="stylesheet" href="scripts/directives/simple-donut/simple-donut.css">
@@ -31,8 +34,10 @@
     <link rel="stylesheet" href="scripts/listView.css">
     <link rel="stylesheet" href="scripts/main/actions/actions-table.css">
     <link rel="stylesheet" href="scripts/main/actions/actions.css">
+    <link rel="stylesheet" href="scripts/main/actions/edit/edit.css">
     <link rel="stylesheet" href="scripts/main/assignments/assignments.css">
     <link rel="stylesheet" href="scripts/main/classifiers/classifiers.css">
+    <link rel="stylesheet" href="scripts/main/classifiers/new/new.css">
     <link rel="stylesheet" href="scripts/main/configuration/setup.css">
     <link rel="stylesheet" href="scripts/main/groups/groups.css">
     <link rel="stylesheet" href="scripts/main/main.css">
@@ -98,27 +103,37 @@
 <!-- build:js({tmp,app}) js/app.js -->
 <!--app scripts-->
 <script src="scripts/app.js"></script>
+<script src="scripts/config.js"></script>
 <script src="scripts/directives/add-edit-rules/add-edit-rules.dir.js"></script>
 <script src="scripts/directives/assignment-panel/assignment-panel.dir.js"></script>
+<script src="scripts/directives/custom-action/custom-action.dir.js"></script>
+<script src="scripts/directives/custom-classifier/custom-classifier.dir.js"></script>
 <script src="scripts/directives/detailed-rules-list/detailed-rules-list.dir.js"></script>
 <script src="scripts/directives/donut/donut.dir.js"></script>
 <script src="scripts/directives/input-search/input-search.dir.js"></script>
+<script src="scripts/directives/json-text/json-text.dir.js"></script>
 <script src="scripts/directives/launch-bubble/launch-bubble.dir.js"></script>
 <script src="scripts/directives/list-count-filter-search/list-count-filter-search.dir.js"></script>
 <script src="scripts/directives/list-view-icon/list-view-icon.dir.js"></script>
 <script src="scripts/directives/nav-bar/nav-bar.dir.js"></script>
+<script src="scripts/directives/notifications/notifications.dir.js"></script>
 <script src="scripts/directives/search-sort-bar/searchSortBar.dir.js"></script>
 <script src="scripts/directives/select-pools/selectPools.dir.js"></script>
 <script src="scripts/directives/simple-donut/simple-donut.dir.js"></script>
 <script src="scripts/directives/tab-nav/tab-nav.dir.js"></script>
+<script src="scripts/filters/comma.js"></script>
+<script src="scripts/filters/reverse.js"></script>
 <script src="scripts/filters/subRulesToString.js"></script>
 <script src="scripts/launch/launch.ctrl.js"></script>
 <script src="scripts/main/account/account.ctrl.js"></script>
 <script src="scripts/main/actions/actions.ctrl.js"></script>
+<script src="scripts/main/actions/edit/edit.ctrl.js"></script>
+<script src="scripts/main/actions/new/new.ctrl.js"></script>
 <script src="scripts/main/assignments/assignment/assignment.ctrl.js"></script>
 <script src="scripts/main/assignments/assignments.ctrl.js"></script>
 <script src="scripts/main/classifiers/classifiers.ctrl.js"></script>
 <script src="scripts/main/classifiers/edit/edit.ctrl.js"></script>
+<script src="scripts/main/classifiers/new/new.ctrl.js"></script>
 <script src="scripts/main/configuration/configuration.ctrl.js"></script>
 <script src="scripts/main/groups/edit/edit.ctrl.js"></script>
 <script src="scripts/main/groups/groups.ctrl.js"></script>
@@ -139,6 +154,7 @@
 <script src="scripts/main/services/edit/rule-set/ruleSet.ctrl.js"></script>
 <script src="scripts/main/services/filters.ctrl.js"></script>
 <script src="scripts/main/services/services.ctrl.js"></script>
+<script src="scripts/services/ClassifierCategories.js"></script>
 <script src="scripts/services/Modals.js"></script>
 <script src="scripts/services/PolicyActions.js"></script>
 <script src="scripts/services/PolicyStore.js"></script>
@@ -156,3 +172,4 @@
 
 </body>
 </html>
+

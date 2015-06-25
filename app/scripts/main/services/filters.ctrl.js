@@ -6,11 +6,22 @@ angular.module('policyEngine').controller('ServicesFilterCtrl',
     $scope.filteredServices = [];
 
     var filterServices = function (allServices) {
-      var result = allServices.reverse(); //Show newest to oldest
-      _.each(['category', 'group', 'ruleSet'], function (type) {
-        if ($stateParams[type]) {
-          result = _.filter(result, function (service) {
-            return service[type].name === $stateParams[type];
+      var filters = [{
+          param: 'category',
+          func: $scope.category
+        }, {
+          param: 'group',
+          func: $scope.providerGroup
+        }, {
+          param: 'ruleSet',
+          func: $scope.ruleSet
+        }];
+
+      var result = allServices;
+      filters.forEach(function(filter) {
+        if ($stateParams[filter.param]) {
+          result = _.filter(result, function(service) {
+            return filter.func(service).name === $stateParams[filter.param];
           });
         }
       });
@@ -22,7 +33,8 @@ angular.module('policyEngine').controller('ServicesFilterCtrl',
     $scope.$watchGroup(['$routeChangeSuccess', function () {
       return PolicyStore.Services.all();
     }], function () {
-      $scope.filteredServices = angular.copy(filterServices(PolicyStore.Services.all()));
+      $scope.filteredServices = filterServices(PolicyStore.Services.all().slice());
+
       //Store a hash of which filters are in use so that service.html can display "Reset" links appropriately
       _.each(['category', 'group', 'ruleSet'], function (type) {
         $scope.filtered[type] = !!$stateParams[type];

@@ -45,8 +45,30 @@ angular.module('policyEngine').controller('GroupsCtrl',
 
     $scope.edit = function(group) {
      return $state.go('main.groupsEdit.settings', { groupId: group.id });
-
     };
+
+    $scope.groupStatusCell = function(group) {
+      //what to display in the first table cell in the row.
+      //either "loading", "user", or "resource"
+      if ($scope.isLoading(group)) return "loading";
+      return group.type;
+    };
+
+    $scope.isLoading = function(group) {
+      return !_.isUndefined(PolicyStore.Requests.find({
+        object: group.id,  
+        complete: false,
+      }));
+    };
+
+    $scope.servicesProvided = function(group) {
+      return group.name.length;
+    };
+
+    $scope.servicesConsumed = function(group) {
+      return Math.round(100 / group.name.length);
+    };
+
   }
 );
 

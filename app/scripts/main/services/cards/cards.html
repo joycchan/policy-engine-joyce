@@ -6,7 +6,7 @@
             <span class="new-text">New Service</span>
         </div>
         <div class="metric">
-            <ng-pluralize count="categories.length"
+            <ng-pluralize count="categories().length"
                           when="{'0': 'Zero Categories',
                          'one': '1 Category',
                          'other': '{} Categories'}"></ng-pluralize>
@@ -18,9 +18,11 @@
                          'other': '{} Services'}"></ng-pluralize>
         </div>
     </div>
-    <div ng-repeat="category in categories" class="card category" ng-click="addFilter('category', category)"
-        <h3 editable-text="category.name" e-form="textBtnFormService" >{{category.name}}</h3>
-        <img ng-src="{{category.image}}"/>
+    <div ng-repeat="category in categories()" class="card category"
+         ng-click="addFilter('category', category)">
+        <h3>{{category.name}}</h3>
+        <img ng-src="{{categoryImage(category)}}"/>
+
 
         <div class="sliding-box">
             <h4>Newly Added Services</h4>
@@ -39,7 +41,7 @@
             </div>
         </div>
     </div>
-
+ </div>
 </div>
 <div ng-show="filtered['category']">
 
@@ -49,10 +51,10 @@
         <div class="values">
             <h4>Provider Group</h4>
 
-            <div class="value">{{service.group.name}}</div>
+            <div class="value">{{providerGroup(service).name}}</div>
             <h4>Rule Set</h4>
 
-            <div class="value">{{service.ruleSet.name}}</div>
+            <div class="value">{{ruleSet(service).name}}</div>
         </div>
         <div class="sliding-box" >
             <h4>Assigned Groups</h4>

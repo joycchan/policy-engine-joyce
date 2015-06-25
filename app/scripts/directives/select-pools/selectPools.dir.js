@@ -20,24 +20,31 @@ angular.module('policyEngine')
         ];
 
         $scope.buttonText = function () {
-          return $scope.group.pools.length ? 'Add more pools' : 'Add pools';
+          return $scope.group.endpointPools.length ? 'Add more pools' : 'Add pools';
         };
 
         $scope.poolsExpanded = false;
 
-        var setPools = function () {
-          $scope.group.pools = _.filter($scope.pools, 'enabled');
+        $scope.open = function() {
+          _.each($scope.pools, function(pool) {
+            pool.enabled = _.includes($scope.group.endpointPools, pool.name);
+          });
+          $scope.poolsExpanded = true;
+        };
+
+        $scope.close = function() {
+          $scope.group.endpointPools = _.pluck(_.filter($scope.pools, 'enabled'), 'name');
+          $scope.poolsExpanded = false;
         };
 
         $scope.toggleDropdown = function () {
-          setPools();
-          $scope.poolsExpanded = !$scope.poolsExpanded;
+          $scope.poolsExpanded ? $scope.close() : $scope.open();
         };
 
         $scope.removePool = function (pool) {
-          pool.enabled = false;
-          setPools();
+          _.remove($scope.group.endpointPools, function(p) { return p === pool; });
         };
+
       },
       scope: {
         group: '=',

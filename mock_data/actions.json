@@ -2,31 +2,31 @@
   {
     "name": "Allow",
     "custom": "Default",
-    "id": 1,
+    "id": "1",
     "description": "Default action provided by Cisco"
   },
   {
     "name": "Deny",
     "custom": "Default",
-    "id": 2,
+    "id": "2",
     "description": "Deny Description"
   },
   {
     "name": "Redirect",
     "custom": "Default",
-    "id": 3,
+    "id": "3",
     "description": "Redirect description"
   },
   {
     "name": "Chain",
     "custom": "Default",
-    "id": 4,
+    "id": "4",
     "description": "Chain description"
   },
   {
     "name": "Custom Action 1",
     "custom": "Custom",
-    "id": 5,
+    "id": "5",
     "description": "Custom Action 1 description",
     "data": [
       {
@@ -58,7 +58,7 @@
   {
     "name": "Custom Action 2",
     "custom": "Custom",
-    "id": 6,
+    "id": "6",
     "description": "Custom Action 2 description",
     "data": [
       {

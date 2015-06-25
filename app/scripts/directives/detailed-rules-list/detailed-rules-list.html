@@ -11,11 +11,11 @@
       <tr ng-repeat="rule in ruleSet.rules">
         <td><div class="listView-number">{{$index + 1}}</div></td>
         <td>
-          <a ng-click="editRule()" ng-if="!rule.classifiers.length">Click here to add rules</a>
-          <div class="listView-innerList" ng-repeat="classifier in rule.classifiers">{{classifier.name}}</div>
+          <a ng-click="editRule()" ng-if="!rule.classifierIds.length">Click here to add rules</a>
+          <div class="listView-innerList" ng-repeat="classifier in getClassifiers(rule)">{{classifier.name}}</div>
         </td>
         <td>
-          <div class="listView-innerList" ng-repeat="action in rule.actions">{{action.name}}</div>
+          <div class="listView-innerList" ng-repeat="action in getActions(rule)">{{action.name}}</div>
         </td>
       </tr>
     </tbody>

@@ -1,0 +1,53 @@
+<div class="addCustomActions">
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="ruleSetName">Name</label>
+            <input type="text" class="form-control new-group" ng-model="action.name" id="ruleSetName"
+                   required>
+        </div>
+        <div class="form-group description">
+            <label for="ruleSetDesc">Description</label>
+            <textarea class="form-control description" id="ruleSetDesc" ng-model="action.description" required
+                      placeholder="Optional"></textarea>
+        </div>
+        <div class="form-group protocol">
+            <label for="protocol" class="control-label">Protocol</label>
+            <div>
+                <label class="checkbox-inline">
+                    <input type="radio" id="table" name="isTableDisplayed" ng-model="isTableDisplayed" ng-value="true"
+                           ng-checked="true"> Table
+                </label>
+                <label class="checkbox-inline">
+                    <input type="radio" id="textField" name="isTableDisplayed" ng-model="isTableDisplayed" ng-value="false">
+                    Text Field
+                </label>
+            </div>
+        </div>
+        <div class="actions-tableContainer" ng-show="isTableDisplayed">
+            <table class="actions-table">
+                <thead>
+                <th>Name</th>
+                <th>Value</th>
+                </thead>
+            </table>
+            <div class="actions-tableScrollable">
+                <table class="actions-table">
+                    <tbody>
+                    <tr ng-repeat="data in action.data">
+                        <td>{{data.name}}</td>
+                        <td>{{data.value}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="textField" ng-show="!isTableDisplayed">
+                   <textarea json-text id="textField" ng-model="action.data" required
+                             placeholder="Enter name/value pairs in JSON format, or paste from the Clipboard"></textarea>
+            <div class="validate">
+                <div class="button button--secondary"> Validate JSON</div>
+            </div>
+        </div>
+    </form>
+</div>

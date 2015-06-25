@@ -7,14 +7,14 @@ angular.module('policyEngine').controller('MainCtrl',
       return $state.includes('main.service');
     };
 
-    $scope.configFlashClass = '';
+    $scope.flashDismissed = false;
 
     $scope.hideConfigFlash = function () {
-      $scope.configFlashClass = 'hide-flash';
+      $scope.flashDismissed = true;
     };
 
     $scope.notConfig = function () {
-      return !$state.is('main.configuration');
+      return !$scope.flashDismissed && !$state.is('main.configuration');
     };
 
     $scope.menubar = [{

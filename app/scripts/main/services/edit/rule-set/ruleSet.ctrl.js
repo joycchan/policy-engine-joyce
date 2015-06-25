@@ -24,8 +24,7 @@ angular.module('policyEngine').controller('ServicesEditRuleSet',
     $scope.$watchGroup(['$routeChangeSuccess', function () {
       return PolicyStore.RuleSets.all();
     }], function () {
-      // TODO: update this to search via id rather than name property
-      $scope.ruleSet = angular.copy(PolicyStore.RuleSets.find({'name': $scope.service.ruleSet.name}));
+      $scope.ruleSet = angular.copy(PolicyStore.RuleSets.find({id: $scope.service.ruleSetId}));
     });
 
   });

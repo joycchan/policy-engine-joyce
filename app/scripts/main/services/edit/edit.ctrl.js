@@ -1,9 +1,17 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesEdit',
-  function ($scope, PolicyStore, PolicyActions, $stateParams) {
+  function ($scope, PolicyStore, PolicyActions, $stateParams, $state) {
 
     $scope.service = angular.copy(PolicyStore.Services.find({id: $stateParams.serviceId}));
+
+    $scope.providerGroup = function() {
+      return PolicyStore.Groups.find({id: $scope.service.providerGroupId});
+    };
+
+    $scope.editProviderGroup = function() {
+      $state.go('main.groupsEdit.settings', { groupId: $scope.providerGroup().id });
+    };
 
     $scope.navTabLinks = [{
       'name': 'Provider Group',

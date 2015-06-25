@@ -12,6 +12,7 @@ var gulp = require('gulp')
   , rev = require('gulp-rev')
   , linker = require('gulp-linker')
   , beautify = require('gulp-beautify')
+  , ngConfig = require('gulp-ng-config')
   , server = require('./server.js')
   ;
 
@@ -102,7 +103,19 @@ gulp.task('cssSource', function () {
     .pipe(gulp.dest('app/'));
 });
 
-gulp.task('compile', ['clean', 'views', 'images', 'less', 'fonts', 'mockData'], function () {
+gulp.task('mockApi', function() {
+  gulp.src('config.json')
+    .pipe(ngConfig('policyEngine.config', { environment: 'mock' }))
+    .pipe(gulp.dest('app/scripts'))
+});
+
+gulp.task('integrationApi', function() {
+  gulp.src('config.json')
+    .pipe(ngConfig('policyEngine.config', { environment: 'integration' }))
+    .pipe(gulp.dest('app/scripts'))
+});
+
+gulp.task('baseCompile', ['clean', 'views', 'images', 'less', 'fonts', 'mockData'], function () {
 
   gulp.src('./app/index.html')
     .pipe(inject(gulp.src('./tmp/assets/javascripts/templates.js', {read: false}),
@@ -122,6 +135,10 @@ gulp.task('compile', ['clean', 'views', 'images', 'less', 'fonts', 'mockData'], 
     .pipe(gulp.dest('build/'));
 });
 
+gulp.task('compile', ['mockApi', 'baseCompile']);
+
+gulp.task('compile-integration', ['integrationApi', 'baseCompile']);
+
 gulp.task('watch', ['less'], function () {
   gulp.watch('app/styles/**/*.less', ['less', 'cssSource']);
   gulp.watch('app/scripts/**/*.less', ['less', 'cssSource']);
@@ -137,7 +154,7 @@ gulp.task('test', function () {
   });
 });
 
-gulp.task('serve:app', ['clean', 'watch'], function () {
+gulp.task('serve:app', ['clean', 'mockApi', 'watch'], function () {
   server.run(true);
 });
 
@@ -146,3 +163,4 @@ gulp.task('serve:build', function () {
 });
 
 gulp.task('default', ['compile']);
+

@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable'
+  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable', 'policyEngine.config'
   ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
@@ -84,6 +84,11 @@ angular.module("policyEngine", [
           url: "rule-set/",
           templateUrl: 'scripts/main/modals/rule-sets/new.html',
           controller: 'NewRuleSetCtrl'
+        })
+        .state("main.listNew.action", {
+          url: "action/",
+          templateUrl: 'scripts/main/modals/actions/new.html',
+          controller: 'NewActionCtrl'
         })
 
         .state("main.groups", {
@@ -176,7 +181,13 @@ angular.module("policyEngine", [
       })
       .state("main.actionsEdit", {
         url: "actions/edit/{actionId}/",
-        templateUrl: "scripts/main/actions/edit/edit.html"
+        templateUrl: "scripts/main/actions/edit/edit.html",
+        controller: 'ActionEditCtrl'
+      })
+      .state("main.actionsNew", {
+        url: "actions/new/",
+        templateUrl: "scripts/main/actions/new/new.html",
+        controller: 'ActionsNewCtrl'
       })
       .state("main.classifiers", {
         url: "classifiers/",
@@ -185,8 +196,13 @@ angular.module("policyEngine", [
       })
       .state("main.classifiersEdit", {
         url: "classifiers/edit/{classifierId}/",
-        controller: "ClassifiersEditCtrl",
+        controller: "ClassifierEditCtrl",
         templateUrl: "scripts/main/classifiers/edit/edit.html"
+      })
+      .state("main.classifiersNew", {
+        url: "classifiers/new/",
+        controller: "ClassifierNewCtrl",
+        templateUrl: "scripts/main/classifiers/new/new.html"
       })
   })
   .run(function(PolicyActions) {
@@ -196,6 +212,7 @@ angular.module("policyEngine", [
     PolicyActions.FetchRuleSets();
     PolicyActions.FetchActions();
     PolicyActions.FetchClassifiers();
+    PolicyActions.FetchCategories();
     PolicyActions.FetchImportableGroups();
   });
 

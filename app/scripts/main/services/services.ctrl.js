@@ -7,10 +7,26 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.getChild = StoreHelpers.getChild;
 
+    $scope.loadingServices = function() {
+      return PolicyStore.Requests.where({action: "FetchServices", complete: false}).length > 0;
+    };
+
     $scope.filtered = {
       category: false,
       group: false,
       ruleSet: false
+    };
+
+    $scope.providerGroup = function(service) {
+      return PolicyStore.Groups.find({id: service.providerGroupId});
+    };
+
+    $scope.ruleSet = function(service) {
+      return PolicyStore.RuleSets.find({id: service.ruleSetId});
+    };
+
+    $scope.category = function(service) {
+      return PolicyStore.Categories.find({id: service.categoryId});
     };
 
     $scope.categoryState = function() {
@@ -87,69 +103,35 @@ angular.module('policyEngine').controller('ServicesCtrl',
       _.filter(PolicyStore.Services.all(), {category: {name: 'category'}});
     };
 
-    $scope.deleteCategory = function(category) {
-      _.remove($scope.categories, function(c) {
-        return c.name === category.name;
-      });
-    };
-
+    $scope.deleteCategory = PolicyActions.DeleteCategory;
     $scope.deleteService = PolicyActions.DeleteService;
 
     $scope.providerGroups = [];
     $scope.ruleSets = [];
-    $scope.categories = [
-      {
-        name: 'Backup and Storage',
-        image: '../../../images/photo_backup.png'
-      },
-      {
-        name: 'Business and Productivity Tools',
-        image: '../../../images/photo_business.png'
-      },
-      {
-        name: 'Database',
-        image: '../../../images/photo_database.png'
-      },
-      {
-        name: 'Email',
-        image: '../../../images/photo_email.png'
-      },
-      {
-        name: 'Internet Security',
-        image: '../../../images/photo_internet.png'
-      },
-      {
-        name: 'Software Updates',
-        image: '../../../images/photo_software.png'
-      },
-      {
-        name: 'Voice & Video',
-        image: '../../../images/photo_voice.png'
-      }
-    ];
+    $scope.categories = PolicyStore.Categories.all.bind(PolicyStore.Categories);
+
+    $scope.categoryImage = function(category) {
+      return '../../../images/' + category.image;
+    };
 
     $scope.selectedCheckBoxes = {};
 
     $scope.isRowInListSelected = function (id) {
       return $scope.selectedCheckBoxes[id] === true;
-    }
+    };
 
-    var createListFromService = function(service, key) {
-      // returns an array of objects w/ a 'name' key on each
-      // e.g. [{name: 'SQL Access'}, {name: 'HTTP Access'}]
-      var list = _.map(service, function(s) {
-        return s[key];
-      });
-      return _.uniq(list, function(item) {
-        return item.name;
-      });
-    }
+    var uniqueNames = function(services, mapFunc) {
+      return _.chain(services)
+        .map(mapFunc)
+        .uniq(function(object) { return object.name; })
+        .value()
+    };
 
     $scope.$watch(function () {
       return PolicyStore.Services.all();
     }, function (newServices) {
-      $scope.providerGroups = createListFromService(newServices, 'group');
-      $scope.ruleSets = createListFromService(newServices, 'ruleSet');
+      $scope.providerGroups = uniqueNames(newServices, $scope.providerGroup);
+      $scope.ruleSets = uniqueNames(newServices, $scope.ruleSet);
     });
   }
 );

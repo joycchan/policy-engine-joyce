@@ -13,7 +13,7 @@
     <list-count-filter-search class="objectsList-countFilterSearch"
                               count="rulesList().length"
                               filters="rulesListFilters"
-                              filter-by="filterRulesListBy"
+                              filter-by="filterRulesList"
                               is-filter-selected="isRulesListFilterSelected"
                               search-model="search.name">
     </list-count-filter-search>
@@ -29,14 +29,14 @@
         <tr ng-repeat="ruleSet in rulesList() | filter: search">
             <td>{{ruleSet.name}}</td>
             <td>
-                <div>{{ruleSet.rules | subRulesToString : 'classifiers'}}</div>
+                <div>{{ruleSet.rules | subRulesToString : 'classifier'}}</div>
             </td>
             <td>{{ruleSet.services}}</td>
             <td>{{ruleSet.description}}</td>
             <td>
                 <list-view-icon ng-click="edit(ruleSet)" inactive-src="images/icon_edit_16.png"
                                 active-src="images/icon_edit_16_blue.png"></list-view-icon>
-                <list-view-icon ng-click="deleteRuleSet(ruleSet)" inactive-src="images/icon_x_16.png"
+                <list-view-icon ng-click="deleteRuleSet(ruleSet.id)" inactive-src="images/icon_x_16.png"
                                 active-src="images/icon_x_16_blue.png"></list-view-icon>
             </td>
         </tr>
