@@ -4,62 +4,54 @@
   "id": "1",
   "port": 80,
   "protocols": "TCP & UDP",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
-  "category": "Business and Productivity"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
 }, {
   "name": "TrustSEC SGACL",
   "custom": "Default",
   "id": "2",
   "port": 80,
   "protocols": "TCP & UDP",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
-  "category": "Backup and Storage"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
 }, {
   "name": "Overlay-TEP-Type-HWTEP",
   "custom": "Default",
   "id": "3",
   "port": 80,
   "protocols": "HTTP",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
-  "category": "Tools"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
 }, {
   "name": "Overlap-Encap-TypeVX-LAN",
   "custom": "Default",
   "id": "4",
   "port": 80,
   "protocols": "HTTP",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
-  "category": "Database"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
 }, {
   "name": "TCP-80",
   "custom": "Default",
   "id": "5",
   "port": 80,
   "protocols": "TCP",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
-  "category": "Email"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
 }, {
   "name": "ICMP",
   "custom": "Default",
   "id": "6",
   "port": 80,
   "protocols": "TCP & UDP",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
-  "category": "Internet Security"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
 }, {
   "name": "TCP-0",
   "custom": "Custom",
   "id": "7",
   "port": 80,
   "protocols": "IP",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
-  "category": "Backup and Storage"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
 }, {
   "name": "UDP-80",
   "custom": "Custom",
   "id": "8",
   "port": 80,
   "protocols": "IP",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
-  "category": "Backup and Storage"
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
 }]
