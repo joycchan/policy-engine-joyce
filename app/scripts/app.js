@@ -179,6 +179,11 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/actions/edit/edit.html",
         controller: 'ActionEditCtrl'
       })
+      .state("main.actionsNew", {
+        url: "actions/new/",
+        templateUrl: "scripts/main/actions/new/new.html",
+        controller: 'ActionsNewCtrl'
+      })
       .state("main.classifiers", {
         url: "classifiers/",
         controller: "ClassifiersCtrl",
