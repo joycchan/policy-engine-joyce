@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine')
-  .directive('customClassifier', function (PolicyActions, PolicyStore) {
+  .directive('customClassifier', function (PolicyActions, PolicyStore, ClassifierCategories) {
     return {
       templateUrl: 'scripts/directives/custom-classifier/custom-classifier.html',
       controller: function ($scope) {
@@ -14,11 +14,10 @@ angular.module('policyEngine')
           {name: 'HTTP', value: 'HTTP'}
         ];
 
-        // this function sets the value of the "value" key to be that of the "name" key of each object
-        // so that it may be ng-repeated over as option elements
-        $scope.categories = _.map(angular.copy(PolicyStore.Categories.all.bind(PolicyStore.Categories)()), function(category) {
-          category.value = category.name;
-          return category;
+        // this function creates an array of objects to ng-repeat over
+        // each object's "name" and "value" key are assigned the value of the category's name
+        $scope.categories = _.map(ClassifierCategories, function(category) {
+          return {"name": category, "value": category};
         });
 
       },
