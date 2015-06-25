@@ -16,7 +16,7 @@ angular.module('policyEngine').controller('ClassifierNewCtrl',
         name: $scope.classifier.name,
         description: $scope.classifier.description,
         port: parseInt($scope.classifier.port),
-        protocols: $scope.classifier.protocols.split(','),
+        protocols: $scope.classifier.protocols,
         category: $scope.classifier.category
       }
       PolicyActions.CreateClassifier(newClassifier);

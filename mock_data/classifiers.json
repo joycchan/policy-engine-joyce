@@ -3,7 +3,7 @@
   "custom": "Default",
   "id": "1",
   "port": 80,
-  "protocols": ["TCP", "UDP"],
+  "protocols": "TCP & UDP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Business and Productivity"
 }, {
@@ -11,7 +11,7 @@
   "custom": "Default",
   "id": "2",
   "port": 80,
-  "protocols": ["TCP", "UDP"],
+  "protocols": "TCP & UDP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Backup and Storage"
 }, {
@@ -19,7 +19,7 @@
   "custom": "Default",
   "id": "3",
   "port": 80,
-  "protocols": ["TCP", "UDP"],
+  "protocols": "HTTP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Tools"
 }, {
@@ -27,7 +27,7 @@
   "custom": "Default",
   "id": "4",
   "port": 80,
-  "protocols": ["TCP", "UDP"],
+  "protocols": "HTTP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Database"
 }, {
@@ -35,7 +35,7 @@
   "custom": "Default",
   "id": "5",
   "port": 80,
-  "protocols": ["TCP"],
+  "protocols": "TCP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Email"
 }, {
@@ -43,7 +43,7 @@
   "custom": "Default",
   "id": "6",
   "port": 80,
-  "protocols": ["TCP", "UDP"],
+  "protocols": "TCP & UDP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Internet Security"
 }, {
@@ -51,7 +51,7 @@
   "custom": "Custom",
   "id": "7",
   "port": 80,
-  "protocols": ["TCP", "UDP"],
+  "protocols": "IP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Backup and Storage"
 }, {
@@ -59,7 +59,7 @@
   "custom": "Custom",
   "id": "8",
   "port": 80,
-  "protocols": ["TCP", "UDP"],
+  "protocols": "IP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl.",
   "category": "Backup and Storage"
 }]

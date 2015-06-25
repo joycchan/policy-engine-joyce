@@ -9,7 +9,7 @@ angular.module('policyEngine')
         $scope.protocols = [
           {name: 'TCP', value: 'TCP'},
           {name: 'UDP', value: 'UDP'},
-          {name: 'TCP & UDP', value: 'TCP,UDP'},
+          {name: 'TCP & UDP', value: 'TCP & UDP'},
           {name: 'IP', value: 'IP'},
           {name: 'HTTP', value: 'HTTP'}
         ];
