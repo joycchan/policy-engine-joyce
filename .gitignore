@@ -7,3 +7,4 @@ npm-debug.log
 .DS_Store
 backup.idea
 policy-engine.iml
+app/scripts/config.js
