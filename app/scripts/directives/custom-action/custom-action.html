@@ -37,7 +37,7 @@
             <div class="actions-tableScrollable">
                 <table class="actions-table">
                     <tbody>
-                    <tr ng-repeat="data in selectedData">
+                    <tr ng-repeat="data in action.data">
                         <td>{{data.name}}</td>
                         <td>{{data.value}}</td>
                     </tr>
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="actions-textField" ng-show="!isTableDisplayed">
-                   <textarea class="textField" id="actions-textField" ng-model="action.textField" required
+                   <textarea class="textField" id="actions-textField" ng-model="action.data" required
                              placeholder="Enter name/value pairs in JSON format, or paste from the Clipboard"></textarea>
 
             <div class="button button--secondary validate"> Validate JSON</div>
