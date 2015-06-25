@@ -1,22 +1,19 @@
-<div class="addCustomerActions">
+<div class="addCustomActions">
 
     <form class="form-horizontal">
-        <div>
-            <div class="form-group">
-                <label for="ruleSetName">Name</label>
-                <input type="text" class="form-control new-group" ng-model="action.name" id="ruleSetName"
-                       required>
-            </div>
-            <div class="form-group">
-                <label for="ruleSetDesc">Description</label>
-                <textarea class="form-control description" id="ruleSetDesc" ng-model="action.description" required
-                          placeholder="Optional"></textarea>
-            </div>
+        <div class="form-group">
+            <label for="ruleSetName">Name</label>
+            <input type="text" class="form-control new-group" ng-model="action.name" id="ruleSetName"
+                   required>
         </div>
         <div class="form-group">
-            <label for="protocol" class="col-sm-2 control-label">Protocol</label>
-
-            <div class="col-sm-10">
+            <label for="ruleSetDesc">Description</label>
+            <textarea class="form-control description" id="ruleSetDesc" ng-model="action.description" required
+                      placeholder="Optional"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="protocol" class="control-label">Protocol</label>
+            <div>
                 <label class="checkbox-inline">
                     <input type="radio" id="table" name="isTableDisplayed" ng-model="isTableDisplayed" ng-value="true"
                            ng-checked="true"> Table
@@ -45,8 +42,8 @@
                 </table>
             </div>
         </div>
-        <div class="actions-textField" ng-show="!isTableDisplayed">
-                   <textarea class="textField" id="actions-textField" ng-model="action.data" required
+        <div class="textField" ng-show="!isTableDisplayed">
+                   <textarea id="textField" ng-model="action.data" required
                              placeholder="Enter name/value pairs in JSON format, or paste from the Clipboard"></textarea>
 
             <div class="button button--secondary validate"> Validate JSON</div>
