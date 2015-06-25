@@ -134,6 +134,11 @@ angular.module("policyEngine", [
             templateUrl: 'scripts/main/modals/import-group/import-group.html',
             controller: 'ImportGroupCtrl'
           })
+          .state("main.service.existingGroup", {
+                      url: "existing-group/",
+                      templateUrl: 'scripts/main/modals/groups/existing.html',
+                      controller: 'ExistingGroupCtrl'
+                    })
 
         .state("main.assignments", {
           url: 'assignments/',
