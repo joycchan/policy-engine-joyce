@@ -98,6 +98,9 @@
   &:hover {
     .subRules-edit {
       visibility: visible;
+      &.is-disabled {
+        visibility: hidden;
+      }
     }
   }
 }
@@ -112,20 +115,27 @@
     width: 16px;
     height: 16px;
     visibility: none;
-  }
-  .is-displayedOnHover {
-    display: none;
-  }
-  .is-hiddenOnHover {
-    display: inline-block;
-  }
-  &:hover {
-    .is-displayedOnHover {
-      display: inline-block;
-    }
-    .is-hiddenOnHover {
+    &.is-displayedOnHover {
       display: none;
     }
+    &.is-hiddenOnHover {
+      display: inline-block;
+    }
+  }
+
+  &:hover {
+    img {
+      &.is-displayedOnHover {
+        display: inline-block;
+      }
+      &.is-hiddenOnHover {
+        display: none;
+      }
+    }
+  }
+
+  &.is-disabled {
+    visibility: hidden;
   }
 }
 

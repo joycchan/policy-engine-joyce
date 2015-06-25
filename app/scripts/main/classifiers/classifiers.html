@@ -28,7 +28,7 @@
             </div>
 
             <div class="subRules-boxRight" ng-show="selected.classifier">
-                <div class="subRules-edit" ui-sref="main.classifiersEdit({classifierId: selected.classifier.id})">
+                <div class="subRules-edit" ng-class="{'is-disabled': isSelectedClassifierDefault()}" ui-sref="main.classifiersEdit({classifierId: selected.classifier.id})">
                     <img class="is-hiddenOnHover" src="images/icon_edit_16.png">
                     <img class="is-displayedOnHover" src="images/icon_edit_16_blue.png">
                 </div>

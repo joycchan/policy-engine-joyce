@@ -19,5 +19,12 @@ angular.module('policyEngine').controller('ClassifiersCtrl',
       return $scope.selected.classifier === classifier;
     };
 
+    $scope.isSelectedClassifierDefault = function() {
+      if (!$scope.selected.classifier) {
+        return true;
+      }
+      return $scope.selected.classifier.custom === false;
+    };
+
   }
 );
