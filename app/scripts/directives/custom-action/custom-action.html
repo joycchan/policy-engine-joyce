@@ -18,16 +18,16 @@
 
             <div class="col-sm-10">
                 <label class="checkbox-inline">
-                    <input type="radio" id="table" name="actionSelect" ng-model="actionSelect" value="table"
+                    <input type="radio" id="table" name="isTableDisplayed" ng-model="isTableDisplayed" ng-value="true"
                            ng-checked="true"> Table
                 </label>
                 <label class="checkbox-inline">
-                    <input type="radio" id="textField" name="actionSelect" ng-model="actionSelect" value="textField">
+                    <input type="radio" id="textField" name="isTableDisplayed" ng-model="isTableDisplayed" ng-value="false">
                     Text Field
                 </label>
             </div>
         </div>
-        <div class="actions-tableContainer" ng-show="actionSelect == 'table'">
+        <div class="actions-tableContainer" ng-show="isTableDisplayed">
             <table class="actions-table">
                 <thead>
                 <th>Name</th>
@@ -45,7 +45,7 @@
                 </table>
             </div>
         </div>
-        <div class="actions-textField" ng-show="actionSelect == 'textField'">
+        <div class="actions-textField" ng-show="!isTableDisplayed">
                    <textarea class="textField" id="actions-textField" ng-model="action.textField" required
                              placeholder="Enter name/value pairs in JSON format, or paste from the Clipboard"></textarea>
 
