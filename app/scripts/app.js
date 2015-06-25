@@ -179,6 +179,11 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/actions/edit/edit.html",
         controller: 'ActionEditCtrl'
       })
+      .state("main.actionsNew", {
+        url: "actions/new/",
+        templateUrl: "scripts/main/actions/new/new.html",
+        controller: 'ActionsNewCtrl'
+      })
       .state("main.classifiers", {
         url: "classifiers/",
         controller: "ClassifiersCtrl",
@@ -188,6 +193,11 @@ angular.module("policyEngine", [
         url: "classifiers/edit/{classifierId}/",
         controller: "ClassifierEditCtrl",
         templateUrl: "scripts/main/classifiers/edit/edit.html"
+      })
+      .state("main.classifiersNew", {
+        url: "classifiers/new/",
+        controller: "ClassifierNewCtrl",
+        templateUrl: "scripts/main/classifiers/new/new.html"
       })
   })
   .run(function(PolicyActions) {

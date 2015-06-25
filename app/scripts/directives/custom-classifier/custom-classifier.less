@@ -1,34 +1,46 @@
 @import "../../../styles/variables";
 
 
-.addCustomerClassifier {
+.addCustomClassifier {
+  width: 378px;
+  margin-left: 25px;
+  
+  // overriding bootstrap + forms ---
+  .form-horizontal {
+    .form-group {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+  }
+  
+  .form-group {
+    label {
+      text-align: left;
+      width: 75px;
+      margin-right: 0;
+      margin-top: 6px;
+    }
+  }
 
- .protocol{
+  .form-control {
+    font-size: 12px;
+  }
+  // ---
+
+  .description {
+    height: 64px;
+  }
+
+  .protocol, .ports {
      width: 150px;
      height: 32px;
-     margin-top: 12px;
   }
 
-  .ports{
-    width: 150px;
+  .category-value{
+    width: 300px;
     height: 32px;
-    margin-top: 12px;
   }
 
-  .category{
-    width: 250px;
-    height: 32px;
-    margin-top: 12px;
-  }
-
-  .button--danger{
-    width: 90px;
-    margin-left: 30px;
-    margin-top: 50px;
-    }
-
-  .openClose {
-    position: absolute;
-    margin-left: 250px;
-    }
 }

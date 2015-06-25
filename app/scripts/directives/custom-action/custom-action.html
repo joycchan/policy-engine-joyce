@@ -1,33 +1,30 @@
-<div class="addCustomerActions">
+<div class="addCustomActions">
 
     <form class="form-horizontal">
-        <div>
-            <div class="form-group">
-                <label for="ruleSetName">Name</label>
-                <input type="text" class="form-control new-group" ng-model="action.name" id="ruleSetName"
-                       required>
-            </div>
-            <div class="form-group">
-                <label for="ruleSetDesc">Description</label>
-                <textarea class="form-control description" id="ruleSetDesc" ng-model="action.description" required
-                          placeholder="Optional"></textarea>
-            </div>
-        </div>
         <div class="form-group">
-            <label for="protocol" class="col-sm-2 control-label">Protocol</label>
-
-            <div class="col-sm-10">
+            <label for="ruleSetName">Name</label>
+            <input type="text" class="form-control new-group" ng-model="action.name" id="ruleSetName"
+                   required>
+        </div>
+        <div class="form-group description">
+            <label for="ruleSetDesc">Description</label>
+            <textarea class="form-control description" id="ruleSetDesc" ng-model="action.description" required
+                      placeholder="Optional"></textarea>
+        </div>
+        <div class="form-group protocol">
+            <label for="protocol" class="control-label">Protocol</label>
+            <div>
                 <label class="checkbox-inline">
-                    <input type="radio" id="table" name="actionSelect" ng-model="actionSelect" value="table"
+                    <input type="radio" id="table" name="isTableDisplayed" ng-model="isTableDisplayed" ng-value="true"
                            ng-checked="true"> Table
                 </label>
                 <label class="checkbox-inline">
-                    <input type="radio" id="textField" name="actionSelect" ng-model="actionSelect" value="textField">
+                    <input type="radio" id="textField" name="isTableDisplayed" ng-model="isTableDisplayed" ng-value="false">
                     Text Field
                 </label>
             </div>
         </div>
-        <div class="actions-tableContainer" ng-show="actionSelect == 'table'">
+        <div class="actions-tableContainer" ng-show="isTableDisplayed">
             <table class="actions-table">
                 <thead>
                 <th>Name</th>
@@ -37,7 +34,7 @@
             <div class="actions-tableScrollable">
                 <table class="actions-table">
                     <tbody>
-                    <tr ng-repeat="data in selectedData">
+                    <tr ng-repeat="data in action.data">
                         <td>{{data.name}}</td>
                         <td>{{data.value}}</td>
                     </tr>
@@ -45,11 +42,12 @@
                 </table>
             </div>
         </div>
-        <div class="actions-textField" ng-show="actionSelect == 'textField'">
-                   <textarea class="textField" id="actions-textField" ng-model="action.textField" required
+        <div class="textField" ng-show="!isTableDisplayed">
+                   <textarea json-text id="textField" ng-model="action.data" required
                              placeholder="Enter name/value pairs in JSON format, or paste from the Clipboard"></textarea>
-
-            <div class="button button--secondary validate"> Validate JSON</div>
+            <div class="validate">
+                <div class="button button--secondary"> Validate JSON</div>
+            </div>
         </div>
     </form>
 </div>

@@ -8,7 +8,7 @@
     </div>
     <div class="subRules-container subRules-container--classifiers">
         <div class="subRules-divider"></div>
-        <div class="button subRules-new">
+        <div class="button subRules-new" ui-sref="main.classifiersNew">
             New Classifier
         </div>
         <div class="subRules-box">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="media">
                         <div class="media-left subRules-label">Protocols</div>
-                        <div class="media-body subRules-text">{{selected.classifier.protocols.join(', ')}}</div>
+                        <div class="media-body subRules-text">{{selected.classifier.protocols}}</div>
                     </div>
                     <div class="media">
                         <div class="media-left subRules-label">Port</div>

@@ -7,7 +7,7 @@
     </div>
     <div class="subRules-container">
         <div class="subRules-divider"></div>
-        <div class="button subRules-new">
+        <div class="button subRules-new" ui-sref="main.actionsNew">
             New Action
         </div>
         <div class="subRules-box">
@@ -85,9 +85,9 @@
                         </div>
 
                         <div ng-show="displayHash.action === 'text'" class="actions-textFieldContainer clearfix">
-                  <textarea class="actions-textField"
+                  <textarea json-text class="actions-textField"
                             placeholder="Enter the name/value pairs in JSON format, or paste from the clipboard"
-                            ng-model="selectedActionDataAsString"></textarea>
+                            ng-model="selectedAction.data"></textarea>
 
                             <div class="button button--secondary">Validate JSON</div>
                         </div>

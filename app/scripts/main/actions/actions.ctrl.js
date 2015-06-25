@@ -32,23 +32,5 @@ angular.module('policyEngine').controller('Actions',
       }
     };
 
-    $scope.selectedActionDataAsString = ''; // textarea's ngModel can only be bound to strings
-
-    var generateSelectedActionDataAsString = function() {
-      if($scope.selectedAction && $scope.selectedAction.data) {
-        var selectedActionData = _.map($scope.selectedAction.data, function(data) {
-          return _.omit(data, '$$hashKey');
-        })
-        $scope.selectedActionDataAsString = JSON.stringify(selectedActionData);
-      } else {
-        $scope.selectedActionDataAsString = '';
-      }
-    };
-
-    $scope.$watch('selectedAction', function() {
-      generateSelectedActionDataAsString();
-    });
-
-
   }
 );
