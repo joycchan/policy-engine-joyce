@@ -49,4 +49,6 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
       $scope.conditions.splice(index, 1);
    }
 
+
+
 });
