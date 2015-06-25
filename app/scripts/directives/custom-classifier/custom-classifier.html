@@ -20,12 +20,5 @@
             <label for="classifierPort">Port/Value</label>
             <input type="text" class="form-control ports" ng-model="classifier.port" id="classifierPort" placeholder="Port Number" required>
         </div>
-        <div class="form-group">
-            <label for="classifierCategory">Category</label>
-            <select class="form-control category-value" name="category" id="classifierCategory" ng-model="classifier.category">
-                <option value="" selected disabled>Uncategorized</option>
-                <option value={{category.value}} ng-repeat="category in categories ">{{category.name}}</option>
-            </select>
-        </div>
     </form>
 </div>
