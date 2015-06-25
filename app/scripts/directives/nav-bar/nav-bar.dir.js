@@ -13,7 +13,7 @@ angular.module('policyEngine')
       link: function postLink(scope, element, attrs) {
         scope.iconClasses = function(group) {
           var selected = _.any(group.sections, function(section) {
-            return $state.includes(section.state);
+            return $state.includes(section.state) || stateIncludesAnyAssociatedStates(section.associatedStates);
           });
           var classes = {
             current: selected
