@@ -22,9 +22,26 @@
       <ul class="dropdown-menu" role="menu">
         <li role="presentation" ui-sref="main.service.newGroup"><a role="menuitem">New Group</a></li>
         <li role="presentation"  ui-sref="main.service.importGroup"><a role="menuitem">Import Group</a></li>
-        <li role="presentation" ui-sref="main.service.existingGroup"><a role="menuitem">Existing Group</a></li>
+        <li role="presentation" ng-click="existingGrp = true" ><a role="menuitem">Existing Group</a></li>
       </ul>
     </div>
   </div>
+
+  <table class="table" ng-show="existingGrp">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Endpoint Pools</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="group in groups()">
+      <td>{{group.name}}</td>
+      <td>
+        {{group.endpointPools | comma}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
 </div>

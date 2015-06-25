@@ -6,9 +6,9 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
  $scope.none=true;
   $scope.group = {
     name: "New Group",
-    pools: []
     description: '',
     endpointPools: []
+
   };
 
   $scope.create = function () {
