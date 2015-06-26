@@ -209,5 +209,6 @@ angular.module("policyEngine", [
     PolicyActions.FetchClassifiers();
     PolicyActions.FetchCategories();
     PolicyActions.FetchImportableGroups();
+    PolicyActions.FetchEndpointPools();
   });
 

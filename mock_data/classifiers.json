@@ -2,6 +2,7 @@
   "name": "SQL-Port-1443",
   "custom": false,
   "id": "1",
+  "_key": "lt-1",
   "port": 80,
   "protocols": "TCP & UDP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
@@ -9,6 +10,7 @@
   "name": "TrustSEC SGACL",
   "custom": false,
   "id": "2",
+  "_key": "lt-2",
   "port": 80,
   "protocols": "TCP & UDP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
@@ -16,6 +18,7 @@
   "name": "Overlay-TEP-Type-HWTEP",
   "custom": false,
   "id": "3",
+  "_key": "lt-3",
   "port": 80,
   "protocols": "HTTP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
@@ -23,6 +26,7 @@
   "name": "Overlap-Encap-TypeVX-LAN",
   "custom": false,
   "id": "4",
+  "_key": "lt-4",
   "port": 80,
   "protocols": "HTTP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
@@ -30,6 +34,7 @@
   "name": "TCP-80",
   "custom": false,
   "id": "5",
+  "_key": "lt-5",
   "port": 80,
   "protocols": "TCP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
@@ -37,6 +42,7 @@
   "name": "ICMP",
   "custom": false,
   "id": "6",
+  "_key": "lt-6",
   "port": 80,
   "protocols": "TCP & UDP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
@@ -44,6 +50,7 @@
   "name": "TCP-0",
   "custom": false,
   "id": "7",
+  "_key": "lt-7",
   "port": 80,
   "protocols": "IP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
@@ -51,6 +58,7 @@
   "name": "UDP-80",
   "custom": false,
   "id": "8",
+  "_key": "lt-8",
   "port": 80,
   "protocols": "IP",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius, diam sit amet pulvinar dignissim, tortor ipsum vestibulum dolor, a mollis nisi nisl vel nisl."
