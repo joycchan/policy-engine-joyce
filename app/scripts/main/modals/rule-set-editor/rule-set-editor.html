@@ -2,7 +2,7 @@
   <div class="classifiers">
     <sub-rules-list
       title="Classifier"
-      sub-rule-type="classifier"
+      sub-rule-type="CONSTANTS.CLASSIFIER"
       toggle-inner-modal="toggleInnerModal"
       list="existingClassifiers"
       filter="search.classifiers"
@@ -10,7 +10,8 @@
     </sub-rules-list>
   </div>
 
-  <div class="innerModal" ng-switch="innerModal">
+  <!-- ng-switch-when values should match the CONSTANTS values -->
+  <div class="innerModal" ng-switch on="innerModal">
     <div ng-switch-when="editor">
       <h2>Rules Editor</h2>
       <rules-editor
@@ -27,7 +28,7 @@
       <h2>Rules Editor / {{customAction.name}}</h2>
       <custom-action action="customAction"></custom-action>
       <div class="button-group button-group--right">
-        <div class="button button--secondary" ng-click="toggleInnerModal('editor')">Cancel</div>
+        <div class="button button--secondary" ng-click="toggleInnerModal(CONSTANTS.EDITOR)">Cancel</div>
         <div class="button" ng-click="createAction()" ng-class="{'is-disabled': !isCreateActionEnabled()}">Create</div>
       </div>
     </div>
@@ -35,7 +36,7 @@
       <h2>Rules Editor / {{customClassifier.name}}</h2>
       <custom-classifier classifier="customClassifier"></custom-classifier>
       <div class="button-group button-group--right">
-        <div class="button button--secondary" ng-click="toggleInnerModal('editor')">Cancel</div>
+        <div class="button button--secondary" ng-click="toggleInnerModal(CONSTANTS.EDITOR)">Cancel</div>
         <div class="button" ng-click="createClassifier()" ng-class="{'is-disabled': !isCreateClassifierEnabled()}">Create</div>
       </div>
     </div>
@@ -44,7 +45,7 @@
   <div class="actions">
     <sub-rules-list
       title="Actions"
-      sub-rule-type="action"
+      sub-rule-type="CONSTANTS.ACTION"
       toggle-inner-modal="toggleInnerModal"
       list="existingActions"
       filter="search.actions"

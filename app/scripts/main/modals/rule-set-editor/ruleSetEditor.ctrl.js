@@ -12,6 +12,16 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       actions: {name:''}
     };
 
+
+
+    $scope.CONSTANTS = {
+      'EDITOR': 'editor',
+      'CLASSIFIER': 'classifier',
+      'ACTION': 'action'
+    };
+
+
+
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
@@ -22,6 +32,8 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       }
     };
 
+
+
     $scope.areAllRulesValid = function() {
       return _.all($scope.selectedRuleSet.rules, function(rule) {
         return doesRuleIncludeActionAndClassifier(rule);
@@ -29,8 +41,11 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     }
 
     var doesRuleIncludeActionAndClassifier = function(rule) {
-      return (rule.actionIds && rule.actionIds.length) && (rule.classifierIds && rule.classifierIds.length);
+      return (rule.actionIds && rule.actionIds.length)
+        && (rule.classifierIds && rule.classifierIds.length);
     };
+
+
 
     $scope.editModeHash = {
       // setting state for dev purposes
@@ -43,14 +58,19 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       });
     };
 
-    // 'editor', 'classifier', 'action'
-    $scope.innerModal = 'editor';
+
+
+    $scope.innerModal = 'editor'; // modals can be 'editor', 'classifier', 'action'
 
     $scope.toggleInnerModal = function(innerModal) {
+      // clear the customClassifier + customAction models of any previous state
       $scope.customClassifier = emptyClassifier();
       $scope.customAction = emptyAction();
+      // show inner modal
       $scope.innerModal = innerModal;
     };
+
+
 
     var emptyClassifier = function() {
       return {
@@ -64,13 +84,16 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $scope.createClassifier = function () {
       if ($scope.isCreateClassifierEnabled()) {
         PolicyActions.CreateClassifier($scope.customClassifier);
-        $scope.toggleInnerModal('editor');
+        $scope.toggleInnerModal($scope.CONSTANTS.EDITOR);
       }
     };
 
     $scope.isCreateClassifierEnabled = function() {
       return $scope.customClassifier.name && $scope.customClassifier.port && $scope.customClassifier.protocols;
     };
+
+
+
 
     var emptyAction = function() {
       return {
@@ -87,7 +110,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $scope.createAction = function () {
       if ($scope.isCreateActionEnabled()) {
         PolicyActions.CreateAction($scope.customAction);
-        $scope.toggleInnerModal('editor');
+        $scope.toggleInnerModal($scope.CONSTANTS.EDITOR);
       }
     };
 

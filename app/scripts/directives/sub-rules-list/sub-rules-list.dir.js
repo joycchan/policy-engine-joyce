@@ -6,7 +6,7 @@ angular.module('policyEngine')
       templateUrl: 'scripts/directives/sub-rules-list/sub-rules-list.html',
       controller: function ($scope) {},
       scope: {
-        subRuleType: '@',
+        subRuleType: '=',
         toggleInnerModal: '=',
         title: '@',
         list: '=',
