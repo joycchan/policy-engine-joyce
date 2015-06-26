@@ -188,12 +188,14 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/classifiers/edit/edit.html"
       })
   })
-  .run(function(PolicyActions) {
+  .run(function(PolicyActions, editableOptions) {
     PolicyActions.FetchServices();
     PolicyActions.FetchGroups();
     PolicyActions.FetchAssignments();
     PolicyActions.FetchRuleSets();
     PolicyActions.FetchActions();
     PolicyActions.FetchClassifiers();
+
+    editableOptions.theme = 'bs3';
   });
 
