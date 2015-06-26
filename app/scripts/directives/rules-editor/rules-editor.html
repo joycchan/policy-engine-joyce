@@ -1,0 +1,80 @@
+<div class="title title--editor">Rules Editor</div>
+<div class="editor-help">
+  Rules define how the network behaves.  Classifiers describe types of network traffic and actions deterimne waht to do with that type of traffic.  You can pair up existing classifiers and actions from the libraries, or you can specify your custom rule.
+</div>
+<div class="rulesListContainer">
+  <table class="listView listView--iconsHover rulesList">
+    <thead>
+      <tr>
+        <th></th>
+        <th><div>Classifier</div><div class="listView-headerDescription">Classifiers are OR'ed</div></th>
+        <th><div>Action</div><div class="listView-headerDescription">Actions are AND'ed</div></th>
+        <th></th>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="editor-scrollable">
+  <div class="rulesListContainer">
+    <table class="listView listView--iconsHover rulesList">
+      <tbody>
+        <tr ng-repeat="rule in selectedRuleSet.rules" class="rulesList-row" ng-class="{'is-inEditMode': editModeHash[$index] }">
+          <td>
+            <div class="listView-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
+            <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleSet($index)"><img src="images/icon_edit_rule_24.png"></div>
+          </td>
+          <td>
+            <div class="subRuleDrop" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
+              <div class="subRuleContainer" ng-repeat="classifier in getClassifiers(rule)">
+                <div class="subRule subRule--classifier listView-innerList">
+                  {{classifier.name}}
+                  <div class="deleteSubRuleContainer" ng-click="deleteClassifier($parent.$index, classifier)">
+                    <img class="deleteSubRule is-hiddenOnHover" src="images/icon_x_16_white.png">
+                    <img class="deleteSubRule is-displayedOnHover" src="images/icon_x_dark_16.png">
+                  </div>
+                </div>
+              </div>
+              <div class="subRule subRule--empty" ng-show="rule.classifierIds.length === 0">DRAG IN CLASSIFIERS FROM LEFT</div>
+            </div>
+          </td>
+          <td>
+            <div class="subRuleDrop" ng-drop="true" ng-drop-success="addAction($data, $index)">
+              <div class="subRuleContainer" ng-repeat="action in getActions(rule)">
+                <div class="subRule subRule--action listView-innerList">
+                  {{action.name}}
+                  <div class="deleteSubRuleContainer" ng-click="deleteAction($parent.$index, action)">
+                    <img class="deleteSubRule is-hiddenOnHover" src="images/icon_x_16_white.png">
+                    <img class="deleteSubRule is-displayedOnHover" src="images/icon_x_dark_16.png">
+                  </div>
+                </div>
+              </div>
+                <div class="subRule subRule--empty" ng-show="rule.actionIds.length === 0">DRAG IN ACTIONS FROM RIGHT</div>
+                <div class="editDeleteIconsContainer" ng-hide="editModeHash[$index]">
+                  <list-view-icon ng-click="toggleEditRuleSet($index)" inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"></list-view-icon>
+                  <list-view-icon ng-click="deleteRule($index)"inactive-src="images/icon_x_16.png" active-src="images/icon_x_dark_16.png"></list-view-icon>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="addRuleContainer">
+    <table class="addRule listView rulesList" ng-class="{'is-disabled': !areAllRulesValid()}">
+      <tr>
+        <td>
+          <div class="listView-number" ng-hide="editModeHash[$index]">{{selectedRuleSet.rules.length + 1}}</div>
+        </td>
+        <td colspan="2">
+          <div class="addRuleTextContainer" ng-click="addRule()">
+            <div class="subRule subRule--new">Add new rule</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="openClose button-group">
+    <div class="button button--secondary" ng-click="cancel()">Cancel</div>
+    <div class="button" ng-click="ok()" ng-class="{ 'is-disabled': !areAllRulesValid() }">OK</div>
+</div>
