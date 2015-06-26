@@ -10,12 +10,18 @@ angular.module('policyEngine').controller('ActionsNewCtrl',
     };
 
     $scope.create = function () {
-      PolicyActions.CreateAction($scope.action);
-      $state.go('main.actions');
+      if ($scope.isCreateEnabled()) {
+        PolicyActions.CreateAction($scope.action);
+        $state.go('main.actions');
+      }
     };
 
     $scope.cancel = function() {
       $state.go('main.actions');
+    };
+
+    $scope.isCreateEnabled = function() {
+      return $scope.action.name && $scope.action.data;
     };
 
   }

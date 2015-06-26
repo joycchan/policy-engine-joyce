@@ -20,7 +20,11 @@
   <div class="editor" ng-switch="innerModal">
     <div ng-switch-when="editor">
       <div class="title title--editor">Rules Editor</div>
-      <rules-editor are-all-rules-valid="areAllRulesValid" edit-mode-hash="editModeHash" selected-rule-set="selectedRuleSet"></rules-editor>
+      <rules-editor
+        are-all-rules-valid="areAllRulesValid"
+        edit-mode-hash="editModeHash"
+        selected-rule-set="selectedRuleSet">
+      </rules-editor>
       <div class="openClose button-group">
           <div class="button button--secondary" ng-click="cancel()">Cancel</div>
           <div class="button" ng-click="ok()" ng-class="{ 'is-disabled': !areAllRulesValid() }">OK</div>
@@ -28,18 +32,18 @@
     </div>
     <div ng-switch-when="action" class="customActionWrapper">
       <div class="title title--editor">Rules Editor / New Custom Action</div>
-      <custom-action></custom-action>
+      <custom-action action="customAction"></custom-action>
       <div class="button-group button-group--right">
-        <div class="button" ng-click="toggleInnerModal('editor')">Cancel</div>
-        <div class="button">Create</div>
+        <div class="button button--secondary" ng-click="toggleInnerModal('editor')">Cancel</div>
+        <div class="button" ng-click="createAction()" ng-class="{'is-disabled': !isCreateActionEnabled()}">Create</div>
       </div>
     </div>
     <div ng-switch-when="classifier" class="customClassifierWrapper">
       <div class="title title--editor">Rules Editor / New Custom Classifier</div>
-      <custom-classifier></custom-classifier>
+      <custom-classifier classifier="customClassifier"></custom-classifier>
       <div class="button-group button-group--right">
-        <div class="button" ng-click="toggleInnerModal('editor')">Cancel</div>
-        <div class="button">Create</div>
+        <div class="button button--secondary" ng-click="toggleInnerModal('editor')">Cancel</div>
+        <div class="button" ng-click="createClassifier()" ng-class="{'is-disabled': !isCreateClassifierEnabled()}">Create</div>
       </div>
     </div>
   </div>

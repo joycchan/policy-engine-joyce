@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('RuleSetEditorCtrl',
-  function ($scope, $modalInstance, $stateParams, selectedRuleSet, PolicyStore, StoreHelpers) {
+  function ($scope, $modalInstance, $stateParams, selectedRuleSet, PolicyStore, PolicyActions) {
 
     $scope.selectedRuleSet = selectedRuleSet; // local from resolve
 
@@ -10,6 +10,10 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $scope.search = {
       classifiers: {name:''},
       actions: {name:''}
+    };
+
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
     };
 
     $scope.ok = function () {
@@ -26,10 +30,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
     var doesRuleIncludeActionAndClassifier = function(rule) {
       return (rule.actionIds && rule.actionIds.length) && (rule.classifierIds && rule.classifierIds.length);
-    };
-
-    $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
     };
 
     // WHY IS THIS HERE?
@@ -51,6 +51,51 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
     $scope.toggleInnerModal = function(innerModal) {
       $scope.innerModal = innerModal;
+    };
+
+    var emptyClassifier = function() {
+      return {
+        'name': 'New Custom Classifier',
+        'custom': true
+      }
+    };
+
+    $scope.customClassifier = emptyClassifier();
+
+    $scope.createClassifier = function () {
+      if ($scope.isCreateClassifierEnabled()) {
+        PolicyActions.CreateClassifier($scope.customClassifier);
+        $scope.toggleInnerModal('editor');
+        $scope.customClassifier = emptyClassifier();
+      }
+    };
+
+    $scope.isCreateClassifierEnabled = function() {
+      return $scope.customClassifier.name && $scope.customClassifier.port && $scope.customClassifier.protocols;
+    };
+
+    var emptyAction = function() {
+      return {
+        'name': 'New Custom Action',
+        data: [{
+          "name": "nameA",
+          "value": "valueA"
+        }]
+      }
+    };
+
+    $scope.customAction = emptyAction();
+
+    $scope.createAction = function () {
+      if ($scope.isCreateActionEnabled()) {
+        PolicyActions.CreateAction($scope.customAction);
+        $scope.toggleInnerModal('editor');
+        $scope.customAction = emptyAction();
+      }
+    };
+
+    $scope.isCreateActionEnabled = function() {
+      return $scope.customAction.name && $scope.customAction.data;
     };
 
   });
