@@ -32,9 +32,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       return (rule.actionIds && rule.actionIds.length) && (rule.classifierIds && rule.classifierIds.length);
     };
 
-    // WHY IS THIS HERE?
-    window.scope = $scope;
-
     $scope.editModeHash = {
       // setting state for dev purposes
       0: true

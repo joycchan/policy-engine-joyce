@@ -14,15 +14,15 @@ angular.module('policyEngine')
           return StoreHelpers.getChildArray(rule, 'action');
         };
 
-        var isExistingRuleSet = function (list, newItem) {
-          return _.any(list, function (item) {
-            return item.name === newItem;
+        var isExistingRuleSet = function (list, newItemId) {
+          return _.any(list, function (itemId) {
+            return itemId === newItemId;
           });
         }
 
         $scope.addClassifier = function (metaObject, index) {
           if (metaObject.type === 'classifier'
-            && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifierIds, metaObject.data.name)
+            && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifierIds, metaObject.data.id)
             && $scope.editModeHash[index]) {
 
             $scope.selectedRuleSet.rules[index].classifierIds.push(metaObject.data.id);
@@ -31,9 +31,8 @@ angular.module('policyEngine')
 
         $scope.addAction = function (metaObject, index) {
           if (metaObject.type === 'action'
-            && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actionIds, metaObject.data.name)
+            && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actionIds, metaObject.data.id)
             && $scope.editModeHash[index]) {
-
             $scope.selectedRuleSet.rules[index].actionIds.push(metaObject.data.id);
           }
         };
