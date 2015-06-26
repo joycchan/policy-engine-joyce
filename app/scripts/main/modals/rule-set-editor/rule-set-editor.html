@@ -6,12 +6,13 @@
       toggle-inner-modal="toggleInnerModal"
       list="existingClassifiers"
       filter="search.classifiers"
-      is-draggable="isInEditModeForAnyRule"></sub-rules-list>
+      is-draggable="isInEditModeForAnyRule">
+    </sub-rules-list>
   </div>
 
-  <div class="editor" ng-switch="innerModal">
+  <div class="innerModal" ng-switch="innerModal">
     <div ng-switch-when="editor">
-      <div class="title title--editor">Rules Editor</div>
+      <h2>Rules Editor</h2>
       <rules-editor
         are-all-rules-valid="areAllRulesValid"
         edit-mode-hash="editModeHash"
