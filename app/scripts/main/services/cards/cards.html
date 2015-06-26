@@ -63,13 +63,8 @@
                 <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
             </div>
             <div class="button-group">
-<<<<<<< HEAD
                 <div  ng-click="textBtnForm.$show(); $event.stopPropagation()" ng-hide="textBtnForm.$visible" class="button is-selected">Rename</div>
-                <div ng-click="deleteService(service.id)" class="button button--danger">Delete</div>
-=======
-                <div class="button is-selected">Rename</div>
                 <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
->>>>>>> develop
             </div>
         </div>
     </div>
