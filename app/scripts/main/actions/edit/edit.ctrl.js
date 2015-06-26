@@ -13,7 +13,7 @@ angular.module('policyEngine').controller('ActionEditCtrl',
     };
 
     $scope.delete = function() {
-      PolicyActions.DeleteAction($scope.action.id);
+      PolicyActions.DeleteAction($scope.action);
       $state.go('main.actions');
     };
 

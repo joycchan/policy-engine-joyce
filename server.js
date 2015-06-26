@@ -10,6 +10,13 @@ var express = require('express')
 // Constants
 var SERVER_PORT = process.env.PORT || 9000;
 
+var uid = function () {
+  return 'lt-' + 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+};
+
 var serveDirectories = function (app, directories) {
   app.use(logfmt.requestLogger());
   app.use(bodyParser.json()); // for parsing application/json
@@ -31,6 +38,8 @@ var serveDirectories = function (app, directories) {
   });
 
   app.post("/api/:endpoint", function (req, res) {
+    var result = req.body;
+    result['_key'] = uid();
     res.send(201, req.body)
   });
 

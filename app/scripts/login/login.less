@@ -1,0 +1,77 @@
+@import "../../styles/variables";
+
+.login {
+  height: 100vh;
+  background: url(../../images/login_bkgnd.jpg) no-repeat;
+  background-size: cover;
+  position: relative;
+
+  .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 70px;
+    height: 465px;
+    width: 675px;
+    background-color: white;
+    opacity: 0.96;
+    text-align: center;
+  }
+
+  .cisco-icon {
+    background: url(../../images/icon_cisco_logo_2.png) no-repeat;
+    margin: 0 auto;
+    width: 60px;
+    height: 32px;
+  }
+
+  h1 {
+    margin: 20px 0 30px;
+    font-size: 36px;
+    line-height: 45px;
+  }
+
+  .instructions {
+    font-size: 12px;
+    color: @color-50;
+    margin-bottom: 35px;
+  }
+
+  input {
+    margin: 0 auto;
+    width: 300px;
+    border: none;
+    border-bottom: solid 1px @color-70;
+    box-shadow: none;
+    text-align: center;
+    border-radius: 0;
+    color: @color-60;
+  }
+
+  .form-group.focused {
+    border-bottom: 3px solid @blue;
+  }
+
+  .form-control:focus {
+    color: @blue;
+    box-shadow: none;
+    border: none;
+  }
+
+  ::placeholder {
+    text-align: center;
+    font-style: normal;
+    color: @color-70;
+  }
+
+  button {
+    background: url(../../images/icon_green_login_btn.png) no-repeat;
+    margin: 15px auto 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+  }
+
+}
+

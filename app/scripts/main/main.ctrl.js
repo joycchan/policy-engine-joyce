@@ -50,15 +50,18 @@ angular.module('policyEngine').controller('MainCtrl',
         sections: [
           {
             label: 'Classifiers Library',
-            state: 'main.classifiers'
+            state: 'main.classifiers',
+            associatedStates: ['main.classifiersEdit', 'main.classifiersNew']
           },
           {
             label: 'Actions Library',
-            state: 'main.actions'
+            state: 'main.actions',
+            associatedStates: ['main.actionsEdit', 'main.actionsNew']
           },
           {
             label: 'Setup',
-            state: 'main.configuration'
+            state: 'main.configuration',
+            associatedStates: []
           }
         ]
       },

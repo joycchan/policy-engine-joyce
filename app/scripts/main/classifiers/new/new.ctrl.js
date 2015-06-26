@@ -6,15 +6,17 @@ angular.module('policyEngine').controller('ClassifierNewCtrl',
     };
 
     $scope.create = function () {
-      var newClassifier = {
-        name: $scope.classifier.name,
-        description: $scope.classifier.description,
-        port: parseInt($scope.classifier.port),
-        protocols: $scope.classifier.protocols,
-        category: $scope.classifier.category
+      if ($scope.isCreateEnabled()) {
+        var newClassifier = {
+          name: $scope.classifier.name,
+          description: $scope.classifier.description,
+          port: parseInt($scope.classifier.port),
+          protocols: $scope.classifier.protocols,
+          custom: true
+        }
+        PolicyActions.CreateClassifier(newClassifier);
+        $state.go('main.classifiers');
       }
-      PolicyActions.CreateClassifier(newClassifier);
-      $state.go('main.classifiers');
     };
 
     $scope.cancel = function() {
@@ -22,7 +24,7 @@ angular.module('policyEngine').controller('ClassifierNewCtrl',
     };
 
     $scope.isCreateEnabled = function() {
-      return $scope.classifier.name && $scope.classifier.port && $scope.classifier.protocols && $scope.classifier.category;
+      return $scope.classifier.name && $scope.classifier.port && $scope.classifier.protocols;
     };
 
   }

@@ -12,7 +12,8 @@ angular.module('policyEngine').factory('PolicyStore', function(Table, Util) {
     Categories: new Table(),
     Requests: new Table(),
     Errors: new Table(),
-    ImportableGroups: new Table()
+    ImportableGroups: new Table(),
+    EndpointPools: new Table()
   };
 
   window.tables = tables;

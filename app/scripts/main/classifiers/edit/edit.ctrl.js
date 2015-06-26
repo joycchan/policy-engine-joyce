@@ -13,7 +13,7 @@ angular.module('policyEngine').controller('ClassifierEditCtrl',
     };
 
     $scope.delete = function() {
-      PolicyActions.DeleteClassifier($scope.classifier.id);
+      PolicyActions.DeleteClassifier($scope.classifier);
       $state.go('main.classifiers');
     };
 
@@ -21,6 +21,9 @@ angular.module('policyEngine').controller('ClassifierEditCtrl',
       return PolicyStore.Classifiers.all();
     }], function () {
       $scope.classifier = angular.copy(PolicyStore.Classifiers.find({id: $stateParams.classifierId}));
+      if ($scope.classifier.custom === false) {
+        $state.go('main.classifiers');
+      }
     });
 
   }

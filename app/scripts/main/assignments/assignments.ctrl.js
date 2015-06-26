@@ -45,7 +45,7 @@ angular.module('policyEngine').controller('AssignmentsCtrl',
     };
 
     $scope.delete = function (assignment) {
-      PolicyActions.DeleteAssignment(assignment.id);
+      PolicyActions.DeleteAssignment(assignment);
     };
   }
 );
