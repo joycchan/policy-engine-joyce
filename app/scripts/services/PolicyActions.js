@@ -264,6 +264,16 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       PolicyStore.ImportableGroups.insert(group);
     },
 
+    FetchEndpointPools: function() {
+      $http.get(path('endpoint_pools')).success(function (data) {
+        data.map(actions.ReceiveEndpointPool);
+      });
+    },
+
+    ReceiveEndpointPool: function(pool) {
+      PolicyStore.EndpointPools.insert(pool);
+    },
+
     DismissError: function(errorId) {
       PolicyStore.Errors.update({id: errorId}, {dismissed: true});
     }
