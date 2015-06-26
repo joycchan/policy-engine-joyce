@@ -5,7 +5,7 @@
       <input-search model="search.classifiers.name"></input-search>
     </div>
     <div class="addButton">
-      <div class="button">Add Custom Classifier</div>
+      <div class="button" ng-click="toggleInnerModal('classifier')">Add Custom Classifier</div>
     </div>
     <div class="hDivider"></div>
     <div class="category">Category</div>
@@ -29,8 +29,19 @@
     </div>
   </div>
 
-  <div class="editor">
-    <rules-editor></rules-editor>
+  <div class="editor" ng-switch="innerModal">
+    <div ng-switch-when="editor">
+      <div class="title title--editor">Rules Editor</div>
+      <rules-editor></rules-editor>
+    </div>
+    <div ng-switch-when="action">
+      <div class="title title--editor">Rules Editor / New Custom Action</div>
+      <custom-action></custom-action>
+    </div>
+    <div ng-switch-when="classifier">
+      <div class="title title--editor">Rules Editor / New Custom Classifier</div>
+      <custom-classifier></custom-classifier>
+    </div>
   </div>
 
   <div class="actions">
@@ -39,7 +50,7 @@
       <input-search model="search.actions.name"></input-search>
     </div>
     <div class="addButton">
-      <div class="button">Add Custom Action</div>
+      <div class="button" ng-click="toggleInnerModal('action')">Add Custom Action</div>
     </div>
     <div class="hDivider"></div>
     <div class="listItem"

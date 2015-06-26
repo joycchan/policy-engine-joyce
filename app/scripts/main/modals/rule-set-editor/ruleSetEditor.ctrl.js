@@ -44,4 +44,11 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       });
     };
 
+    // 'editor', 'classifier', 'action'
+    $scope.innerModal = 'editor';
+
+    $scope.toggleInnerModal = function(innerModal) {
+      $scope.innerModal = innerModal;
+    };
+
   });
