@@ -76,7 +76,7 @@
         "$$hashKey": "object:105"
       }
     ],
-    "id": "76fd2c6f-9730-4e57-bf9a-4e294eaad3fc"
+    "id": "76fd2c6f-9730-4e57-bf9a-4e294eaad3fc",
     "_key": "lt-76fd2c6f-9730-4e57-bf9a-4e294eaad3fc"
   },
   {
@@ -131,7 +131,7 @@
         "$$hashKey": "object:196"
       }
     ],
-    "id": "1d7f2216-a343-4de0-9f10-7b701252a950"
+    "id": "1d7f2216-a343-4de0-9f10-7b701252a950",
     "_key": "lt-1d7f2216-a343-4de0-9f10-7b701252a950"
   },
   {
@@ -186,7 +186,7 @@
         "$$hashKey": "object:293"
       }
     ],
-    "id": "f8dbe920-1a9a-42d3-b4dc-099d5714be0f"
+    "id": "f8dbe920-1a9a-42d3-b4dc-099d5714be0f",
     "_key": "lt-f8dbe920-1a9a-42d3-b4dc-099d5714be0f"
   },
   {
@@ -227,7 +227,7 @@
         "type": "resource"
       }
     ],
-    "id": "b5b81563-91e0-4316-8a13-dc80e590d04f"
+    "id": "b5b81563-91e0-4316-8a13-dc80e590d04f",
     "_key": "lt-b5b81563-91e0-4316-8a13-dc80e590d04f"
   }
 ]
