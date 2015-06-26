@@ -8,18 +8,6 @@
       <div class="button" ng-click="toggleInnerModal('classifier')">Add Custom Classifier</div>
     </div>
     <div class="hDivider"></div>
-    <div class="category">Category</div>
-    <div class="category-dropdown">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-          All
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1">All</a></li>
-        </ul>
-      </div>
-    </div>
     <div
       class="listItem"
       ng-repeat="classifier in existingClassifiers() | filter: search.classifiers"
