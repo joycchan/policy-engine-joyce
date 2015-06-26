@@ -27,21 +27,6 @@
     </div>
   </div>
 
-  <table class="table" ng-show="existingGrp">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Endpoint Pools</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="group in groups()">
-      <td>{{group.name}}</td>
-      <td>
-        {{group.endpointPools | comma}}
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<existing-group ng-show="existingGrp" groups="groups"></existing-group>
 
 </div>

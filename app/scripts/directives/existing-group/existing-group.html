@@ -1,0 +1,18 @@
+<div class="existing-group">
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Endpoint Pools</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="group in groups()">
+        <td>{{group.name}}</td>
+        <td>
+            {{group.endpointPools | comma}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>

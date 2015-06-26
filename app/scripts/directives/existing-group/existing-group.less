@@ -1,0 +1,80 @@
+  @import "../../../styles/variables";
+
+.existing-group {
+  .table {
+    border: solid 1px @color-80;
+    display: table;
+    width: 100%;
+
+    thead, tbody {
+      float: left;
+      width: 100%;
+    }
+
+    tr {
+      width: 100%;
+      display: table;
+      text-align: left;
+    }
+
+    th, td {
+      &:first-child {
+        width: 30%;
+      }
+
+      &:nth-child(2) {
+        width: 70%;
+      }
+    }
+
+    thead {
+      th {
+        font-weight: bold;
+        border-bottom-width: 1px;
+      }
+    }
+
+    tbody {
+      overflow: auto;
+      height: 218px;
+      cursor: pointer;
+
+      tr:first-child {
+        td {
+          border-top: none;
+        }
+      }
+
+      tr {
+
+        td:first-child {
+          padding-left: 8px;
+        }
+
+        &:hover {
+          background-color: @color-80;
+
+          td:first-child {
+            padding-left: 5px;
+            border-left: solid 3px @color-80;
+          }
+        }
+
+        &.selected {
+          background: @color-80;
+
+          td:first-child {
+            padding-left: 5px;
+            border-left: solid 3px @blue;
+          }
+        }
+
+        &:last-child {
+          td {
+            border-bottom: solid 1px #ddd;
+          }
+        }
+      }
+    }
+  }
+  }
