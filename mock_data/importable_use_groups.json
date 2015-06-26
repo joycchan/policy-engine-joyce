@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1",
+    "_key": "lt-1",
+    "name": "Sales Team",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "user"
+  },
+  {
+    "id": "2",
+    "_key": "lt-2",
+    "name": "Marketing Dept",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 4,
+    "type": "user",
+    "endpointPool": "10.4.35.1/24, 10.4.36.1/24",
+    "parentId": "1"
+  },
+  {
+    "id": "3",
+    "_key": "lt-3",
+    "name": "Tech Ops",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 4,
+    "endpointPool": "10.1.35.1/24, 10.1.36.1/24",
+    "type": "user",
+    "parentId": "1"
+  },
+  {
+    "id": "234",
+    "_key": "lt-234",
+    "name": "Dev Ops",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 1,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "user"
+  },
+  {
+    "id": "4",
+    "_key": "lt-4",
+    "name": "Legal",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "user",
+    "parentId": "12"
+  },
+  {
+    "id": "5",
+    "_key": "lt-5",
+    "name": "Payroll",
+    "origin": "ISE (Active Directory)",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 3,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "user",
+    "parentId": "12"
+  },
+  {
+    "id": "6",
+    "_key": "lt-6",
+    "name": "Employees",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "origin": "VMware vCenter",
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource"
+  },
+  {
+    "id": "8",
+    "_key": "lt-8",
+    "name": "Contractors",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 0,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource"
+  },
+  {
+    "id": "13",
+    "_key": "lt-13",
+    "name": "Group A",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 3,
+    "servicesConsumed": 4,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "parentId": "8"
+  },
+  {
+    "id": "14",
+    "_key": "lt-14",
+    "name": "Group B",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 3,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "parentId": "8"
+  },
+  {
+    "id": "143",
+    "_key": "lt-143",
+    "name": "Group C",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 3,
+    "servicesConsumed": 4,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "parentId": "8"
+  },
+  {
+    "id": "142",
+    "_key": "lt-142",
+    "name": "Group D",
+    "origin": "VMware vCenter",
+    "description": "Lorem ipsum dolor sit amet",
+    "servicesProvided": 3,
+    "servicesConsumed": 2,
+    "endpointPool": "10.0.35.1/24, 10.0.36.1/24",
+    "type": "resource",
+    "parentId": "8"
+  }
+]

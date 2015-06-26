@@ -1,0 +1,73 @@
+@import "../../../styles/variables";
+
+.listView.groups-list {
+  th:nth-child(1) {
+    width: 4%;
+  }
+  th:nth-child(2) {
+    width: 16.5%;
+  }
+  th:nth-child(3) {
+    width: 15.5%;
+  }
+  th:nth-child(4) {
+    width: 24%;
+  }
+  th:nth-child(5) {
+    text-align: right;
+  }
+  th:nth-child(6) {
+    text-align: right;
+  }
+  th:nth-child(5), td:nth-child(5) {
+    width: 8%;
+    text-align: right;
+  }
+  th:nth-child(6), td:nth-child(6) {
+    width: 8%;
+    text-align: right;
+  }
+  th:nth-child(7) {
+    width: 20%;
+  }
+}
+
+.listView.servicesProvided-list {
+  th:nth-child(1) {
+    width: 42%;
+  }
+  th:nth-child(2) {
+    width: 28%;
+  }
+  th:nth-child(3) {
+    width: 30%;
+  }
+}
+
+.listView.servicesConsumed-list {
+  th:nth-child(1) {
+    width: 26%;
+  }
+  th:nth-child(2) {
+    width: 43%;
+  }
+  th:nth-child(3) {
+    width: 24%;
+  }
+  th:nth-child(4) {
+    width: 5.5%;
+  }
+}
+
+.servicesProvided-list, .servicesConsumed-list {
+  tr {
+    a {
+      text-decoration: none;
+      color: @color-50;
+
+      &:hover {
+        color: @blue;
+      }
+    }
+  }
+}

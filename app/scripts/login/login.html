@@ -1,0 +1,20 @@
+<div class="login">
+    <div class="box">
+        <div class="cisco-icon"></div>
+
+        <h1>Group Based Policies</h1>
+
+        <div class="instructions">Log in with your Cisco credentials</div>
+        <form>
+            <div class="form-group" ng-class="{ focused: focused['username'] }">
+                <input type="text" class="form-control" id="username" placeholder="Username"
+                        ng-focus="shiftFocus('username')" ng-blur="shiftFocus('username')" >
+            </div>
+            <div class="form-group" ng-class="{ focused: focused['password'] }">
+                <input type="password" class="form-control" id="password" placeholder="Password"
+                        ng-focus="shiftFocus('password')" ng-blur="shiftFocus('password')" >
+            </div>
+            <button type="submit" ng-click="login()"></button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="addCustomClassifier">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="classifierName">Name</label>
+            <input type="text" class="form-control new-group" ng-model="classifier.name"
+                   id="classifierName" required>
+        </div>
+        <div class="description form-group">
+            <label for="classifierDescription">Description</label>
+            <textarea class="form-control description" id="classifierDescription" ng-model="classifier.description" required placeholder="Optional"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="classifierProtocol">Protocol</label>
+            <select class="form-control protocol" name="protocol" id="classifierProtocol" ng-model="classifier.protocols">
+                <option value="" selected disabled>Select Protocol</option>
+                <option value="{{protocol.value}}" ng-repeat="protocol in protocols">{{protocol.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="classifierPort">Port/Value</label>
+            <input type="text" class="form-control ports" ng-model="classifier.port" id="classifierPort" placeholder="Port Number" required>
+        </div>
+    </form>
+</div>

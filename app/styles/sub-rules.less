@@ -1,10 +1,24 @@
 @import 'variables';
 
+.subRules {
+  width: 648px;
+  margin: 20px auto;
+}
+
+.subRules-helpText {
+  &:extend(.extra-light);
+  font-size: 12px;
+  color: @color-60;
+  line-height: 18px;
+  margin-bottom: 30px;
+}
+
 .subRules-new {
   &.button {
     // overriding button class in buttons.less
     width: 126px;  
   }
+  margin-bottom: 15px;
 }
 
 .subRules-container {
@@ -84,6 +98,9 @@
   &:hover {
     .subRules-edit {
       visibility: visible;
+      &.is-disabled {
+        visibility: hidden;
+      }
     }
   }
 }
@@ -98,20 +115,27 @@
     width: 16px;
     height: 16px;
     visibility: none;
-  }
-  .is-displayedOnHover {
-    display: none;
-  }
-  .is-hiddenOnHover {
-    display: inline-block;
-  }
-  &:hover {
-    .is-displayedOnHover {
-      display: inline-block;
-    }
-    .is-hiddenOnHover {
+    &.is-displayedOnHover {
       display: none;
     }
+    &.is-hiddenOnHover {
+      display: inline-block;
+    }
+  }
+
+  &:hover {
+    img {
+      &.is-displayedOnHover {
+        display: inline-block;
+      }
+      &.is-hiddenOnHover {
+        display: none;
+      }
+    }
+  }
+
+  &.is-disabled {
+    visibility: hidden;
   }
 }
 
@@ -138,4 +162,8 @@
   font-size: 12px;
   line-height: 20px;
   color: @color-50;
+}
+
+.subRules-tableHeader {
+  width: 75px;
 }

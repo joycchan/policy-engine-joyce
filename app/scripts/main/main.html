@@ -1,12 +1,9 @@
 <div ng-class="{ 'service-special': serviceState() }" class="clearfix">
     <nav-bar menu="menu" menubar="menubar"></nav-bar>
-    <div class="config-flash" ng-class="configFlashClass" ng-show="notConfig()">
-        <div class="button next" ui-sref="main.configuration">Run Setup</div>
-        <div class="text">
-            Hook up the group policy engine with the rest of your network infrastructure, like ISE and APIC-EM.
-        </div>
-
-        <div class="img-close" ng-click="hideConfigFlash()"></div>
+      <notifications></notifications>
+    <div class="alert alert-info config-flash" ng-class="configFlashClass" ng-show="notConfig()">
+        Want to hook up the group policy engine with the rest of your network infrastructure, like ISE and APIC-EM? Go ahead and <a href="#" ui-sref="main.configuration" class="alert-link">hook them up</a>
+        <button ng-click="hideConfigFlash()" type="button" class="close"><span>&times;</span></button>
     </div>
     <div class="main container-fluid" ng-class="background()" ui-view></div>
 </div>

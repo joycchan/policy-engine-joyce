@@ -7,22 +7,42 @@ angular.module('policyEngine').controller('MainCtrl',
       return $state.includes('main.service');
     };
 
-    $scope.configFlashClass = '';
+    $scope.flashDismissed = false;
 
     $scope.hideConfigFlash = function () {
-      $scope.configFlashClass = 'hide-flash';
+      $scope.flashDismissed = true;
     };
 
     $scope.notConfig = function () {
-      return !$state.is('main.configuration');
+      return !$scope.flashDismissed && !$state.is('main.configuration');
     };
 
-    $scope.menubar = [
-      { name: 'Services', state: 'main.services.filters.cards', selectionState: 'main.services', width: 82},
-      { name: 'Assignments', state: 'main.assignments', selectionState: 'main.assignments', width: 108},
-      { name: 'Groups', state: 'main.groups', selectionState: 'main.groups', width: 74},
-      { name: 'Rule Sets', state: 'main.ruleSets', selectionState: 'main.ruleSets', width: 86}
-   ];
+    $scope.menubar = [{
+       name: 'Services',
+       state: 'main.services.filters.cards',
+       selectionState: 'main.services',
+       associatedStates: ['main.servicesEdit', 'main.service'],
+       width: 82
+     }, {
+       name: 'Assignments',
+       state: 'main.assignments',
+       selectionState: 'main.assignments',
+       associatedStates: ['main.assignment'],
+       width: 108
+     }, {
+       name: 'Groups',
+       state: 'main.groups',
+       selectionState: 'main.groups',
+       associatedStates: ['main.groupsEdit'],
+       width: 74
+     }, {
+       name: 'Rule Sets',
+       state: 'main.ruleSets',
+       selectionState: 'main.ruleSets',
+       associatedStates: ['main.ruleSetsEdit'],
+       width: 86
+     }];
+
 
     $scope.menu = [
       {
@@ -30,15 +50,18 @@ angular.module('policyEngine').controller('MainCtrl',
         sections: [
           {
             label: 'Classifiers Library',
-            state: 'main.classifiers'
+            state: 'main.classifiers',
+            associatedStates: ['main.classifiersEdit', 'main.classifiersNew']
           },
           {
             label: 'Actions Library',
-            state: 'main.actions'
+            state: 'main.actions',
+            associatedStates: ['main.actionsEdit', 'main.actionsNew']
           },
           {
             label: 'Setup',
-            state: 'main.configuration'
+            state: 'main.configuration',
+            associatedStates: []
           }
         ]
       },

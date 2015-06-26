@@ -1,9 +1,13 @@
 @import 'variables';
 
 .listView {
+  table-layout: fixed;
+
   th, td {
-    padding: 8px 8px 4px 8px;
+    padding: 6px 8px 6px 8px;
     line-height: 16.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   thead {
     font-weight: bold;
@@ -24,8 +28,17 @@
       &.is-selected {
         background-color: @color-80;
       }
+
+      &.is-selected--border {
+        border-left: 3px solid @blue;
+        td {
+          border-bottom: 1px solid white;
+        }
+      }
+
     }
     td {
+      white-space: nowrap;
       height: 32px;
       border-bottom: 1px solid @color-80;
       color: @color-50;
@@ -118,7 +131,55 @@
   &:first-child {
     padding-top: 6px;
   }
-  &:last-child {
-    padding-bottom: 14px;
+}
+
+.listView tr.loading td {
+  color: @color-70;
+}
+
+.loader {
+  font-size: 1.5px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid @color-80;
+  border-right: 1.1em solid @color-80;
+  border-bottom: 1.1em solid @color-80;
+  border-left: 1.1em solid @color-60;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load 1.1s infinite linear;
+  margin: auto;
+}
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+@keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.listView--scrollable {
+  thead, tbody {
+    float: left;
+    width: 100%;
+  }
+  tbody {
+    overflow: auto;
+  }
+  tr {
+    width: 100%;
+    display: table;
+    text-align: left;
   }
 }

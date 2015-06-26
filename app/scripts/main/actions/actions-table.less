@@ -4,13 +4,15 @@
   width: 300px;
   height: 124px;
   border-radius: 3px;
-  border: 1px solid @color-70;
+  border-top: 1px solid @color-70;
+  border-left: 1px solid @color-70;
+  border-right: 1px solid @color-70;
 }
 
 .actions-tableScrollable {
   width: 300px;
   height: 104px;
-  overflow: auto;
+  overflow-y: scroll;
   border-bottom: 1px solid @color-70;
   border-radius: 3px;
 }
@@ -37,6 +39,9 @@
     &:first-child {
       width: 104px;
     }
+    &.actions-tableHeader--short {
+      width: 75px;
+    }
   }
   tbody {
     > tr:nth-of-type(odd) {
@@ -47,3 +52,4 @@
     }
   }
 }
+

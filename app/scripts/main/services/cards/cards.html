@@ -6,7 +6,7 @@
             <span class="new-text">New Service</span>
         </div>
         <div class="metric">
-            <ng-pluralize count="categories.length"
+            <ng-pluralize count="categories().length"
                           when="{'0': 'Zero Categories',
                          'one': '1 Category',
                          'other': '{} Categories'}"></ng-pluralize>
@@ -18,9 +18,10 @@
                          'other': '{} Services'}"></ng-pluralize>
         </div>
     </div>
-    <div ng-repeat="category in categories" class="card category">
+    <div ng-repeat="category in categories()" class="card category"
+         ng-click="addFilter('category', category)">
         <h3 editable-text="category.name" e-form="textBtnFormService">{{category.name}}</h3>
-        <img ng-src="{{category.image}}"/>
+        <img ng-src="{{categoryImage(category)}}"/>
 
         <div class="sliding-box"  ng-click="addFilter('category', category)">
             <h4>Newly Added Services</h4>
@@ -31,9 +32,9 @@
             <div ng-show="servicesByCategory(category).length">
                 <p ng-repeat="service in servicesByCategory(category)">{{service.name}}</p>
             </div>
-            <div class="button-g">
+            <div class="button-group">
                 <div ng-click="textBtnFormService.$show(); $event.stopPropagation()" ng-hide="textBtnFormService.$visible" class="button is-selected">Rename</div>
-                <div ng-click="deleteCategory(category)" class="button button--danger">Delete</div>
+               <div ng-click="deleteCategory(category)" class="button button--danger">Delete</div>
             </div>
         </div>
     </div>
@@ -47,10 +48,10 @@
         <div class="values">
             <h4>Provider Group</h4>
 
-            <div class="value">{{service.group.name}}</div>
+            <div class="value">{{providerGroup(service).name}}</div>
             <h4>Rule Set</h4>
 
-            <div class="value">{{service.ruleSet.name}}</div>
+            <div class="value">{{ruleSet(service).name}}</div>
         </div>
         <div class="sliding-box" ui-sref="{{'main.servicesEdit.providerGroup({serviceId: ' + service.id + '})'}}">
             <h4>Assigned Groups</h4>
@@ -62,8 +63,13 @@
                 <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
             </div>
             <div class="button-group">
+<<<<<<< HEAD
                 <div  ng-click="textBtnForm.$show(); $event.stopPropagation()" ng-hide="textBtnForm.$visible" class="button is-selected">Rename</div>
                 <div ng-click="deleteService(service.id)" class="button button--danger">Delete</div>
+=======
+                <div class="button is-selected">Rename</div>
+                <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
+>>>>>>> develop
             </div>
         </div>
     </div>

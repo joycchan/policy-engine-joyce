@@ -1,4 +1,5 @@
 <div class="service-listItem">
+    <div ng-if="loadingServices()">Loading</div>
     <table class="listView listView--hover listView--iconsHover service-listItem-table">
         <thead>
         <th></th>
@@ -8,7 +9,7 @@
         <th>Assigned To</th>
         <th></th>
         </thead>
-        <tbody ng-repeat="service in filteredServices">
+        <tbody ng-repeat="service in filteredServices | reverse">
         <tr class="service-listItem-row"
             ng-class="{'is-selected': isRowInListSelected(service.name + service.group.name + service.ruleSet.name)}">
             <td>
@@ -16,8 +17,8 @@
                        ng-model="selectedCheckBoxes[service.name + service.group.name + service.ruleSet.name]">
             </td>
             <td>{{service.name}}</td>
-            <td>{{getChild(service, "group").name}}</td>
-            <td>{{service.ruleSet.name}}</td>
+            <td>{{providerGroup(service).name}}</td>
+            <td>{{ruleSet(service).name}}</td>
             <td ng-hide="serviceConsumers(service).length">
                 <p>None (<a ng-click="assignService(service)">Assign to groups</a>)</p>
             </td>

@@ -1,17 +1,17 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable'
+  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable', 'policyEngine.config'
   ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/launch/");
+    $urlRouterProvider.otherwise("/login/");
 
     $stateProvider
-      .state("launch", {
-        url: "/launch/",
-        templateUrl: "scripts/launch/launch.html",
-        controller: "LaunchCtrl"
+      .state("login", {
+        url: "/login/",
+        templateUrl: "scripts/login/login.html",
+        controller: "LoginCtrl"
       })
       .state("main", {
         abstract: true,
@@ -85,6 +85,11 @@ angular.module("policyEngine", [
           templateUrl: 'scripts/main/modals/rule-sets/new.html',
           controller: 'NewRuleSetCtrl'
         })
+        .state("main.listNew.action", {
+          url: "action/",
+          templateUrl: 'scripts/main/modals/actions/new.html',
+          controller: 'NewActionCtrl'
+        })
 
         .state("main.groups", {
           url: "groups/",
@@ -129,6 +134,11 @@ angular.module("policyEngine", [
             templateUrl: 'scripts/main/modals/rule-sets/new.html',
             controller: 'NewRuleSetCtrl'
           })
+          .state("main.service.importGroup", {
+            url: "import-group/",
+            templateUrl: 'scripts/main/modals/import-group/import-group.html',
+            controller: 'ImportGroupCtrl'
+          })
 
         .state("main.assignments", {
           url: 'assignments/',
@@ -155,18 +165,9 @@ angular.module("policyEngine", [
         templateUrl: "scripts/main/rule-sets/rule-sets.html"
       })
       .state("main.ruleSetsEdit", {
-        abstract: true,
         url: "rule-sets/edit/{ruleSetId}/",
         controller: "RuleSetsEditCtrl",
         templateUrl: "scripts/main/rule-sets/edit/edit.html"
-      })
-      .state("main.ruleSetsEdit.settings", {
-        url: "settings/",
-        templateUrl: "scripts/main/rule-sets/edit/settings/settings.html"
-      })
-      .state("main.ruleSetsEdit.services", {
-        url: "services/",
-        templateUrl: "scripts/main/rule-sets/edit/services/services.html"
       })
       .state("main.actions", {
         url: "actions/",
@@ -175,7 +176,13 @@ angular.module("policyEngine", [
       })
       .state("main.actionsEdit", {
         url: "actions/edit/{actionId}/",
-        templateUrl: "scripts/main/actions/edit/edit.html"
+        templateUrl: "scripts/main/actions/edit/edit.html",
+        controller: 'ActionEditCtrl'
+      })
+      .state("main.actionsNew", {
+        url: "actions/new/",
+        templateUrl: "scripts/main/actions/new/new.html",
+        controller: 'ActionsNewCtrl'
       })
       .state("main.classifiers", {
         url: "classifiers/",
@@ -184,8 +191,13 @@ angular.module("policyEngine", [
       })
       .state("main.classifiersEdit", {
         url: "classifiers/edit/{classifierId}/",
-        controller: "ClassifiersEditCtrl",
+        controller: "ClassifierEditCtrl",
         templateUrl: "scripts/main/classifiers/edit/edit.html"
+      })
+      .state("main.classifiersNew", {
+        url: "classifiers/new/",
+        controller: "ClassifierNewCtrl",
+        templateUrl: "scripts/main/classifiers/new/new.html"
       })
   })
   .run(function(PolicyActions, editableOptions) {
@@ -195,6 +207,9 @@ angular.module("policyEngine", [
     PolicyActions.FetchRuleSets();
     PolicyActions.FetchActions();
     PolicyActions.FetchClassifiers();
+    PolicyActions.FetchCategories();
+    PolicyActions.FetchImportableGroups();
+    PolicyActions.FetchEndpointPools();
 
     editableOptions.theme = 'bs3';
   });
