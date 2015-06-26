@@ -18,16 +18,18 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       }
     };
 
+    $scope.areAllRulesValid = function() {
+      return _.all($scope.selectedRuleSet.rules, function(rule) {
+        return doesRuleIncludeActionAndClassifier(rule);
+      })
+    }
+
+    var doesRuleIncludeActionAndClassifier = function(rule) {
+      return (rule.actionIds && rule.actionIds.length) && (rule.classifierIds && rule.classifierIds.length);
+    };
+
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
-    };
-
-    $scope.getClassifiers = function(rule) {
-      return StoreHelpers.getChildArray(rule, 'classifier');
-    };
-
-    $scope.getActions = function(rule) {
-      return StoreHelpers.getChildArray(rule, 'action');
     };
 
     // WHY IS THIS HERE?

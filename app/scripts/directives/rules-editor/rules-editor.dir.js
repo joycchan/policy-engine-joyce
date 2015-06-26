@@ -1,10 +1,18 @@
 'use strict';
 
 angular.module('policyEngine')
-  .directive('rulesEditor', function () {
+  .directive('rulesEditor', function (StoreHelpers) {
     return {
       templateUrl: 'scripts/directives/rules-editor/rules-editor.html',
       controller: function ($scope) {
+
+        $scope.getClassifiers = function(rule) {
+          return StoreHelpers.getChildArray(rule, 'classifier');
+        };
+
+        $scope.getActions = function(rule) {
+          return StoreHelpers.getChildArray(rule, 'action');
+        };
 
         var isExistingRuleSet = function (list, newItem) {
           return _.any(list, function (item) {
@@ -48,16 +56,6 @@ angular.module('policyEngine')
           }
         };
 
-        $scope.areAllRulesValid = function() {
-          return _.all($scope.selectedRuleSet.rules, function(rule) {
-            return doesRuleIncludeActionAndClassifier(rule);
-          })
-        }
-
-        var doesRuleIncludeActionAndClassifier = function(rule) {
-          return (rule.actionIds && rule.actionIds.length) && (rule.classifierIds && rule.classifierIds.length);
-        };
-
         $scope.deleteRule = function(index) {
           $scope.selectedRuleSet.rules.splice(index, 1);
         };
@@ -75,10 +73,12 @@ angular.module('policyEngine')
         };
 
       },
-      scope: true,
-      // scope: {
-      //   classifier: '='
-      // },
+      // scope: true,
+      scope: {
+        areAllRulesValid: '=',
+        editModeHash: '=',
+        selectedRuleSet: '='
+      },
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
       }
