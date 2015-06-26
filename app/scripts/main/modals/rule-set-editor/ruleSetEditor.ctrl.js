@@ -47,6 +47,8 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     $scope.innerModal = 'editor';
 
     $scope.toggleInnerModal = function(innerModal) {
+      $scope.customClassifier = emptyClassifier();
+      $scope.customAction = emptyAction();
       $scope.innerModal = innerModal;
     };
 
@@ -63,7 +65,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       if ($scope.isCreateClassifierEnabled()) {
         PolicyActions.CreateClassifier($scope.customClassifier);
         $scope.toggleInnerModal('editor');
-        $scope.customClassifier = emptyClassifier();
       }
     };
 
@@ -87,7 +88,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       if ($scope.isCreateActionEnabled()) {
         PolicyActions.CreateAction($scope.customAction);
         $scope.toggleInnerModal('editor');
-        $scope.customAction = emptyAction();
       }
     };
 
