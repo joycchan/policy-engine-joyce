@@ -1,20 +1,12 @@
 <div class="ruleEditor">
   <div class="classifiers">
-    <div class="title">Classifiers</div>
-    <div class="search">
-      <input-search model="search.classifiers.name"></input-search>
-    </div>
-    <div class="addButton">
-      <div class="button" ng-click="toggleInnerModal('classifier')">Add Custom Classifier</div>
-    </div>
-    <div class="hDivider"></div>
-    <div
-      class="listItem"
-      ng-repeat="classifier in existingClassifiers() | filter: search.classifiers"
-      ng-drag="isInEditModeForAnyRule()"
-      ng-drag-data="{type: 'classifier', data: classifier}">
-      {{classifier.name}}
-    </div>
+    <sub-rules-list
+      title="Classifier"
+      sub-rule-type="classifier"
+      toggle-inner-modal="toggleInnerModal"
+      list="existingClassifiers"
+      filter="search.classifiers"
+      is-draggable="isInEditModeForAnyRule"></sub-rules-list>
   </div>
 
   <div class="editor" ng-switch="innerModal">
@@ -49,19 +41,13 @@
   </div>
 
   <div class="actions">
-    <div class="title">Actions</div>
-    <div class="search">
-      <input-search model="search.actions.name"></input-search>
-    </div>
-    <div class="addButton">
-      <div class="button" ng-click="toggleInnerModal('action')">Add Custom Action</div>
-    </div>
-    <div class="hDivider"></div>
-    <div class="listItem"
-      ng-repeat="action in existingActions() | filter: search.actions"
-      ng-drag="isInEditModeForAnyRule()"
-      ng-drag-data="{type: 'action', data: action}">
-      {{action.name}}
-    </div>
+    <sub-rules-list
+      title="Actions"
+      sub-rule-type="action"
+      toggle-inner-modal="toggleInnerModal"
+      list="existingActions"
+      filter="search.actions"
+      is-draggable="isInEditModeForAnyRule">
+    </sub-rules-list>
   </div>
 </div>

@@ -17,12 +17,9 @@
 .ruleEditor {
   height: @ruleEditor-height;
 
-  .classifiers, .actions, .editor {
+  .classifiers, .actions {
     display: inline-block;
     vertical-align: top;
-  }
-
-  .classifiers, .actions {
     width: 220px;
     background-color: @color-90;
     height: @ruleEditor-height;
@@ -34,74 +31,6 @@
 
   .actions {
     border-left: 1px solid @color-70;
-  }
-
-  .editor {
-    width: 520px;
-    background-color: white;
-  }
-
-  .title {
-    padding: 15px 15px 15px 15px;
-    &:extend(.thin);
-    font-size: 18px;
-    color: @color-60;
-    line-height: 26px;
-    
-    &--editor {
-      color: @color-70;
-    }
-  }
-
-  .search {
-    padding: 0 15px 15px 15px;
-    input {
-      height: 32px;
-    }
-  }
-
-  .addButton {
-    padding: 0 15px 15px 15px;
-  }
-
-  .hDivider {
-    border: 1px solid @color-70;
-  }
-
-  .category {
-    padding: 15px 15px 5px 15px;
-    font-size: 12px;
-    color: @color-60;
-    line-height: 18px;
-  }
-
-  .category-dropdown {
-    padding: 5px 15px 15px 15px;
-    // overwriting bootstrap styles
-    .btn {
-      width: 190px;
-      text-align: left;
-
-      .caret {
-        left: 140px;
-        position: relative;
-      }
-    }
-  }
-
-  .listItem {
-    &:extend(.extra-light);
-    cursor: pointer;
-    font-size: 12px;
-    color: @color-50;
-    line-height: 36px;
-    border-left: 3px solid @color-90;
-    padding-left: 15px;
-    position: relative;
-    &:hover {
-      background-color: @color-80;
-      border-left: 3px solid @blue;
-    }
   }
 
   .openClose {
