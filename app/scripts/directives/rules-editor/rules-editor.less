@@ -1,0 +1,177 @@
+@import "../../../styles/variables";
+
+.ruleEditor {
+
+  .editor-help {
+    &:extend(.extra-light);
+    padding: 0 15px 15px 15px;
+    font-size: 12px;
+    color: @color-60;
+    line-height: 18px;
+  }
+
+  .editor-scrollable {
+    overflow-y: auto;
+    position: relative;
+    height: calc(52vh);
+  }
+
+  .rulesListContainer {
+    padding: 0 15px;
+  }
+
+  .rulesList {
+    table-layout: fixed;
+    width: 100%;
+    tbody td {
+      white-space: normal;
+    }
+    td:last-child {
+      text-align: left;
+    }
+    td:nth-child(1), th:nth-child(1) {
+      width: 7%;
+    }
+    td:nth-child(2),th:nth-child(2) {
+      width: 47.5%;
+    }
+    td:nth-child(3), th:nth-child(3) {
+      width: 47.5%;
+    }
+  }
+
+  .subRuleDrop {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0);
+    // placeholder so that the element doesnt jump when it suddenly gets a border when the row is in edit mode
+  }
+
+  .rulesList-row.is-inEditMode {
+    .subRuleDrop {
+      padding: 4px;
+      border: 1px dashed @color-70;
+      padding: 4px;
+      border-radius: 8px;
+      &.drag-enter {
+        border-color: @blue;
+      }
+    }
+  }
+
+  .subRuleContainer {
+    height: 24px;
+  }
+
+  .subRule {
+    &:extend(.extra-light);
+    height: 20px;
+    border-radius: 5px;
+    color: white;
+    line-height: 18px;
+    padding: 2px 8px 2px 0;
+    font-size: 12px;
+    display: inline-block;
+    margin: 2px;
+    max-width: 100%;
+    overflow: hidden;
+
+    &--classifier {
+      color: @color-50;
+    }
+    &--action {
+      color: @color-50;
+    }
+    &--empty {
+      font-size: 11px;
+      color: @color-70;
+    }
+    &--new {
+      color: @blue;
+    }
+  }
+
+  .rulesList-row.is-inEditMode {
+    .subRule {
+      padding: 2px 6px;
+
+      &--classifier {
+        color: white;
+        background-color: @rulesetEditor-rowItem-editMode-BG;
+      }
+      &--action {
+        color: white;
+        background-color: @launchNav-notification-backgroundColor;
+      }
+    }
+  }
+
+  .editIcon {
+    min-width: 25px;
+    min-height: 25px;
+  }
+
+  .deleteSubRuleContainer {
+    visibility: hidden;
+    display: inline-block;
+    margin-left: 5px;
+
+    &:hover {
+      .deleteSubRule.is-hiddenOnHover {
+        display: none;
+      }
+      .deleteSubRule.is-displayedOnHover {
+        display: block;
+      }
+    }
+  }
+
+  .rulesList-row.is-inEditMode {
+    .deleteSubRuleContainer {
+      visibility: visible;
+    }
+  }
+
+  .deleteSubRule {
+    width: 10px;
+    height: 10px;
+
+    &.is-hiddenOnHover {
+      display: block;
+    }
+    &.is-displayedOnHover {
+      display: none;
+    }
+  }
+
+  .editDeleteIconsContainer {
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+  }
+
+  .addRuleContainer {
+    padding: 0 15px;
+    &:hover {
+      .addRule {
+        visibility: visible;
+      }
+    }
+  }
+
+  .addRule {
+    visibility: hidden;
+    &.is-disabled {
+      visibility: hidden !important;
+    }
+    td:first-child {
+      width: 3.5%;
+    }
+  }
+
+  .addRuleTextContainer {
+    text-align: left;
+    border: 1px dashed @blue;
+    padding: 4px;
+    border-radius: 8px;
+  }
+}
