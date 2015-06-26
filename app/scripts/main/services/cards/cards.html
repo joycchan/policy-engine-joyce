@@ -1,6 +1,5 @@
 <div ng-hide="filtered['category']">
-
-    <div class="categories-new card category">
+      <div class="categories-new card category">
         <div class="button new-button" ui-sref="main.service.form">
             <div class="plus">+</div>
             <span class="new-text">New Service</span>
@@ -34,7 +33,6 @@
                 <p ng-repeat="service in servicesByCategory(category)">{{service.name}}</p>
             </div>
             <div class="button-g">
-                <div ng-click="textBtnFormService.$show(); $event.stopPropagation()" ng-hide="textBtnFormService.$visible" class="button is-selected">Rename</div>
             <div class="button-group">
                 <div class="button is-selected">Rename</div>
                 <div ng-click="deleteCategory(category)" class="button button--danger">Delete</div>
