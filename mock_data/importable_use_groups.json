@@ -1,6 +1,7 @@
 [
   {
     "id": "1",
+    "_key": "lt-1",
     "name": "Sales Team",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
@@ -11,6 +12,7 @@
   },
   {
     "id": "2",
+    "_key": "lt-2",
     "name": "Marketing Dept",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
@@ -22,6 +24,7 @@
   },
   {
     "id": "3",
+    "_key": "lt-3",
     "name": "Tech Ops",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
@@ -33,6 +36,7 @@
   },
   {
     "id": "234",
+    "_key": "lt-234",
     "name": "Dev Ops",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
@@ -43,6 +47,7 @@
   },
   {
     "id": "4",
+    "_key": "lt-4",
     "name": "Legal",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
@@ -54,6 +59,7 @@
   },
   {
     "id": "5",
+    "_key": "lt-5",
     "name": "Payroll",
     "origin": "ISE (Active Directory)",
     "description": "Lorem ipsum dolor sit amet",
@@ -65,6 +71,7 @@
   },
   {
     "id": "6",
+    "_key": "lt-6",
     "name": "Employees",
     "description": "Lorem ipsum dolor sit amet",
     "servicesProvided": 0,
@@ -75,6 +82,7 @@
   },
   {
     "id": "8",
+    "_key": "lt-8",
     "name": "Contractors",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
@@ -85,6 +93,7 @@
   },
   {
     "id": "13",
+    "_key": "lt-13",
     "name": "Group A",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
@@ -96,6 +105,7 @@
   },
   {
     "id": "14",
+    "_key": "lt-14",
     "name": "Group B",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
@@ -107,6 +117,7 @@
   },
   {
     "id": "143",
+    "_key": "lt-143",
     "name": "Group C",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",
@@ -118,6 +129,7 @@
   },
   {
     "id": "142",
+    "_key": "lt-142",
     "name": "Group D",
     "origin": "VMware vCenter",
     "description": "Lorem ipsum dolor sit amet",

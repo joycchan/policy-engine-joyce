@@ -13,7 +13,7 @@ angular.module('policyEngine').controller('ClassifierEditCtrl',
     };
 
     $scope.delete = function() {
-      PolicyActions.DeleteClassifier($scope.classifier.id);
+      PolicyActions.DeleteClassifier($scope.classifier);
       $state.go('main.classifiers');
     };
 

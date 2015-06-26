@@ -1,36 +1,43 @@
 [
   {
     "id": "1",
+    "_key": "lt-1",
     "name": "Backup and Storage",
     "image": "photo_backup.png"
   },
   {
     "id": "2",
+    "_key": "lt-2",
     "name": "Business and Productivity Tools",
     "image": "photo_business.png"
   },
   {
     "id": "3",
+    "_key": "lt-3",
     "name": "Database",
     "image": "photo_database.png"
   },
   {
     "id": "4",
+    "_key": "lt-4",
     "name": "Email",
     "image": "photo_email.png"
   },
   {
     "id": "5",
+    "_key": "lt-5",
     "name": "Internet Security",
     "image": "photo_internet.png"
   },
   {
     "id": "6",
+    "_key": "lt-6",
     "name": "Software Updates",
     "image": "photo_software.png"
   },
   {
     "id": "7",
+    "_key": "lt-7",
     "name": "Voice & Video",
     "image": "photo_voice.png"
   }
