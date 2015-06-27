@@ -12,7 +12,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       actions: {name:''}
     };
 
-
+    $scope.editModeHash = {};
 
     $scope.CONSTANTS = {
       'EDITOR': 'editor',
@@ -43,16 +43,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
     var doesRuleIncludeActionAndClassifier = function(rule) {
       return (rule.actionIds && rule.actionIds.length)
         && (rule.classifierIds && rule.classifierIds.length);
-    };
-
-
-
-    $scope.editModeHash = {};
-
-    $scope.isInEditModeForAnyRule = function () {
-      return _.any($scope.editModeHash, function (index) {
-        return index === true;
-      });
     };
 
 
