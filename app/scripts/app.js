@@ -5,13 +5,13 @@ angular.module("policyEngine", [
   ])
   .config(
   function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/launch/");
+    $urlRouterProvider.otherwise("/login/");
 
     $stateProvider
-      .state("launch", {
-        url: "/launch/",
-        templateUrl: "scripts/launch/launch.html",
-        controller: "LaunchCtrl"
+      .state("login", {
+        url: "/login/",
+        templateUrl: "scripts/login/login.html",
+        controller: "LoginCtrl"
       })
       .state("main", {
         abstract: true,
