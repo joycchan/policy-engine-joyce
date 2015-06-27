@@ -47,10 +47,7 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
 
 
 
-    $scope.editModeHash = {
-      // setting state for dev purposes
-      0: true
-    };
+    $scope.editModeHash = {};
 
     $scope.isInEditModeForAnyRule = function () {
       return _.any($scope.editModeHash, function (index) {

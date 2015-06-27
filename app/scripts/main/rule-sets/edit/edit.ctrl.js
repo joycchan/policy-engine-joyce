@@ -20,11 +20,6 @@ angular.module('policyEngine').controller('RuleSetsEditCtrl',
       });
     };
 
-    setTimeout(function() {
-      // setting state for dev purposes
-      $scope.editRule()
-    }, 500)
-
     $scope.saveRuleSet = function () {
       PolicyActions.UpdateRuleSet($scope.ruleSet);
     };
