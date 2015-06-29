@@ -5,7 +5,7 @@ angular.module('policyEngine').controller('ServicesEdit',
 
     $scope.service = angular.copy(PolicyStore.Services.find({id: $stateParams.serviceId}));
 
-    // Adding a special "Uncategorized" category with a value of null
+    // Adding a special "Uncategorized" category with a value of null to the top of the dropdown
     var _displayedCategories = angular.copy(PolicyStore.Categories.all.bind(PolicyStore.Categories)());
     _displayedCategories.unshift({'id': null, name: "Uncategorized"});
 
