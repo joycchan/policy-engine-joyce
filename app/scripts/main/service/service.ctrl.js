@@ -11,7 +11,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.service = {
       name: 'New Service',
       description: '',
-      categoryId: '8' // uncategorized
+      categoryId: null // uncategorized
     };
 
     $scope.selectedGroup = function() {
