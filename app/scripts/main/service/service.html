@@ -19,9 +19,9 @@
         <div class="form-group">
             <label class="col-sm-2" for="category">category</label>
             <div class="category-wrapper">
-                <select class="form-control" name="category" id="category" ng-model="service.category">
+                <select class="form-control" name="category" id="category" ng-model="service.categoryId">
                     <option value="" selected disabled>Select Category</option>
-                    <option value="{{category.name}}" ng-repeat="category in categories()">{{category.name}}</option>
+                    <option value="{{category.id}}" ng-repeat="category in categories()">{{category.name}}</option>
                 </select>
             </div>
         </div>

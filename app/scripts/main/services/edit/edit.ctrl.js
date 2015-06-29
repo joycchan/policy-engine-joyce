@@ -4,6 +4,7 @@ angular.module('policyEngine').controller('ServicesEdit',
   function ($scope, PolicyStore, PolicyActions, $stateParams, $state) {
 
     $scope.service = angular.copy(PolicyStore.Services.find({id: $stateParams.serviceId}));
+    $scope.categories = PolicyStore.Categories.all.bind(PolicyStore.Categories);
 
     $scope.providerGroup = function() {
       return PolicyStore.Groups.find({id: $scope.service.providerGroupId});
@@ -24,8 +25,14 @@ angular.module('policyEngine').controller('ServicesEdit',
       'uiSref': 'main.servicesEdit.assignedGroups'
     }];
 
-    $scope.$watchGroup(['service.name', 'service.description'], function () {
+    $scope.$watchGroup(['service.name', 'service.description', 'service.categoryId'], function () {
       PolicyActions.UpdateService($scope.service);
     });
+
+    $scope.categoryNameById = function(id) {
+      return _.find($scope.categories(), function(category) {
+        return category.id === id;
+      });
+    };
 
   });
