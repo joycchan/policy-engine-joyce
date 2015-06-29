@@ -40,11 +40,5 @@
     "_key": "lt-7",
     "name": "Voice & Video",
     "image": "photo_voice.png"
-  },
-  {
-    "id": "8",
-    "_key": "lt-8",
-    "name": "Uncategorized",
-    "image": "photo_uncategorized.png"
   }
 ]
