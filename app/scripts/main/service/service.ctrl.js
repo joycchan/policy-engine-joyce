@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state, PolicyStore, PolicyActions, $timeout) {
+  function ($scope, $state, PolicyStore, PolicyActions) {
 
 
     $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
