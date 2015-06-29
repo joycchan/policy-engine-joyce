@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceCtrl',
-  function ($scope, $state, PolicyStore, PolicyActions) {
+  function ($scope, $state, PolicyStore, PolicyActions, $timeout) {
 
 
     $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
@@ -11,7 +11,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.service = {
       name: 'New Service',
       description: '',
-      category: ''
+      categoryId: '8' // uncategorized
     };
 
     $scope.selectedGroup = function() {
