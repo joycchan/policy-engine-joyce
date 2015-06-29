@@ -27,7 +27,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
   };
 
   var actions = {
-    
+
     FetchServices: function() {
 
       var request = CreateRequest("FetchServices");
@@ -48,7 +48,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     },
 
     ReceiveService: function(service) {
-      PolicyStore.Services.insert(service);  
+      PolicyStore.Services.insert(service);
     },
 
     CreateService: function(service) {
@@ -79,7 +79,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     },
 
     ReceiveGroup: function(group) {
-      PolicyStore.Groups.insert(group);  
+      PolicyStore.Groups.insert(group);
     },
 
     CreateGroup: function(group) {
@@ -124,21 +124,27 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
     },
 
     ReceiveAssignment: function(assignment) {
-      PolicyStore.Assignments.insert(assignment);  
+      PolicyStore.Assignments.insert(assignment);
     },
 
     CreateAssignment: function(assignment) {
       assignment.id = Util.uid(); // generate ids locally for now
       PolicyStore.Assignments.insert(assignment);
-      $http.post(path('assignments'), assignment).success(function(data) {
-        PolicyStore.Assignments.update({id: assignment.id}, data);
-      });
+      //$http.post(path('assignments'), assignment).success(function(data) {
+        //PolicyStore.Assignments.update({id: assignment.id}, data);
+      ///});
       return assignment;
     },
 
     UpdateAssignment: function(assignment) {
       PolicyStore.Assignments.update({id: assignment.id}, assignment);
-      $http.patch(path('assignments', assignment[KEY]), assignment);
+      var apiAssignment = {
+        id: assignment.id,
+        serviceId: assignment.item.id,
+        consumerGroupIds: _.pluck(assignment.collection, 'id')
+      };
+      $http.post(path('assignments'), apiAssignment).success(function(data) {
+      });
     },
 
     DeleteAssignment: function(assignment) {
