@@ -1,82 +1,5 @@
 @import "../../../styles/variables";
 
-.assignment-cards {
-
-  .catalog {
-    background-color: white;
-    min-height: 500px;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-    padding: 15px;
-    overflow-x: hidden;
-
-    .new-button {
-      width: 160px;
-    }
-    h4 {
-      font-weight: bold;
-      font-size: 12px;
-      color: @color-60;
-      margin: 20px 0 7px;
-    }
-
-    .type {
-      line-height: 26px;
-    }
-
-    .circle {
-      display: inline-block;
-      margin-right: 5px;
-      height: 10px;
-      width: 10px;
-      border-radius: 999px;
-
-      &.group-centric {
-        background-color: @groupCentric;
-      }
-
-      &.service-centric {
-        background-color: @serviceCentric;
-      }
-    }
-
-    p {
-      cursor: pointer;
-      margin-bottom: 5px;
-    }
-  }
-
-  .card {
-    h3 {
-      margin-bottom: 30px;
-    }
-
-
-    a {
-      float: right;
-      padding: 12px;
-    }
-
-    .sliding-box {
-
-      h4 {
-        color: @color-60;
-        font-weight: bold;
-        letter-spacing: 1px;
-        line-height: 17px;
-        margin-bottom: 5px;
-        display: inline-block;
-        font-size: 10px;
-        text-transform: uppercase;
-      }
-
-      p {
-        font-size: 10px;
-        color: @color-60;
-      }
-    }
-  }
-}
-
 .assignments {
   background-color: white;
   min-height: @column-height;
@@ -97,6 +20,7 @@
 
     h2 {
       display: inline-block;
+      margin-bottom: 0;
     }
 
     .button-group {
@@ -105,59 +29,47 @@
       padding: 15px 0;
     }
 
-    p {
-      width: 190px;
-      font-weight: 300;
-      letter-spacing: 0.1px;
-      line-height: 18px;
-      margin: 53px auto 0;
-      text-align: center;
-    }
   }
 
-  .assignment {
+  .instructions {
+    margin: 60px 0 130px;
+    font-weight: bold;
+  }
+
+  .list {
     text-align: center;
 
-    .instructions {
-      width: 245px;
-      margin: 20px auto 0px;
+    .services-header {
+      margin-top: 117px;
+      text-transform: uppercase;
+      color: @color-60;
+      font-size: 10px;
+      font-weight: bold;
+      line-height: 14px;
+      letter-spacing: 1.5px;
     }
-  }
 
-  .selected {
-    font-weight: bold;
-  }
+    .services-number {
+      font-size: 36px;
+      font-weight: 300;
+      line-height: 49px;
+      padding-top: 3px;
+    }
 
-  .services-header {
-    margin-top: 117px;
-    text-transform: uppercase;
-    color: @color-60;
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 14px;
-    letter-spacing: 1.5px;
-  }
+    .service-centric {
+      color: @serviceCentric;
+    }
 
-  .services-number {
-    font-size: 36px;
-    font-weight: 300;
-    line-height: 49px;
-    padding-top: 3px;
-  }
+    .group-centric {
+      color: @groupCentric;
+    }
 
-  .service-centric {
-    color: @serviceCentric;
-  }
-
-  .group-centric {
-    color: @groupCentric;
-  }
-
-  .show-list {
-    font-weight: 300;
-    font-size: 12px;
-    color: @blue;
-    letter-spacing: 0;
-    line-height: 16px;
+    .show-list {
+      font-weight: 300;
+      font-size: 12px;
+      color: @blue;
+      letter-spacing: 0;
+      line-height: 16px;
+    }
   }
 }

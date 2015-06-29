@@ -46,14 +46,6 @@ angular.module('policyEngine').factory('Modals',
           }
         }
       },
-      newAssignment: {
-        animation: false,
-        templateUrl: 'scripts/main/modals/new-assignment/new-assignment.html',
-        controller: 'NewAssignmentCtrl',
-        size: 'lg',
-        windowClass: 'new-assignment-modal',
-        windowTemplateUrl: 'scripts/templates/modal/window.html',
-      }
     };
 
     return service;

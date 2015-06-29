@@ -60,12 +60,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.assignService = function (service) {
-      var assignment = PolicyActions.CreateAssignment({
-        type: 'serviceCentric',
-        item: service,
-        collection: []
-      });
-      $state.go('main.assignment.serviceCentric', {assignmentId: assignment.id});
+      $state.go('main.assignment.service', { itemId: service.id });
     };
 
     $scope.serviceConsumers = function (service) {

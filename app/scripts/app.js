@@ -147,18 +147,19 @@ angular.module("policyEngine", [
         })
         .state("main.assignment", {
           abstract: true,
-          url: "assignments/:assignmentId/",
-          templateUrl: "scripts/main/assignments/assignment/assignment.html",
+          url: 'assignment/',
+          templateUrl: 'scripts/main/assignment/assignment.html',
           controller: "AssignmentCtrl"
         })
-           .state("main.assignment.serviceCentric", {
-              url: "service-centric/",
-              templateUrl: "scripts/main/assignments/assignment/service-centric/service-centric.html"
-            })
-            .state("main.assignment.groupCentric", {
-              url: "group-centric/",
-              templateUrl: "scripts/main/assignments/assignment/group-centric/group-centric.html"
-            })
+          .state("main.assignment.group", {
+            url: 'group/:itemId',
+            templateUrl: 'scripts/main/assignment/group.html',
+          })
+          .state("main.assignment.service", {
+            url: 'service/:itemId',
+            templateUrl: 'scripts/main/assignment/service/service.html',
+            controller: 'ServiceAssignmentCtrl'
+          })
       .state("main.ruleSets", {
         url: "rule-sets/",
         controller: "RuleSetsCtrl",

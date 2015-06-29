@@ -4,7 +4,7 @@ angular.module('policyEngine')
   .directive('assignmentPanel', function () {
     return {
       templateUrl: 'scripts/directives/assignment-panel/assignment-panel.html',
-      controller: function ($scope) {
+      controller: function ($scope, $state) {
 
         $scope.dragData = function(item) {
           return {
@@ -23,12 +23,19 @@ angular.module('policyEngine')
           }
         };
 
+        $scope.goTo = function(item) {
+          if ($scope.navigateTo) {
+            $state.go($scope.navigateTo, { itemId: item.id });
+          }
+       };
+
       },
       scope: {
         title: '@',
         items: '=',
         type: '@',
-        newState: '@'
+        navigateTo: '@',
+
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {
