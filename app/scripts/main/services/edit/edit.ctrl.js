@@ -32,7 +32,7 @@ angular.module('policyEngine').controller('ServicesEdit',
     $scope.categoryNameById = function(id) {
       return _.find($scope.categories(), function(category) {
         return category.id === id;
-      });
+      }).name;
     };
 
   });

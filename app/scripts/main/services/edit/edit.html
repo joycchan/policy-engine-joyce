@@ -27,7 +27,7 @@
             <td class="objectsSettings-editHeader">Category</td>
             <td class="objectsSettings-editText serviceEdit-dropdown">
                 <span editable-select="service.categoryId" e-form="formCategory" e-ng-options="category.id as category.name for category in categories()">
-                    {{categoryNameById(service.categoryId).name}}
+                    {{categoryNameById(service.categoryId)}}
                 </span>
                 <list-view-icon ng-click="formCategory.$show()" ng-hide="formCategory.$visible"
                                 inactive-src="images/icon_edit_16.png" active-src="images/icon_edit_16_blue.png"
