@@ -4,6 +4,6 @@
   <custom-action action="action" text="actionDataText"></custom-action>
   <div class="button-group--right button-group">
       <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-      <div class="button" ng-click="create()">Create</div>
+      <div class="button" ng-click="create()" ng-class="{'is-disabled': !isCreateEnabled()}">Create</div>
   </div>
 </div>
