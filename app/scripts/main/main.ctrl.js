@@ -24,11 +24,11 @@ angular.module('policyEngine').controller('MainCtrl',
        associatedStates: ['main.servicesEdit', 'main.service'],
        width: 82
      }, {
-       name: 'Assignments',
+       name: 'Policy',
        state: 'main.assignments',
        selectionState: 'main.assignments',
        associatedStates: ['main.assignment'],
-       width: 108
+       width: 69
      }, {
        name: 'Groups',
        state: 'main.groups',
