@@ -239,9 +239,47 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
     },
 
     FetchCategories: function () {
-      $http.get(path('categories')).success(function (data) {
-        data.map(actions.ReceiveCategory);
-      });
+      //$http.get(path('categories')).success(function (data) {
+      //data.map(actions.ReceiveCategory);
+      //});
+      var categories = [
+        {
+          "id": "1",
+          "name": "Backup and Storage",
+          "image": "photo_backup.png"
+        },
+        {
+          "id": "2",
+          "name": "Business and Productivity Tools",
+          "image": "photo_business.png"
+        },
+        {
+          "id": "3",
+          "name": "Database",
+          "image": "photo_database.png"
+        },
+        {
+          "id": "4",
+          "name": "Email",
+          "image": "photo_email.png"
+        },
+        {
+          "id": "5",
+          "name": "Internet Security",
+          "image": "photo_internet.png"
+        },
+        {
+          "id": "6",
+          "name": "Software Updates",
+          "image": "photo_software.png"
+        },
+        {
+          "id": "7",
+          "name": "Voice & Video",
+          "image": "photo_voice.png"
+        }
+      ];
+      categories.map(actions.ReceiveCategory);
     },
 
     ReceiveCategory: function (category) {
