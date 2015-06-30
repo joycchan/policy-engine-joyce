@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceAssignmentCtrl',
-  function ($scope, $stateParams, PolicyStore, PolicyActions) {
+  function ($scope, $stateParams, PolicyStore, PolicyActions, $state) {
 
     $scope.consumerGroups = [];
 
@@ -10,7 +10,11 @@ angular.module('policyEngine').controller('ServiceAssignmentCtrl',
     };
 
     $scope.saveAssignment = function() {
-      PolicyActions.CreateAssignment($scope.assignment);
+      PolicyActions.CreateAssignment({
+        serviceId: $scope.service.id,
+        consumerGroupIds: _.pluck($scope.consumerGroups, 'id')
+      });
+      $state.go('main.assignments');
     };
 
     $scope.$watchGroup(['$routeChangeSuccess', function () {

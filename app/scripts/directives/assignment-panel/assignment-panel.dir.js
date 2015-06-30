@@ -6,28 +6,36 @@ angular.module('policyEngine')
       templateUrl: 'scripts/directives/assignment-panel/assignment-panel.html',
       controller: function ($scope, $state) {
 
-        $scope.dragData = function(item) {
+        $scope.dragData = function (item) {
           return {
             type: $scope.type,
             item: item
           }
         };
 
-        $scope.itemIcon = function(item) {
+        $scope.itemIcon = function (item) {
           if ($scope.type === 'groupCentric') {
             return 'service';
-          } else if(item.type === 'resource') {
+          } else if (item.type === 'resource') {
             return 'resource';
           } else {
             return 'user';
           }
         };
 
-        $scope.goTo = function(item) {
+        $scope.goTo = function (item) {
           if ($scope.navigateTo) {
-            $state.go($scope.navigateTo, { itemId: item.id });
+            $state.go($scope.navigateTo, {itemId: item.id});
           }
-       };
+        };
+
+        $scope.nestedItems = [];
+
+        $scope.$watch('items', function() {
+          if ($scope.items.length) {
+            $scope.nestedItems = $scope.items;
+          }
+        });
 
       },
       scope: {

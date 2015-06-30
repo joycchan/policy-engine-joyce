@@ -1,19 +1,24 @@
 @import "../../../styles/variables";
 
 .assignments {
-  background-color: white;
   min-height: @column-height;
 
   .side-panel {
     height: @column-height;
+    background-color: @color-90;
     padding-left: 0 !important;
     padding-right: 0 !important;
     position: relative;
+
+    input {
+      background-color: white;
+    }
   }
 
   .middle-panel {
+    height: @column-height;
+    background-color: white;
     padding-bottom: 70px;
-    background-color: @color-90;
     border-left: 1px #DFDFDF solid;
     border-right: 1px #DFDFDF solid;
     z-index: 0;
@@ -21,12 +26,33 @@
     h2 {
       display: inline-block;
       margin-bottom: 0;
+
+      span {
+        font-weight: 400;
+      }
     }
 
     .button-group {
       display: inline-block;
       float: right;
       padding: 15px 0;
+
+      .button {
+        width: 90px;
+      }
+
+      .pin {
+        margin-right: 25px;
+        padding-left: 15px;
+
+        .pin-icon {
+          display: inline-block;
+          background: url(../../../images/icon_pin_16_outline.png) no-repeat;
+          height: 18px;
+          width: 18px;
+          margin-right: 2px;
+        }
+      }
     }
 
   }
@@ -38,9 +64,11 @@
 
   .list {
     text-align: center;
+    margin-top: 117px;
 
     .services-header {
-      margin-top: 117px;
+      margin: 0 auto;
+      width: 175px;
       text-transform: uppercase;
       color: @color-60;
       font-size: 10px;
