@@ -10,7 +10,7 @@
   <div
     class="listItem"
     ng-repeat="subRule in list() | filter: filter"
-    ng-drag="isDraggable()"
+    ng-drag="true"
     ng-drag-data="{type: subRuleType, data: subRule}">
     {{subRule.name}}
   </div>

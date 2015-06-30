@@ -22,8 +22,7 @@ angular.module('policyEngine')
 
         $scope.addClassifier = function (metaObject, index) {
           if (metaObject.type === 'classifier'
-            && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifierIds, metaObject.data.id)
-            && $scope.editModeHash[index]) {
+            && !isExistingRuleSet($scope.selectedRuleSet.rules[index].classifierIds, metaObject.data.id)) {
 
             $scope.selectedRuleSet.rules[index].classifierIds.push(metaObject.data.id);
           }
@@ -31,14 +30,9 @@ angular.module('policyEngine')
 
         $scope.addAction = function (metaObject, index) {
           if (metaObject.type === 'action'
-            && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actionIds, metaObject.data.id)
-            && $scope.editModeHash[index]) {
+            && !isExistingRuleSet($scope.selectedRuleSet.rules[index].actionIds, metaObject.data.id)) {
             $scope.selectedRuleSet.rules[index].actionIds.push(metaObject.data.id);
           }
-        };
-
-        $scope.toggleEditRuleSet = function (index) {
-          $scope.editModeHash[index] = !$scope.editModeHash[index];
         };
 
         var generateEmptyRule = function() {
@@ -51,7 +45,6 @@ angular.module('policyEngine')
         $scope.addRule = function() {
           if ($scope.areAllRulesValid()) {
             $scope.selectedRuleSet.rules.push(generateEmptyRule());
-            $scope.editModeHash[$scope.selectedRuleSet.rules.length - 1] = true;
           }
         };
 
@@ -75,7 +68,6 @@ angular.module('policyEngine')
       // scope: true,
       scope: {
         areAllRulesValid: '=',
-        editModeHash: '=',
         selectedRuleSet: '='
       },
       restrict: 'E',

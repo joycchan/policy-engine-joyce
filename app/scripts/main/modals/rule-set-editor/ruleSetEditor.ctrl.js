@@ -12,8 +12,6 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       actions: {name:''}
     };
 
-    $scope.editModeHash = {};
-
     $scope.CONSTANTS = {
       'EDITOR': 'editor',
       'CLASSIFIER': 'classifier',
