@@ -13,22 +13,19 @@
     line-height: 18px;
   }
 
-  .editor-scrollable {
-    overflow-y: auto;
-    position: relative;
-    height: calc(52vh);
-  }
-
   .rulesList {
     border-collapse: collapse;
     width: 100%;
+    tbody {
+      height: calc(52vh);
+    }
     tbody td {
       white-space: normal;
     }
-    td:nth-child(1),th:nth-child(2) {
+    td:nth-child(1),th:nth-child(1) {
       width: 46%;
     }
-    td:nth-child(2), th:nth-child(3) {
+    td:nth-child(2), th:nth-child(2) {
       width: 46%;
     }
   }
