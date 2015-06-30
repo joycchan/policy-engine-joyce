@@ -1,51 +1,13 @@
 'use strict';
 
 angular.module('policyEngine').controller('AssignmentsCtrl',
-  function ($scope, $state, PolicyStore, PolicyActions, $modal, Modals) {
+  function ($scope, $state, PolicyStore, collapsed) {
 
-    $scope.assignments = PolicyStore.Assignments.all.bind(PolicyStore.Assignments);
+    $scope.services = PolicyStore.Services.all.bind(PolicyStore.Services);
 
-    $scope.newAssignment = function () {
-      $modal.open(Modals.newAssignment);
-    };
+    $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
 
-    $scope.cardState = function() {
-      return $state.is('main.assignments');
-    };
-
-    $scope.listState = function() {
-      return false;
-    };
-
-    $scope.selectCardtState = function() {
-      $state.go('main.assignments');
-    };
-
-    $scope.selectListState = function() {
-    };
-
-    $scope.groupCentric = function () {
-      return PolicyStore.Assignments.where({type: 'groupCentric'});
-    };
-
-    $scope.serviceCentric = function () {
-      return PolicyStore.Assignments.where({type: 'serviceCentric'});
-    };
-
-    $scope.goToAssignment = function (assignment) {
-      $state.go('main.assignment.' + assignment.type, {assignmentId: assignment.id});
-    };
-
-    $scope.listHeader = function (assignment) {
-      if (assignment.type === 'groupCentric') {
-        return 'Assigned Services';
-      } else {
-        return 'Assigned Groups';
-      }
-    };
-
-    $scope.delete = function (assignment) {
-      PolicyActions.DeleteAssignment(assignment);
-    };
+    $scope.collapsedGroups = collapsed.groups;
+    $scope.collapsedServices = collapsed.services;
   }
 );
