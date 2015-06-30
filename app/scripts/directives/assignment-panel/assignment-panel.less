@@ -57,7 +57,7 @@
     border-left: 3px solid @color-90;
 
     &.child {
-      padding-left: 30px;
+      padding-left: 40px;
     }
 
     &:hover {
@@ -70,6 +70,19 @@
       z-index: 3;
     }
 
+    .icon-carot {
+       width: 12px;
+      height: 12px;
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      margin-right: 10px;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url(../../../images/icon_dropdown_chevron.png);
+    }
+
     .img-item {
       width: 12px;
       height: 12px;
@@ -80,6 +93,10 @@
       background-size: contain;
       background-position: center center;
       background-repeat: no-repeat;
+
+      &.folder {
+        background-image: url(../../../images/icon_folder.png);
+      }
 
       &.user {
         background-image: url(../../../images/icon_users_16.png);

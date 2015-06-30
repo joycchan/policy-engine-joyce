@@ -8,12 +8,19 @@
             </form>
         </div>
         <div ng-repeat="item in nestedItems | filter:search">
-            <div class="list-element" ng-class="{ child: item.parentId }"
-                 ng-drag="true" ng-drag-data="dragData(item)" ng-click="goTo(item)">
+            <div class="list-element" ng-drag="true" ng-drag-data="dragData(item)" ng-click="goTo(item)">
+                <div class="icon-carot" ng-show="item.children"></div>
                 <div class="img-item" ng-class="itemIcon(item)"></div>
                 {{item.name}}
             </div>
             <hr/>
+            <div ng-repeat="child in item.children">
+                <div class="list-element child" ng-drag="true" ng-drag-data="dragData(child)" ng-click="goTo(child)">
+                    <div class="img-item" ng-class="itemIcon(child)"></div>
+                    {{child.name}}
+                </div>
+                <hr/>
+            </div>
         </div>
     </div>
 </div>

@@ -14,7 +14,9 @@ angular.module('policyEngine')
         };
 
         $scope.itemIcon = function (item) {
-          if ($scope.type === 'groupCentric') {
+          if (item.children && item.children.length) {
+            return 'folder';
+          } else if ($scope.type === 'groupCentric') {
             return 'service';
           } else if (item.type === 'resource') {
             return 'resource';
@@ -31,9 +33,25 @@ angular.module('policyEngine')
 
         $scope.nestedItems = [];
 
+        var getNestedChildren = function (arr, parent) {
+          var out = []
+          for(var i in arr) {
+            if(arr[i].parentId == parent) {
+              var children = getNestedChildren(arr, arr[i].id)
+
+              if(children.length) {
+                arr[i].children = children
+              }
+              out.push(arr[i])
+            }
+          }
+          return out
+        };
+
+
         $scope.$watch('items', function() {
           if ($scope.items.length) {
-            $scope.nestedItems = $scope.items;
+            $scope.nestedItems = getNestedChildren(angular.copy($scope.items));
           }
         });
 
