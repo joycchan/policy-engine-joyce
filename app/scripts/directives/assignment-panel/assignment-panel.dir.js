@@ -25,10 +25,22 @@ angular.module('policyEngine')
           }
         };
 
+        $scope.draggable = function() {
+          return !$scope.navigateTo;
+        };
+
         $scope.goTo = function (item) {
           if ($scope.navigateTo) {
             $state.go($scope.navigateTo, {itemId: item.id});
           }
+        };
+
+        $scope.toggleFolder = function(item) {
+          $scope.collapsedFolders[item.id] = !$scope.collapsedFolders[item.id];
+        };
+
+        $scope.children = function(item) {
+          return $scope.collapsedFolders[item.id] ? [] : item.children;
         };
 
         $scope.nestedItems = [];
@@ -61,6 +73,7 @@ angular.module('policyEngine')
         items: '=',
         type: '@',
         navigateTo: '@',
+        collapsedFolders: '='
 
       },
       restrict: 'EA',

@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('policyEngine').controller('AssignmentCtrl',
-  function ($scope, $state, PolicyStore, PolicyActions, $modal, Modals) {
+  function ($scope, $state, PolicyStore, PolicyActions, $modal, Modals, collapsed) {
+
+    $scope.collapsedGroups = collapsed.groups;
+    $scope.collapsedServices = collapsed.services;
 
     $scope.services = PolicyStore.Services.all.bind(PolicyStore.Services);
 

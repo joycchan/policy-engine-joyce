@@ -1,7 +1,8 @@
-<div class="side-panel col-xs-2">
-    <assignment-panel title="Group" items="groups()" type="serviceCentric" navigate-to="main.assignment.group"></assignment-panel>
+<div class="side-panel col-xs-3">
+    <assignment-panel title="Group" items="groups()" type="serviceCentric" navigate-to="main.assignment.group"
+        collapsed-folders="collapsedGroups"></assignment-panel>
 </div>
-<div class="col-xs-8 middle-panel">
+<div class="col-xs-6 middle-panel">
     <h2>Policy / Sales</h2>
     From the right, drag in services for this group
     <div class="button-group">
@@ -10,6 +11,6 @@
         <div class="button">Save</div>
     </div>
 </div>
-<div class="side-panel col-xs-2">
-    <assignment-panel title="Service" items="services()" type="groupCentric"></assignment-panel>
+<div class="side-panel col-xs-3">
+    <assignment-panel title="Service" items="services()" type="groupCentric" collapsed-folders="collapsedServices"></assignment-panel>
 </div>
