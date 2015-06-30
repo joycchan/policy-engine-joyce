@@ -60,10 +60,14 @@
       padding-left: 42px;
     }
 
-    &.draggable {
-      &:hover {
-        border-left: 3px solid @blue;
-      }
+    &:hover {
+      background-color: @color-80;
+      border-left-color: @color-80;
+    }
+
+    &.selected {
+      background-color: @color-80;
+      border-left: 3px solid @blue;
     }
 
 
@@ -71,6 +75,13 @@
       border: 1px @color-70 solid;
       border-left: 3px solid @blue;
       z-index: 3;
+    }
+
+    .folder-toggle {
+      height: 36px;
+      width: 30px;
+      position: absolute;
+      left: 0;
     }
 
     .icon-carot {
@@ -89,6 +100,10 @@
       &.collapsed {
         transform: rotate(-90deg);
       }
+    }
+
+    .icon-and-name{
+      height: 36px;
     }
 
     .img-item {
