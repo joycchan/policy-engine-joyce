@@ -118,7 +118,7 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
 
 
     FetchAssignments: function () {
-      $http.get(path('nonempty_assignments')).success(function (data) {
+      $http.get(path('assignments')).success(function (data) {
         data.map(actions.ReceiveAssignment);
       });
     },
