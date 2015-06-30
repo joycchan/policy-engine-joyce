@@ -57,11 +57,10 @@
     margin: 2px;
     max-width: 100%;
     overflow: hidden;
-    padding-top: 2px !important; // todo: delete hack
 
     &--classifier {
       color: white;
-      background-color: @rulesetEditor-rowItem-editMode-BG;
+      background-color: @classifier-green;
     }
     &--action {
       color: white;
@@ -105,6 +104,11 @@
     }
   }
 
+  // overriding listView
+  .listView tbody tr.addRule:hover {
+    background-color: white;
+  }
+
   .addRule {
     &:hover {
       .addRuleTextContainer {
@@ -122,10 +126,6 @@
     }
     td:nth-child(2) {
       width: 8%;
-    }
-    // overriding listView
-    &.listView tbody tr:hover {
-      background-color: white;
     }
   }
 

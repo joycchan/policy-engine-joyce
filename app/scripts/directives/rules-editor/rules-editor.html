@@ -15,7 +15,7 @@
         <td>
           <div class="subRuleDrop" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
             <div class="subRuleContainer" ng-repeat="classifier in getClassifiers(rule)">
-              <div class="subRule subRule--classifier listView-innerList">
+              <div class="subRule subRule--classifier">
                 {{classifier.name}}
                 <div class="deleteSubRuleContainer" ng-click="deleteClassifier($parent.$index, classifier)">
                   <img class="deleteSubRule is-hiddenOnHover" src="images/icon_x_16_white.png">
@@ -29,7 +29,7 @@
         <td>
           <div class="subRuleDrop" ng-drop="true" ng-drop-success="addAction($data, $index)">
             <div class="subRuleContainer" ng-repeat="action in getActions(rule)">
-              <div class="subRule subRule--action listView-innerList">
+              <div class="subRule subRule--action">
                 {{action.name}}
                 <div class="deleteSubRuleContainer" ng-click="deleteAction($parent.$index, action)">
                   <img class="deleteSubRule is-hiddenOnHover" src="images/icon_x_16_white.png">
