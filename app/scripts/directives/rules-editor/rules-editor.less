@@ -26,17 +26,11 @@
     tbody td {
       white-space: normal;
     }
-    td:last-child {
-      text-align: left;
+    td:nth-child(1),th:nth-child(2) {
+      width: 46%;
     }
-    td:nth-child(1), th:nth-child(1) {
-      width: 7%;
-    }
-    td:nth-child(2),th:nth-child(2) {
-      width: 47.5%;
-    }
-    td:nth-child(3), th:nth-child(3) {
-      width: 47.5%;
+    td:nth-child(2), th:nth-child(3) {
+      width: 46%;
     }
   }
 
@@ -86,7 +80,7 @@
       color: @color-70;
     }
     &--new {
-      color: @blue;
+      color: @color-50;
     }
   }
 
@@ -152,25 +146,24 @@
   .addRuleContainer {
     padding: 0 15px;
     &:hover {
-      .addRule {
-        visibility: visible;
+      .addRuleTextContainer {
+        border: 1px dashed @blue;
+      }
+      .subRule--new {
+        color: @blue;
       }
     }
   }
 
   .addRule {
-    visibility: hidden;
-    &.is-disabled {
-      visibility: hidden !important;
-    }
-    td:first-child {
-      width: 3.5%;
+    td {
+      width: 92%;
     }
   }
 
   .addRuleTextContainer {
     text-align: left;
-    border: 1px dashed @blue;
+    border: 1px dashed @color-70;
     padding: 4px;
     border-radius: 8px;
   }
