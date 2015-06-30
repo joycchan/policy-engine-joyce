@@ -1,0 +1,18 @@
+<h2>{{assignment.item.name}}</h2>
+<div class="button-group">
+    <div ui-sref="main.assignments" class="button button--secondary">Cancel</div>
+    <div ng-click="saveAssignment()" ng-class="{'is-disabled': valid()}" class="button">Save</div>
+</div>
+
+<div class="assignment" ng-drop-success="onDropComplete($data,$event)">
+    <p>From the left, drag in groups that should have access to this service.</p>
+    <donut data="assignment.collection" type="serviceCentric" name="assignment.item.name"
+           drop="onDropComplete"></donut>
+    <div class="services-header">
+        Groups Served
+    </div>
+    <div class="services-number service-centric">
+        {{assignment.collection.length}}
+    </div>
+    <div class="show-list">Show List</div>
+</div>

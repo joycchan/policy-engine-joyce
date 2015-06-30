@@ -28,7 +28,7 @@ angular.module('policyEngine')
         var height = radius * 2 + margin.top + margin.bottom;
 
         var labelBuffer = 60;
-        var circleWidth = 10;
+        var circleWidth = 15;
         var arc = d3.svg.arc()
           .outerRadius(radius)
           .innerRadius(radius - circleWidth);

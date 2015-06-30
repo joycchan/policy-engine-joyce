@@ -1,0 +1,35 @@
+<div class="side-panel col-xs-3">
+    <assignment-panel title="Group" items="groups()" type="serviceCentric"
+        collapsed-folders="collapsedGroups"></assignment-panel>
+</div>
+<div class="col-xs-6 middle-panel">
+    <h2>Policy /
+        <span>{{service.name}}</span></h2>
+
+    <div class="button-group">
+        <div class="button button--secondary pin">
+            <div class="pin-icon"></div>
+            Pin
+        </div>
+        <div class="button button--secondary" ui-sref="main.assignments">Cancel</div>
+        <div class="button" ng-click="saveAssignment()">Save</div>
+    </div>
+    <div class="instructions">
+        From the left, drag in groups for this service
+    </div>
+    <donut data="consumerGroups" type="serviceCentric" name="service.name"
+           drop="onDropComplete"></donut>
+    <div class="list">
+        <div class="services-header">
+            Total Number of Assigned Groups
+        </div>
+        <div class="services-number service-centric">
+            {{consumerGroups.length}}
+        </div>
+        <div class="show-list">Show List</div>
+    </div>
+</div>
+<div class="side-panel col-xs-3">
+    <assignment-panel title="Service" items="services()" type="groupCentric"
+                      navigate-to="main.assignment.service" collapsed-folders="collapsedServices"></assignment-panel>
+</div>

@@ -54,7 +54,7 @@ angular.module('policyEngine').controller('ServicesEditAssignedGroups',
     };
 
     $scope.goToAssignment = function () {
-      $state.go('main.assignment.serviceCentric', {assignmentId: _groups.id});
+      $state.go('main.assignment.service', { itemId: $scope.service.id });
     };
 
   });

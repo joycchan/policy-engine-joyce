@@ -7,13 +7,24 @@
                 <input type="text" ng-model="search">
             </form>
         </div>
-        <div ng-repeat="item in items | filter:search">
-            <div class="list-element" ng-class="{ child: item.parentId }"
-                 ng-drag="true" ng-drag-data="dragData(item)">
-                <div class="img-item" ng-class="itemIcon(item)"></div>
-                {{item.name}}
+        <div ng-repeat="item in nestedItems | filter:search">
+            <div class="list-element" ng-drag="true" ng-drag-data="dragData(item)" ng-class="{draggable: draggable()}">
+                <div class="icon-carot" ng-show="item.children" ng-click="toggleFolder(item)"
+                     ng-class="{ collapsed: collapsedFolders[item.id]}"></div>
+                <span ng-click="goTo(item)">
+                    <div class="img-item" ng-class="itemIcon(item)"></div>
+                    {{item.name}}
+                </span>
             </div>
             <hr/>
+            <div ng-repeat="child in children(item)">
+                <div class="list-element child" ng-drag="true" ng-drag-data="dragData(child)"
+                     ng-class="{draggable: draggable()}" ng-click="goTo(child)">
+                    <div class="img-item" ng-class="itemIcon(child)"></div>
+                    {{child.name}}
+                </div>
+                <hr/>
+            </div>
         </div>
     </div>
 </div>
