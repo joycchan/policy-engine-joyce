@@ -4,7 +4,7 @@ angular.module('policyEngine')
   .directive('assignmentPanel', function () {
     return {
       templateUrl: 'scripts/directives/assignment-panel/assignment-panel.html',
-      controller: function ($scope, $state) {
+      controller: function ($scope, $state, StoreHelpers) {
 
         $scope.dragData = function (item) {
           return {
@@ -25,8 +25,8 @@ angular.module('policyEngine')
           }
         };
 
-        $scope.draggable = function() {
-          return !$scope.navigateTo;
+        $scope.selected = function(item) {
+          return item.id === $scope.selectedId;
         };
 
         $scope.goTo = function (item) {
@@ -45,25 +45,9 @@ angular.module('policyEngine')
 
         $scope.nestedItems = [];
 
-        var getNestedChildren = function (arr, parent) {
-          var out = []
-          for(var i in arr) {
-            if(arr[i].parentId == parent) {
-              var children = getNestedChildren(arr, arr[i].id)
-
-              if(children.length) {
-                arr[i].children = children
-              }
-              out.push(arr[i])
-            }
-          }
-          return out
-        };
-
-
         $scope.$watch('items', function() {
           if ($scope.items.length) {
-            $scope.nestedItems = getNestedChildren(angular.copy($scope.items));
+            $scope.nestedItems = StoreHelpers.getNestedChildren(angular.copy($scope.items));
           }
         });
 
@@ -73,7 +57,8 @@ angular.module('policyEngine')
         items: '=',
         type: '@',
         navigateTo: '@',
-        collapsedFolders: '='
+        collapsedFolders: '=',
+        selectedId: '='
 
       },
       restrict: 'EA',
