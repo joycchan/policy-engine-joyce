@@ -6,10 +6,12 @@ angular.module('policyEngine').controller('ServiceCtrl',
 
     $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
     $scope.ruleSets = PolicyStore.RuleSets.all.bind(PolicyStore.RuleSets);
+    $scope.categories = PolicyStore.Categories.all.bind(PolicyStore.Categories);
 
     $scope.service = {
       name: 'New Service',
-      description: ''
+      description: '',
+      categoryId: null // uncategorized
     };
 
     $scope.selectedGroup = function() {

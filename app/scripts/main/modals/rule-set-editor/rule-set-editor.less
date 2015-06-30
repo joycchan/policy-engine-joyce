@@ -1,12 +1,5 @@
 @import "../../../../styles/variables";
-.padding-15 {
-  padding: 0 15px 15px 15px;
-}
-.dashedListContainer(@color) {
-  border: 1px dashed @color;
-  padding: 4px;
-  border-radius: 8px;
-}
+
 @ruleEditor-height: 90vh;
 
 .ruleEditor-modal {
@@ -24,12 +17,20 @@
 .ruleEditor {
   height: @ruleEditor-height;
 
-  .classifiers, .actions, .editor {
+  h2 {
+    margin-left: 15px;
+  }
+
+  .innerModal {
+    width: 520px;
+    background-color: white;
     display: inline-block;
     vertical-align: top;
   }
 
   .classifiers, .actions {
+    display: inline-block;
+    vertical-align: top;
     width: 220px;
     background-color: @color-90;
     height: @ruleEditor-height;
@@ -43,253 +44,10 @@
     border-left: 1px solid @color-70;
   }
 
-  .editor {
-    width: 520px;
-    background-color: white;
-  }
-
-  .title {
-    &:extend(.padding-15);
-    &:extend(.thin);
-    padding-top: 15px;
-    font-size: 18px;
-    color: @color-60;
-    line-height: 26px;
-    
-    &--editor {
-      color: @color-70;
-    }
-  }
-
-  .search {
-    &:extend(.padding-15);
-    input {
-      height: 32px;
-    }
-  }
-
-  .addButton {
-    &:extend(.padding-15);
-  }
-
-  .hDivider {
-    border: 1px solid @color-70;
-  }
-
-  .category {
-    &:extend(.padding-15);
-    padding-top: 15px;
-    padding-bottom: 5px;
-    font-size: 12px;
-    color: @color-60;
-    line-height: 18px;
-  }
-
-  .category-dropdown {
-    &:extend(.padding-15);
-    padding-top: 5px;
-    // overwriting bootstrap styles
-    .btn {
-      width: 190px;
-      text-align: left;
-
-      .caret {
-        left: 140px;
-        position: relative;
-      }
-    }
-  }
-
-  .listItem {
-    &:extend(.extra-light);
-    cursor: pointer;
-    font-size: 12px;
-    color: @color-50;
-    line-height: 36px;
-    border-left: 3px solid @color-90;
-    padding-left: 15px;
-    position: relative;
-    &:hover {
-      background-color: @color-80;
-      border-left: 3px solid @blue;
-    }
-  }
-
-  .editor-help {
-    &:extend(.extra-light);
-    &:extend(.padding-15);
-    font-size: 12px;
-    color: @color-60;
-    line-height: 18px;
-  }
-
-  .editor-scrollable {
-    overflow-y: auto;
-    position: relative;
-    height: calc(52vh);
-  }
-
-
-  .rulesListContainer {
-    &:extend(.padding-15);
-    padding-bottom: 0;
-  }
-
-  .rulesList {
-    table-layout: fixed;
-    width: 100%;
-    tbody td {
-      white-space: normal;
-    }
-    td:last-child {
-      text-align: left;
-    }
-    td:nth-child(1), th:nth-child(1) {
-      width: 7%;
-    }
-    td:nth-child(2),th:nth-child(2) {
-      width: 47.5%;
-    }
-    td:nth-child(3), th:nth-child(3) {
-      width: 47.5%;
-    }
-  }
-
-  .subRuleDrop {
-    width: 100%;
-    border: 1px solid rgba(0,0,0,0);
-    // placeholder so that the element doesnt jump when it suddenly gets a border when the row is in edit mode
-  }
-
-  .rulesList-row.is-inEditMode {
-    .subRuleDrop {
-      .dashedListContainer(@color-70);
-      padding: 4px;
-      &.drag-enter {
-        border-color: @blue;
-      }
-    }
-  }
-
-  .subRuleContainer {
-    height: 24px;
-  }
-
-  .subRule {
-    &:extend(.extra-light);
-    height: 20px;
-    border-radius: 5px;
-    color: white;
-    line-height: 18px;
-    padding: 2px 8px 2px 0;
-    font-size: 12px;
-    display: inline-block;
-    margin: 2px;
-    max-width: 100%;
-    overflow: hidden;
-
-    &--classifier {
-      color: @color-50;
-    }
-    &--action {
-      color: @color-50;
-    }
-    &--empty {
-      font-size: 11px;
-      color: @color-70;
-    }
-    &--new {
-      color: @blue;
-    }
-  }
-
-  .rulesList-row.is-inEditMode {
-    .subRule {
-      padding: 2px 6px;
-
-      &--classifier {
-        color: white;
-        background-color: @rulesetEditor-rowItem-editMode-BG;
-      }
-      &--action {
-        color: white;
-        background-color: @classifier-green;
-      }
-    }
-  }
-
-  .editIcon {
-    min-width: 25px;
-    min-height: 25px;
-  }
-
-  .deleteSubRuleContainer {
-    visibility: hidden;
-    display: inline-block;
-    margin-left: 5px;
-
-    &:hover {
-      .deleteSubRule.is-hiddenOnHover {
-        display: none;
-      }
-      .deleteSubRule.is-displayedOnHover {
-        display: block;
-      }
-    }
-  }
-
-  .rulesList-row.is-inEditMode {
-    .deleteSubRuleContainer {
-      visibility: visible;
-    }
-  }
-
-  .deleteSubRule {
-    width: 10px;
-    height: 10px;
-
-    &.is-hiddenOnHover {
-      display: block;
-    }
-    &.is-displayedOnHover {
-      display: none;
-    }
-  }
-
-  .editDeleteIconsContainer {
-    display: inline-block;
-    vertical-align: middle;
-    float: right;
-  }
-
-  .addRuleContainer {
-    &:extend(.padding-15);
-    &:extend(.ruleEditor.rulesListContainer);
-    &:hover {
-      .addRule {
-        visibility: visible;
-      }
-    }
-  }
-
-  .addRule {
-    visibility: hidden;
-    &.is-disabled {
-      visibility: hidden !important;
-    }
-    td:first-child {
-      width: 3.5%;
-    }
-  }
-
-  .addRuleTextContainer {
-    .dashedListContainer(@blue);
-    text-align: left;
-  }
-
   .openClose {
     position: absolute;
     right: 230px;
     bottom: 10px;
   }
+
 }

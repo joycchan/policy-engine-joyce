@@ -22,7 +22,7 @@
     </div>
     <div class="button-group newRuleSet-buttons">
         <div class="button button--secondary newRuleSet-button" ng-click="cancelRuleSet()">Cancel</div>
-        <div class="button newRuleSet-button" ng-click="create()" ng-class="{ 'is-disabled': disabled() }">Create</div>
+        <div class="button newRuleSet-button" ng-click="create()" ng-class="{ 'is-disabled': !valid() }">Create</div>
     </div>
 
 </div>

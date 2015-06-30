@@ -108,7 +108,12 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.providerGroups = [];
     $scope.ruleSets = [];
-    $scope.categories = PolicyStore.Categories.all.bind(PolicyStore.Categories);
+    // Adding a category object with an image to the end of the category cards
+    var _displayedCategories = angular.copy(PolicyStore.Categories.all.bind(PolicyStore.Categories)());
+    _displayedCategories.push({'id': null, name: "Uncategorized", "image": "photo_uncategorized.png"});
+    $scope.categories = function() {
+      return _displayedCategories;
+    }
 
     $scope.categoryImage = function(category) {
       return '../../../images/' + category.image;

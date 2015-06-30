@@ -55,6 +55,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       service.id = Util.uid(); // generate ids locally for now
       PolicyStore.Services.insert(service);
       $http.post(path('services'), service).success(function(data) {
+        data.id = data._key;
         PolicyStore.Services.update({id: service.id}, data);
       });
       return service;
@@ -91,6 +92,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       PolicyStore.Groups.insert(group);
       $http.post(path('groups'), group).success(function(data) {
         CompleteRequest(request);
+        data.id = data._key;
         PolicyStore.Groups.update({id: group.id}, data);
       }).error(function(data, status) {
         CompleteRequest(request);
@@ -167,6 +169,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       ruleSet.id = Util.uid(); // generate ids locally for now
       PolicyStore.RuleSets.insert(ruleSet);
       $http.post(path('rule_sets'), ruleSet).success(function(data) {
+        data.id = data._key;
         PolicyStore.RuleSets.update({id: ruleSet.id}, data);
       });
       return ruleSet;
@@ -196,6 +199,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       action.id = Util.uid(); // generate ids locally for now
       PolicyStore.Actions.insert(action);
       $http.post(path('actions'), action).success(function(data) {
+        data.id = data._key;
         PolicyStore.Actions.update({id: action.id}, data);
       });
       return action;
@@ -225,6 +229,7 @@ angular.module('policyEngine').factory('PolicyActions', function(PolicyStore, Ut
       classifier.id = Util.uid(); // generate ids locally for now
       PolicyStore.Classifiers.insert(classifier);
       $http.post(path('classifiers'), classifier).success(function(data) {
+        data.id = data._key;
         PolicyStore.Classifiers.update({id: classifier.id}, data);
       });
       return classifier;
