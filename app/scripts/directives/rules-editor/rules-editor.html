@@ -45,25 +45,26 @@
                   </div>
                 </div>
                   <div class="subRule subRule--empty" ng-show="rule.actionIds.length === 0">DRAG IN ACTIONS FROM RIGHT</div>
-                  <div class="editDeleteIconsContainer">
-                  </div>
               </div>
             </td>
             <td>
-              <list-view-icon ng-click="deleteRule($index)"inactive-src="images/icon_x_16.png" active-src="images/icon_x_dark_16.png"></list-view-icon>
+              <div class="editDeleteIconsContainer">
+                <list-view-icon ng-click="deleteRule($index)"inactive-src="images/icon_x_16.png" active-src="images/icon_x_dark_16.png"></list-view-icon>
+              </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="addRuleContainer">
-      <table class="addRule listView rulesList" ng-class="{'is-disabled': !areAllRulesValid()}">
+    <div class="addRuleContainer" ng-class="{'is-hidden': !areAllRulesValid()}">
+      <table class="addRule listView rulesList">
         <tr>
           <td>
             <div class="addRuleTextContainer" ng-click="addRule()">
               <div class="subRule subRule--new">Add new rule</div>
             </div>
           </td>
+          <td></td>
         </tr>
       </table>
     </div>

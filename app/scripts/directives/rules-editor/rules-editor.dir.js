@@ -43,9 +43,7 @@ angular.module('policyEngine')
         };
 
         $scope.addRule = function() {
-          if ($scope.areAllRulesValid()) {
-            $scope.selectedRuleSet.rules.push(generateEmptyRule());
-          }
+          $scope.selectedRuleSet.rules.push(generateEmptyRule());
         };
 
         $scope.deleteRule = function(index) {
@@ -65,7 +63,6 @@ angular.module('policyEngine')
         };
 
       },
-      // scope: true,
       scope: {
         areAllRulesValid: '=',
         selectedRuleSet: '='

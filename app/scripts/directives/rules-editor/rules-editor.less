@@ -99,11 +99,6 @@
     }
   }
 
-  .editIcon {
-    min-width: 25px;
-    min-height: 25px;
-  }
-
   .deleteSubRuleContainer {
     visibility: hidden;
     display: inline-block;
@@ -138,9 +133,13 @@
   }
 
   .editDeleteIconsContainer {
-    display: inline-block;
-    vertical-align: middle;
-    float: right;
+    .listView-icons {
+      visibility: visible;
+    }
+    .listView-icon {
+      width: 12px;
+      height: 12px;
+    }
   }
 
   .addRuleContainer {
@@ -153,11 +152,17 @@
         color: @blue;
       }
     }
+    &.is-hidden {
+      visibility: hidden;
+    }
   }
 
   .addRule {
-    td {
+    td:nth-child(1) {
       width: 92%;
+    }
+    td:nth-child(2) {
+      width: 8%;
     }
   }
 
