@@ -19,10 +19,6 @@
       <table class="listView listView--iconsHover rulesList">
         <tbody>
           <tr ng-repeat="rule in selectedRuleSet.rules" class="rulesList-row" ng-class="{'is-inEditMode': true }">
-           <!--  <td>
-              <div class="listView-number" ng-hide="editModeHash[$index]">{{$index + 1}}</div>
-              <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleSet($index)"><img src="images/icon_edit_rule_24.png"></div>
-            </td> -->
             <td>
               <div class="subRuleDrop" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
                 <div class="subRuleContainer" ng-repeat="classifier in getClassifiers(rule)">
