@@ -2,15 +2,13 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
  $scope.types = {};
  $scope.itemList =[];
  $scope.conditions = [];
- $scope.options = false;
- $scope.none=true;
+ $scope.options = true;
+ $scope.add =false;
   $scope.group = {
     name: "New Group",
     description: '',
     endpointPools: []
-
   };
-
   $scope.create = function () {
     var group = PolicyActions.CreateGroup($scope.group);
     $scope.createGroup(group);
@@ -35,19 +33,31 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
     });
   };
 
-   $scope.addPosture =function() {
-    $scope.none = false;
-    $scope.options = true;
+   $scope.onClick = function() {
     $scope.conditions.push({
         name: $scope.group.itemsuper.name,
         value: $scope.group.item1
     });
+    $scope.add = true;
+    $scope.options = false;
+   };
+
+   $scope.addPosture =function() {
+    $scope.options = true;
    };
 
    $scope.deleteCondition = function(index) {
       $scope.conditions.splice(index, 1);
-   }
+      if ($scope.conditions.length == '0') {
+        $scope.options = true;
+      }
+   };
 
-
+$scope.changeCallback = function() {
+    $scope.option = false;
+    if ($scope.enabled == true) {
+      $scope.option = true;
+    };
+  };
 
 });

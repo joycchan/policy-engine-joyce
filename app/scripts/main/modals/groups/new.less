@@ -2,38 +2,32 @@
 .groups {
 
 .listView {
-
+  margin-left: 110px;
   th, td {
     padding: 8px 8px 4px 12px;
   }
   thead {
-   border: 1px solid @color-70;
+   border-bottom: 1px solid @color-70;
    td:last-child {
      text-align: left;
      }
   }
   tbody {
     tr {
-    border: 1px solid @color-70;
       &:hover {
         background-color: @color-100;
       }
     }
+
     td {
       height: 32px;
-      border-bottom: 1px solid @color-80;
+      border-top: 1px solid @color-80;
       color: @color-50;
     }
     td:last-child {
       text-align: left;
       }
 
-  }
-
-  .none {
-    td {
-   width: 298px;
-   }
   }
 
   .optionsEdit {
@@ -54,7 +48,16 @@
   .condition {
    width:163px;
   }
+
+  .add {
+  color: @blue;
+  }
+
+  .listView--iconsHover .listView-icons {
+    margin-left: 38px;
+  }
 }
+
 
 input, button, select, textarea {
   width: 99px;
@@ -66,26 +69,17 @@ input, button, select, textarea {
   height:100px
 }
 
+ .switch small {
+ width: 20px;
+ height: 18px;
+ }
 
-      .plus {
-             background: url(../../../../../images/icon_plus_16.png);
-             height: 16px;
-             width: 16px;
+ .switch {
+ width: 56px;
+ height: 19px;
+ }
 
-             &:hover {
-             background: url(../../../../../images/icon_plus_16_blue.png);
-             }
-      }
-
-      .minus {
-          background: url(../../../../../images/icon_minus_16.png);
-          height: 4px;
-          width: 16px;
-          margin-top: -8px;
-          margin-left: 32px;
-          &:hover {
-          background: url(../../../../../images/icon_minus_16_blue.png);
-          }
-      }
-
+ .switch.checked small {
+   left: 36px;
+ }
 }

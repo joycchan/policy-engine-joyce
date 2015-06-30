@@ -1,4 +1,4 @@
-angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope, $state, PolicyStore) {
+angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope, $state, PolicyStore, $stateParams) {
 
   $scope.selected;
 
@@ -7,6 +7,7 @@ angular.module('policyEngine').controller('ExistingGroupCtrl', function ($scope,
  };
 
   $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
+  $scope.service = angular.copy(PolicyStore.Services.find({id: $stateParams.serviceId}));
 
   $scope.ok = function () {
     $scope.service.group = $scope.selected;

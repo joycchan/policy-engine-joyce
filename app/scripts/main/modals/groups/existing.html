@@ -1,28 +1,15 @@
-<h1>Use Existing Group</h1>
+<div class="existingGrp">
+<h2><span class="normal-categories" ui-sref="main.services.filters.cards">Categories</span> /</span><span class="normal-services" ui-sref="main.services.filters.list" >Services</span> /<span class="normal">{{service.name}}</span>/ <span class="normal-existing">Existing Group</span></h2>
 
-<div class="search-bar">
-    <label for="search">Search</label>
-    <input type="text" name="search" ng-model="search" id="search" aria-describedby="basic-addon1">
+<div>
+    Select an existing group from the list below. Your selection will be added to the Service you're working on.
 </div>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="group in groups() | filter:search" ng-click="selectGroup(group)"
-        ng-class="{selected : group === selected}">
-        <td>{{::group.name}}</td>
-        <td>
-            {{::group.description}}
-        </td>
-    </tr>
-    </tbody>
-</table>
+
+<existing-group groups="groups" ng-click="selectGroup(group)"
+                ng-class="{selected : group === selected}"></existing-group>
 
 <div class="modal-footer">
     <div class="button button--secondary" ng-click="cancel()">Cancel</div>
-    <div class="button" ng-click="ok()">Use</div>
+    <div class="button" ng-click="ok()">Done</div>
+</div>
 </div>

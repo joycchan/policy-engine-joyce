@@ -13,19 +13,17 @@
     </div>
 
     <select-pools group="group"></select-pools>
+
+
     <div class="form-group groups">
         <label>Conditions</label>
-        <table class="listView listView--iconsHover">
+        <switch  name="enabled" ng-model="enabled" ng-change="changeCallback"></switch>
+        <table class="listView listView--iconsHover" ng-show="option">
             <thead>
             <td>Posture</td>
             <td colspan="2">Value</td>
             </thead>
             <tbody>
-            <tr ng-show="none" class="none">
-                <td colspan="3">
-                    None
-                </td>
-            </tr>
             <tr class="optionsEdit listView--iconsHover"  ng-repeat = "condition in conditions">
                 <td editable-select="condition.name" e-name="posture" e-form="rowform" e-ng-options="catagory as catagory.name for catagory in posture">
                     {{condition.name}}
@@ -34,29 +32,24 @@
                     {{condition.value}}
                 </td>
                 <td>
-                    <list-view-icon ng-click="rowform.$show()" inactive-src="images/icon_edit_16.png"
-                                    active-src="images/icon_edit_16_blue.png"></list-view-icon>
                     <list-view-icon ng-click="deleteCondition($index)" inactive-src="images/icon_x_16.png"
                                     active-src="images/icon_x_16_blue.png"></list-view-icon>
-
                 </td>
             </tr>
-            <tr ng-show="options">
+            <tr ng-show="options" ng-click="onClick()">
 
-                <td  data-role="listview" data-inset="true" >
-                    <select  data-role="listview" ng-options="catagory as catagory.name for catagory in posture  " ng-model="group.itemsuper" ng-change="changeData()" >
+                <td data-role="listview" data-inset="true" >
+                    <select  data-role="listview" ng-options="catagory as catagory.name for catagory in posture" ng-model="group.itemsuper" ng-change="changeData()" ng-click="$event.stopPropagation()" >
                     </select>
                 </td>
                 <td data-role="listview" data-inset="true" colspan="2">
-                    <select data-role="listview" class="condition" ng-options="type for type in types " ng-model="group.item1" ng-change="update()">
-
+                    <select data-role="listview" class="condition" ng-options="type for type in types " ng-model="group.item1" ng-change="update()" ng-click="$event.stopPropagation()">
                     </select>
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
-                    <div class="plus" ng-click="addPosture()"></div>
-                    <div class="minus"></div>
+                <td colspan="3" ng-show="add">
+                    <div class="add" ng-click="addPosture()">+ New Condition</div>
                 </td>
             </tr>
             </tbody>
