@@ -50,17 +50,15 @@
               </div>
             </td>
           </tr>
+          <tr class="addRule" ng-class="{'is-hidden': !areAllRulesValid()}">
+            <td colspan="2">
+              <div class="addRuleTextContainer" ng-click="addRule()">
+                <div class="subRule subRule--new">Add new rule</div>
+              </div>
+            </td>
+            <td></td>
+          </tr>
         </tbody>
-      </table>
-      <table class="addRule listView rulesList" ng-class="{'is-hidden': !areAllRulesValid()}">
-        <tr>
-          <td>
-            <div class="addRuleTextContainer" ng-click="addRule()">
-              <div class="subRule subRule--new">Add new rule</div>
-            </div>
-          </td>
-          <td></td>
-        </tr>
       </table>
   </div>
 
