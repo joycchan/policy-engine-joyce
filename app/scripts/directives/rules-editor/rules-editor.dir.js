@@ -71,6 +71,12 @@ angular.module('policyEngine')
           });
         };
 
+        $scope.$watch('selectedRuleSet', function() {
+          if ($scope.selectedRuleSet.rules.length === 0) {
+            $scope.addRule();
+          }
+        });
+
       },
       // scope: true,
       scope: {

@@ -26,8 +26,12 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       $modalInstance.dismiss('cancel');
     };
 
+    $scope.valid = function() {
+      return $scope.selectedRuleSet.rules.length && $scope.areAllRulesValid();
+    };
+
     $scope.ok = function () {
-      if ($scope.areAllRulesValid()) {
+      if ($scope.valid()) {
         $modalInstance.close($scope.selectedRuleSet);
       }
     };
