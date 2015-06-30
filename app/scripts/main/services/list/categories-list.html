@@ -1,0 +1,12 @@
+<div style="height: 100vh; background-color: white;">
+	<table class="listView" style="width: 100%;">
+		<thead><th>
+			Name
+		</th></thead>
+		<tbody>
+			<tr ng-repeat="category in categories()" ng-click="addFilter('category', category)">
+				<td>{{category.name}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

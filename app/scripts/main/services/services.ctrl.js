@@ -15,6 +15,29 @@ angular.module('policyEngine').controller('ServicesCtrl',
       ruleSet: false
     };
 
+    $scope.breadCrumbs = {
+      categories: function() {
+        // if categories are filtered, then that indicates that we are in service cards view
+        // if ($scope.filtered.category)
+      }
+    }
+
+    
+
+    setInterval(function() {
+      console.log("category cards", $state.includes('main.services.filters.cards'));
+      console.log("category list", $state.includes('main.services.filters.categoriesList'));
+      console.log("services cards", $state.includes('main.services.filters.cards'));
+      console.log("services list", $state.includes('main.services.filters.list'));
+    }, 2000);
+
+    var STATE = {
+      categoryCards: 'main.services.filters.cards',
+      categoryList: 'main.services.filters.categoriesList',
+      serviceCards: 'main.services.filters.servicesCards',
+      serviceList: 'main.services.filters.list'
+    };
+
     $scope.providerGroup = function(service) {
       return PolicyStore.Groups.find({id: service.providerGroupId});
     };
@@ -44,13 +67,19 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.selectListState = function() {
-      $state.go('main.services.filters.list');
+      // $state.go('main.services.filters.list');
+      $state.go('main.services.filters.categoriesList');
     };
 
     $scope.addFilter = function (type, object) {
       var params = {};
       params[type] = object.name;
-      $state.go('.', params);
+      if ($state.includes(STATE.categoryCards)) {
+        $state.go(STATE.serviceCards, params);
+      } else if ($state.includes(STATE.categoryList)) {
+        $state.go(STATE.serviceList, params);
+      }
+      // $state.go('.', params);
     };
 
     $scope.removeFilter = function(type) {

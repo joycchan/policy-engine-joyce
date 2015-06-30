@@ -1,6 +1,13 @@
 <div class="services">
 
-    <h2>Services</h2>
+    <h2>
+        <a ui-sref='main.services.filters.cards'>
+            Categories
+        </a>
+        <a ui-sref='main.services.filters.list'>
+            / Services
+        </a>
+    </h2>
 
     <div class="row">
     <div class="col-sm-3 catalog" ng-hide="categoryState()">
@@ -34,8 +41,12 @@
     </div>
 
     <div ng-class="{ 'col-sm-12': categoryState(), 'col-sm-9': !categoryState() }">
-        <search-sort-bar card-state="cardState" list-state="listState" select-card-state="selectCategoryState"
-                select-list-state="selectListState"></search-sort-bar>
+        <search-sort-bar
+            card-state="cardState"
+            list-state="listState"
+            select-card-state="selectCategoryState"
+            select-list-state="selectListState">
+        </search-sort-bar>
         <ui-view></ui-view>
     </div>
     </div>
