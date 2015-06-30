@@ -8,10 +8,17 @@
       </tr>
     </thead>
     <tbody>
+        <tr ng-if="ruleSet.rules.length === 0">
+        <td><div class="listView-number">1</div></td>
+        <td>
+          <a ng-click="editRule()" ng-if="!rule.classifierIds.length">Click here to add rules</a>
+        </td>
+        <td>
+        </td>
+      </tr>
       <tr ng-repeat="rule in ruleSet.rules">
         <td><div class="listView-number">{{$index + 1}}</div></td>
         <td>
-          <a ng-click="editRule()" ng-if="!rule.classifierIds.length">Click here to add rules</a>
           <div class="listView-innerList" ng-repeat="classifier in getClassifiers(rule)">{{classifier.name}}</div>
         </td>
         <td>

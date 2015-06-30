@@ -4,7 +4,14 @@ angular.module('policyEngine').controller('ServicesEdit',
   function ($scope, PolicyStore, PolicyActions, $stateParams, $state) {
 
     $scope.service = angular.copy(PolicyStore.Services.find({id: $stateParams.serviceId}));
-    $scope.categories = PolicyStore.Categories.all.bind(PolicyStore.Categories);
+
+    // Adding a special "Uncategorized" category with a value of null to the top of the dropdown
+    var _displayedCategories = angular.copy(PolicyStore.Categories.all.bind(PolicyStore.Categories)());
+    _displayedCategories.unshift({'id': null, name: "Uncategorized"});
+
+    $scope.categories = function() {
+      return _displayedCategories;
+    }
 
     $scope.providerGroup = function() {
       return PolicyStore.Groups.find({id: $scope.service.providerGroupId});
@@ -30,9 +37,17 @@ angular.module('policyEngine').controller('ServicesEdit',
     });
 
     $scope.categoryNameById = function(id) {
-      return _.find($scope.categories(), function(category) {
+      var foundCategory =  _.find($scope.categories(), function(category) {
         return category.id === id;
-      }).name;
+      });
+
+      if (foundCategory) {
+        return foundCategory.name;
+      } else if (_.isNull(id)){
+        return "Uncategorized";
+      } else {
+        return 'empty'
+      }
     };
 
   });

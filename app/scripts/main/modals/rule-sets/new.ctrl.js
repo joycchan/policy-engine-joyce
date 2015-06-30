@@ -5,10 +5,7 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
       name: "New Rule Set",
       description: '',
       custom: true,
-      rules: [{
-        classifierIds: [],
-        actionIds: [],
-      }],
+      rules: [],
       id: (Math.floor(Math.random() * 10000)).toString()
       // while the user is in main.ruleSetsEdit, the id allows the user to select a rule set out of the list to modify
       // logic in that state depends on $stateParams because it is not a modal w/ one parent controller
@@ -28,12 +25,12 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
     });
   };
 
-  $scope.disabled = function () {
-    return ($scope.newRuleSet.rules[0].classifierIds.length === 0 || $scope.newRuleSet.rules[0].actionIds.length === 0);
+  $scope.valid = function () {
+    return $scope.newRuleSet.name && $scope.newRuleSet.rules.length;
   };
 
   $scope.create = function () {
-    if (!$scope.disabled()) {
+    if ($scope.valid()) {
       var ruleSet = PolicyActions.CreateRuleSet($scope.newRuleSet); // $scope.service is in the parent controller
       $scope.createRuleSet(ruleSet);
     }

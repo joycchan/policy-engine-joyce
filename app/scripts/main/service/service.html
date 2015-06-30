@@ -20,6 +20,8 @@
             <label class="col-sm-2" for="category">category</label>
             <div class="category-wrapper">
                 <select class="form-control" name="category" id="category" ng-model="service.categoryId" ng-options="category.id as category.name for category in categories()">
+                <!-- hard-coded option represents "null" -->
+                <option value="">Uncategorized</option>
                 </select>
             </div>
         </div>
