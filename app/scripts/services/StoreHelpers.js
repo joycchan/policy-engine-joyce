@@ -53,32 +53,18 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
           })
           .value();
       },
-      getNestedChildren: function (arr, parent) {
-        var out = []
-        for (var i in arr) {
-          if (arr[i].parentId == parent) {
-            var children = storeHelpers.getNestedChildren(arr, arr[i].id)
-
-            if (children.length) {
-              arr[i].children = children
+      getNestedChildren: function (objectArray, parentId) {
+        var result = [];
+        objectArray.forEach(function(object) {
+          if (object.parentId === parentId) {
+            var children = storeHelpers.getNestedChildren(objectArray, object.id);
+            if (children.length > 0) {
+              object.children = children;
             }
-            out.push(arr[i])
+            result.push(object);
           }
-        }
-        return out
-      },
-      getArrayOfParents: function (array, id) {
-        if (typeof array != 'undefined') {
-          for (var i = 0; i < array.length; i++) {
-            if (array[i].id == id) return [id];
-            var a = find(array[i].children, id);
-            if (a) {
-              a.unshift(array[i].id);
-              return a;
-            }
-          }
-        }
-        return null;
+        });
+        return result;
       }
     };
     return storeHelpers;
