@@ -37,6 +37,22 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
           })
           .value();
       },
+      servicesProvided: function (group) {
+        return _.chain(PolicyStore.Services.all())
+          .where({providerGroupId: group.id})
+          .value();
+      },
+      servicesConsumed: function (group) {
+        return _.chain(PolicyStore.Assignments.all())
+          .filter(function (assignment) {
+            return _.includes(assignment.consumerGroupIds, group.id);
+          })
+          .pluck('serviceId')
+          .map(function (serviceId) {
+            return PolicyStore.Services.find({id: serviceId});
+          })
+          .value();
+      },
       getNestedChildren: function (arr, parent) {
         var out = []
         for (var i in arr) {
