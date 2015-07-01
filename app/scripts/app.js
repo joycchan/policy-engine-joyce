@@ -36,19 +36,19 @@ angular.module("policyEngine", [
             controller: "ServicesFilterCtrl",
             abstract: true
           })
-            .state("main.services.filters.cards", {
+            .state("main.services.filters.categoriesCards", {
+              url: "categories/cards/",
+              templateUrl: "scripts/main/services/categories/cards/cards.html"
+            })
+            .state("main.services.filters.categoriesList", {
+              url: "categories/list/",
+              templateUrl: "scripts/main/services/categories/list/list.html"
+            })
+            .state("main.services.filters.servicesCards", {
               url: "cards/",
               templateUrl: "scripts/main/services/cards/cards.html"
             })
-            .state("main.services.filters.servicesCards", {
-              url: "services-cards/",
-              templateUrl: "scripts/main/services/cards/services-cards.html"
-            })
-            .state("main.services.filters.categoriesList", {
-              url: "categories-list/",
-              templateUrl: "scripts/main/services/list/categories-list.html"
-            })
-            .state("main.services.filters.list", {
+            .state("main.services.filters.servicesList", {
               url: "list/",
               templateUrl: "scripts/main/services/list/list.html"
             })

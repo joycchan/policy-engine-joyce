@@ -25,7 +25,7 @@ angular.module('policyEngine').controller('ServiceCtrl',
     $scope.createService = function () {
       if (!$scope.serviceIncomplete()) {
         PolicyActions.CreateService($scope.service);
-        $state.go('main.services.filters.list');
+        $state.go('main.services.filters.servicesList');
       }
     };
 

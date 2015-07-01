@@ -19,7 +19,7 @@ angular.module('policyEngine').controller('MainCtrl',
 
     $scope.menubar = [{
        name: 'Services',
-       state: 'main.services.filters.cards',
+       state: 'main.services.filters.categoriesCards',
        selectionState: 'main.services',
        associatedStates: ['main.servicesEdit', 'main.service'],
        width: 82

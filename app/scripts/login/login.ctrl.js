@@ -13,7 +13,7 @@ angular.module('policyEngine').controller('LoginCtrl',
     };
 
     $scope.login = function() {
-      $state.go('main.services.filters.cards');
+      $state.go('main.services.filters.categoriesCards');
     };
   }
 );

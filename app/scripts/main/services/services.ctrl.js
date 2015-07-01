@@ -17,26 +17,19 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.breadCrumbs = {
       categoriesClick: function() {
-        if ($state.includes(STATE.categoryCards) || $state.includes(STATE.serviceCards)) {
-          $state.go(STATE.categoryCards, { category: undefined, group: undefined, ruleSet: undefined });
+        if ($state.includes('main.services.filters.categoriesCards') || $state.includes('main.services.filters.servicesCards')) {
+          $state.go('main.services.filters.categoriesCards', { category: undefined, group: undefined, ruleSet: undefined });
         } else {
-          $state.go(STATE.categoryList, { category: undefined, group: undefined, ruleSet: undefined });
+          $state.go('main.services.filters.categoriesList', { category: undefined, group: undefined, ruleSet: undefined });
         }
       },
       services: function() {
-        return $state.includes(STATE.serviceCards) || $state.includes(STATE.serviceList);
+        return $state.includes('main.services.filters.servicesCards') || $state.includes('main.services.filters.servicesList');
       }    
     }
 
     $scope.isCategorySelected = function(category) {
       return $stateParams.category === category;
-    };
-
-    var STATE = {
-      categoryCards: 'main.services.filters.cards',
-      categoryList: 'main.services.filters.categoriesList',
-      serviceCards: 'main.services.filters.servicesCards',
-      serviceList: 'main.services.filters.list'
     };
 
     $scope.providerGroup = function(service) {
@@ -52,31 +45,30 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.categoryState = function() {
-      // hide the category catalog if this returns true
-      return $state.includes(STATE.categoryCards) || $state.includes(STATE.categoryList);
+      return $state.includes('main.services.filters.categoriesCards') || $state.includes('main.services.filters.categoriesList');
     };
 
     $scope.cardState = function() {
-      return $state.includes(STATE.categoryCards) || $state.includes(STATE.serviceCards);
+      return $state.includes('main.services.filters.categoriesCards') || $state.includes('main.services.filters.servicesCards');
     };
 
     $scope.listState = function() {
-      return $state.includes(STATE.categoryList) || $state.includes(STATE.serviceList);
+      return $state.includes('main.services.filters.categoriesList') || $state.includes('main.services.filters.servicesList');
     };
 
     $scope.selectCardState = function() {
-      if ($state.includes(STATE.categoryCards) || $state.includes(STATE.categoryList)) {
-        $state.go(STATE.categoryCards);
-      } else if ($state.includes(STATE.serviceCards) || $state.includes(STATE.serviceList)) {
-        $state.go(STATE.serviceCards);
+      if ($state.includes('main.services.filters.categoriesCards') || $state.includes('main.services.filters.categoriesList')) {
+        $state.go('main.services.filters.categoriesCards');
+      } else if ($state.includes('main.services.filters.servicesCards') || $state.includes('main.services.filters.servicesList')) {
+        $state.go('main.services.filters.servicesCards');
       }
     };
 
     $scope.selectListState = function() {
-      if ($state.includes(STATE.categoryCards) || $state.includes(STATE.categoryList)) {
-        $state.go(STATE.categoryList);
-      } else if ($state.includes(STATE.serviceCards) || $state.includes(STATE.serviceList)) {
-        $state.go(STATE.serviceList);
+      if ($state.includes('main.services.filters.categoriesCards') || $state.includes('main.services.filters.categoriesList')) {
+        $state.go('main.services.filters.categoriesList');
+      } else if ($state.includes('main.services.filters.servicesCards') || $state.includes('main.services.filters.servicesList')) {
+        $state.go('main.services.filters.servicesList');
       }
     };
 
@@ -84,10 +76,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
     $scope.addFilter = function (type, object) {
       var params = {};
       params[type] = object.name;
-      if ($state.includes(STATE.categoryCards)) {
-        $state.go(STATE.serviceCards, params);
-      } else if ($state.includes(STATE.categoryList)) {
-        $state.go(STATE.serviceList, params);
+      if ($state.includes('main.services.filters.categoriesCards')) {
+        $state.go('main.services.filters.servicesCards', params);
+      } else if ($state.includes('main.services.filters.categoriesList')) {
+        $state.go('main.services.filters.servicesList', params);
       } else {
         $state.go('.', params);
       }
