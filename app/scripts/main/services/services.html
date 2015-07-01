@@ -1,12 +1,12 @@
 <div class="services">
 
     <h2>
-        <a ui-sref='main.services.filters.cards'>
+        <span ng-click="breadCrumbs.categoriesClick()">
             Categories
-        </a>
-        <a ui-sref='main.services.filters.list'>
+        </span>
+        <span ng-show="breadCrumbs.services()">
             / Services
-        </a>
+        </span>
     </h2>
 
     <div class="row">

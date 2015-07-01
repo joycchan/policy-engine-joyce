@@ -16,20 +16,17 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.breadCrumbs = {
-      categories: function() {
-        // if categories are filtered, then that indicates that we are in service cards view
-        // if ($scope.filtered.category)
-      }
+      categoriesClick: function() {
+        if ($state.includes(STATE.categoryCards) || $state.includes(STATE.serviceCards)) {
+          $state.go(STATE.categoryCards);
+        } else {
+          $state.go(STATE.categoryList);
+        }
+      },
+      services: function() {
+        return $state.includes(STATE.serviceCards) || $state.includes(STATE.serviceList);
+      }    
     }
-
-    
-
-    setInterval(function() {
-      console.log("category cards", $state.includes('main.services.filters.cards'));
-      console.log("category list", $state.includes('main.services.filters.categoriesList'));
-      console.log("services cards", $state.includes('main.services.filters.cards'));
-      console.log("services list", $state.includes('main.services.filters.list'));
-    }, 2000);
 
     var STATE = {
       categoryCards: 'main.services.filters.cards',
@@ -51,7 +48,9 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.categoryState = function() {
-      return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
+      // hide the category catalog if this returns true
+      return $state.includes(STATE.categoryCards) || $state.includes(STATE.categoryList);
+      // return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
     };
 
     $scope.cardState = function() {
