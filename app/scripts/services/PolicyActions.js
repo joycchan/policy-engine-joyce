@@ -129,6 +129,7 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
 
     CreateAssignment: function (assignment) {
       assignment.id = Util.uid(); // generate ids locally for now
+      assignment.timestamp = new Date().getTime();
       PolicyStore.Assignments.insert(assignment);
       $http.post(path('assignments'), assignment).success(function (data) {
         data.id = data._key;
