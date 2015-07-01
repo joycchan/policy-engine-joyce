@@ -7,7 +7,6 @@ angular.module('policyEngine').controller('NewGroupCtrl', function ($scope, Poli
   };
 
   $scope.create = function () {
-    var group = PolicyActions.CreateGroup($scope.group);
-    $scope.createGroup(group);
+    $scope.createGroup(PolicyActions.CreateGroup($scope.group));
   };
 });

@@ -89,7 +89,7 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
       var request = CreateRequest("CreateGroup", id);
 
       PolicyStore.Groups.insert(group);
-      $http.post(path('groups'), group).success(function (data) {
+      return $http.post(path('groups'), group).success(function (data) {
         CompleteRequest(request);
         data.id = data._key;
         PolicyStore.Groups.update({id: group.id}, data);
@@ -102,8 +102,6 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
           dismissed: false,
         });
       });
-
-      return request;
     },
 
     UpdateGroup: function (group) {
@@ -162,11 +160,10 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
     CreateRuleSet: function (ruleSet) {
       ruleSet.id = Util.uid(); // generate ids locally for now
       PolicyStore.RuleSets.insert(ruleSet);
-      $http.post(path('rule_sets'), ruleSet).success(function (data) {
+      return $http.post(path('rule_sets'), ruleSet).success(function (data) {
         data.id = data._key;
         PolicyStore.RuleSets.update({id: ruleSet.id}, data);
       });
-      return ruleSet;
     },
 
     UpdateRuleSet: function (ruleSet) {
