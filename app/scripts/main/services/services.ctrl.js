@@ -64,7 +64,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
       return $state.includes(STATE.categoryList) || $state.includes(STATE.serviceList);
     };
 
-    $scope.selectCategoryState = function() {
+    $scope.selectCardState = function() {
       if ($state.includes(STATE.categoryCards) || $state.includes(STATE.categoryList)) {
         $state.go(STATE.categoryCards);
       } else if ($state.includes(STATE.serviceCards) || $state.includes(STATE.serviceList)) {
