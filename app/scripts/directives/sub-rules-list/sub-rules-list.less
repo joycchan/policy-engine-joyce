@@ -1,8 +1,12 @@
 @import "../../../styles/variables";
 
 .subRulesList {
+  position: relative;
+  height: 100%;
+  margin-top: -15px;
 
   h2 {
+    padding-top: 15px;
     color: @color-60;
   }
 
@@ -13,12 +17,12 @@
     }
   }
 
-  .addButton {
-    padding: 0 15px 15px 15px;
-  }
-
-  .hDivider {
-    border: 1px solid @color-70;
+  .subRulesWrapper {
+    height: ~"calc(100% - 165px)";
+    // height derived from height - (h2 + search + button)
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .listItem {
@@ -35,4 +39,11 @@
       border-left: 3px solid @blue;
     }
   }
+
+  .addButton {
+    padding: 0 15px 15px 15px;
+    position: absolute;
+    bottom: 0;
+  }
+
 }

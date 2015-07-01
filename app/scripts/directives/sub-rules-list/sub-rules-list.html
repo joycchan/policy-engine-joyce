@@ -3,15 +3,20 @@
   <div class="search">
     <input-search model="filter.name"></input-search>
   </div>
+  <div class="subRulesWrapper">
+    <div
+      class="listItem"
+      ng-repeat="subRule in list() | filter: filter"
+      ng-drag="isDraggable()"
+      ng-drag-data="{type: subRuleType, data: subRule}">
+      {{subRule.name}}
+    </div>
+    <div ng-drag-clone="" class="listItem" style="background-color: orange; margin-left: -20%;">
+          hello world
+      </div>
+  </div>
   <div class="addButton">
     <div class="button" ng-click="toggleInnerModal(subRuleType)">Add Custom {{title}}</div>
   </div>
-  <div class="hDivider"></div>
-  <div
-    class="listItem"
-    ng-repeat="subRule in list() | filter: filter"
-    ng-drag="isDraggable()"
-    ng-drag-data="{type: subRuleType, data: subRule}">
-    {{subRule.name}}
-  </div>
 </div>
+    
