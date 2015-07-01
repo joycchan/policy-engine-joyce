@@ -89,7 +89,7 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
       var request = CreateRequest("CreateGroup", id);
 
       PolicyStore.Groups.insert(group);
-      $http.post(path('groups'), group).success(function (data) {
+      return $http.post(path('groups'), group).success(function (data) {
         CompleteRequest(request);
         data.id = data._key;
         PolicyStore.Groups.update({id: group.id}, data);
@@ -102,8 +102,6 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
           dismissed: false,
         });
       });
-
-      return request;
     },
 
     UpdateGroup: function (group) {
@@ -118,7 +116,7 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
 
 
     FetchAssignments: function () {
-      $http.get(path('nonempty_assignments')).success(function (data) {
+      $http.get(path('assignments')).success(function (data) {
         data.map(actions.ReceiveAssignment);
       });
     },
@@ -129,6 +127,7 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
 
     CreateAssignment: function (assignment) {
       assignment.id = Util.uid(); // generate ids locally for now
+      assignment.timestamp = new Date().getTime();
       PolicyStore.Assignments.insert(assignment);
       $http.post(path('assignments'), assignment).success(function (data) {
         data.id = data._key;
@@ -161,11 +160,10 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
     CreateRuleSet: function (ruleSet) {
       ruleSet.id = Util.uid(); // generate ids locally for now
       PolicyStore.RuleSets.insert(ruleSet);
-      $http.post(path('rule_sets'), ruleSet).success(function (data) {
+      return $http.post(path('rule_sets'), ruleSet).success(function (data) {
         data.id = data._key;
         PolicyStore.RuleSets.update({id: ruleSet.id}, data);
       });
-      return ruleSet;
     },
 
     UpdateRuleSet: function (ruleSet) {
@@ -239,9 +237,47 @@ angular.module('policyEngine').factory('PolicyActions', function (PolicyStore, U
     },
 
     FetchCategories: function () {
-      $http.get(path('categories')).success(function (data) {
-        data.map(actions.ReceiveCategory);
-      });
+      //$http.get(path('categories')).success(function (data) {
+      //data.map(actions.ReceiveCategory);
+      //});
+      var categories = [
+        {
+          "id": "1",
+          "name": "Backup and Storage",
+          "image": "photo_backup.png"
+        },
+        {
+          "id": "2",
+          "name": "Business and Productivity Tools",
+          "image": "photo_business.png"
+        },
+        {
+          "id": "3",
+          "name": "Database",
+          "image": "photo_database.png"
+        },
+        {
+          "id": "4",
+          "name": "Email",
+          "image": "photo_email.png"
+        },
+        {
+          "id": "5",
+          "name": "Internet Security",
+          "image": "photo_internet.png"
+        },
+        {
+          "id": "6",
+          "name": "Software Updates",
+          "image": "photo_software.png"
+        },
+        {
+          "id": "7",
+          "name": "Voice & Video",
+          "image": "photo_voice.png"
+        }
+      ];
+      categories.map(actions.ReceiveCategory);
     },
 
     ReceiveCategory: function (category) {

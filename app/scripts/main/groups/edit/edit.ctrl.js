@@ -1,5 +1,5 @@
 angular.module('policyEngine').controller('GroupsEditCtrl',
-  function ($scope, $modal, $stateParams, PolicyStore, PolicyActions) {
+  function ($scope, $modal, $stateParams, PolicyStore, PolicyActions, StoreHelpers) {
 
     $scope.navTabLinks = [{
       'name': 'Settings',
@@ -13,6 +13,8 @@ angular.module('policyEngine').controller('GroupsEditCtrl',
     }];
 
     $scope.group = {};
+    $scope.servicesProvided = [];
+    $scope.servicesConsumed = [];
 
     $scope.saveGroup = function () {
       PolicyActions.UpdateGroup($scope.group);
@@ -22,13 +24,9 @@ angular.module('policyEngine').controller('GroupsEditCtrl',
       return PolicyStore.Groups.all();
     }], function () {
       $scope.group = angular.copy(PolicyStore.Groups.find({id: $stateParams.groupId}));
+      $scope.servicesProvided = StoreHelpers.servicesProvided($scope.group);
+      $scope.servicesConsumed = StoreHelpers.servicesConsumed($scope.group);
     });
-
-    // Mock data for the Services Provided and Services Consumed tables
-    var _services = PolicyStore.Services.all.bind(PolicyStore.Services);
-    $scope.servicesProvided = _services().slice(0, 2);
-    $scope.servicesConsumed = _services().slice(2, 4);
-    $scope.ASSIGNMENT_ID = '76fd2c6f-9730-4e57-bf9a-4e294eaad3fc';
 
   }
 );

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServiceAssignmentCtrl',
-  function ($scope, $stateParams, PolicyStore, PolicyActions, $state) {
+  function ($scope, $stateParams, PolicyStore, PolicyActions, $state, StoreHelpers) {
 
     $scope.consumerGroups = [];
 
@@ -19,8 +19,11 @@ angular.module('policyEngine').controller('ServiceAssignmentCtrl',
 
     $scope.$watchGroup(['$routeChangeSuccess', function () {
       return PolicyStore.Services.all();
+    }, function() {
+      return PolicyStore.Assignments.all();
     }], function () {
       $scope.service = angular.copy(PolicyStore.Services.find({id: $stateParams.itemId}));
+      $scope.consumerGroups = StoreHelpers.serviceConsumers($scope.service);
     });
   }
 );
