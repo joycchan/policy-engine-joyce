@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('GroupsCtrl',
-  function ($scope, $modal, PolicyStore, PolicyActions, Modals, $state) {
+  function ($scope, $modal, PolicyStore, PolicyActions, Modals, $state, StoreHelpers) {
 
     $scope.groups = PolicyStore.Groups.all.bind(PolicyStore.Groups);
     $scope.deleteGroup = PolicyActions.DeleteGroup;
@@ -62,11 +62,11 @@ angular.module('policyEngine').controller('GroupsCtrl',
     };
 
     $scope.servicesProvided = function(group) {
-      return group.name.length;
+      return StoreHelpers.servicesProvided(group).length;
     };
 
     $scope.servicesConsumed = function(group) {
-      return Math.round(100 / group.name.length);
+      return StoreHelpers.servicesConsumed(group).length;
     };
 
   }
