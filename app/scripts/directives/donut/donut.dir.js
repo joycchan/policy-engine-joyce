@@ -88,10 +88,10 @@ angular.module('policyEngine')
             .each(function (d, i) {
               var t = d3.select(this)
               t.append('tspan').text(d.data.name)
-              if (scope.type === 'groupCentric') {
-                t.append('tspan').text('(' + d.data.group.name + ')')
-                  .attr('x', 0).attr('dy', '15');
-              }
+              //if (scope.type === 'groupCentric') {
+                //t.append('tspan').text('(' + d.data.group.name + ')')
+                  //.attr('x', 0).attr('dy', '15');
+              //}
             });
         };
 

@@ -153,7 +153,8 @@ angular.module("policyEngine", [
         })
           .state("main.assignment.group", {
             url: 'group/:itemId',
-            templateUrl: 'scripts/main/assignment/group.html',
+            templateUrl: 'scripts/main/assignment/group/group.html',
+            controller: 'GroupAssignmentCtrl'
           })
           .state("main.assignment.service", {
             url: 'service/:itemId',
