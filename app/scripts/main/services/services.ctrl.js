@@ -64,28 +64,7 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.serviceConsumers = function (service) {
-      var groups = [];
-
-      var groupCentrics = _.filter(PolicyStore.Assignments.where({type: 'groupCentric'}), function (assignment) {
-        return _.find(assignment.collection, function (s) {
-          return s.name === service.name;
-        })
-      });
-
-
-      _.each(groupCentrics, function (assignment) {
-        groups.push(assignment.item);
-      });
-
-      var serviceCentrics = _.filter(PolicyStore.Assignments.where({type: 'serviceCentric'}), function (assignment) {
-        return assignment.item.name === service.name;
-      });
-
-      _.each(serviceCentrics, function (assignment) {
-        groups = groups.concat(assignment.collection);
-      });
-
-      return groups;
+      return StoreHelpers.serviceConsumers(service);
     };
 
     $scope.serviceConsumersString = function (service) {

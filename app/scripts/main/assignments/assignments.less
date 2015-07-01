@@ -63,6 +63,45 @@
       }
     }
 
+    table {
+      color: @color-50;
+
+      .link {
+        color: @blue;
+        cursor: pointer;
+      }
+
+      th {
+        font-weight: bold;
+        border-bottom: 1px solid @color-70;
+      }
+
+      th.user {
+        width: 60px;
+      }
+
+      th.timestamp {
+        width: 130px;
+      }
+
+      tr {
+        height: 54px;
+      }
+
+      tr:last-child {
+        border-bottom: 1px solid @color-80;
+      }
+
+      td {
+        border-top: 1px solid @color-80;
+        vertical-align: middle;
+      }
+
+      tr:hover {
+        background-color: @color-90;
+      }
+    }
+
   }
 
   .instructions {

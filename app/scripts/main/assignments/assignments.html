@@ -1,17 +1,41 @@
 <div class="assignments row">
     <div class="side-panel col-xs-3">
         <assignment-panel title="Group" items="groups()" type="serviceCentric" navigate-to="main.assignment.group"
-                collapsed-folders="collapsedGroups"></assignment-panel>
+                          collapsed-folders="collapsedGroups"></assignment-panel>
     </div>
     <div class="col-xs-6 middle-panel">
         <h2>Policy</h2>
         <h4>Recent Activity</h4>
-        <p>No activity yet.</p>
+
+        <div ng-hide="recentActivity.length">
+            <p>No activity yet.</p>
+
+            <p>Select a group or service to start specifying policies for them.</p>
+        </div>
+        <table class="table" ng-show="recentActivity.length">
+            <thead>
+            <tr>
+                <th></th>
+                <th class="user">User</th>
+                <th class="timestamp">Timestamp</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="activity in recentActivity">
+                <td>
+                    <span class="link" ng-click="goToServicePolicy(activity.serviceId)">{{activity.serviceName}}</span>
+                    {{activity.text}}
+                </td>
+                <td>{{activity.user}}</td>
+                <td>{{activity.timestamp}}</td>
+            </tr>
+            </tbody>
+        </table>
         <br>
-        <p>Select a group or service to start specifying policies for them.</p>
+
     </div>
     <div class="side-panel col-xs-3">
         <assignment-panel title="Service" items="services()" type="groupCentric" navigate-to="main.assignment.service"
-            collapsed-folders="collapsedServices"></assignment-panel>
+                          collapsed-folders="collapsedServices"></assignment-panel>
     </div>
 </div>
