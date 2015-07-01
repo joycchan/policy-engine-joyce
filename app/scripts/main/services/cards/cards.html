@@ -1,21 +1,12 @@
 <div>
 
     <div class="categories-new card category">
-        <div class="button new-button" ui-sref="main.service.form">
+        <div class="metric">
+            <a ui-sref="main.services.filters.servicesCards">All Services</a>
+        </div>
+        <div class="button" ui-sref="main.service.form">
             <div class="plus">+</div>
             <span class="new-text">New Service</span>
-        </div>
-        <div class="metric">
-            <ng-pluralize count="categories().length"
-                          when="{'0': 'Zero Categories',
-                         'one': '1 Category',
-                         'other': '{} Categories'}"></ng-pluralize>
-        </div>
-        <div class="metric">
-            <ng-pluralize count="services().length"
-                          when="{'0': 'Zero Services',
-                         'one': '1 Service',
-                         'other': '{} Services'}"></ng-pluralize>
         </div>
     </div>
     <div ng-repeat="category in categories()" class="card category"

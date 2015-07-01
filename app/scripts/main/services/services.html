@@ -18,7 +18,7 @@
             </div>
             <h4>All Categories</h4>
 
-            <div ng-repeat="category in categories()" ng-click="addFilter('category', category)">{{category.name}}</div>
+            <div ng-repeat="category in categories()" ng-click="addFilter('category', category)" ng-class="{'is-selected': params.category === category.name}">{{category.name}}</div>
             <div class="reset" ng-click="removeFilter('category')" ng-show="filtered['category']">Reset</div>
         </div>
 

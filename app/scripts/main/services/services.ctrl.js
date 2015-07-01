@@ -17,10 +17,11 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.breadCrumbs = {
       categoriesClick: function() {
+        $scope.params = {};
         if ($state.includes(STATE.categoryCards) || $state.includes(STATE.serviceCards)) {
-          $state.go(STATE.categoryCards);
+          $state.go(STATE.categoryCards, { category: undefined, group: undefined, ruleSet: undefined });
         } else {
-          $state.go(STATE.categoryList);
+          $state.go(STATE.categoryList, { category: undefined, group: undefined, ruleSet: undefined });
         }
       },
       services: function() {
@@ -50,41 +51,50 @@ angular.module('policyEngine').controller('ServicesCtrl',
     $scope.categoryState = function() {
       // hide the category catalog if this returns true
       return $state.includes(STATE.categoryCards) || $state.includes(STATE.categoryList);
-      // return !$scope.filtered['category'] && !$state.is('main.services.filters.list');
     };
 
     $scope.cardState = function() {
-      return $state.is('main.services.filters.cards');
+      // return $state.is('main.services.filters.cards');
+      return $state.includes(STATE.categoryCards) || $state.includes(STATE.serviceCards);
     };
 
     $scope.listState = function() {
-      return $state.is('main.services.filters.list');
+      // return $state.is('main.services.filters.list');
+      return $state.includes(STATE.categoryList) || $state.includes(STATE.serviceList);
     };
 
     $scope.selectCategoryState = function() {
-      $state.go('main.services.filters.cards', { category: undefined, group: undefined, ruleSet: undefined });
+      if ($state.includes(STATE.categoryCards) || $state.includes(STATE.categoryList)) {
+        $state.go(STATE.categoryCards);
+      } else if ($state.includes(STATE.serviceCards) || $state.includes(STATE.serviceList)) {
+        $state.go(STATE.serviceCards);
+      }
     };
 
     $scope.selectListState = function() {
-      // $state.go('main.services.filters.list');
-      $state.go('main.services.filters.categoriesList');
+      if ($state.includes(STATE.categoryCards) || $state.includes(STATE.categoryList)) {
+        $state.go(STATE.categoryList);
+      } else if ($state.includes(STATE.serviceCards) || $state.includes(STATE.serviceList)) {
+        $state.go(STATE.serviceList);
+      }
     };
 
+    $scope.params = {};
+
     $scope.addFilter = function (type, object) {
-      var params = {};
-      params[type] = object.name;
+      $scope.params[type] = object.name;
       if ($state.includes(STATE.categoryCards)) {
-        $state.go(STATE.serviceCards, params);
+        $state.go(STATE.serviceCards, $scope.params);
       } else if ($state.includes(STATE.categoryList)) {
-        $state.go(STATE.serviceList, params);
+        $state.go(STATE.serviceList, $scope.params);
+      } else {
+        $state.go('.', $scope.params);
       }
-      // $state.go('.', params);
     };
 
     $scope.removeFilter = function(type) {
-      var params = {};
-      params[type] = undefined;
-      $state.go('.', params);
+      $scope.params[type] = undefined;
+      $state.go('.', $scope.params);
     };
 
     $scope.assignService = function (service) {
