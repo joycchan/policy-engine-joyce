@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, PolicyStore, PolicyActions, StoreHelpers) {
+  function ($scope, $state, PolicyStore, PolicyActions, StoreHelpers, $stateParams) {
 
     $scope.getChild = StoreHelpers.getChild;
 
@@ -17,7 +17,6 @@ angular.module('policyEngine').controller('ServicesCtrl',
 
     $scope.breadCrumbs = {
       categoriesClick: function() {
-        $scope.params = {};
         if ($state.includes(STATE.categoryCards) || $state.includes(STATE.serviceCards)) {
           $state.go(STATE.categoryCards, { category: undefined, group: undefined, ruleSet: undefined });
         } else {
@@ -28,6 +27,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
         return $state.includes(STATE.serviceCards) || $state.includes(STATE.serviceList);
       }    
     }
+
+    $scope.isCategorySelected = function(category) {
+      return $stateParams.category === category;
+    };
 
     var STATE = {
       categoryCards: 'main.services.filters.cards',
@@ -54,12 +57,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
     };
 
     $scope.cardState = function() {
-      // return $state.is('main.services.filters.cards');
       return $state.includes(STATE.categoryCards) || $state.includes(STATE.serviceCards);
     };
 
     $scope.listState = function() {
-      // return $state.is('main.services.filters.list');
       return $state.includes(STATE.categoryList) || $state.includes(STATE.serviceList);
     };
 
@@ -79,22 +80,23 @@ angular.module('policyEngine').controller('ServicesCtrl',
       }
     };
 
-    $scope.params = {};
 
     $scope.addFilter = function (type, object) {
-      $scope.params[type] = object.name;
+      var params = {};
+      params[type] = object.name;
       if ($state.includes(STATE.categoryCards)) {
-        $state.go(STATE.serviceCards, $scope.params);
+        $state.go(STATE.serviceCards, params);
       } else if ($state.includes(STATE.categoryList)) {
-        $state.go(STATE.serviceList, $scope.params);
+        $state.go(STATE.serviceList, params);
       } else {
-        $state.go('.', $scope.params);
+        $state.go('.', params);
       }
     };
 
     $scope.removeFilter = function(type) {
-      $scope.params[type] = undefined;
-      $state.go('.', $scope.params);
+      var params = {};
+      params[type] = undefined;
+      $state.go('.', params);
     };
 
     $scope.assignService = function (service) {
