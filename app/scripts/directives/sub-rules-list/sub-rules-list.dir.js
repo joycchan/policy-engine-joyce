@@ -19,7 +19,8 @@ angular.module('policyEngine')
         title: '@',
         list: '=',
         filter: '=',
-        editModeHash: '='
+        editModeHash: '=',
+        draggedSubRule: '='
       },
       restrict: 'E',
       link: function postLink(scope, element, attrs) {

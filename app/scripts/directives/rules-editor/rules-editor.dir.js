@@ -82,7 +82,8 @@ angular.module('policyEngine')
       scope: {
         areAllRulesValid: '=',
         editModeHash: '=',
-        selectedRuleSet: '='
+        selectedRuleSet: '=',
+        dragStart: '='
       },
       restrict: 'E',
       link: function postLink(scope, element, attrs) {

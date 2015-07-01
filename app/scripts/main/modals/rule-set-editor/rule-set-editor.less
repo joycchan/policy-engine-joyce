@@ -6,10 +6,15 @@
   // overwriting angular-ui classes
   .modal-dialog {
     width: calc(960px + 10px);
+    margin: 0; // must be zero, or dragging will be offset
+    position: absolute;
     }
   &.modal {
+
     .modal-content {
       padding: 0;
+      position: relative;
+      left: 15%;
     }
   }
 }

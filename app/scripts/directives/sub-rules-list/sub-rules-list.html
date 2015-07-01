@@ -11,8 +11,8 @@
       ng-drag-data="{type: subRuleType, data: subRule}">
       {{subRule.name}}
     </div>
-    <div ng-drag-clone="" class="listItem" style="background-color: orange; margin-left: -20%;">
-          hello world
+    <div ng-drag-clone="" class="listItem clone">
+          {{draggedSubRule.data.name}}
       </div>
   </div>
   <div class="addButton">

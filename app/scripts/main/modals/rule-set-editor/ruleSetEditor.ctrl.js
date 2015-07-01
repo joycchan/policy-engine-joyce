@@ -109,4 +109,12 @@ angular.module('policyEngine').controller('RuleSetEditorCtrl',
       return $scope.customAction.name && $scope.customAction.data;
     };
 
+
+
+    $scope.draggedSubRule = {};
+
+    $scope.dragStart = function(data) {
+      $scope.draggedSubRule = data;
+    };
+
   });

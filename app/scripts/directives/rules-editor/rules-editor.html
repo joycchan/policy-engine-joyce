@@ -24,7 +24,7 @@
               <div class="editIcon" ng-show="editModeHash[$index]" ng-click="toggleEditRuleSet($index)"><img src="images/icon_edit_rule_24.png"></div>
             </td>
             <td>
-              <div class="subRuleDrop" ng-drop="true" ng-drop-success="addClassifier($data, $index)">
+              <div class="subRuleDrop" ng-drop="true" ng-drag-start="dragStart($data)" ng-drop-success="addClassifier($data, $index)">
                 <div class="subRuleContainer" ng-repeat="classifier in getClassifiers(rule)">
                   <div class="subRule subRule--classifier listView-innerList">
                     {{classifier.name}}
