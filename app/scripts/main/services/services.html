@@ -5,11 +5,10 @@
     <div class="row">
     <div class="col-sm-3 catalog" ng-hide="categoryState()">
         <div class="section">
-            <div class="button new-button" ui-sref="main.service.form">
-                <div class="plus">+</div>
-                <span class="new-text">New Service</span>
-            </div>
-            <h4>All Categories</h4>
+            <div>REFINE BY</div>
+        </div>
+        <div class="section">
+            <h4>Categories</h4>
 
             <div ng-repeat="category in categories()" ng-click="addFilter('category', category)">{{category.name}}</div>
             <div class="reset" ng-click="removeFilter('category')" ng-show="filtered['category']">Reset</div>

@@ -25,13 +25,13 @@ angular.module("policyEngine", [
         controller: "AccountCtrl"
       })
         .state("main.services", {
-          url: "services/",
+          url: "services/?category?group?ruleSet",
           templateUrl: "scripts/main/services/services.html",
           controller: "ServicesCtrl",
           abstract: true
         })
           .state("main.services.filters", {
-            url: "?category?group?ruleSet",
+            url: "",
             templateUrl: "scripts/main/services/filters.html",
             controller: "ServicesFilterCtrl",
             abstract: true
