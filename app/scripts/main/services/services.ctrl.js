@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesCtrl',
-  function ($scope, $state, PolicyStore, PolicyActions, StoreHelpers) {
+  function ($scope, $state, PolicyStore, PolicyActions, StoreHelpers, $stateParams) {
 
     $scope.getChild = StoreHelpers.getChild;
 
@@ -47,9 +47,14 @@ angular.module('policyEngine').controller('ServicesCtrl',
       $state.go('main.services.filters.list');
     };
 
-    $scope.addFilter = function (type, object) {
+    $scope.toggleFilter = function (type, object) {
       var params = {};
-      params[type] = object.name;
+      if ($stateParams[type] === object.name) {
+        params[type] = undefined;
+      } else {
+        params[type] = object.name;
+      }
+
       $state.go('.', params);
     };
 
@@ -58,6 +63,15 @@ angular.module('policyEngine').controller('ServicesCtrl',
       params[type] = undefined;
       $state.go('.', params);
     };
+
+    $scope.removeAllFilters = function() {
+      var params = {
+        category: undefined,
+        group: undefined,
+        ruleSet: undefined
+      }
+      $state.go('.', params);
+    }
 
     $scope.assignService = function (service) {
       $state.go('main.assignment.service', { itemId: service.id });
@@ -110,6 +124,12 @@ angular.module('policyEngine').controller('ServicesCtrl',
       $scope.providerGroups = uniqueNames(newServices, $scope.providerGroup);
       $scope.ruleSets = uniqueNames(newServices, $scope.ruleSet);
     });
+
+    $scope.isSectionItemSelected = function(section, item) {
+      return $stateParams[section] === item;
+    }
+
+
   }
 );
 

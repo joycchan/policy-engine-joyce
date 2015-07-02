@@ -5,30 +5,43 @@
     <div class="row">
     <div class="col-sm-3 catalog" ng-hide="categoryState()">
         <div class="section">
-            <div>REFINE BY</div>
+            <div class="refine">REFINE BY</div>
+            <div class="reset" ng-click="removeAllFilters()" ng-show="filtered['category'] || filtered['group'] || filtered['ruleSet']">Reset</div>
         </div>
         <div class="section">
             <h4>Categories</h4>
-
-            <div ng-repeat="category in categories()" ng-click="addFilter('category', category)">{{category.name}}</div>
-            <div class="reset" ng-click="removeFilter('category')" ng-show="filtered['category']">Reset</div>
+            <div ng-repeat="category in categories()"
+                 ng-click="toggleFilter('category', category)"
+                 ng-class="{'is-selected': isSectionItemSelected('category', category.name)}">
+                <div class="removeWrapper">
+                    <div class="remove">X</div>
+                </div>
+                <div class="name">{{category.name}}</div>
+            </div>
         </div>
 
         <div class="section">
             <h4>Provider Group</h4>
-
-            <div ng-repeat="group in providerGroups" ng-click="addFilter('group', group)">
-                {{group.name}}
+            <div ng-repeat="group in providerGroups"
+                 ng-click="toggleFilter('group', group)"
+                 ng-class="{'is-selected': isSectionItemSelected('group', group.name)}">
+                <div class="removeWrapper">
+                    <div class="remove"></div>
+                </div>
+                <div class="name">{{group.name}}</div>
             </div>
-            <div class="reset" ng-click="removeFilter('group')" ng-show="filtered['group']">Reset</div>
         </div>
         <div class="section">
             <h4>Rule Set</h4>
-
-            <div ng-repeat="ruleSet in ruleSets" ng-click="addFilter('ruleSet', ruleSet)">
-                {{ruleSet.name}}
+            <div ng-repeat="ruleSet in ruleSets"
+                 ng-click="toggleFilter('ruleSet', ruleSet)"
+                 ng-class="{'is-selected': isSectionItemSelected('ruleSet', ruleSet.name)}">
+                
+                <div class="removeWrapper">
+                    <div class="remove"></div>
+                </div>
+                <div class="name">{{ruleSet.name}}</div>
             </div>
-            <div class="reset" ng-click="removeFilter('ruleSet')" ng-show="filtered['ruleSet']">Reset</div>
         </div>
     </div>
 

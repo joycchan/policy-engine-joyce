@@ -39,28 +39,65 @@
   }
 
   .catalog {
+    // overriding bootstrap
+    padding-left: 0;
+
     .section {
       width: 234px;
       line-height: 22px;
       border-right: 1px solid @catalog-border;
       border-bottom: 1px solid @catalog-border;
 
+      .refine {
+        margin-left: 25px;
+        display: inline-block;
+        color: black;
+        font-size: 12px;
+      }
+
       h4 {
         font-weight: bold;
         font-size: 12px;
         color: @color-60;
         line-height: 36px;
-        margin: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 25px;
       }
 
       div {
         cursor: pointer;
-        line-height: 36px;
+        line-height: 30px;
         color: @catalog-text;
+        &.is-selected {
+          background-color: @catalog-selected;
+
+          .remove {
+            visibility: visible;
+          }
+        }
+      }
+
+      .removeWrapper, .name {
+        display: inline-block;
+      }
+
+      .removeWrapper {
+        padding-left: 8px;
+        padding-right: 8px;
+        width: 25px;
+      }
+
+      .remove {
+        visibility: hidden;
       }
 
       .reset {
-        color: @blue;
+        color: black;
+        font-size: 12px;
+        display: inline-block;
+        float: right;
+        margin-right: 15px;
       }
     }
   }
