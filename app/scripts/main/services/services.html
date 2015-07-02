@@ -1,70 +1,68 @@
 <div class="services">
-
-    <!-- <h2>Services</h2> -->
-
     <div class="row">
-    <div class="col-sm-3 catalog" ng-hide="categoryState()">
-        <div class="section refineReset">
-            <div class="refine">REFINE BY</div>
-            <div class="reset" ng-click="removeAllFilters()" ng-show="filtered['category'] || filtered['group'] || filtered['ruleSet']">Reset</div>
-        </div>
-        <div class="section">
-            <div class="sectionHeading">
-                <h4>Categories</h4>
-                <div class="number">{{categories().length}}</div>
+        <div class="col-sm-3 catalog" ng-hide="categoryState()">
+            <div class="section refineReset">
+                <div class="refine">REFINE BY</div>
+                <div class="reset" ng-click="removeAllFilters()" ng-show="filtered['category'] || filtered['group'] || filtered['ruleSet']">Reset</div>
             </div>
-            <div ng-repeat="category in categories()"
-                 class="item"
-                 ng-click="toggleFilter('category', category)"
-                 ng-class="{'is-selected': isSectionItemSelected('category', category.name)}">
-                <div class="removeWrapper">
-                    <div class="remove"><img src="images/icon_catalog_x.png"></img></div>
+            <div class="section">
+                <div class="heading">
+                    <h4>Categories</h4>
+                    <div class="number">{{categories().length}}</div>
                 </div>
-                <div class="name">{{category.name}}</div>
+                <div class="items">
+                    <div ng-repeat="category in categories()"
+                         class="item"
+                         ng-click="toggleFilter('category', category)"
+                         ng-class="{'is-selected': isSectionItemSelected('category', category.name)}">
+                        <div class="removeWrapper">
+                            <div class="remove"><img src="images/icon_catalog_x.png"></img></div>
+                        </div>
+                        <div class="name">{{category.name}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section group">
+                <div class="heading">
+                    <h4>Provider Group</h4>
+                    <div class="number">{{providerGroups.length}}</div>
+                </div>
+                <div class="items">
+                    <div ng-repeat="group in providerGroups"
+                         class="item"
+                         ng-click="toggleFilter('group', group)"
+                         ng-class="{'is-selected': isSectionItemSelected('group', group.name)}">
+                        <div class="removeWrapper">
+                            <div class="remove"><img src="images/icon_catalog_x.png"></img></div>
+                        </div>
+                        <div class="name">{{group.name}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="section ruleSet">
+                <div class="heading">
+                    <h4>Rule Set</h4>
+                    <div class="number">{{ruleSets.length}}</div>
+                </div>
+                <div class="items">
+                    <div ng-repeat="ruleSet in ruleSets"
+                         class="item"
+                         ng-click="toggleFilter('ruleSet', ruleSet)"
+                         ng-class="{'is-selected': isSectionItemSelected('ruleSet', ruleSet.name)}">
+                        <div class="removeWrapper">
+                            <div class="remove"><img src="images/icon_catalog_x.png"></img></div>
+                        </div>
+                        <div class="name">{{ruleSet.name}}</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="section group">
-            <div class="sectionHeading">
-                <h4>Provider Group</h4>
-                <div class="number">{{providerGroups.length}}</div>
-            </div>
-            <div class="items">
-                <div ng-repeat="group in providerGroups"
-                     class="item"
-                     ng-click="toggleFilter('group', group)"
-                     ng-class="{'is-selected': isSectionItemSelected('group', group.name)}">
-                    <div class="removeWrapper">
-                        <div class="remove"><img src="images/icon_catalog_x.png"></img></div>
-                    </div>
-                    <div class="name">{{group.name}}</div>
-                </div>
-            </div>
+        <div ng-class="{ 'col-sm-12': categoryState(), 'col-sm-9': !categoryState() }">
+            <search-sort-bar card-state="cardState" list-state="listState" select-card-state="selectCategoryState"
+                    select-list-state="selectListState"></search-sort-bar>
+            <ui-view></ui-view>
         </div>
-        <div class="section ruleSet">
-            <div class="sectionHeading">
-                <h4>Rule Set</h4>
-                <div class="number">{{ruleSets.length}}</div>
-            </div>
-            <div class="items">
-                <div ng-repeat="ruleSet in ruleSets"
-                     class="item"
-                     ng-click="toggleFilter('ruleSet', ruleSet)"
-                     ng-class="{'is-selected': isSectionItemSelected('ruleSet', ruleSet.name)}">
-                    
-                    <div class="removeWrapper">
-                        <div class="remove"><img src="images/icon_catalog_x.png"></img></div>
-                    </div>
-                    <div class="name">{{ruleSet.name}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div ng-class="{ 'col-sm-12': categoryState(), 'col-sm-9': !categoryState() }">
-        <search-sort-bar card-state="cardState" list-state="listState" select-card-state="selectCategoryState"
-                select-list-state="selectListState"></search-sort-bar>
-        <ui-view></ui-view>
-    </div>
     </div>
 </div>

@@ -58,12 +58,6 @@ angular.module('policyEngine').controller('ServicesCtrl',
       $state.go('.', params);
     };
 
-    $scope.removeFilter = function(type) {
-      var params = {};
-      params[type] = undefined;
-      $state.go('.', params);
-    };
-
     $scope.removeAllFilters = function() {
       var params = {
         category: undefined,
@@ -71,6 +65,10 @@ angular.module('policyEngine').controller('ServicesCtrl',
         ruleSet: undefined
       }
       $state.go('.', params);
+    }
+
+    $scope.isSectionItemSelected = function(section, item) {
+      return $stateParams[section] === item;
     }
 
     $scope.assignService = function (service) {
@@ -124,11 +122,6 @@ angular.module('policyEngine').controller('ServicesCtrl',
       $scope.providerGroups = uniqueNames(newServices, $scope.providerGroup);
       $scope.ruleSets = uniqueNames(newServices, $scope.ruleSet);
     });
-
-    $scope.isSectionItemSelected = function(section, item) {
-      return $stateParams[section] === item;
-    }
-
 
   }
 );
