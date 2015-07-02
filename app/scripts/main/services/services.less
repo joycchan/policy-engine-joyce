@@ -47,18 +47,25 @@
       line-height: 22px;
       border-right: 1px solid @catalog-border;
       border-bottom: 1px solid @catalog-border;
+      position: relative;
+      padding-bottom: 8px;
+
+      &.refineReset {
+        height: 60px;
+      }
 
       .refine {
         margin-left: 25px;
         display: inline-block;
         color: black;
         font-size: 12px;
+        position: absolute;
+        bottom: 0;
       }
 
       h4 {
-        font-weight: bold;
         font-size: 12px;
-        color: @color-60;
+        color: black;
         line-height: 36px;
         margin-top: 0;
         margin-bottom: 0;
@@ -73,16 +80,18 @@
         width: 35px;
         background-color: @catalog-number;
         height: 21px;
-        line-height: 23px;
+        line-height: 24px;
         text-align: center;
         color: white;
         border-radius: 10px;
-        margin-top: 5px;
+        margin-top: 6px;
       }
 
-      div {
+      .item {
+        &:extend(.extra-light);
         cursor: pointer;
-        line-height: 30px;
+        height: 30px;
+        line-height: 33px;
         color: @catalog-text;
         &.is-selected {
           background-color: @catalog-selected;
@@ -97,13 +106,20 @@
         display: inline-block;
       }
 
+      .name {
+        &:extend(.extra-light);
+      }
+
       .removeWrapper {
         padding-left: 8px;
-        padding-right: 8px;
-        width: 25px;
+        padding-right: 2px;
+        width: 22px;
       }
 
       .remove {
+        img {
+          margin-top: -2px;
+        }
         visibility: hidden;
       }
 
@@ -113,8 +129,27 @@
         display: inline-block;
         float: right;
         margin-right: 15px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
       }
     }
+
+    .sectionHeading {
+      margin-top: 6px;
+      margin-bottom: 2px;
+    }
+
+    .group, .ruleSet {
+      .items {
+        max-height: calc(250px - 36px - 6px - 2px);
+        overflow-y: auto;
+      }
+      .sectionHeading {
+        margin-top: 14px;
+      }
+    }
+
   }
 }
 
