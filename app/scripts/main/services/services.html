@@ -9,7 +9,10 @@
             <div class="reset" ng-click="removeAllFilters()" ng-show="filtered['category'] || filtered['group'] || filtered['ruleSet']">Reset</div>
         </div>
         <div class="section">
-            <h4>Categories</h4>
+            <div>
+                <h4>Categories</h4>
+                <div class="number">{{categories().length}}</div>
+            </div>
             <div ng-repeat="category in categories()"
                  ng-click="toggleFilter('category', category)"
                  ng-class="{'is-selected': isSectionItemSelected('category', category.name)}">
@@ -21,7 +24,10 @@
         </div>
 
         <div class="section">
-            <h4>Provider Group</h4>
+            <div>
+                <h4>Provider Group</h4>
+                <div class="number">{{providerGroups.length}}</div>
+            </div>
             <div ng-repeat="group in providerGroups"
                  ng-click="toggleFilter('group', group)"
                  ng-class="{'is-selected': isSectionItemSelected('group', group.name)}">
@@ -32,7 +38,10 @@
             </div>
         </div>
         <div class="section">
-            <h4>Rule Set</h4>
+            <div>
+                <h4>Rule Set</h4>
+                <div class="number">{{ruleSets.length}}</div>
+            </div>
             <div ng-repeat="ruleSet in ruleSets"
                  ng-click="toggleFilter('ruleSet', ruleSet)"
                  ng-class="{'is-selected': isSectionItemSelected('ruleSet', ruleSet.name)}">
