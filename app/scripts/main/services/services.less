@@ -1,7 +1,7 @@
 @import "../../../styles/variables";
 
-@heading-margin-top: 6px;
-@heading-margin-bottom: 2px;
+@heading-padding-top: 6px;
+@heading-padding-bottom: 2px;
 @h4-height: 36px;
 
 .services {
@@ -61,11 +61,11 @@
 
     .group, .ruleSet {
       .items {
-        max-height: ~"calc(250px - @{heading-margin-top} + @{heading-margin-bottom} + @{h4-height})";
+        max-height: ~"calc(250px - @{heading-padding-top} + @{heading-padding-bottom} + @{h4-height})";
         overflow-y: auto;
       }
       .heading {
-        margin-top: 14px;
+        padding-top: 14px;
       }
     }
 
@@ -91,8 +91,8 @@
     }
 
     .heading {
-      margin-top: @heading-margin-top;
-      margin-bottom: @heading-margin-bottom;
+      padding-top: @heading-padding-top;
+      padding-bottom: @heading-padding-bottom;
     }
 
     h4 {
