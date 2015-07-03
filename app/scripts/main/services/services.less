@@ -6,6 +6,20 @@
 
 .services {
 
+  .message {
+    font-size: 14px;
+    height: 50px;
+    color: @message-blue;
+    background-color: @message-bg;
+    line-height: 50px;
+    padding-left: 15px;
+  }
+
+  .message--bold {
+    &:extend(.bold);
+    color: @message-blue-dark;
+  }
+
   .card {
 
     &.category {
