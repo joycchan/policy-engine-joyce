@@ -19,7 +19,7 @@
         </div>
     </div>
     <div ng-repeat="category in categories()" class="card category"
-         ng-click="addFilter('category', category)">
+         ng-click="toggleFilter('category', category)">
         <h3>{{category.name}}</h3>
         <img ng-src="{{categoryImage(category)}}"/>
 
