@@ -7,11 +7,16 @@
     <div class="button" ng-click="toggleInnerModal(subRuleType)">Add Custom {{title}}</div>
   </div>
   <div class="hDivider"></div>
-  <div
-    class="listItem"
-    ng-repeat="subRule in list() | filter: filter"
-    ng-drag="isDraggable()"
-    ng-drag-data="{type: subRuleType, data: subRule}">
-    {{subRule.name}}
+  <div>
+    <div
+      class="listItem"
+      ng-repeat="subRule in list() | filter: filter"
+      ng-drag="isDraggable()"
+      ng-drag-data="{type: subRuleType, data: subRule}">
+      {{subRule.name}}
+    </div>
+  </div>
+  <div style="position: absolute; height: 150px; top: 150px; overflow: scroll;">
+    <div class="sibling" ng-style="{'height': list().length * 36}" style="width: 220px; position: relative;"></div>
   </div>
 </div>
