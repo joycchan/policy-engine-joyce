@@ -17,7 +17,7 @@
     <tbody>
       <tr ng-repeat="group in groups() | filter: search" ng-click="toggle(group)" ng-class="{'is-selected is-selected--border': isGroupSelected(group)}">
         <td>{{group.name}}</td>
-        <td>{{group.endpointPool}}</td>
+        <td>{{group.endpointPools | comma}}</td>
       </tr>
     </tbody>
   </table>

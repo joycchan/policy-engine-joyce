@@ -43,9 +43,15 @@ angular.module('policyEngine').controller('ImportGroupCtrl',
       }
     }
 
+    var notYetImplemented = function(group) {
+      return !PolicyStore.Groups.find({id: group.id});
+    };
+
     $scope.importGroups = function(groups) {
       _.each(groups, function(group) {
-        PolicyActions.ReceiveGroup(group);
+        if (notYetImplemented(group)) {
+          PolicyActions.ReceiveGroup(group);
+        }
       });
       $state.go('main.service.form');
     };
