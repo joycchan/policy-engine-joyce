@@ -1,13 +1,15 @@
 <div class="subRulesList">
-  <h2>{{title}}</h2>
-  <div class="search">
-    <input-search model="filter.name"></input-search>
+  <div class="titleSearch">
+    <h2>{{title}}</h2>
+    <div class="search">
+      <input-search model="filter.name"></input-search>
+    </div>
+    <div class="addButton">
+      <div class="button" ng-click="toggleInnerModal(subRuleType)">Add Custom {{title}}</div>
+    </div>
+    <div class="hDivider"></div>
   </div>
-  <div class="addButton">
-    <div class="button" ng-click="toggleInnerModal(subRuleType)">Add Custom {{title}}</div>
-  </div>
-  <div class="hDivider"></div>
-  <div style="position: absolute; top: 150px;" class="listItems">
+  <div class="listItems">
     <div
       class="listItem"
       ng-repeat="subRule in list() | filter: filter"
@@ -16,7 +18,7 @@
       {{subRule.name}}
     </div>
   </div>
-  <div style="height: 150px; overflow: scroll; position: relative;" class="parent">
-    <div class="sibling" ng-style="{'height': list().length * 36}" style="width: 220px; position: relative;"></div>
+  <div class="listItemScroll">
+    <div class="listItemScrollEmpty" ng-style="{'height': list().length * 36}"></div>
   </div>
 </div>

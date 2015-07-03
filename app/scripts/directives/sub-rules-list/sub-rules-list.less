@@ -1,6 +1,11 @@
 @import "../../../styles/variables";
 
 .subRulesList {
+  .titleSearch {
+    z-index: 3;
+    // position: absolute;
+    background-color: orange;
+  }
 
   h2 {
     color: @color-60;
@@ -21,6 +26,12 @@
     border: 1px solid @color-70;
   }
 
+  .listItems {
+    position: absolute;
+    top: 150px;
+    // z-index: 2;
+  }
+
   .listItem {
     &:extend(.extra-light);
     cursor: pointer;
@@ -34,5 +45,17 @@
       background-color: @color-80;
       border-left: 3px solid @blue;
     }
+  }
+
+  .listItemScroll {
+    height: 150px;
+    // top: 150px;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .listItemScrollEmpty {
+    width: 220px;
+    position: relative;
   }
 }
