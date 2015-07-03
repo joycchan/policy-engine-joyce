@@ -14,32 +14,36 @@ angular.module('policyEngine').controller('ServiceCtrl',
       categoryId: null // uncategorized
     };
 
-    $scope.selectedGroup = function() {
+    $scope.selectedGroup = function () {
       return PolicyStore.Groups.find({id: $scope.service.providerGroupId});
     };
 
-    $scope.selectedRuleSet = function() {
+    $scope.selectedRuleSet = function () {
       return PolicyStore.RuleSets.find({id: $scope.service.ruleSetId});
     };
 
-    $scope.createService = function() {
-      if(!$scope.serviceIncomplete()) {
+    $scope.createService = function () {
+      if (!$scope.serviceIncomplete()) {
         PolicyActions.CreateService($scope.service);
         $state.go('main.services.filters.list');
       }
     };
 
-    $scope.serviceIncomplete = function() {
+    $scope.serviceIncomplete = function () {
       return !($scope.service.name && $scope.selectedGroup() && $scope.selectedRuleSet());
     };
 
-    $scope.createGroup = function (group) {
-      $scope.service.providerGroupId = group.id;
+    $scope.createGroup = function (groupPromise) {
+      groupPromise.then(function (response) {
+        $scope.service.providerGroupId = response.data._key;
+      });
       $state.go('main.service.form');
     };
 
-    $scope.createRuleSet = function(ruleSet) {
-      $scope.service.ruleSetId = ruleSet.id;
+    $scope.createRuleSet = function (ruleSetPromise) {
+      ruleSetPromise.then(function (response) {
+        $scope.service.ruleSetId = response.data._key;
+      });
       $state.go('main.service.form');
     };
 

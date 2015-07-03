@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('policyEngine').controller('ServicesEditAssignedGroups',
-  function ($scope, PolicyStore, $state) {
+  function ($scope, PolicyStore, $state, StoreHelpers) {
   
-    // TODO: currently searching via 'name' property, update this to search via id
-    var _groups = PolicyStore.Assignments.find({'item': {name: $scope.service.name}});
+    var _groups = StoreHelpers.serviceConsumers($scope.service);
 
     $scope.groups = function() {
       return byCustom('');
@@ -19,7 +18,7 @@ angular.module('policyEngine').controller('ServicesEditAssignedGroups',
     $scope.filter = "All Groups";
 
     var byCustom = function (type) {
-      return _.filter(_groups.collection, function (groups) {
+      return _.filter(_groups, function (groups) {
         if (type === "") {
           return groups;
         }

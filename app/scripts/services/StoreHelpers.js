@@ -27,32 +27,44 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
           return table.find({id: id})
         });
       },
-      getNestedChildren: function (arr, parent) {
-        var out = []
-        for (var i in arr) {
-          if (arr[i].parentId == parent) {
-            var children = storeHelpers.getNestedChildren(arr, arr[i].id)
-
-            if (children.length) {
-              arr[i].children = children
-            }
-            out.push(arr[i])
-          }
-        }
-        return out
+     serviceConsumers: function (service) {
+        return _.chain(PolicyStore.Assignments.all())
+          .where({serviceId: service.id})
+          .pluck('consumerGroupIds')
+          .flatten()
+          .map(function (groupId) {
+            return PolicyStore.Groups.find({id: groupId});
+          })
+          .value();
       },
-      getArrayOfParents: function (array, id) {
-        if (typeof array != 'undefined') {
-          for (var i = 0; i < array.length; i++) {
-            if (array[i].id == id) return [id];
-            var a = find(array[i].children, id);
-            if (a) {
-              a.unshift(array[i].id);
-              return a;
+      servicesProvided: function (group) {
+        return _.chain(PolicyStore.Services.all())
+          .where({providerGroupId: group.id})
+          .value();
+      },
+      servicesConsumed: function (group) {
+        return _.chain(PolicyStore.Assignments.all())
+          .filter(function (assignment) {
+            return _.includes(assignment.consumerGroupIds, group.id);
+          })
+          .pluck('serviceId')
+          .map(function (serviceId) {
+            return PolicyStore.Services.find({id: serviceId});
+          })
+          .value();
+      },
+      getNestedChildren: function (objectArray, parentId) {
+        var result = [];
+        objectArray.forEach(function(object) {
+          if (object.parentId === parentId) {
+            var children = storeHelpers.getNestedChildren(objectArray, object.id);
+            if (children.length > 0) {
+              object.children = children;
             }
+            result.push(object);
           }
-        }
-        return null;
+        });
+        return result;
       }
     };
     return storeHelpers;

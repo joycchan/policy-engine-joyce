@@ -31,8 +31,7 @@ angular.module('policyEngine').controller('NewRuleSetCtrl', function ($scope, $s
 
   $scope.create = function () {
     if ($scope.valid()) {
-      var ruleSet = PolicyActions.CreateRuleSet($scope.newRuleSet); // $scope.service is in the parent controller
-      $scope.createRuleSet(ruleSet);
+      $scope.createRuleSet(PolicyActions.CreateRuleSet($scope.newRuleSet)); // $scope.service is in the parent controller
     }
   };
 
