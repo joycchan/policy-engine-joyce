@@ -43,9 +43,15 @@ angular.module('policyEngine').controller('ImportGroupCtrl',
       }
     }
 
+    var isExistingGroup = function(group) {
+      return _.isUndefined(PolicyStore.Groups.find({id: group.id})) ? false : true;
+    };
+
     $scope.importGroups = function(groups) {
       _.each(groups, function(group) {
-        PolicyActions.ReceiveGroup(group);
+        if (!isExistingGroup(group)) {
+          PolicyActions.ReceiveGroup(group);
+        }
       });
       $state.go('main.service.form');
     };
