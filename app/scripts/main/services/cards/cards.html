@@ -1,28 +1,30 @@
 <div>
+<div ng-show="filtered['category']">
+    <div ng-hide="filteredServices.length" class="message">Sorry, no services match your selection.  Try removing some <span class="message--bold">or all of the filters</span> on your left.</div>
+    <div ng-show="filteredServices.length">
+        <div ng-repeat="service in filteredServices" class="card" ui-sref="{{'main.servicesEdit.providerGroup({serviceId: ' + service.id + '})'}}">
+            <h3>{{service.name}}</h3>
+            <div class="values">
+                <h4>Provider Group</h4>
 
-    <div ng-repeat="service in filteredServices" class="card" ui-sref="{{'main.servicesEdit.providerGroup({serviceId: ' + service.id + '})'}}">
-        <h3>{{service.name}}</h3>
+                <div class="value">{{providerGroup(service).name}}</div>
+                <h4>Rule Set</h4>
 
-        <div class="values">
-            <h4>Provider Group</h4>
-
-            <div class="value">{{providerGroup(service).name}}</div>
-            <h4>Rule Set</h4>
-
-            <div class="value">{{ruleSet(service).name}}</div>
-        </div>
-        <div class="sliding-box">
-            <h4>Assigned Groups</h4>
-
-            <div ng-hide="serviceConsumers(service).length">
-                <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
+                <div class="value">{{ruleSet(service).name}}</div>
             </div>
-            <div ng-show="serviceConsumers(service).length">
-                <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
-            </div>
-            <div class="button-group">
-                <div class="button is-selected">Rename</div>
-                <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
+            <div class="sliding-box">
+                <h4>Assigned Groups</h4>
+
+                <div ng-hide="serviceConsumers(service).length">
+                    <p>None (<a ng-click="assignService(service)">Assign this service to groups</a>)</p>
+                </div>
+                <div ng-show="serviceConsumers(service).length">
+                    <p ng-repeat="group in serviceConsumers(service)">{{group.name}}</p>
+                </div>
+                <div class="button-group">
+                    <div class="button is-selected">Rename</div>
+                    <div ng-click="deleteService(service)" class="button button--danger">Delete</div>
+                </div>
             </div>
         </div>
     </div>

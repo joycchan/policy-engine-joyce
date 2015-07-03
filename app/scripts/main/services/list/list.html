@@ -1,5 +1,10 @@
-<div class="service-listItem">
-    <div ng-if="loadingServices()">Loading</div>
+<div ng-show="!filteredServices.length && !loadingServices()" class="message">Sorry, no services match your selection.  Try removing some <span class="message--bold">or all of the filters</span> on your left.</div>
+
+<div class="service-listItem" ng-if="loadingServices()">
+  <div>Loading</div>
+</div>
+
+<div class="service-listItem" ng-show="filteredServices.length">
     <table class="listView listView--hover listView--iconsHover service-listItem-table">
         <thead>
         <th></th>
