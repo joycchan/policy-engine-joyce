@@ -43,13 +43,13 @@ angular.module('policyEngine').controller('ImportGroupCtrl',
       }
     }
 
-    var isExistingGroup = function(group) {
-      return _.isUndefined(PolicyStore.Groups.find({id: group.id})) ? false : true;
+    var notYetImplemented = function(group) {
+      return !PolicyStore.Groups.find({id: group.id});
     };
 
     $scope.importGroups = function(groups) {
       _.each(groups, function(group) {
-        if (!isExistingGroup(group)) {
+        if (notYetImplemented(group)) {
           PolicyActions.ReceiveGroup(group);
         }
       });
