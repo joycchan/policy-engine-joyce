@@ -23,6 +23,11 @@ angular.module('policyEngine')
       },
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
+
+        $('.parent').on('scroll', function() {
+          var d = $('.sibling').position().top
+          $('.listItems').css('top', 150 + d);
+        })
       }
     };
   });
