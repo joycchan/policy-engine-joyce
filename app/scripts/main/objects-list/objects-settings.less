@@ -2,8 +2,8 @@
 
 .objectsSettings {
   width: @settings-width;
-
   padding-left: 15px;
+
   .edit{
       cursor: pointer;
       display: inline-block;
@@ -70,27 +70,5 @@ tbody tr:first-child {
   td {
     color: @color-60;
     vertical-align: top;
-  }
-}
-
-.editable-buttons button[type=submit] {
-    &:extend(.button);
-    margin-left: 20px;
-    padding-top: 4px;
-    border: none;
-    &:hover {
-      &:extend(.button--hover);
-    }
-  }
-
-  .editable-buttons {
-    button {
-    &:extend(.button);
-    &:extend(.button--secondary);
-    padding-top: 4px;
-    border: none;
-    &:hover {
-      &:extend(.button--hover);
-    }
   }
 }

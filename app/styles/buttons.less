@@ -14,7 +14,7 @@
   text-align: center;
   display: inline-block;
   white-space: nowrap;
-  background-color: @green;
+  background-color: @lime-green;
 
   &:hover {
     &:extend(.button--hover);
@@ -44,26 +44,37 @@
   }
 }
 
-.button--secondary {
+/*
+  By declaring it both ways, this allows a developer who consumes this to
+  1. :extend() .button--secondary for re-use,
+    e.g. .hello {
+     // &:extend(.button--secondary);
+    }
+  2. Have the right amount of specificity without resorting to !important.
+  It allows the hover state to have the correct background-color (and not have it be overwritten by .button's :hover background-color).
+  Correct usage in html: when an element has a .button--secondary class, it should also has a .button class as well.
+  e.g. <div class="button button--secondary"></div>
+*/
+
+.button--secondary, .button.button--secondary, {
   background-color: @color-70;
+  &:hover {
+    &:extend(.button--secondaryHover);
+  }
 }
 
-.button--danger {
+.button--danger, .button.button--danger {
   background-color: @red;
 }
 
-.button--primary {
+.button--primary, .button.button--primary {
   background-color: @blue;
-}
-
-.button--disabled {
-  color: @color-70;
-  background-color: @color-80;
 }
 
 .button.is-disabled {
   &:extend(.extra-light);
-  &:extend(.button--disabled);
+  color: @color-70;
+  background-color: @color-80;
   cursor: default;
 
   &:hover {
@@ -73,8 +84,11 @@
 }
 
 .button--hover {
-  color: @color-80;
-  background-color: @blue;
+  background-color: @dark-lime-green;
+}
+
+.button--secondaryHover {
+  background-color: @color-65;
 }
 
 .button.is-selected {
