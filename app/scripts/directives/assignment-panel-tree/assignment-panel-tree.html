@@ -2,8 +2,8 @@
   <div class="list-element"
     ng-drag="true"
     ng-drag-data="dragData(item)"
-    ng-style="marginLeft(item)"
-    ng-class="{selected: selected(item)}">
+    ng-class="{selected: selected(item)}"
+    ng-style="paddingLeft(item)">
     <div class="folder-toggle" ng-show="item.children" ng-click="toggleFolder(item)">
         <div class="icon-carot" ng-class="{ collapsed: collapsedFolders[item.id]}"></div>
     </div>
@@ -13,11 +13,14 @@
     </div>
   </div>
   <hr/>
-    <assignment-panel-tree
+   <assignment-panel-tree
       items="children(item)"
       collapsed-folders="collapsedFolders"
-      selected-id="selectedId"
-      type="type"
-      go-to="goTo">
-    </assignment-panel-tree>
+      go-to="goTo"
+      drag-data="dragData"
+      item-icon="itemIcon"
+      selected="selected"
+      toggle-folder="toggleFolder"
+      children="children">
+  </assignment-panel-tree>
 </div>
