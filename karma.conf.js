@@ -80,6 +80,23 @@ module.exports = function (config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
+
+
+    preprocessors: {
+      'app/scripts/**/*.html': ['ng-html2js'],
+    },
+
+    ngHtml2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: 'app/',
+      //stripSufix: '.ext',
+      // prepend this to the
+      //prependPrefix: 'served/',
+
+      // setting this option will create only a single module that contains templates
+      // from all the files, so you can load them all with module('foo')
+      moduleName: 'policyEngine'
+    }
   });
 };
