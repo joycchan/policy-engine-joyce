@@ -15,6 +15,15 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
       return table;
     };
 
+    var countParents = function(type, item, count) {
+      var parent = PolicyStore[type].find({id: item.id}).parentId;
+      if (parent) {
+        count++;
+        return countParents(type, PolicyStore[type].find({id: parent}), count);
+      }
+      return count;
+    };
+
     var storeHelpers = {
       getChild: function (object, field) {
         var table = getTable(field);
@@ -65,6 +74,9 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
           }
         });
         return result;
+      },
+      numberOfParents: function(type, item) {
+        return countParents(type, item, 0);
       }
     };
     return storeHelpers;
