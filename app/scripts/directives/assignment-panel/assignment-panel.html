@@ -7,26 +7,12 @@
                 <input type="text" ng-model="search">
             </form>
         </div>
-         <assignment-panel-tree items="nestedItems" collapsed-folders="collapsedFolders" selected-id="selectedId"></assignment-panel-tree>
-  <!--       <div ng-repeat="item in nestedItems | filter:search">
-            <div class="list-element" ng-drag="true" ng-drag-data="dragData(item)" ng-class="{selected: selected(item)}">
-                <div class="folder-toggle" ng-show="item.children" ng-click="toggleFolder(item)">
-                    <div class="icon-carot" ng-class="{ collapsed: collapsedFolders[item.id]}"></div>
-                </div>
-                <div class="icon-and-name" ng-click="goTo(item)">
-                    <div class="img-item" ng-class="itemIcon(item)"></div>
-                    {{item.name}}
-                </div>
-            </div>
-            <hr/>
-            <div ng-repeat="child in children(item)">
-                <div class="list-element child" ng-drag="true" ng-drag-data="dragData(child)"
-                     ng-class="{selected: selected(child)}" ng-click="goTo(child)">
-                    <div class="img-item" ng-class="itemIcon(child)"></div>
-                    {{child.name}}
-                </div>
-                <hr/>
-            </div>
-        </div> -->
+         <assignment-panel-tree
+            items="nestedItems"
+            collapsed-folders="collapsedFolders"
+            selected-id="selectedId"
+            type="type"
+            go-to="goTo">
+        </assignment-panel-tree>
     </div>
 </div>

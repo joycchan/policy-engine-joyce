@@ -6,41 +6,10 @@ angular.module('policyEngine')
       templateUrl: 'scripts/directives/assignment-panel/assignment-panel.html',
       controller: function ($scope, $state, StoreHelpers) {
 
-        $scope.dragData = function (item) {
-          return {
-            type: $scope.type,
-            item: item
-          }
-        };
-
-        $scope.itemIcon = function (item) {
-          if (item.children && item.children.length) {
-            return 'folder';
-          } else if ($scope.type === 'groupCentric') {
-            return 'service';
-          } else if (item.type === 'resource') {
-            return 'resource';
-          } else {
-            return 'user';
-          }
-        };
-
-        $scope.selected = function(item) {
-          return item.id === $scope.selectedId;
-        };
-
         $scope.goTo = function (item) {
           if ($scope.navigateTo) {
             $state.go($scope.navigateTo, {itemId: item.id});
           }
-        };
-
-        $scope.toggleFolder = function(item) {
-          $scope.collapsedFolders[item.id] = !$scope.collapsedFolders[item.id];
-        };
-
-        $scope.children = function(item) {
-          return $scope.collapsedFolders[item.id] ? [] : item.children;
         };
 
         $scope.nestedItems = [];

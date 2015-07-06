@@ -28,22 +28,19 @@ angular.module('policyEngine')
           return item.id === $scope.selectedId;
         };
 
-        $scope.goTo = function (item) {
-          if ($scope.navigateTo) {
-            $state.go($scope.navigateTo, {itemId: item.id});
-          }
-        };
-
         $scope.toggleFolder = function(item) {
           $scope.collapsedFolders[item.id] = !$scope.collapsedFolders[item.id];
         };
 
+        // must use this in $scope.children, otherwise it causes a 10 iterations reached error when toggling folders
+        var _emptyArray = [];
+
         $scope.children = function(item) {
-          return $scope.collapsedFolders[item.id] ? [] : item.children;
+          return $scope.collapsedFolders[item.id] ? _emptyArray : item.children;
         };
 
         $scope.marginLeft = function(item) {
-          return {'margin-left': numberOfParents(item) * 10 + 'px'}
+          return {'padding-left': numberOfParents(item) * 15 + 'px'}
         };
 
         var numberOfParents = function(item) {
@@ -57,13 +54,16 @@ angular.module('policyEngine')
             return traverseParents(PolicyStore.Groups.find({id: parent}), count);
           } 
           return count;
-        }
+        };
 
       },
+      // children. toggleFolder, selected, itemIcon, dragData
       scope: {
         items: '=',
         collapsedFolders: '=',
-        selectedId: '='
+        selectedId: '=',
+        type: '=',
+        goTo: '='
       },
       restrict: 'EA',
       templateUrl: 'scripts/directives/assignment-panel-tree/assignment-panel-tree.html',
