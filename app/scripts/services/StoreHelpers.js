@@ -27,7 +27,7 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
           return table.find({id: id})
         });
       },
-     serviceConsumers: function (service) {
+      serviceConsumers: function (service) {
         return _.chain(PolicyStore.Assignments.all())
           .where({serviceId: service.id})
           .pluck('consumerGroupIds')
@@ -55,7 +55,7 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
       },
       getNestedChildren: function (objectArray, parentId) {
         var result = [];
-        objectArray.forEach(function(object) {
+        objectArray.forEach(function (object) {
           if (object.parentId === parentId) {
             var children = storeHelpers.getNestedChildren(objectArray, object.id);
             if (children.length > 0) {
@@ -65,6 +65,31 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
           }
         });
         return result;
+      },
+      getParentIds: function (nestedChildren, id) {
+        var result;
+        if (!_.isUndefined(nestedChildren)) {
+          nestedChildren.forEach(function (object, i) {
+            if (object.id == id) {
+              result = [];
+            }
+            var a = storeHelpers.getParentIds(object.children, id);
+            if (a) {
+              a.unshift(object.id);
+              result = a;
+            }
+          })
+        }
+        return result;
+      },
+      inheritedConsumerGroups: function(services, serviceId) {
+        var nestedChildren = storeHelpers.getNestedChildren(services);
+        var parentIds = storeHelpers.getParentIds(nestedChildren, serviceId);
+        return _.chain(parentIds)
+          .map(function(id) { return PolicyStore.Services.find({id: id})})
+          .map(function(service) { return storeHelpers.serviceConsumers(service)})
+          .flatten()
+          .value();
       }
     };
     return storeHelpers;

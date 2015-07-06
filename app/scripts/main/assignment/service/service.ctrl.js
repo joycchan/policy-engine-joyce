@@ -4,10 +4,12 @@ angular.module('policyEngine').controller('ServiceAssignmentCtrl',
   function ($scope, $stateParams, PolicyStore, PolicyActions, $state, StoreHelpers) {
 
     $scope.consumerGroups = [];
+    $scope.inheritedConsumerGroups = [];
 
     $scope.onDropComplete = function(data,evt) {
       $scope.consumerGroups.push(data.item);
     };
+
 
     $scope.saveAssignment = function() {
       PolicyActions.CreateAssignment({
@@ -24,6 +26,9 @@ angular.module('policyEngine').controller('ServiceAssignmentCtrl',
     }], function () {
       $scope.service = angular.copy(PolicyStore.Services.find({id: $stateParams.itemId}));
       $scope.consumerGroups = StoreHelpers.serviceConsumers($scope.service);
+
+
+      $scope.inheritedConsumerGroups = StoreHelpers.inheritedConsumerGroups(angular.copy($scope.services()), $scope.service.id);
     });
   }
 );

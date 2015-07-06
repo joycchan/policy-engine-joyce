@@ -1,6 +1,6 @@
 <div class="side-panel col-xs-3">
     <assignment-panel title="Group" items="groups()" type="serviceCentric"
-        collapsed-folders="collapsedGroups"></assignment-panel>
+                      collapsed-folders="collapsedGroups"></assignment-panel>
 </div>
 <div class="col-xs-6 middle-panel">
     <h2>Policy /
@@ -17,8 +17,11 @@
     <div class="instructions">
         From the left, drag in groups for this service
     </div>
-    <donut data="consumerGroups" type="serviceCentric" name="service.name"
-           drop="onDropComplete"></donut>
+    <div class="donuts">
+        <base-donut drop="onDropComplete" name="service.name"></base-donut>
+        <donut data="inheritedConsumerGroups" radius="185" class="service inherited"></donut>
+        <donut data="consumerGroups" radius="108" class="service"></donut>
+    </div>
     <div class="list">
         <div class="services-header">
             Total Number of Assigned Groups
