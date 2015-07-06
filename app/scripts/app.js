@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("policyEngine", [
-  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable', 'policyEngine.config'
+  "store", "ui.router", 'ngDraggable','uiSwitch','ui.bootstrap','ui.checkbox', 'xeditable', 'policyEngine.config', 'RecursionHelper'
   ])
   .config(
   function ($stateProvider, $urlRouterProvider) {

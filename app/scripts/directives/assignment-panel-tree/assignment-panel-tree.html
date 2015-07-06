@@ -1,0 +1,8 @@
+<div ng-repeat="item in items">
+  <div ng-style="marginLeft(item)">{{item.name}}</div>
+    <assignment-panel-tree
+      items="children(item)"
+      collapsed-folders="collapsedFolders"
+      selected-id="selectedId">
+    </assignment-panel-tree>
+</div>
