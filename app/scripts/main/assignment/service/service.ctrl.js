@@ -26,9 +26,7 @@ angular.module('policyEngine').controller('ServiceAssignmentCtrl',
     }], function () {
       $scope.service = angular.copy(PolicyStore.Services.find({id: $stateParams.itemId}));
       $scope.consumerGroups = StoreHelpers.serviceConsumers($scope.service);
-
-
-      $scope.inheritedConsumerGroups = StoreHelpers.inheritedConsumerGroups(angular.copy($scope.services()), $scope.service.id);
+      $scope.inheritedConsumerGroups = StoreHelpers.inheritedConsumerGroups($scope.service.id);
     });
   }
 );

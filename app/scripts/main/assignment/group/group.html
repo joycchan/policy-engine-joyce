@@ -17,9 +17,11 @@
     <div class="instructions">
         From the right, drag in services for this group to consume
     </div>
-    <!--donut data="servicesConsumed" radius="185" drop="onDropComplete" class="service inherited"></donut-->
-    <donut data="servicesConsumed" name="group.name" radius="108" group="true"
-           drop="onDropComplete" class="group"></donut>
+    <div class="donuts">
+        <base-donut drop="onDropComplete" name="group.name"></base-donut>
+        <donut data="inheritedServicesConsumed" radius="185" class="group inherited"></donut>
+        <donut data="servicesConsumed" radius="108" class="group"></donut>
+    </div>
     <div class="list">
         <div class="services-header">
             Total Number of Assigned Services

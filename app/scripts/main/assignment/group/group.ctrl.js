@@ -20,12 +20,13 @@ angular.module('policyEngine').controller('GroupAssignmentCtrl',
     };
 
     $scope.$watchGroup(['$routeChangeSuccess', function () {
-      return PolicyStore.Services.all();
+      return PolicyStore.Groups.all();
     }, function() {
       return PolicyStore.Assignments.all();
     }], function () {
       $scope.group = angular.copy(PolicyStore.Groups.find({id: $stateParams.itemId}));
       $scope.servicesConsumed = StoreHelpers.servicesConsumed($scope.group);
+      $scope.inheritedServicesConsumed = StoreHelpers.inheritedServicesConsumed($scope.group.id);
     });
   }
 );
