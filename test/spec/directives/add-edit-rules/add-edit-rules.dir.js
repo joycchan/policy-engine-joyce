@@ -29,7 +29,7 @@ describe('Directive: add-edit-rules', function () {
 
   beforeEach(inject(function ($rootScope, _$compile_, _$httpBackend_) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.whenGET(/api.*/).respond(200);
+    $httpBackend.whenGET(/api.*/).respond(200); // Required for the .run method in app.js to run
     $compile = _$compile_;
     scope = $rootScope.$new();
 
