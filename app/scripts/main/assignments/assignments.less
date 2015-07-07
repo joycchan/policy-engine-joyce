@@ -40,6 +40,43 @@
       text-transform: uppercase;
     }
 
+    .donuts {
+      position: relative;
+      height: 370px;
+      width: 370px;
+      margin: 70px auto;
+
+      base-donut, donut {
+        position: absolute;
+        top: 79px;
+        left: 79px;
+      }
+
+      donut.inherited {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .inherited {
+      svg path {
+        opacity: 0.45;
+      }
+    }
+
+    .service {
+      svg path {
+        fill: @serviceCentric;
+      }
+    }
+
+    .group {
+      svg path {
+        fill: @groupCentric;
+      }
+    }
+
     .button-group {
       display: inline-block;
       float: right;
@@ -105,13 +142,13 @@
   }
 
   .instructions {
-    margin: 60px 0 130px;
+    margin-top: 60px;
     font-weight: bold;
   }
 
   .list {
     text-align: center;
-    margin-top: 117px;
+    margin-top: 70px;
 
     .services-header {
       margin: 0 auto;
