@@ -1,23 +1,22 @@
 'use strict';
 
 angular.module('policyEngine')
-  .directive('donut', function () {
+  .directive('donut', function (PolicyStore) {
     return {
       templateUrl: 'scripts/directives/donut/donut.html',
       controller: function ($scope) {
       },
       scope: {
         data: '=',
-        name: '=',
-        type: '@',
-        drop: '='
+        radius: '@',
+        group: '@'
       },
       restrict: 'EA',
       link: function postLink(scope, element, attrs) {
         var svg;
 
-        var radius = 108,
-          margin = {
+        var radius = parseInt(scope.radius);
+        var margin = {
             top: 0,
             bottom: 0,
             left: 0,
@@ -27,7 +26,7 @@ angular.module('policyEngine')
         var width = radius * 2 + margin.left + margin.right;
         var height = radius * 2 + margin.top + margin.bottom;
 
-        var labelBuffer = 60;
+        var labelBuffer = 30;
         var circleWidth = 15;
         var arc = d3.svg.arc()
           .outerRadius(radius)
@@ -61,15 +60,6 @@ angular.module('policyEngine')
 
           g.append("path")
             .attr("d", arc)
-            .style("fill", function (d, i) {
-              var serviceCentric = "#62A6D1";
-              var groupCentric = "#5DCAA2";
-              if (scope.type === 'serviceCentric') {
-                return serviceCentric;
-              } else if (scope.type === 'groupCentric') {
-                return groupCentric;
-              }
-            });
 
           g.append("text")
             .attr("transform", function (d) {
@@ -88,10 +78,11 @@ angular.module('policyEngine')
             .each(function (d, i) {
               var t = d3.select(this)
               t.append('tspan').text(d.data.name)
-              //if (scope.type === 'groupCentric') {
-                //t.append('tspan').text('(' + d.data.group.name + ')')
-                  //.attr('x', 0).attr('dy', '15');
-              //}
+              if (scope.group) {
+                var group = PolicyStore.Groups.find({ id: d.data.providerGroupId });
+                t.append('tspan').text('(' + group.name + ')')
+                  .attr('x', 0).attr('dy', '15');
+              }
             });
         };
 

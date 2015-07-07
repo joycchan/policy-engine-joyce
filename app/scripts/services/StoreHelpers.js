@@ -53,9 +53,10 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
           })
           .value();
       },
-      getNestedChildren: function (objectArray, parentId) {
+      getNestedChildren: function (readOnlyObjectArray, parentId) {
+        var objectArray = angular.copy(readOnlyObjectArray);
         var result = [];
-        objectArray.forEach(function(object) {
+        objectArray.forEach(function (object) {
           if (object.parentId === parentId) {
             var children = storeHelpers.getNestedChildren(objectArray, object.id);
             if (children.length > 0) {
@@ -65,7 +66,42 @@ angular.module('policyEngine').factory('StoreHelpers', function (PolicyStore) {
           }
         });
         return result;
+      },
+      getParentIds: function (nestedChildren, id) {
+        var result;
+        if (!_.isUndefined(nestedChildren)) {
+          nestedChildren.forEach(function (object, i) {
+            if (object.id == id) {
+              result = [];
+            }
+            var a = storeHelpers.getParentIds(object.children, id);
+            if (a) {
+              a.unshift(object.id);
+              result = a;
+            }
+          })
+        }
+        return result;
+      },
+      inheritedConsumerGroups: function(serviceId) {
+        var nestedChildren = storeHelpers.getNestedChildren(PolicyStore.Services.all());
+        var parentIds = storeHelpers.getParentIds(nestedChildren, serviceId);
+        return _.chain(parentIds)
+          .map(function(id) { return PolicyStore.Services.find({id: id})})
+          .map(function(service) { return storeHelpers.serviceConsumers(service)})
+          .flatten()
+          .value();
+      },
+      inheritedServicesConsumed: function(groupId) {
+        var nestedChildren = storeHelpers.getNestedChildren(PolicyStore.Groups.all());
+        var parentIds = storeHelpers.getParentIds(nestedChildren, groupId);
+        return _.chain(parentIds)
+          .map(function(id) { return PolicyStore.Groups.find({id: id})})
+          .map(function(group) { return storeHelpers.servicesConsumed(group)})
+          .flatten()
+          .value();
       }
+
     };
     return storeHelpers;
   }
