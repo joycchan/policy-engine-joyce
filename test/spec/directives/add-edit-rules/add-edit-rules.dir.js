@@ -46,7 +46,7 @@ describe('Directive: add-edit-rules', function () {
     expect(text.slice(0,4)).toBe("Edit");
   });
 
-  it('should display add when there are no rules', function() {
+  it('should display "Add" when no rules exist', function() {
     scope.ruleSet = mockEmptyRuleSet;
     scope.$digest();
     var text = element.find('.addEditRules').text().trim();
