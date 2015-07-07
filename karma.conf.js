@@ -27,7 +27,7 @@ module.exports = function (config) {
       "app/bower_components/ngDraggable/ngDraggable.js",
       'app/bower_components/angular-mocks/angular-mocks.js',
       "app/bower_components/angular-xeditable/dist/js/xeditable.js",
-      "bower_components/angular-recursion/angular-recursion.min.js"
+      "app/bower_components/angular-recursion/angular-recursion.min.js",
       // endbower
 
       'app/scripts/app.js',
