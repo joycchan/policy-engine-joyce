@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Directive: add-edit-rules', function () {
-  var element, scope, $compile;
+  var element, scope, $compile, $httpBackend;
 
   var mockRuleSet = {
     "name": "SQL Access",
@@ -27,9 +27,20 @@ describe('Directive: add-edit-rules', function () {
 
   beforeEach(module('policyEngine'));
 
-  beforeEach(inject(function ($rootScope, _$compile_) {
+  beforeEach(inject(function ($rootScope, _$compile_, _$httpBackend_) {
     $compile = _$compile_;
     scope = $rootScope.$new();
+    $httpBackend = _$httpBackend_;
+    $httpBackend.expectGET("api/services").respond(200);
+    $httpBackend.expectGET("api/groups").respond(200);
+    $httpBackend.expectGET("api/assignments").respond(200);
+    $httpBackend.expectGET("api/rule_sets").respond(200);
+    $httpBackend.expectGET("api/actions").respond(200);
+    $httpBackend.expectGET("api/importable_use_groups").respond(200);
+    $httpBackend.expectGET("api/endpoint_pools").respond(200);
+    $httpBackend.expectGET("api/classifiers").respond(200);
+    $httpBackend.expectGET("api/categories").respond(200);
+
     scope.ruleSet = mockRuleSet;
     element = '<add-edit-rules rule-set="ruleSet"></add-edit-rules>'
     element = $compile(element)(scope);

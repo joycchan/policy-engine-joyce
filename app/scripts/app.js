@@ -203,14 +203,14 @@ angular.module("policyEngine", [
       })
   })
   .run(function(PolicyActions) {
-    // PolicyActions.FetchServices();
-    // PolicyActions.FetchGroups();
-    // PolicyActions.FetchAssignments();
-    // PolicyActions.FetchRuleSets();
-    // PolicyActions.FetchActions();
-    // PolicyActions.FetchClassifiers();
-    // PolicyActions.FetchCategories();
-    // PolicyActions.FetchImportableGroups();
-    // PolicyActions.FetchEndpointPools();
+    PolicyActions.FetchServices();
+    PolicyActions.FetchGroups();
+    PolicyActions.FetchAssignments();
+    PolicyActions.FetchRuleSets();
+    PolicyActions.FetchActions();
+    PolicyActions.FetchImportableGroups();
+    PolicyActions.FetchEndpointPools();
+    PolicyActions.FetchClassifiers();
+    PolicyActions.FetchCategories();
   });
 
